@@ -407,24 +407,19 @@ Praesent metus ligula, lacinia eu sodales sed,</p>
 				var dd = {
 					content: [
 						'中英文测试',
+						'这个是省级比赛，前20名还可以去卧龙自然保护区免费参观，包食宿哦，感兴趣的同学积极参加\n'	,
 						'Another paragraph, this time a little bit longer to make sure, this line will be divided into at least two lines'
 					],
 					defaultStyle: {
-						font: '新蒂泡芙体'
+						font: 'SIMYOU'
 					}
 				};
 				pdfMake.fonts = {
-					Ammys_Handwriting: {
-						normal: 'Ammys Handwriting.ttf',
-						bold: 'Ammys Handwriting.ttf',
-						italics: 'Ammys Handwriting.ttf',
-						bolditalics: 'Ammys Handwriting.ttf'
-					},
-					新蒂泡芙体: {
-						normal: '新蒂泡芙体.ttf',
-						bold: '新蒂泡芙体.ttf',
-						italics: '新蒂泡芙体.ttf',
-						bolditalics: '新蒂泡芙体.ttf',
+					SIMYOU: {
+						normal: 'SIMYOU.ttf',
+						bold: 'SIMYOU.ttf',
+						italics: 'SIMYOU.ttf',
+						bolditalics: 'SIMYOU.ttf'
 					}
 				};
 				pdfMake.createPdf(dd).download();
