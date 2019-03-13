@@ -198,7 +198,8 @@
 		 				 <div class="section group">
 								<div class="col-md-3 gallery-box">
 										<div id="nivo-lightbox-demo"> <p> <a href="assets/images/e1-pop.jpg"data-lightbox-gallery="gallery1" id="nivo-lightbox-demo"> <span class="rollover1"> </span></a> </p></div>  	<img src="images/e1.png" title="img" />
-										<h4>Dolor nunc putateulr </h4>
+									<img src="assets/images/e1.png" title="img" />
+									<h4>Dolor nunc putateulr </h4>
 										<h5>8.00 - 10.00 <lable>  JUN 09,2014 </lable> 
 										<p>Dolor nunc vule putateulr 
 											ips dol consec.Donec semp 
@@ -206,7 +207,8 @@
 							    </div>
 								<div class="col-md-3 gallery-box">
 								  	    <div id="nivo-lightbox-demo"> <p> <a href="assets/images/e2-pop.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo"> <span class="rollover1"> </span></a> </p></div>	<img src="images/e2.png" title="img" />
-										<h4>Dolor nunc putateulr </h4>
+									<img src="assets/images/e2.png" title="img" />
+									<h4>Dolor nunc putateulr </h4>
 										<h5>8.00 - 10.00 <lable>  JUN 09,2014 </lable> 
 										<p>Dolor nunc vule putateulr 
 											ips dol consec.Donec semp 
@@ -223,7 +225,8 @@
 								</div>
 								<div class="col-md-3 gallery-box">
 								  		<div id="nivo-lightbox-demo"> <p> <a href="assets/images/e4-pop.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>	<img src="images/e4.png" title="img" />
-										<h4>Dolor nunc putateulr </h4>
+									<img src="assets/images/e4.png" title="img" />
+									<h4>Dolor nunc putateulr </h4>
 										<h5>8.00 - 10.00 <lable>  JUN 09,2014 </lable> 
 										<p>Dolor nunc vule putateulr 
 											ips dol consec.Donec semp 
@@ -363,6 +366,7 @@ Praesent metus ligula, lacinia eu sodales sed,</p>
 						 			</div>
 
 						 			</div>
+								<button onclick="down()">下载</button>
 						 			<div class="col-md-3 footer-grid">
 								 		<h3>Follw Us</h3>
 											<ul class="soc_icons2">
@@ -396,5 +400,35 @@ Praesent metus ligula, lacinia eu sodales sed,</p>
 
 
 
+		<script src="pdfmake-master/build/pdfmake.min.js"></script>
+		<script src="pdfmake-master/build/vfs_fonts.js"></script>
+		<script>
+			function down() {
+				var dd = {
+					content: [
+						'中英文测试',
+						'Another paragraph, this time a little bit longer to make sure, this line will be divided into at least two lines'
+					],
+					defaultStyle: {
+						font: '新蒂泡芙体'
+					}
+				};
+				pdfMake.fonts = {
+					Ammys_Handwriting: {
+						normal: 'Ammys Handwriting.ttf',
+						bold: 'Ammys Handwriting.ttf',
+						italics: 'Ammys Handwriting.ttf',
+						bolditalics: 'Ammys Handwriting.ttf'
+					},
+					新蒂泡芙体: {
+						normal: '新蒂泡芙体.ttf',
+						bold: '新蒂泡芙体.ttf',
+						italics: '新蒂泡芙体.ttf',
+						bolditalics: '新蒂泡芙体.ttf',
+					}
+				};
+				pdfMake.createPdf(dd).download();
+			}
+		</script>
 </body>
 </html>		
