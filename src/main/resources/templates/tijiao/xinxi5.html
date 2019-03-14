@@ -10,11 +10,11 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../assets/css/tijiaoform-elements.css">
-        <link rel="stylesheet" href="../assets/css/tijiaostyle.css">
-        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-directional-buttons.css">
+        <link rel="stylesheet" href="../../static/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../static/assets/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../static/assets/css/tijiaoform-elements.css">
+        <link rel="stylesheet" href="../../static/assets/css/tijiaostyle.css">
+        <link rel="stylesheet" type="text/css" href="../../static/assets/css/bootstrap-directional-buttons.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,11 +24,11 @@
         <![endif]-->
 
         <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="../assets/ico/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="../../static/assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../static/assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../static/assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../static/assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="../../static/assets/ico/apple-touch-icon-57-precomposed.png">
         <script type="text/javascript">
 
 
@@ -86,17 +86,17 @@
                     </div>
                     <br>
 <br>
-                    <a href="xinxi1.html">
+                    <a href="xinxi1">
 <button type="button" style="" class="btn btn-default btn-circle btn-xl">1</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr> 
-<a href="xinxi2.html">
+<a href="xinxi2">
 <button type="button" style="" class="btn btn-primary btn-circle btn-xl">2</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>  
-<a href="xinxi3.html">
+<a href="xinxi3">
 <button type="button" style="" class="btn btn-success btn-circle btn-xl">3</button></a> <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>  
-<a href="xinxi4.html">
+<a href="xinxi4">
 <button type="button" style="" class="btn btn-info btn-circle btn-xl">4</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr> 
-<a href="xinxi5.html">
-<button type="button" style="" class="btn btn-info btn-circle btn-xl">5</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
-<a href="xinxi6.html">
+<a href="xinxi5">
+<button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-xl">5</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+<a href="xinxi6">
 <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-xl">6</button></a>
 <br>
 <br>
@@ -105,18 +105,18 @@
                         <div class="form-top-left">
                             
                         </div>
-                        <img src="Uploads/1.png"  width="" alt="流程图(未上传)" /></div>
+                        <img src="../../static/assets/Uploads/1.png" width="" alt="流程图(未上传)" /></div>
                         <br>
                     </div>
                     <br>
                     
                               
                     
-                    <div class="row" id="6">
+                    <div class="row" id="5">
                         <div class="col-sm-6 col-sm-offset-3 form-box" style="" >
                             <div class="form-top">
                                 <div class="form-top-left">
-                                    <h3>六、作品设计(演示视频链接)</h3>
+                                    <h3>五、作品设计(代码模块图)</h3>
                                     <p>作品设计模块需要提交流程图、思维导图、代码模块图和视频链接</p>
                                 </div>
                                 <div class="form-top-right">
@@ -125,9 +125,13 @@
                             </div>
                             <div class="form-bottom">
                                 <form action="liucheng.php" method="post" enctype="multipart/form-data">
-                                    <label for="select">请给出视频演示的地址链接</label>
-                                    
-                                    <input type="text" name="form-username" placeholder="视频链接..." class="form-username form-control" id="form-username">
+                                    <label for="select">代码模块图(请上传设计的代码模块图，并书写代码设计解释文字)</label>
+                                    <input type="file" name="uploadImg" id="select" value="请选择所设计流程图"/>
+                                    <br>
+                                    <img src="../../static/assets/Uploads/1.png" width="1000" alt="模块代码图(未上传)" />
+                                    <br>
+                                    <br>
+                                    <textarea type="text" name="form-username" placeholder="代码解释..." class="form-username form-control" id="form-username"></textarea>
                                     <br>
                                     <button type="submit" class="btn">确认</button>
                                 </form>
@@ -148,13 +152,13 @@
 
 
         <!-- Javascript -->
-        <script src="../assets/js/jquery-1.11.1.min.js"></script>
-        <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../assets/js/jquery.backstretch.min.js"></script>
-        <script src="../assets/js/scripts.js"></script>
+        <script src="../../static/assets/js/jquery-1.11.1.min.js"></script>
+        <script src="../../static/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../static/assets/js/jquery.backstretch.min.js"></script>
+        <script src="../../static/assets/js/scripts.js"></script>
         
         <!--[if lt IE 10]>
-            <script src="../assets/js/placeholder.js"></script>
+        <script src="../../static/assets/js/placeholder.js"></script>
         <![endif]-->
 
     </body>
