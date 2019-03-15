@@ -38,10 +38,10 @@ public class PageSkippingContoller {
     public String index(Model model) {return "shouye/index.html";}
     @RequestMapping(path={"/"})
     public String index2(Model model) {return "shouye/index.html";}
-    @RequestMapping(path={"/blog"})
-    public String blog(Model model) {return "shouye/blog.html";}
-    @RequestMapping(path={"/contract"})
-    public String contract(Model model) {return "shouye/contract.html";}
+    @RequestMapping(path={"/ziliao"})
+    public String blog(Model model) {return "shouye/ziliao.html";}
+    @RequestMapping(path={"/chuangke"})
+    public String contract(Model model) {return "shouye/chuangke.html";}
     @RequestMapping(path={"/account"})
     public String account(Model model) {return "shouye/account.html";}
 
