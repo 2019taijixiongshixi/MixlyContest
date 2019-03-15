@@ -32,4 +32,17 @@ public class PageSkippingContoller {
     public String login1(Model model) {return "login/login1.html";}
     @RequestMapping(path={"/login2"})
     public String login2(Model model) {return "login/login2.html";}
+    @RequestMapping(path={"/about"})
+    public String about(Model model) {return "shouye/about.html";}
+    @RequestMapping(path={"/index"})
+    public String index(Model model) {return "shouye/index.html";}
+    @RequestMapping(path={"/"})
+    public String index2(Model model) {return "shouye/index.html";}
+    @RequestMapping(path={"/blog"})
+    public String blog(Model model) {return "shouye/blog.html";}
+    @RequestMapping(path={"/contract"})
+    public String contract(Model model) {return "shouye/contract.html";}
+    @RequestMapping(path={"/account"})
+    public String account(Model model) {return "shouye/account.html";}
+
 }
