@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import java.util.List;
 import java.util.Map;
 
+@SpringBootApplication
 public class JDBCTest {
 
     public static void main(String[] args) {
@@ -17,7 +18,7 @@ public class JDBCTest {
 
         JdbcTemplate jdbcTemplate = context.getBean(JdbcTemplate.class);
 
-        List<Map<String, Object>> result = jdbcTemplate.queryForList("SELECT * FROM USER");
+        List<Map<String, Object>> result = jdbcTemplate.queryForList("SELECT * FROM user");
 
         System.out.println(result);
 
