@@ -1,4 +1,4 @@
-package com.makerpanda.MixlyContest.service;
+package com.makerpanda.MixlyContest.service.studentservice;
 
 import com.makerpanda.MixlyContest.MD5HashHelper;
 import com.makerpanda.MixlyContest.dao.StudentDao;

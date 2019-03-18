@@ -1,6 +1,6 @@
-package com.makerpanda.MixlyContest.action.teacheraction;
+package com.makerpanda.MixlyContest.action;
 
-import com.makerpanda.MixlyContest.service.TeacherService;
+import com.makerpanda.MixlyContest.service.teacherservice.TeacherService;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 

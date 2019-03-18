@@ -3,7 +3,7 @@ package com.makerpanda.MixlyContest.action.teacheraction;
 
 
 import com.makerpanda.MixlyContest.datamodel.Teacher;
-import com.makerpanda.MixlyContest.service.TeacherService;
+import com.makerpanda.MixlyContest.service.teacherservice.TeacherService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
