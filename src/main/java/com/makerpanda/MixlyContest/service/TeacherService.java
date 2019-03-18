@@ -1,5 +1,6 @@
 package com.makerpanda.MixlyContest.service;
 
+import com.makerpanda.MixlyContest.MD5HashHelper;
 import com.makerpanda.MixlyContest.dao.TeacherDao;
 import com.makerpanda.MixlyContest.datamodel.Teacher;
 
@@ -17,12 +18,14 @@ public class TeacherService {
         TeacherDao teacherdao = new TeacherDao();
         String teacherid=teacherdao.getTeacherIDByTeacherEmail(TeacherEmail);
         String password = teacherdao.getTeacherPassword(teacherid);
+        String MD5Password= MD5HashHelper.encryptPassword(password);
+
 
         if (password == null) {
             return 3;
         } else if (inputPwd == null) {
             return 2;
-        } else if (!password.equals(inputPwd)) {
+        } else if (!MD5Password.equals(inputPwd)) {
             return 1;
         } else {
             teacher = teacherdao.getTeacherInfo(teacherid);  // 登录成功将用户信息保存

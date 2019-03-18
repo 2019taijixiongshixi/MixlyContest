@@ -8,9 +8,10 @@ public class IndexController {
     @RequestMapping(path={"/index"})
     public String index(Model model) {
         if (TeacherService.teacher!= null) {
-            model.addAttribute("TeacherName", TeacherService.teacher.getTeacherName()+"老师");
-            model.addAttribute("TeacherID", TeacherService.teacher.getTeacherID());
+            model.addAttribute("Name", TeacherService.teacher.getTeacherName()+"老师");
+            model.addAttribute("ID", TeacherService.teacher.getTeacherID());
         }
        return "shouye/index.html";}
+
 
 }
