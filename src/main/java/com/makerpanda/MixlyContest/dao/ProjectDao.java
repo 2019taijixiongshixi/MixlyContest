@@ -20,7 +20,7 @@ public class ProjectDao {
 
     /**
      * 获取全部用户信息。
-     * @return Project类型的ArrayList集合，其中每个project对象是一个教师。
+     * @return Project类型的ArrayList集合，其中每个project对象是一个项目。
      */
     public ArrayList getProjects() {
         ArrayList<Project> arrayList = new ArrayList<>();
@@ -38,7 +38,7 @@ public class ProjectDao {
                 project.setProjectName(resultSet.getString("ProjectName"));
                 project.setProjectID(resultSet.getString("ProjectID"));
                 project.setFlowChart(resultSet.getString("FlowChart"));
-                project.setMindMapping(resultSet.getString("MindMapping"));
+                    project.setMindMapping(resultSet.getString("MindMapping"));
                 project.setCodeChart(resultSet.getString("CodeChart"));
                 project.setVideoLink(resultSet.getString("VideoLink"));
                 project.setTeacherID(resultSet.getString("TeacherID"));

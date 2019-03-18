@@ -20,7 +20,7 @@ public class StudentDao {
 
     /**
      * 获取全部用户信息。
-     * @return Student类型的ArrayList集合，其中每个student对象是一个教师。
+     * @return Student类型的ArrayList集合，其中每个student对象是一个学生。
      */
     public ArrayList getStudents() {
         ArrayList<Student> arrayList = new ArrayList<>();
