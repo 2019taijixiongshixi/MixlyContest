@@ -2,6 +2,7 @@ package com.makerpanda.MixlyContest.dao;
 
 import com.makerpanda.MixlyContest.datamodel.Teacher;
 import com.makerpanda.MixlyContest.DBHelper;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +11,10 @@ import java.util.ArrayList;
 
 import static com.makerpanda.MixlyContest.DBHelper.closeResource;
 
+
+@Repository
 public class TeacherDao {
+
     // 数据及库连接对象
     private static Connection conn = null;
     // PreparedStatement对象用来执行SQL语句
@@ -177,4 +181,27 @@ public class TeacherDao {
             closeResource(resultSet, pst);
         }
     }
+
+//    /**
+//     * 增加新的教师用户
+//     * @param newTeacher 新的教师对象。
+//     * @return 如果增加成功返回true，否则返回false。
+//     */
+//    public boolean insertNewTeacher(Teacher newTeacher) {
+//
+//        try {
+//            conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
+//            // 创建PreparedStatement执行SQL语句
+//            pst = conn.prepareStatement("INSERT User SET password = '" + newPassword +
+//                    "' WHERE user_id = " + userID);
+//            int rowsAffected = pst.executeUpdate();  // 执行语句
+//
+//            return rowsAffected == 1;
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        } finally {
+//            closeResource(resultSet, pst);
+//        }
+//        return false;
+//    }
 }

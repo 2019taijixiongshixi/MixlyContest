@@ -3,7 +3,9 @@ package com.makerpanda.MixlyContest.service.teacherservice;
 import com.makerpanda.MixlyContest.MD5HashHelper;
 import com.makerpanda.MixlyContest.dao.TeacherDao;
 import com.makerpanda.MixlyContest.datamodel.Teacher;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TeacherLoginService {
     // 将登陆用户的信息保存供全局使用
     public static Teacher teacher;
@@ -54,4 +56,5 @@ public class TeacherLoginService {
 
         return teacherdao.getTeacherIDByTeacherEmail(TeacherEmail);
     }
+
 }
