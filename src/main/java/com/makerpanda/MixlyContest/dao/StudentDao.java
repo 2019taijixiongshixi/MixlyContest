@@ -42,7 +42,7 @@ public class StudentDao {
                 student.setStudentTel(resultSet.getString("StudentTel"));
                 student.setStudentEmail(resultSet.getString("StudentEmail"));
                 student.setClassID(resultSet.getString("ClassID"));
-                student.setSchool(resultSet.getString("school"));
+                student.setSchool(resultSet.getString("School"));
                 student.setStudentPassword(resultSet.getString("StudentPassword"));
                 student.setTeacherID(resultSet.getString("TeacherID"));
                 // 将user对象添加进arrayList当中
@@ -110,7 +110,7 @@ public class StudentDao {
                 student.setStudentTel(resultSet.getString("StudentTel"));
                 student.setStudentEmail(resultSet.getString("StudentEmail"));
                 student.setClassID(resultSet.getString("ClassID"));
-                student.setSchool(resultSet.getString("school"));
+                student.setSchool(resultSet.getString("School"));
                 student.setStudentPassword(resultSet.getString("StudentPassword"));
                 student.setTeacherID(resultSet.getString("TeacherID"));
             }
