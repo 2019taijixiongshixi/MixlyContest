@@ -1,108 +1,284 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Contact </title>
-		<link href="../../static/assets/css/bootstrap.css" rel='stylesheet' type='text/css' />
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		 <!-- Custom Theme files -->
-		<link href="../../static/assets/css/shouyestyle.css" rel='stylesheet' type='text/css' />
-		<link rel="stylesheet" type="text/css" href="../../static/assets/css/magnific-popup.css">
-		 <!-- Custom Theme files -->
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="keywords" content="Snow Skating Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" 
-		/>
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-		<script src="https://fonts.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		 <!-- start-smoth-scrolling-->
-		<script type="text/javascript" src="../../static/assets/js/move-top.js"></script>
-		<script type="text/javascript" src="../../static/assets/js/easing.js"></script>
-		
-		<script type="text/javascript" src="../../static/assets/js/modernizr.custom.53451.js"></script>
-		<script type="text/javascript">
-			jQuery(document).ready(function($) {
-				$(".scroll").click(function(event){		
-					event.preventDefault();
-					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-				});
-			});
-		</script>
-		 <!--start-smoth-scrolling-->
-		<!--webfonts-->
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-		<!--//webfonts-->
-		<!--start-top-nav-script-->
-		<script>
-			$(function() {
-				var pull 		= $('#pull');
-					menu 		= $('nav ul');
-					menuHeight	= menu.height();
-				$(pull).on('click', function(e) {
-					e.preventDefault();
-					menu.slideToggle();
-				});
-				$(window).resize(function(){
-	        		var w = $(window).width();
-	        		if(w > 320 && menu.is(':hidden')) {
-	        			menu.removeAttr('style');
-	        		}
-	    		});
-			});
-		</script>
-		<!--//End-top-nav-script-->
-	</head>
-	<body>
-		<!-- start-header-->
-			<div class="header-top">
-				<div class="container">
-					<div class="top-header">
-						<div class="logo">
-							<a href="index.html"><img src="../../static/assets/images/logo.png" alt=""></a>
-						</div>
-						<!--start-top-nav-->
-							<!--start-top-nav-->
-						 <nav class="top-nav">
-							<ul class="top-nav">
-								<li style="font-size:22px "><a href="index">主页</a></li>
-								<li style="font-size: 22px"><a href="about"> 关于大赛</a></li>
-								<li style="font-size: 22px"><a href="ziliao">Mixly开源资料库 </a></li>
-								<li style="font-size: 22px" class="active"><a href="chuangke"> 创客空间  </a></li>
-								<li style="font-size: 22px"><a href="login">注册/登录</a></li>
-									<div class="clearfix"> </div>
+<head>
+	<title> 米思齐创客创意电子编程大赛 </title>
+	<link href="../../static/assets/css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<!-- Custom Theme files -->
+	<link href="../../static/assets/css/shouyestyle.css" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="../../static/assets/css/magnific-popup.css">
+	<!-- Custom Theme files -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Snow Skating Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"
+	/>
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<script src="https://fonts.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<!-- start-smoth-scrolling-->
+	<script type="text/javascript" src="../../static/assets/js/move-top.js"></script>
+	<script type="text/javascript" src="../../static/assets/js/easing.js"></script>
 
-							</ul>
-							<a href="#" id="pull"><img src="../../static/assets/images/menu-icon.png" title="menu" /></a>
-						</nav>
-
-						<!-- start search-->
-					</div>
-			<!--start-contact-->
-	 <div  class="contact" id="contact">
-	 		<div class="contact-head">
-	 			<div class="container">
-						<h3>Contact Us</h3>	
-				</div>
+	<script type="text/javascript" src="../../static/assets/js/modernizr.custom.53451.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+	</script>
+	<!--start-smoth-scrolling-->
+	<!--webfonts-->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<!--//webfonts-->
+	<!--start-top-nav-script-->
+	<script>
+		$(function() {
+			var pull 		= $('#pull');
+			menu 		= $('nav ul');
+			menuHeight	= menu.height();
+			$(pull).on('click', function(e) {
+				e.preventDefault();
+				menu.slideToggle();
+			});
+			$(window).resize(function(){
+				var w = $(window).width();
+				if(w > 320 && menu.is(':hidden')) {
+					menu.removeAttr('style');
+				}
+			});
+		});
+	</script>
+	<!--//End-top-nav-script-->
+</head>
+<body>
+<!-- start-header-->
+<div class="header-top">
+	<div class="container">
+		<div class="top-header">
+			<div class="logo">
+				<a href="index.html"><img src="../../static/assets/images/logo.png" alt=""></a>
 			</div>
-	<div class="contact-content">
-		<div class="container">
-			<div class="col-md-7 contact-left">
- 				 <div class="form">				
-				  			<form method="post" action="#">
-							    	<input type="text" class="textbox" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name ';}">
-							    	<input type="text" class="textbox" value="Email Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email Address';}">
-							    	<input type="text" class="textbox" value="Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Address';}">
-										<div class="clearfix"> </div>
-								    <div>
-								    	<textarea value="Message:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Message ';}">Your Message</textarea>
-								    </div>	
-								   <div class="submit"> 
-								    	<input type="submit" value="Submit " />
-					              </div>
-							</form>
+			<!--start-top-nav-->
+			<!--start-top-nav-->
+			<nav class="top-nav">
+				<ul class="top-nav">
+					<li style="font-size:22px "><a href="index">主页</a></li>
+					<li style="font-size: 22px"><a href="about"> 关于大赛</a></li>
+					<li style="font-size: 22px"><a href="ziliao">Mixly开源资料库 </a></li>
+					<li style="font-size: 22px" class="active"><a href="chuangke"> 创客空间  </a></li>
+					<li style="font-size: 22px"><a href="login">注册/登录</a></li>
+
+				</ul>
+
+			</nav>
+
+			<!-- start search-->
+
+		</div>
+
+		<script type="text/javascript">
+			$('.main-search').hide();
+			$('button').click(function (){
+						$('.main-search').show();
+						$('.main-search text').focus();
+					}
+			);
+			$('.close').click(function(){
+				$('.main-search').hide();
+			});
+		</script>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<div class="about-section">
+	<div class="container">
+		<div class="about-grids">
+			<div class="col-md-9 about-left">
+				<h1>创客</h1>
+				<p>创客（Mak-er）“创”指创造，“客”指从事某种活动的人，“创客”本指勇于创新，努力将自己的创意变为现实的人。这个词译自英文单词“Mak-er”，源于美国麻省理工学院微观装配实验室的实验课题，此课题以创新为理念，以客户为中心，以个人设计、个人制造为核心内容，参与实验课题的学生即“创客”。“创客”特指具有创新理念、自主创业的人。 在中国，“创客”与“大众创业,万众创新”联系在了一起，特指具有创新理念、自主创业的人。 2015年12月，《咬文嚼字》杂志发布2015年度“十大流行语”，创客排第五。</p>
+				<h1>编程套件</h1>
+				<p>编程套件介绍。。。</p>
+				<h1>教程视频</h1>
+				<p>教程视频介绍。。。</p>
+				<h1>Wiki库</h1>
+				<p>Wiki库介绍。。。</p>
+
+			</div>
+			<div class="col-md-3 about-left">
+				<h2>编程套件下载地址</h2>
+				<!-- news-grid -->
+				<div class="news-grid">
+					<a href="#"><img src="../../static/assets/images/ab-img.png" title="name"></a>
+				</div>
+				<br>
+				<br>
+				<h2>Wiki库详情链接</h2>
+				<!-- news-grid -->
+				<div class="news-grid">
+					<a href="#"><img src="../../static/assets/images/ab-img.png" title="name"></a>
+				</div>
+				<!-- news-grid -->
+				<!-- recent-news -->
+				<div class="recent-posts">
+					<h2>作品展示</h2>
+					<!-- recent-post-grids -->
+					<div class="recent-post-grids">
+						<div class="r-post-grid">
+							<div class="r-post-grid-left">
+								<a href="#"><img src="../../static/assets/images/e1.png" title="name"></a>
+							</div>
+							<div class="r-post-grid-right">
+								<h4>超声波测距仪</h4>
+								<p>Dolor in commodo rutrum, risus elit.</p>
+							</div>
+							<div class="clearfix"> </div>
 						</div>
- 		</div>
+						<div class="r-post-grid">
+							<div class="r-post-grid-left">
+								<a href="#"><img src="../../static/assets/images/e3.png" title="name"></a>
+							</div>
+							<div class="r-post-grid-right">
+								<h4>risus elit dignissim</h4>
+								<p>Dolor in commodo rutrum, risus elit.</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="r-post-grid">
+							<div class="r-post-grid-left">
+								<a href="#"><img src="../../static/assets/images/e4.png" title="name"></a>
+							</div>
+							<div class="r-post-grid-right">
+								<h4>risus elit dignissim</h4>
+								<p>Dolor in commodo rutrum, risus elit.</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="r-post-grid">
+							<div class="r-post-grid-left">
+								<a href="#"><img src="../../static/assets/images/e2.png" title="name"></a>
+							</div>
+							<div class="r-post-grid-right">
+								<h4>risus elit dignissim</h4>
+								<p>Dolor in commodo rutrum, risus elit.</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+					<!-- recent-post-grids -->
+				</div>
+				<!-- recent-news -->
+			</div>
 		</div>
 	</div>
-	 </div></div></div>
+</div>
 
+<!-- about-us -->
+<!--//End-About-->
+<div  class="testimonials" id="testimonials">
+	<div class="wmuSlider example1">
+		<div class="container-flueid">
+			<article style="position: absolute; width:64%; opacity: 0;">
+
+				<div class=" cont span_2_of_3 client-main">
+					<div class="slide-text">
+						<p>Suspendisse eget lobortis lacus, et elementum tortor.
+							Praesent metus ligula, lacinia eu sodales sed,</p>
+						<span> </span>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</article>
+			<article style="position: absolute; width:64%; opacity: 0;">
+				<div class=" cont span_2_of_3  client-main">
+					<div class="slide-text">
+						<p>Suspendisse eget lobortis lacus, et elementum tortor.
+							Praesent metus ligula, lacinia eu sodales sed,</p>
+						<span> </span>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</article>
+			<article style="position: absolute; width:64%; opacity: 0;">
+				<div class="cont span_2_of_3  client-main">
+					<div class="slide-text">
+						<p>Suspendisse eget lobortis lacus, et elementum tortor.
+							Praesent metus ligula, lacinia eu sodales sed,</p>
+						<span> </span>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</article>
+
+			<script src="../../static/assets/js/jquery.wmuSlider.js"></script>
+			<script>
+				$('.example1').wmuSlider();
+			</script>
+		</div>
+	</div>
+</div>
+<!--//text-slider-->
+<!--/start-Events-->
+
+<!--/start-footer-->
+<div class="footer">
+	<div class="container">
+		<div class="footer-content">
+			<div class="col-md-3 footer-grid-copy-right">
+				<div class="logo-2">
+					<a href="index.html"><img src="../../static/assets/images/logo2.png" alt=""></a>
+				</div>
+
+			</div>
+			<div class="col-md-3 footer-grid">
+				<h3>Information</h3>
+				<ul class="bottom-nav">
+					<li class="active"><a href="index">主页</a></li>
+					<li><a href="about"> 关于大赛  </a></li>
+					<li><a href="ziliao"> Mixly开源资料库</a></li>
+					<li><a href="chuangke"> 创客空间</a></li>
+					<li><a href="login">注册/登录</a></li>
+					<div class="clearfix"> </div>
+
+				</ul>
+			</div>
+
+
+		</div>
+
+		<div class="col-md-3 footer-grid">
+			<h3>组织结构</h3>
+			<ul class="soc_icons2">
+				<li><a href="#"><i class="icon_4"></i><span>青协</span></a></li>
+				<li><a href="#"><i class="icon_5"></i><span>太极熊</span></a></li>
+
+			</ul>
+
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+</div>
+<!--//End-footer-->
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		/*
+        var defaults = {
+              containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+         };
+        */
+
+		$().UItoTop({ easingType: 'easeOutQuart' });
+
+	});
+</script>
+<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+
+
+</body>
+</html>
