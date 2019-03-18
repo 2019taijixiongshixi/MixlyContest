@@ -4,7 +4,7 @@ import com.makerpanda.MixlyContest.MD5HashHelper;
 import com.makerpanda.MixlyContest.dao.TeacherDao;
 import com.makerpanda.MixlyContest.datamodel.Teacher;
 
-public class TeacherService {
+public class TeacherLoginService {
     // 将登陆用户的信息保存供全局使用
     public static Teacher teacher;
 
