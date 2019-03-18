@@ -19,30 +19,30 @@ public class Project implements Serializable {
 
     public String getProjectName() { return projectname; }
 
-    public void setProjectName() { this.projectname = projectname; }
+    public void setProjectName(String projectname) { this.projectname = projectname; }
 
     public String getProjectID() { return projectid; }
 
-    public void setProjectID() { this.projectid = projectid; }
+    public void setProjectID(String projectid) { this.projectid = projectid; }
 
     public String getFlowChart() { return flowchart; }
 
-    public void setFlowChart() { this.flowchart = flowchart; }
+    public void setFlowChart(String flowchart) { this.flowchart = flowchart; }
 
     public String getMindMapping() { return mindmapping; }
 
-    public void setMindMapping() { this.mindmapping = mindmapping; }
+    public void setMindMapping(String mindmapping) { this.mindmapping = mindmapping; }
 
     public String getCodeChart() { return codechart; }
 
-    public void setCodeChart() { this.codechart = codechart; }
+    public void setCodeChart(String codechart) { this.codechart = codechart; }
 
     public String getVideoLink() { return videolink; }
 
-    public void setVideoLink() { this.videolink = videolink; }
+    public void setVideoLink(String videolink) { this.videolink = videolink; }
 
     public String getTeacherID() { return teacherid; }
 
-    public void setTeacherid() { this.teacherid = teacherid; }
+    public void setTeacherID(String teacherid) { this.teacherid = teacherid; }
 
 }
