@@ -28,6 +28,8 @@ public class PageSkippingContoller {
     public String zhuce(Model model) { return "zhuce/zhuce.html"; }
     @RequestMapping(path={"/login"})
     public String login(Model model) {return "login/login.html";}
+    @RequestMapping(path={"/index"})
+    public String index(Model model) {return "shouye/index.html";}
     @RequestMapping(path={"/about"})
     public String about(Model model) {return "shouye/about.html";}
     @RequestMapping(path={"/"})

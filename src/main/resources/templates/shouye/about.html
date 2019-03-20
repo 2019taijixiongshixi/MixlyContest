@@ -13,43 +13,7 @@
 		<meta name="keywords" content="Snow Skating Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" 
 		/>
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-		<script type="text/javascript" src="../../static/assets/js/jquery.min.js"></script>
-		 <!-- start-smoth-scrolling-->
-		<script type="text/javascript" src="../../static/assets/js/move-top.js"></script>
-		<script type="text/javascript" src="../../static/assets/js/easing.js"></script>
-		
-		<script type="text/javascript" src="../../static/assets/js/modernizr.custom.53451.js"></script>
-		<script type="text/javascript">
-			jQuery(document).ready(function($) {
-				$(".scroll").click(function(event){		
-					event.preventDefault();
-					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-				});
-			});
-		</script>
-		 <!--start-smoth-scrolling-->
-		<!--webfonts-->
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-		<!--//webfonts-->
-		<!--start-top-nav-script-->
-		<script>
-			$(function() {
-				var pull 		= $('#pull');
-					menu 		= $('nav ul');
-					menuHeight	= menu.height();
-				$(pull).on('click', function(e) {
-					e.preventDefault();
-					menu.slideToggle();
-				});
-				$(window).resize(function(){
-	        		var w = $(window).width();
-	        		if(w > 320 && menu.is(':hidden')) {
-	        			menu.removeAttr('style');
-	        		}
-	    		});
-			});
-		</script>
+
 		<!--//End-top-nav-script-->
 	</head>
 	<body>
@@ -78,17 +42,7 @@
 
 					</div>
 
-						<script type="text/javascript">
-					         $('.main-search').hide();
-					        $('button').click(function (){
-					            $('.main-search').show();
-					            $('.main-search text').focus();
-					        }
-					        );
-					        $('.close').click(function(){
-					            $('.main-search').hide();
-					        });
-					    </script>
+
 						<div class="clearfix"></div>
 					</div>
 			</div>
@@ -277,7 +231,54 @@ Praesent metus ligula, lacinia eu sodales sed,</p>
 									});
 								</script>
 					<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<script type="text/javascript" src="../../static/assets/js/jquery.min.js"></script>
+		<!-- start-smoth-scrolling-->
+		<script type="text/javascript" src="../../static/assets/js/move-top.js"></script>
+		<script type="text/javascript" src="../../static/assets/js/easing.js"></script>
 
+		<script type="text/javascript" src="../../static/assets/js/modernizr.custom.53451.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+		<!--start-smoth-scrolling-->
+		<!--webfonts-->
+
+		<!--//webfonts-->
+		<!--start-top-nav-script-->
+		<script>
+			$(function() {
+				var pull 		= $('#pull');
+				menu 		= $('nav ul');
+				menuHeight	= menu.height();
+				$(pull).on('click', function(e) {
+					e.preventDefault();
+					menu.slideToggle();
+				});
+				$(window).resize(function(){
+					var w = $(window).width();
+					if(w > 320 && menu.is(':hidden')) {
+						menu.removeAttr('style');
+					}
+				});
+			});
+		</script>
+		<script type="text/javascript">
+			$('.main-search').hide();
+			$('button').click(function (){
+						$('.main-search').show();
+						$('.main-search text').focus();
+					}
+			);
+			$('.close').click(function(){
+				$('.main-search').hide();
+			});
+		</script>
 
 
 </body>
