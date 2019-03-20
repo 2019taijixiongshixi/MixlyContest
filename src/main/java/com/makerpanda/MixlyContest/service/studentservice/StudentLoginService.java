@@ -3,7 +3,9 @@ package com.makerpanda.MixlyContest.service.studentservice;
 import com.makerpanda.MixlyContest.MD5HashHelper;
 import com.makerpanda.MixlyContest.dao.StudentDao;
 import com.makerpanda.MixlyContest.datamodel.Student;
+import org.springframework.stereotype.Service;
 
+@Service
 public class StudentLoginService {
     // 将登陆用户的信息保存供全局使用
     public static Student student;
