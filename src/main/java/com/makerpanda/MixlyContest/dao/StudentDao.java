@@ -2,6 +2,7 @@ package com.makerpanda.MixlyContest.dao;
 
 import com.makerpanda.MixlyContest.datamodel.Student;
 import com.makerpanda.MixlyContest.DBHelper;
+import com.makerpanda.MixlyContest.datamodel.Teacher;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -182,5 +183,42 @@ public class StudentDao {
         } finally {
             closeResource(resultSet, pst);
         }
+    }
+
+    /**
+     * 增加新的学生用户
+     * @param newStudent 新的学生对象。
+     * @return 如果增加成功返回true，否则返回false。
+     */
+    public boolean insertNewTtudeStudent(Student newStudent) {
+        String sql = "insert into Student (StudentID,StudentIdentify,ProjectID,StudentPassword," +
+                "StudentEmail,StudentTel,StudentGender,StudentName," +
+                "School,ClassID,TeacherID) " +
+                "values(?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
+            // 创建PreparedStatement执行SQL语句
+            pst = conn.prepareStatement(sql);
+            pst.setInt(1, newStudent.getStudentID());
+            pst.setString(2, newStudent.getStudentIdentify());
+            pst.setInt(3,newStudent.getProjectID());
+            pst.setString(4, newStudent.getStudentPassword());
+            pst.setString(5,newStudent.getStudentEmail());
+            pst.setString(6,newStudent.getStudentTel());
+            pst.setString(7,newStudent.getStudentGender());
+            pst.setString(8,newStudent.getStudentName());
+            pst.setString(9,newStudent.getSchool());
+            pst.setInt(10,newStudent.getClassID());
+            pst.setInt(11,newStudent.getTeacherID());
+
+            int rowsAffected = pst.executeUpdate();  // 执行语句
+
+            return rowsAffected == 1;
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            closeResource(resultSet, pst);
+        }
+        return false;
     }
 }
