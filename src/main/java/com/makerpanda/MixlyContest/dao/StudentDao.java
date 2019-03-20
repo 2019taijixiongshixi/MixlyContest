@@ -2,7 +2,6 @@ package com.makerpanda.MixlyContest.dao;
 
 import com.makerpanda.MixlyContest.datamodel.Student;
 import com.makerpanda.MixlyContest.DBHelper;
-import com.makerpanda.MixlyContest.datamodel.Teacher;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -44,7 +43,7 @@ public class StudentDao {
                 student.setStudentTel(resultSet.getString("StudentTel"));
                 student.setStudentEmail(resultSet.getString("StudentEmail"));
                 student.setClassID(resultSet.getInt("ClassID"));
-                student.setSchool(resultSet.getString("School"));
+                student.setStudentSchool(resultSet.getString("School"));
                 student.setStudentPassword(resultSet.getString("StudentPassword"));
                 student.setTeacherID(resultSet.getInt("TeacherID"));
                 // 将user对象添加进arrayList当中
@@ -113,7 +112,7 @@ public class StudentDao {
                 student.setStudentTel(resultSet.getString("StudentTel"));
                 student.setStudentEmail(resultSet.getString("StudentEmail"));
                 student.setClassID(resultSet.getInt("ClassID"));
-                student.setSchool(resultSet.getString("School"));
+                student.setStudentSchool(resultSet.getString("School"));
                 student.setStudentPassword(resultSet.getString("StudentPassword"));
                 student.setTeacherID(resultSet.getInt("TeacherID"));
             }
@@ -190,26 +189,25 @@ public class StudentDao {
      * @param newStudent 新的学生对象。
      * @return 如果增加成功返回true，否则返回false。
      */
-    public boolean insertNewTtudeStudent(Student newStudent) {
-        String sql = "insert into Student (StudentID,StudentIdentify,ProjectID,StudentPassword," +
+    public boolean insertNewStudent(Student newStudent) {
+        String sql = "insert into Student (StudentID,StudentIdentify,StudentPassword," +
                 "StudentEmail,StudentTel,StudentGender,StudentName," +
                 "School,ClassID,TeacherID) " +
-                "values(?,?,?,?,?,?,?,?,?,?,?)";
+                "values(?,?,?,?,?,?,?,?,?,?)";
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
             pst = conn.prepareStatement(sql);
             pst.setInt(1, newStudent.getStudentID());
             pst.setString(2, newStudent.getStudentIdentify());
-            pst.setInt(3,newStudent.getProjectID());
-            pst.setString(4, newStudent.getStudentPassword());
-            pst.setString(5,newStudent.getStudentEmail());
-            pst.setString(6,newStudent.getStudentTel());
-            pst.setString(7,newStudent.getStudentGender());
-            pst.setString(8,newStudent.getStudentName());
-            pst.setString(9,newStudent.getSchool());
-            pst.setInt(10,newStudent.getClassID());
-            pst.setInt(11,newStudent.getTeacherID());
+            pst.setString(3, newStudent.getStudentPassword());
+            pst.setString(4,newStudent.getStudentEmail());
+            pst.setString(5,newStudent.getStudentTel());
+            pst.setString(6,newStudent.getStudentGender());
+            pst.setString(7,newStudent.getStudentName());
+            pst.setString(8,newStudent.getStudentSchool());
+            pst.setInt(9,newStudent.getClassID());
+            pst.setInt(10,newStudent.getTeacherID());
 
             int rowsAffected = pst.executeUpdate();  // 执行语句
 

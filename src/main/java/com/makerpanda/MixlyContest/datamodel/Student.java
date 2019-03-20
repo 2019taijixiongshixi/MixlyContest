@@ -57,9 +57,9 @@ public class Student implements Serializable {
 
     public void setClassID(Integer classid) { this.classid = classid; }
 
-    public String getSchool() { return school; }
+    public String getStudentSchool() { return school; }
 
-    public void setSchool(String school) { this.school = school; }
+    public void setStudentSchool(String school) { this.school = school; }
 
     public String getStudentPassword() { return studentpassword; }
 
