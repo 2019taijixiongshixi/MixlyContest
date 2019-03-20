@@ -35,16 +35,17 @@ public class StudentDao {
             while (resultSet.next()) {
                 Student student = new Student();
 
-                student.setStudentID(resultSet.getString("StudentID"));
-                student.setProjectID(resultSet.getString("ProjectID"));
+                student.setStudentID(resultSet.getInt("StudentID"));
+                student.setStudentIdentify(resultSet.getString("StudentIdentify"));
+                student.setProjectID(resultSet.getInt("ProjectID"));
                 student.setStudentName(resultSet.getString("StudentName"));
                 student.setStudentGender(resultSet.getString("StudentGander"));
                 student.setStudentTel(resultSet.getString("StudentTel"));
                 student.setStudentEmail(resultSet.getString("StudentEmail"));
-                student.setClassID(resultSet.getString("ClassID"));
+                student.setClassID(resultSet.getInt("ClassID"));
                 student.setSchool(resultSet.getString("School"));
                 student.setStudentPassword(resultSet.getString("StudentPassword"));
-                student.setTeacherID(resultSet.getString("TeacherID"));
+                student.setTeacherID(resultSet.getInt("TeacherID"));
                 // 将user对象添加进arrayList当中
                 arrayList.add(student);
             }
@@ -62,7 +63,7 @@ public class StudentDao {
      * @param StudentID 需要查询密码的学生ID。
      * @return 若查询成功则返回String类型的密码，若学生用户名不存在则返回null。
      */
-    public String getStudentPassword(String StudentID) {
+    public String getStudentPassword(Integer StudentID) {
         String password = null;
 
         try {
@@ -90,7 +91,7 @@ public class StudentDao {
      * @param StudentID 需要获取信息的学生ID。
      * @return 如果能够查询到StudentID的信息，则返回一个Student类型的对象，其中数据域为该用户信息。否则，返回null。
      */
-    public Student getStudentInfo(String StudentID) {
+    public Student getStudentInfo(Integer StudentID) {
         Student student = null;
 
         try {
@@ -103,16 +104,17 @@ public class StudentDao {
             if (resultSet.next()) {
                 student = new Student();
 
-                student.setStudentID(resultSet.getString("StudentID"));
-                student.setProjectID(resultSet.getString("ProjectID"));
+                student.setStudentID(resultSet.getInt("StudentID"));
+                student.setStudentIdentify(resultSet.getString("StudentIdentify"));
+                student.setProjectID(resultSet.getInt("ProjectID"));
                 student.setStudentName(resultSet.getString("StudentName"));
                 student.setStudentGender(resultSet.getString("StudentGander"));
                 student.setStudentTel(resultSet.getString("StudentTel"));
                 student.setStudentEmail(resultSet.getString("StudentEmail"));
-                student.setClassID(resultSet.getString("ClassID"));
+                student.setClassID(resultSet.getInt("ClassID"));
                 student.setSchool(resultSet.getString("School"));
                 student.setStudentPassword(resultSet.getString("StudentPassword"));
-                student.setTeacherID(resultSet.getString("TeacherID"));
+                student.setTeacherID(resultSet.getInt("TeacherID"));
             }
 
             return student;
@@ -129,7 +131,7 @@ public class StudentDao {
      * @param StudentID 需要查询姓名的学生ID。
      * @return 如果查询到姓名则返回String类型该姓名，否则返回null。
      */
-    public String getStudentName(String StudentID) {
+    public String getStudentName(Integer StudentID) {
         String studentname = null;
 
         try {
@@ -155,10 +157,10 @@ public class StudentDao {
     /**
      * 获取学生ID。
      * @param StudentEmail 需要查询ID的学生邮箱。
-     * @return 如果查询到ID则返回string类型ID，否则返回null。
+     * @return 如果查询到ID则返回int类型ID，否则返回null。
      */
-    public String getStudentIDByStudentEmail(String StudentEmail) {
-        String studentid=null;
+    public Integer getStudentIDByStudentEmail(String StudentEmail) {
+        Integer studentid=null;
 
         try {
             String sql = "SELECT StudentID FROM Student WHERE StudentEmail = "+StudentEmail;
@@ -170,7 +172,7 @@ public class StudentDao {
 
             // 获取用户ID
             if (resultSet.next()) {
-                studentid=resultSet.getString("StudentID");
+                studentid=resultSet.getInt("StudentID");
             }
 
             return studentid;

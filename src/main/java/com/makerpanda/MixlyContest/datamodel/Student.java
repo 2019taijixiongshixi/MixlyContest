@@ -3,9 +3,11 @@ package com.makerpanda.MixlyContest.datamodel;
 import java.io.Serializable;
 
 public class Student implements Serializable {
-    private String studentid;
+    private Integer studentid;
 
-    private String projectid;
+    private String studentidentify;
+
+    private Integer projectid;
 
     private String studentname;
 
@@ -15,21 +17,25 @@ public class Student implements Serializable {
 
     private String studentemail;
 
-    private String classid;
+    private Integer classid;
 
     private String school;
 
     private String studentpassword;
 
-    private String teacherid;
+    private Integer teacherid;
 
-    public String getStudentID() { return studentid; }
+    public Integer getStudentID() { return studentid; }
 
-    public void setStudentID(String studentid) { this.studentid = studentid; }
+    public void setStudentID(Integer studentid) { this.studentid = studentid; }
 
-    public String getProjectID() { return projectid; }
+    public String getStudentIdentify() { return studentidentify; }
 
-    public void setProjectID(String projectid) { this.projectid = projectid; }
+    public void setStudentIdentify(String studentidentify) { this.studentidentify = studentidentify; }
+
+    public Integer getProjectID() { return projectid; }
+
+    public void setProjectID(Integer projectid) { this.projectid = projectid; }
 
     public String getStudentName() { return studentname; }
 
@@ -47,9 +53,9 @@ public class Student implements Serializable {
 
     public void setStudentEmail(String studentemail) { this.studentemail = studentemail; }
 
-    public String getClassID() { return classid; }
+    public Integer getClassID() { return classid; }
 
-    public void setClassID(String classid) { this.classid = classid; }
+    public void setClassID(Integer classid) { this.classid = classid; }
 
     public String getSchool() { return school; }
 
@@ -59,8 +65,8 @@ public class Student implements Serializable {
 
     public void setStudentPassword(String studentpassword) { this.studentpassword = studentpassword; }
 
-    public String getTeacherID() { return teacherid; }
+    public Integer getTeacherID() { return teacherid; }
 
-    public void setTeacherID(String teacherid) { this.teacherid = teacherid; }
+    public void setTeacherID(Integer teacherid) { this.teacherid = teacherid; }
 
 }

@@ -36,12 +36,25 @@ public class ProjectDao {
                 Project project = new Project();
 
                 project.setProjectName(resultSet.getString("ProjectName"));
-                project.setProjectID(resultSet.getString("ProjectID"));
+                project.setProjectID(resultSet.getInt("ProjectID"));
                 project.setFlowChart(resultSet.getString("FlowChart"));
-                    project.setMindMapping(resultSet.getString("MindMapping"));
-                project.setCodeChart(resultSet.getString("CodeChart"));
-                project.setVideoLink(resultSet.getString("VideoLink"));
-                project.setTeacherID(resultSet.getString("TeacherID"));
+                project.setProjectMindMapping(resultSet.getString("ProjectMindMapping"));
+                project.setCodeModuleDiagram(resultSet.getString("CodeModuleDiagram"));
+                project.setVideoURL(resultSet.getString("VideoURL"));
+                project.setStudentID1(resultSet.getInt("StudentID1"));
+                project.setStudentID2(resultSet.getInt("StudentID2"));
+                project.setStudentID3(resultSet.getInt("StudentID3"));
+                project.setProjectTeamName(resultSet.getString("ProjectTeamName"));
+                project.setProjectDisplayMap(resultSet.getString("ProjectDisplayMap"));
+                project.setProjectDescription(resultSet.getString("ProjectDescription"));
+                project.setHardwareCircuitDiagram(resultSet.getString("HardwareCircuitDiagram"));
+                project.setSrtuctureChart(resultSet.getString("SrtuctureChart"));
+                project.setEquipment(resultSet.getString("Equipment"));
+                project.setCompetitionExperience(resultSet.getString("CompetitionExperience"));
+                project.setDesignDocument(resultSet.getString("DesignDocument"));
+                project.setPreliminariesScore(resultSet.getString("PreliminariesScore"));
+                project.setFinalScore(resultSet.getString("FinalScore"));
+                project.setTeacherID(resultSet.getInt("TeacherID"));
                 // 将user对象添加进arrayList当中
                 arrayList.add(project);
             }
@@ -59,7 +72,7 @@ public class ProjectDao {
      * @param ProjectID 需要获取信息的项目ID。
      * @return 如果能够查询到ProjectID的信息，则返回一个Project类型的对象，其中数据域为该用户信息。否则，返回null。
      */
-    public Project getProjectInfo(String ProjectID) {
+    public Project getProjectInfo(Integer ProjectID) {
         Project project = null;
 
         try {
@@ -73,12 +86,25 @@ public class ProjectDao {
                 project = new Project();
 
                 project.setProjectName(resultSet.getString("ProjectName"));
-                project.setProjectID(resultSet.getString("ProjectID"));
+                project.setProjectID(resultSet.getInt("ProjectID"));
                 project.setFlowChart(resultSet.getString("FlowChart"));
-                project.setMindMapping(resultSet.getString("MindMapping"));
-                project.setCodeChart(resultSet.getString("CodeChart"));
-                project.setVideoLink(resultSet.getString("VideoLink"));
-                project.setTeacherID(resultSet.getString("TeacherID"));
+                project.setProjectMindMapping(resultSet.getString("ProjectMindMapping"));
+                project.setCodeModuleDiagram(resultSet.getString("CodeModuleDiagram"));
+                project.setVideoURL(resultSet.getString("VideoURL"));
+                project.setStudentID1(resultSet.getInt("StudentID1"));
+                project.setStudentID2(resultSet.getInt("StudentID2"));
+                project.setStudentID3(resultSet.getInt("StudentID3"));
+                project.setProjectTeamName(resultSet.getString("ProjectTeamName"));
+                project.setProjectDisplayMap(resultSet.getString("ProjectDisplayMap"));
+                project.setProjectDescription(resultSet.getString("ProjectDescription"));
+                project.setHardwareCircuitDiagram(resultSet.getString("HardwareCircuitDiagram"));
+                project.setSrtuctureChart(resultSet.getString("SrtuctureChart"));
+                project.setEquipment(resultSet.getString("Equipment"));
+                project.setCompetitionExperience(resultSet.getString("CompetitionExperience"));
+                project.setDesignDocument(resultSet.getString("DesignDocument"));
+                project.setPreliminariesScore(resultSet.getString("PreliminariesScore"));
+                project.setFinalScore(resultSet.getString("FinalScore"));
+                project.setTeacherID(resultSet.getInt("TeacherID"));
             }
 
             return project;

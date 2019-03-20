@@ -16,7 +16,7 @@ public class StudentLoginService {
      */
     public static int verify(String StudentEmail, String inputPwd) {
         StudentDao studentdao = new StudentDao();
-        String studentid=studentdao.getStudentIDByStudentEmail(StudentEmail);
+        Integer studentid=studentdao.getStudentIDByStudentEmail(StudentEmail);
         String password = studentdao.getStudentPassword(studentid);
         String MD5Password= MD5HashHelper.encryptPassword(password);
 
@@ -37,7 +37,7 @@ public class StudentLoginService {
      * @param StudentID 当前用户的ID。
      * @return String类型变量，值为当前用户姓名。
      */
-    public static String getName(String StudentID) {
+    public static String getName(Integer StudentID) {
         StudentDao studentdao = new StudentDao();
 
         return studentdao.getStudentName(StudentID);
@@ -48,7 +48,7 @@ public class StudentLoginService {
      * @param StudentEmail 当前用户的ID。
      * @return String类型变量，值为当前用户姓名。
      */
-    public static String getStudentIDByStudentEmail (String StudentEmail) {
+    public static Integer getStudentIDByStudentEmail (String StudentEmail) {
         StudentDao studentdao = new StudentDao();
 
         return studentdao.getStudentIDByStudentEmail(StudentEmail);
