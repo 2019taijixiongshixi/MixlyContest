@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PageSkippingContoller {
+    @RequestMapping(path = {"/zuopin"})
+    public String zuopin(Model model) { return "tijiao/zuopin.html"; }
     @RequestMapping(path = {"/xinxi1"})
     public String xinxi1(Model model) { return "tijiao/xinxi1.html"; }
     @RequestMapping(path = {"/xinxi2"})
@@ -18,8 +20,7 @@ public class PageSkippingContoller {
     public String xinxi5(Model model) { return "tijiao/xinxi5.html"; }
     @RequestMapping(path = {"/xinxi6"})
     public String xinxi6(Model model) { return "tijiao/xinxi6.html"; }
-    @RequestMapping(path = {"/zuopin"})
-    public String zuopin(Model model) { return "tijiao/zuopin.html"; }
+
     @RequestMapping(path = {"/jzhuce"})
     public String jzhuce(Model model) { return "zhuce/jzhuce.html"; }
     @RequestMapping(path = {"/xzhuce"})
