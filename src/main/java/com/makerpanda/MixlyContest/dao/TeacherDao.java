@@ -39,7 +39,8 @@ public class TeacherDao {
             while (resultSet.next()) {
                 Teacher teacher = new Teacher();
 
-                teacher.setTeacherID(resultSet.getString("TeacherID"));
+                teacher.setTeacherID(resultSet.getInt("TeacherID"));
+                teacher.setTeacherIdentify(resultSet.getString("TeacherIdentify"));
                 teacher.setTeacherName(resultSet.getString("TeacherName"));
                 teacher.setTeachersProfessionalTitle(resultSet.getString("TeachersProfessionalTitle"));
                 teacher.setTeacherCertificationID(resultSet.getString("TeacherCertificationID"));
@@ -47,6 +48,9 @@ public class TeacherDao {
                 teacher.setTeacherTel(resultSet.getString("TeacherTel"));
                 teacher.setTeacherEmail(resultSet.getString("TeacherEmail"));
                 teacher.setTeacherPassword(resultSet.getString("TeacherPassword"));
+                teacher.setTeacherClassID(resultSet.getInt("ClassID"));
+                teacher.setTeacherSchool(resultSet.getString("School"));
+
                 // 将user对象添加进arrayList当中
                 arrayList.add(teacher);
             }
@@ -64,7 +68,7 @@ public class TeacherDao {
      * @param TeacherID 需要查询密码的教师ID。
      * @return 若查询成功则返回String类型的密码，若教师用户名不存在则返回null。
      */
-    public String getTeacherPassword(String TeacherID) {
+    public String getTeacherPassword(Integer TeacherID) {
         String password = null;
 
         try {
@@ -92,7 +96,7 @@ public class TeacherDao {
      * @param TeacherID 需要获取信息的教师ID。
      * @return 如果能够查询到TeacherID的信息，则返回一个Teacher类型的对象，其中数据域为该用户信息。否则，返回null。
      */
-    public Teacher getTeacherInfo(String TeacherID) {
+    public Teacher getTeacherInfo(Integer TeacherID) {
         Teacher teacher = null;
 
         try {
@@ -105,7 +109,8 @@ public class TeacherDao {
             if (resultSet.next()) {
                 teacher = new Teacher();
 
-                teacher.setTeacherID(resultSet.getString("TeacherID"));
+                teacher.setTeacherID(resultSet.getInt("TeacherID"));
+                teacher.setTeacherIdentify(resultSet.getString("TeacherIdentify"));
                 teacher.setTeacherName(resultSet.getString("TeacherName"));
                 teacher.setTeachersProfessionalTitle(resultSet.getString("TeachersProfessionalTitle"));
                 teacher.setTeacherCertificationID(resultSet.getString("TeacherCertificationID"));
@@ -113,6 +118,8 @@ public class TeacherDao {
                 teacher.setTeacherTel(resultSet.getString("TeacherTel"));
                 teacher.setTeacherEmail(resultSet.getString("TeacherEmail"));
                 teacher.setTeacherPassword(resultSet.getString("TeacherPassword"));
+                teacher.setTeacherClassID(resultSet.getInt("ClassID"));
+                teacher.setTeacherSchool(resultSet.getString("School"));
             }
 
             return teacher;
@@ -155,10 +162,10 @@ public class TeacherDao {
     /**
      * 获取教师ID。
      * @param TeacherEmail 需要查询ID的教师邮箱。
-     * @return 如果查询到ID则返回string类型ID，否则返回null。
+     * @return 如果查询到ID则返回integer类型ID，否则返回null。
      */
-    public String getTeacherIDByTeacherEmail(String TeacherEmail) {
-        String teacherid=null;
+    public Integer getTeacherIDByTeacherEmail(String TeacherEmail) {
+        Integer teacherid=null;
 
         try {
             String sql = "SELECT TeacherID FROM Teacher WHERE TeacherEmail = "+TeacherEmail;
@@ -170,7 +177,7 @@ public class TeacherDao {
 
             // 获取用户ID
             if (resultSet.next()) {
-                teacherid=resultSet.getString("TeacherID");
+                teacherid=resultSet.getInt("TeacherID");
             }
 
             return teacherid;

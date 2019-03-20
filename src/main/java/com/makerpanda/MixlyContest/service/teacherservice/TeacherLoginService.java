@@ -18,7 +18,7 @@ public class TeacherLoginService {
      */
     public static int verify(String TeacherEmail, String inputPwd) {
         TeacherDao teacherdao = new TeacherDao();
-        String teacherid=teacherdao.getTeacherIDByTeacherEmail(TeacherEmail);
+        Integer teacherid=teacherdao.getTeacherIDByTeacherEmail(TeacherEmail);
         String password = teacherdao.getTeacherPassword(teacherid);
         String MD5Password= MD5HashHelper.encryptPassword(password);
 
@@ -48,10 +48,10 @@ public class TeacherLoginService {
 
     /**
      * 获取当前用户的ID。
-     * @param TeacherEmail 当前用户的ID。
-     * @return String类型变量，值为当前用户姓名。
+     * @param TeacherEmail 当前用户的Email。
+     * @return Integer类型变量，值为当前用户ID。
      */
-    public static String getTeacherIDByTeacherEmail (String TeacherEmail) {
+    public static Integer getTeacherIDByTeacherEmail (String TeacherEmail) {
         TeacherDao teacherdao = new TeacherDao();
 
         return teacherdao.getTeacherIDByTeacherEmail(TeacherEmail);
