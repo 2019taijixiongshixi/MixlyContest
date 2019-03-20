@@ -1,8 +1,8 @@
-package com.makerpanda.MixlyContest.action.teacheraction;
+package com.makerpanda.MixlyContest.action.studentaction;
 
 
 
-import com.makerpanda.MixlyContest.datamodel.Teacher;
+import com.makerpanda.MixlyContest.datamodel.Student;
 import com.makerpanda.MixlyContest.service.teacherservice.TeacherLoginService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class TeacherLoginController {
-    @RequestMapping(path = { "/login2"})
+public class StudentLoginController {
+    @RequestMapping(path = { "/login1"})
     public String Teacherlogin(Model model) {
-        model.addAttribute("teacher", new Teacher());
-        return "login/login2.html";
+        model.addAttribute("student", new Student());
+        return "login/login1.html";
     }
-    @RequestMapping(value = "/login2", method = RequestMethod.POST)
-    public String loginAction(@ModelAttribute("teacher") Teacher teacher, ModelMap modelMap) {
+    @RequestMapping(value = "/login1", method = RequestMethod.POST)
+    public String loginAction(@ModelAttribute("student") Student student, ModelMap modelMap) {
         int verifyCode;
-        String teacheremail;
+        String studentemail;
 
-        if (teacher.getTeacherEmail() != null) {
-            teacheremail = teacher.getTeacherEmail();
-            String password = teacher.getTeacherPassword();
-            verifyCode = TeacherLoginService.verify(teacheremail, password);  // 认证用户是否可以登录
+        if (student.getStudentEmail() != null) {
+            studentemail = student.getStudentEmail();
+            String password = student.getStudentPassword();
+            verifyCode = TeacherLoginService.verify(studentemail, password);  // 认证用户是否可以登录
         } else {
             verifyCode = 4;
         }
@@ -38,15 +38,15 @@ public class TeacherLoginController {
                 return "shouye/index.html";
             case 1:  // 密码错误
                 modelMap.addAttribute("pwdError", "对不起，您输入的密码有误");
-                return "login/login2.html";
+                return "login/login1.html";
             case 2:
                 modelMap.addAttribute("pwdError", "密码不能为空");
             case 3:  // 用户不存在或者系统错误
                 modelMap.addAttribute("userError", "不存在该用户");
-                return "login/login2.html";
+                return "login/login1.html";
             case 4:
                 modelMap.addAttribute("userError", "用户名不能为空");
-                return "login/login2.html";
+                return "login/login1.html";
         }
     }
 }

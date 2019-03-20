@@ -3,7 +3,9 @@ package com.makerpanda.MixlyContest.datamodel;
 import java.io.Serializable;
 
 public class Teacher implements Serializable {
-    private String teacherid;
+    private Integer teacherid;
+
+    private String teacheridentify;
 
     private String teachername;
 
@@ -19,11 +21,22 @@ public class Teacher implements Serializable {
 
     private String teacherpassword;
 
-    public String getTeacherID() {
+    private Integer classid;
+
+    private String school;
+
+    public Integer getTeacherID() {
         return teacherid;
     }
 
-    public void setTeacherID(String teacherid) { this.teacherid = teacherid; }
+    public void setTeacherID(Integer teacherid) { this.teacherid = teacherid; }
+
+    public String getTeacherIdentify() {
+        return teacheridentify;
+    }
+
+    public void setTeacherIdentify(String teacheridentify)
+    { this.teacheridentify = teacheridentify; }
 
     public String getTeacherName() {
         return teachername;
@@ -59,4 +72,14 @@ public class Teacher implements Serializable {
 
     public void setTeacherPassword(String teacherpassword) { this.teacherpassword = teacherpassword; }
 
-}
+    public void setTeacherClassID(Integer classid) { this.classid = classid; }
+
+    public Integer getTeacherClassID() {
+        return classid;
+    }
+
+    public String getTeacherSchool(){ return school; }
+
+    public void setTeacherSchool(String school) { this.school = school;}
+
+    }
