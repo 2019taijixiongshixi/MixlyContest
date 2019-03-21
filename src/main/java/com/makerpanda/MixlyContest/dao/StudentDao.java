@@ -190,24 +190,23 @@ public class StudentDao {
      * @return 如果增加成功返回true，否则返回false。
      */
     public boolean insertNewStudent(Student newStudent) {
-        String sql = "insert into Student (StudentID,StudentIdentify,StudentPassword," +
+        String sql = "insert into Student (StudentIdentify,StudentPassword," +
                 "StudentEmail,StudentTel,StudentGender,StudentName," +
                 "School,ClassID,TeacherID) " +
-                "values(?,?,?,?,?,?,?,?,?,?)";
+                "values(?,?,?,?,?,?,?,?,?)";
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
             pst = conn.prepareStatement(sql);
-            pst.setInt(1, newStudent.getStudentID());
-            pst.setString(2, newStudent.getStudentIdentify());
-            pst.setString(3, newStudent.getStudentPassword());
-            pst.setString(4,newStudent.getStudentEmail());
-            pst.setString(5,newStudent.getStudentTel());
-            pst.setString(6,newStudent.getStudentGender());
-            pst.setString(7,newStudent.getStudentName());
-            pst.setString(8,newStudent.getStudentSchool());
-            pst.setInt(9,newStudent.getClassID());
-            pst.setInt(10,newStudent.getTeacherID());
+            pst.setString(1, newStudent.getStudentIdentify());
+            pst.setString(2, newStudent.getStudentPassword());
+            pst.setString(3,newStudent.getStudentEmail());
+            pst.setString(4,newStudent.getStudentTel());
+            pst.setString(5,newStudent.getStudentGender());
+            pst.setString(6,newStudent.getStudentName());
+            pst.setString(7,newStudent.getStudentSchool());
+            pst.setInt(8,newStudent.getClassID());
+            pst.setInt(9,newStudent.getTeacherID());
 
             int rowsAffected = pst.executeUpdate();  // 执行语句
 

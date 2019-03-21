@@ -43,6 +43,6 @@ public class MD5HashHelper {
      * @param args 命令行参数。
      */
     public static void main(String[] args) {
-        System.out.println(encryptPassword("12345"));
+        System.out.println(encryptPassword("1"));
     }
 }

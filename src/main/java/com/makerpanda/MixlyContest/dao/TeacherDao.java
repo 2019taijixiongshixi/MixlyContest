@@ -195,24 +195,23 @@ public class TeacherDao {
      * @return 如果增加成功返回true，否则返回false。
      */
     public boolean insertNewTeacher(Teacher newTeacher) {
-        String sql = "insert into Teacher (TeacherID,TeacherIdentify,TeacherPassword," +
+        String sql = "insert into Teacher (TeacherIdentify,TeacherPassword," +
                 "TeacherEmail,TeacherTel,TeacherGender,TeacherName," +
                 "School,TeacherProfessionalTitle,TeacherCertificationID) " +
-                "values(?,?,?,?,?,?,?,?,?,?)";
+                "values(?,?,?,?,?,?,?,?,?)";
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
             pst = conn.prepareStatement(sql);
-            pst.setInt(1, newTeacher.getTeacherID());
-            pst.setString(2, newTeacher.getTeacherIdentify());
-            pst.setString(3,newTeacher.getTeacherPassword());
-            pst.setString(4, newTeacher.getTeacherEmail());
-            pst.setString(5,newTeacher.getTeacherTel());
-            pst.setString(6, newTeacher.getTeacherGender());
-            pst.setString(7,newTeacher.getTeacherName());
-            pst.setString(8,newTeacher.getTeacherSchool());
-            pst.setString(9, newTeacher.getTeachersProfessionalTitle());
-            pst.setString(10,newTeacher.getTeacherCertificationID());
+            pst.setString(1, newTeacher.getTeacherIdentify());
+            pst.setString(2,newTeacher.getTeacherPassword());
+            pst.setString(3, newTeacher.getTeacherEmail());
+            pst.setString(4,newTeacher.getTeacherTel());
+            pst.setString(5, newTeacher.getTeacherGender());
+            pst.setString(6,newTeacher.getTeacherName());
+            pst.setString(7,newTeacher.getTeacherSchool());
+            pst.setString(8, newTeacher.getTeachersProfessionalTitle());
+            pst.setString(9,newTeacher.getTeacherCertificationID());
 
             int rowsAffected = pst.executeUpdate();  // 执行语句
 

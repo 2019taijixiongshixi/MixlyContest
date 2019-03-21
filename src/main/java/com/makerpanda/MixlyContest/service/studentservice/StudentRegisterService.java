@@ -4,6 +4,7 @@ import com.makerpanda.MixlyContest.dao.StudentDao;
 import com.makerpanda.MixlyContest.datamodel.Student;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class StudentRegisterService {
     public static boolean StudentRegister (Student newstudent) {
@@ -15,9 +16,9 @@ public class StudentRegisterService {
      * 测试数据库插入是否正常
      * @param args 命令行参数
      */
+
     public static void main(String[] args) {
         Student student=new Student();
-        student.setStudentID(10);
         student.setStudentIdentify("1234567");
         student.setStudentName("teacher");
         student.setStudentPassword("100");
