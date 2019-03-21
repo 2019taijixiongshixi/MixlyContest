@@ -24,11 +24,9 @@ public class VerificationcodeDao {
 
     /**
      * 根据时间戳VerificationCodeTime获取验证码字符串VerificationCodeString。
-     *
-     * @param VerificationCodeTime 需要查询字符串的时间戳。
      * @return 若查询成功则返回String类型的字符串。否则，返回null。
      */
-    public String getVerificationCodeString(String VerificationCodeTime) {
+    public String getVerificationCodeString() {
         String VerificationCodeString = null;
 
         try {
@@ -37,6 +35,8 @@ public class VerificationcodeDao {
             pst = conn.prepareStatement("SELECT VerificationCodeTime FROM Verificationcode WHERE Verificationcodetime = " + VerificationCodeTime);  // 预处理语句
             resultSet = pst.executeQuery();  // 执行语句
 
+            select * from tb1 where dDate>='2010-11-05' and dDate<='2010-11-15' and convert(char(8),dDate,108)>='8:00:00' and convert(char(8),dDate,108)<='9:00:00'.
+                    
             // 获取用户密码
             if (resultSet.next()) {
                 VerificationCodeString = resultSet.getString("VerificationCodeString");
