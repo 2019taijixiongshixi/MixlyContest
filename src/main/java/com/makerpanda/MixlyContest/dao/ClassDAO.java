@@ -11,46 +11,46 @@ import java.util.ArrayList;
 
 import static com.makerpanda.MixlyContest.DBHelper.closeResource;
 
-@Repository
-public class ClassDAO {
+    @Repository
+    public class ClassDAO {
 
-    // 数据及库连接对象
-    private static Connection conn = null;
-    // PreparedStatement对象用来执行SQL语句
-    private static PreparedStatement pst = null;
-    // 结果集
-    private static ResultSet resultSet = null;
+        // 数据及库连接对象
+        private static Connection conn = null;
+        // PreparedStatement对象用来执行SQL语句
+        private static PreparedStatement pst = null;
+        // 结果集
+        private static ResultSet resultSet = null;
 
-    /**
-     * 获取全部Class信息。
-     * @return Teacher类型的ArrayList集合，其中每个teacher对象是一个教师。
-     */
-    public ArrayList getClasses() {
-        ArrayList<Class> arrayList = new ArrayList<>();
+        /**
+         * 获取全部Class信息。
+         * @return Teacher类型的ArrayList集合，其中每个teacher对象是一个教师。
+         */
+        public ArrayList getClasses() {
+            ArrayList<Class> arrayList = new ArrayList<>();
 
-        try {
-            conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
-            // 创建PreparedStatement执行SQL语句
-            pst = conn.prepareStatement("SELECT * FROM Class");  // 预处理语句
-            resultSet = pst.executeQuery();  // 执行语句
+            try {
+                conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
+                // 创建PreparedStatement执行SQL语句
+                pst = conn.prepareStatement("SELECT * FROM Class");  // 预处理语句
+                resultSet = pst.executeQuery();  // 执行语句
 
-            // 遍历处理结果集，获得每一行数据
-            while (resultSet.next()) {
-                Class aclass = new Class();
+                // 遍历处理结果集，获得每一行数据
+                while (resultSet.next()) {
+                    Class aclass = new Class();
 
-                aclass.setClassID(resultSet.getInt("ClassID"));
-                aclass.setTeacherID(resultSet.getInt("TeacherID"));
-                // 将user对象添加进arrayList当中
-                arrayList.add(aclass);
+                    aclass.setClassID(resultSet.getInt("ClassID"));
+                    aclass.setTeacherID(resultSet.getInt("TeacherID"));
+                    // 将user对象添加进arrayList当中
+                    arrayList.add(aclass);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                closeResource(resultSet, pst);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            closeResource(resultSet, pst);
-        }
 
-        return arrayList;
-    }
+            return arrayList;
+        }
 
     /**
      * 根据ClassID，获取Class全部信息。
