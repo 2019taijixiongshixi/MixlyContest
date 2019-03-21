@@ -1,14 +1,15 @@
 package com.makerpanda.MixlyContest.service.verificationcodeservice;
 
 import com.makerpanda.MixlyContest.dao.VerificationCodeDAO;
+import com.makerpanda.MixlyContest.datamodel.Student;
 import com.makerpanda.MixlyContest.datamodel.Teacher;
+import com.makerpanda.MixlyContest.service.studentservice.StudentRegisterService;
 import com.makerpanda.MixlyContest.service.teacherservice.TeacherRegisterService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import static com.makerpanda.MixlyContest.service.teacherservice.TeacherRegisterService.TeacherRegister;
 
 @Service
 public class VerificationCodeService {
@@ -52,18 +53,18 @@ public class VerificationCodeService {
         return str;
     }
     public static void main(String[] args) {
-        Teacher teacher=new Teacher();
-        teacher.setTeacherIdentify("1234567");
-        teacher.setTeacherName("teacher");
-        teacher.setTeachersProfessionalTitle("100");
-        teacher.setTeacherCertificationID("200");
-        teacher.setTeacherGender("男");
-        teacher.setTeacherTel("12345678901");
-        teacher.setTeacherEmail("271614896.com");
-        teacher.setTeacherPassword("12345");
-        teacher.setTeacherSchool("电子科大");
+        Student student=new Student();
+        student.setStudentIdentify("1234567");
+        student.setStudentName("teacher");
+        student.setStudentPassword("100");
+        student.setStudentEmail("136585610@qq.com");
+        student.setStudentGender("男");
+        student.setStudentTel("12345678901");
+        student.setClassID(233);
+        student.setTeacherID(1);
+        student.setStudentSchool("电子科大");
         String code=null;
-        switch( TeacherRegisterService.TeacherRegister(teacher,"EyeKYr")) {
+        switch( StudentRegisterService.StudentRegister(student,"JKW4dS")) {
             case  1:
                 System.out.println("验证失败");
                 break;

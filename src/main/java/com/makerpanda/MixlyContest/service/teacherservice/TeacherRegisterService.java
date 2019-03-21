@@ -23,18 +23,6 @@ public class TeacherRegisterService {
         return 0;
     }
     /**
-     * 获取验证码函数,前端在点击获取验证码之后，通过此函数发送邮件，并将验证码存入数据库。
-     * @return 获取验证码成功返回0，发送邮件失败返回1，数据库插入失败返回2
-     */
-    public static int getVerificationCode(String TeacherEmail){
-        String verificationcode=VerificationCodeService.verifyCode();
-        if(!MailUtil.sendMail(TeacherEmail,verificationcode))
-            return 1;
-        if(!VerificationCodeService.insertVerificationCode(verificationcode))
-            return 2;
-        return 0;
-    }
-    /**
      * 测试数据库插入是否正常
      * @param args 命令行参数
      */
@@ -49,7 +37,7 @@ public class TeacherRegisterService {
         teacher.setTeacherEmail("271614896@qq.com");
         teacher.setTeacherPassword("12345");
         teacher.setTeacherSchool("电子科大");
-        switch (getVerificationCode(teacher.getTeacherEmail())){
+        switch (MailUtil.getVerificationCode(teacher.getTeacherEmail())){
             case 1:
                 System.out.println("发送邮件失败");
                 break;

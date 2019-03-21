@@ -1,5 +1,7 @@
 package com.makerpanda.MixlyContest;
 
+import com.makerpanda.MixlyContest.service.verificationcodeservice.VerificationCodeService;
+
 import javax.mail.*;
 import javax.mail.Message.RecipientType;
 import javax.mail.internet.InternetAddress;
@@ -149,12 +151,18 @@ public class MailUtil {
             return message;
         }
 
+    /**
+     * 获取验证码函数,前端在点击获取验证码之后，通过此函数发送邮件，并将验证码存入数据库。
+     * @return 获取验证码成功返回0，发送邮件失败返回1，数据库插入失败返回2
+     */
+    public static int getVerificationCode(String Email){
+        String verificationcode= VerificationCodeService.verifyCode();
+        if(!MailUtil.sendMail(Email,verificationcode))
+            return 1;
+        if(!VerificationCodeService.insertVerificationCode(verificationcode))
+            return 2;
+        return 0;
+    }
 
-        public static void main(String[]args){
-            MailUtil mailUtil = new MailUtil();
-
-            mailUtil.sendMail("271614896@qq.com", "2333");//接收方  接受码
-
-        }
 }
 
