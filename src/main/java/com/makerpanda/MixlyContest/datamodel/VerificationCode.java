@@ -2,12 +2,12 @@ package com.makerpanda.MixlyContest.datamodel;
 
 import java.io.Serializable;
 
-public class Verificationcode implements Serializable{
-    public Integer verificationcodeid;
+public class VerificationCode implements Serializable{
+    private Integer verificationcodeid;
 
-    public String verificationcodestring;
+    private String verificationcodestring;
 
-    public String verificationcodetime;
+    private String verificationcodetime;
 
     public Integer getVerificationcodeID() { return verificationcodeid; }
 

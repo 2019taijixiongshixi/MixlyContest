@@ -1,7 +1,7 @@
 package com.makerpanda.MixlyContest.service.studentservice;
 
 import com.makerpanda.MixlyContest.MD5HashHelper;
-import com.makerpanda.MixlyContest.dao.StudentDao;
+import com.makerpanda.MixlyContest.dao.StudentDAO;
 import com.makerpanda.MixlyContest.datamodel.Student;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public class StudentLoginService {
      * @return 如果用户名不存在则返回3，如果用户输入的密码为空返回2, 用户输入密码有误返回1，认证成功返回0。
      */
     public static int verify(String StudentEmail, String inputPwd) {
-        StudentDao studentdao = new StudentDao();
+        StudentDAO studentdao = new StudentDAO();
         Integer studentid=studentdao.getStudentIDByStudentEmail(StudentEmail);
         String password = studentdao.getStudentPassword(studentid);
         String MD5Password= MD5HashHelper.encryptPassword(password);
@@ -40,7 +40,7 @@ public class StudentLoginService {
      * @return String类型变量，值为当前用户姓名。
      */
     public static String getName(Integer StudentID) {
-        StudentDao studentdao = new StudentDao();
+        StudentDAO studentdao = new StudentDAO();
 
         return studentdao.getStudentName(StudentID);
     }
@@ -51,7 +51,7 @@ public class StudentLoginService {
      * @return String类型变量，值为当前用户姓名。
      */
     public static Integer getStudentIDByStudentEmail (String StudentEmail) {
-        StudentDao studentdao = new StudentDao();
+        StudentDAO studentdao = new StudentDAO();
 
         return studentdao.getStudentIDByStudentEmail(StudentEmail);
     }

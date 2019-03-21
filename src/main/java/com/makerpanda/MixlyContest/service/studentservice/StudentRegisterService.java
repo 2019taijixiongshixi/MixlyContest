@@ -1,6 +1,6 @@
 package com.makerpanda.MixlyContest.service.studentservice;
 
-import com.makerpanda.MixlyContest.dao.StudentDao;
+import com.makerpanda.MixlyContest.dao.StudentDAO;
 import com.makerpanda.MixlyContest.datamodel.Student;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudentRegisterService {
     public static boolean StudentRegister (Student newstudent) {
-        StudentDao studentdao = new StudentDao();
+        StudentDAO studentdao = new StudentDAO();
 
         return studentdao.insertNewStudent(newstudent);
     }

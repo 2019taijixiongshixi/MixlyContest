@@ -13,7 +13,7 @@ import static com.makerpanda.MixlyContest.DBHelper.closeResource;
 
 
 @Repository
-public class TeacherDao {
+public class TeacherDAO {
 
     // 数据及库连接对象
     private static Connection conn = null;
