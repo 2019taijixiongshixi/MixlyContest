@@ -9,7 +9,7 @@ public class VerificationCode implements Serializable{
 
     private String verificationcodetime;
 
-    public Integer getVerificationcodeID() { return verificationcodeid; }
+    public Integer getVerificationCodeID() { return verificationcodeid; }
 
     public void setVerificationCodeID(Integer verificationcodeid) { this.verificationcodeid = verificationcodeid; }
 
