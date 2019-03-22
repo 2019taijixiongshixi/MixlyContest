@@ -1,5 +1,6 @@
 package com.makerpanda.MixlyContest.dao;
 
+import com.makerpanda.MixlyContest.MD5HashHelper;
 import com.makerpanda.MixlyContest.datamodel.Student;
 import com.makerpanda.MixlyContest.DBHelper;
 
@@ -154,6 +155,7 @@ public class StudentDAO {
         }
     }
 
+
     /**
      * 获取学生ID。
      * @param StudentEmail 需要查询ID的学生邮箱。
@@ -199,7 +201,8 @@ public class StudentDAO {
             // 创建PreparedStatement执行SQL语句
             pst = conn.prepareStatement(sql);
             pst.setString(1, newStudent.getStudentIdentify());
-            pst.setString(2, newStudent.getStudentPassword());
+            pst.setString(2,
+                    MD5HashHelper.encryptPassword(newStudent.getStudentPassword()));
             pst.setString(3,newStudent.getStudentEmail());
             pst.setString(4,newStudent.getStudentTel());
             pst.setString(5,newStudent.getStudentGender());
@@ -218,4 +221,5 @@ public class StudentDAO {
         }
         return false;
     }
+
 }
