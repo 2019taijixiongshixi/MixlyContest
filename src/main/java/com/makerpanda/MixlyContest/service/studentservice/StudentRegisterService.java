@@ -56,34 +56,4 @@ public class StudentRegisterService {
                 return true;
         return false;
     }
-    /**
-     * 测试数据库插入是否正常
-     * @param args 命令行参数
-     */
-
-    public static void main(String[] args) {
-        Student student=new Student();
-        student.setStudentIdentify("1234567");
-        student.setStudentName("teacher");
-        student.setStudentPassword("100");
-        student.setStudentEmail("136585610@qq.com");
-        student.setStudentGender("男");
-        student.setStudentTel("12345678901");
-        student.setClassID(233);
-        student.setTeacherID(1);
-        student.setStudentSchool("电子科大");
-        String code=null;
-        switch (MailUtil.getVerificationCode(student.getStudentEmail())){
-            case 1:
-                System.out.println("发送邮件失败");
-                break;
-            case 2:
-                System.out.println("数据库验证码插入失败");
-                break;
-            case 0:
-                System.out.println("OK");
-                break;
-        }
-    }
-
 }
