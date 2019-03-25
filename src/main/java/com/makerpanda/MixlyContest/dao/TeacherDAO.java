@@ -1,5 +1,6 @@
 package com.makerpanda.MixlyContest.dao;
 
+import com.makerpanda.MixlyContest.MD5HashHelper;
 import com.makerpanda.MixlyContest.datamodel.Teacher;
 import com.makerpanda.MixlyContest.DBHelper;
 import org.springframework.stereotype.Repository;
@@ -13,7 +14,7 @@ import static com.makerpanda.MixlyContest.DBHelper.closeResource;
 
 
 @Repository
-public class TeacherDao {
+public class TeacherDAO {
 
     // 数据及库连接对象
     private static Connection conn = null;
@@ -195,24 +196,24 @@ public class TeacherDao {
      * @return 如果增加成功返回true，否则返回false。
      */
     public boolean insertNewTeacher(Teacher newTeacher) {
-        String sql = "insert into Teacher (TeacherID,TeacherIdentify,TeacherPassword," +
+        String sql = "insert into Teacher (TeacherIdentify,TeacherPassword," +
                 "TeacherEmail,TeacherTel,TeacherGender,TeacherName," +
                 "School,TeacherProfessionalTitle,TeacherCertificationID) " +
-                "values(?,?,?,?,?,?,?,?,?,?)";
+                "values(?,?,?,?,?,?,?,?,?)";
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
             pst = conn.prepareStatement(sql);
-            pst.setInt(1, newTeacher.getTeacherID());
-            pst.setString(2, newTeacher.getTeacherIdentify());
-            pst.setString(3,newTeacher.getTeacherPassword());
-            pst.setString(4, newTeacher.getTeacherEmail());
-            pst.setString(5,newTeacher.getTeacherTel());
-            pst.setString(6, newTeacher.getTeacherGender());
-            pst.setString(7,newTeacher.getTeacherName());
-            pst.setString(8,newTeacher.getTeacherSchool());
-            pst.setString(9, newTeacher.getTeachersProfessionalTitle());
-            pst.setString(10,newTeacher.getTeacherCertificationID());
+            pst.setString(1, newTeacher.getTeacherIdentify());
+            pst.setString(2,
+                    MD5HashHelper.encryptPassword(newTeacher.getTeacherPassword()));
+            pst.setString(3, newTeacher.getTeacherEmail());
+            pst.setString(4,newTeacher.getTeacherTel());
+            pst.setString(5, newTeacher.getTeacherGender());
+            pst.setString(6,newTeacher.getTeacherName());
+            pst.setString(7,newTeacher.getTeacherSchool());
+            pst.setString(8, newTeacher.getTeachersProfessionalTitle());
+            pst.setString(9,newTeacher.getTeacherCertificationID());
 
             int rowsAffected = pst.executeUpdate();  // 执行语句
 
@@ -224,4 +225,31 @@ public class TeacherDao {
         }
         return false;
     }
+    /**
+     * 查询所有教师邮箱。
+     * @return 若查询成功则返回字符串数组。否则，返回null。
+     */
+    public ArrayList selectTeacherEmail() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        try {
+            String sql = "SELECT TeacherEmail FROM Teacher";
+            conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
+            // 创建PreparedStatement执行SQL语句
+            pst = conn.prepareStatement(sql);  // 预处理语句
+            resultSet = pst.executeQuery();  // 执行语句
+
+            while (resultSet.next()) {
+                // 将字符串对象添加进arrayList当中
+                arrayList.add(resultSet.getString("TeacherEmail"));
+            }
+            return arrayList;
+        }catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            closeResource(resultSet, pst);
+        }
+    }
+
+
 }

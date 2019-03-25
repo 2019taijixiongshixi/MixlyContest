@@ -34,7 +34,7 @@ public class MD5HashHelper {
      * @return 经加盐处理的MD5密码。
      */
     public static String encryptPassword(String password) {
-        String salt = "RandomSalt:23adfawe48-*/+***&#^$&()&^%$!@@#";
+        String salt = "RandomSalt:23d?fdsw8-*/+***&#^$&()&^%$!@@#";
         return md5(password + salt);
     }
 

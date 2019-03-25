@@ -1,5 +1,6 @@
 package com.makerpanda.MixlyContest.dao;
 
+import com.makerpanda.MixlyContest.MD5HashHelper;
 import com.makerpanda.MixlyContest.datamodel.Student;
 import com.makerpanda.MixlyContest.DBHelper;
 
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 
 import static com.makerpanda.MixlyContest.DBHelper.closeResource;
 
-public class StudentDao {
+public class StudentDAO {
     // 数据及库连接对象
     private static Connection conn = null;
     // PreparedStatement对象用来执行SQL语句
@@ -154,6 +155,7 @@ public class StudentDao {
         }
     }
 
+
     /**
      * 获取学生ID。
      * @param StudentEmail 需要查询ID的学生邮箱。
@@ -190,24 +192,24 @@ public class StudentDao {
      * @return 如果增加成功返回true，否则返回false。
      */
     public boolean insertNewStudent(Student newStudent) {
-        String sql = "insert into Student (StudentID,StudentIdentify,StudentPassword," +
+        String sql = "insert into Student (StudentIdentify,StudentPassword," +
                 "StudentEmail,StudentTel,StudentGender,StudentName," +
                 "School,ClassID,TeacherID) " +
-                "values(?,?,?,?,?,?,?,?,?,?)";
+                "values(?,?,?,?,?,?,?,?,?)";
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
             pst = conn.prepareStatement(sql);
-            pst.setInt(1, newStudent.getStudentID());
-            pst.setString(2, newStudent.getStudentIdentify());
-            pst.setString(3, newStudent.getStudentPassword());
-            pst.setString(4,newStudent.getStudentEmail());
-            pst.setString(5,newStudent.getStudentTel());
-            pst.setString(6,newStudent.getStudentGender());
-            pst.setString(7,newStudent.getStudentName());
-            pst.setString(8,newStudent.getStudentSchool());
-            pst.setInt(9,newStudent.getClassID());
-            pst.setInt(10,newStudent.getTeacherID());
+            pst.setString(1, newStudent.getStudentIdentify());
+            pst.setString(2,
+                    MD5HashHelper.encryptPassword(newStudent.getStudentPassword()));
+            pst.setString(3,newStudent.getStudentEmail());
+            pst.setString(4,newStudent.getStudentTel());
+            pst.setString(5,newStudent.getStudentGender());
+            pst.setString(6,newStudent.getStudentName());
+            pst.setString(7,newStudent.getStudentSchool());
+            pst.setInt(8,newStudent.getClassID());
+            pst.setInt(9,newStudent.getTeacherID());
 
             int rowsAffected = pst.executeUpdate();  // 执行语句
 
@@ -218,5 +220,30 @@ public class StudentDao {
             closeResource(resultSet, pst);
         }
         return false;
+    }
+    /**
+     * 查询所有学生邮箱。
+     * @return 若查询成功则返回字符串数组。否则，返回null。
+     */
+    public ArrayList selectStudentEmail() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        try {
+            String sql = "SELECT StudentEmail FROM Student";
+            conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
+            // 创建PreparedStatement执行SQL语句
+            pst = conn.prepareStatement(sql);  // 预处理语句
+            resultSet = pst.executeQuery();  // 执行语句
+
+            while (resultSet.next()) {
+                // 将字符串对象添加进arrayList当中
+                arrayList.add(resultSet.getString("StudentEmail"));
+            }
+            return arrayList;
+        }catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            closeResource(resultSet, pst);
+        }
     }
 }

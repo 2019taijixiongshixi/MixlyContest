@@ -1,7 +1,5 @@
 package com.makerpanda.MixlyContest.datamodel;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
-
 import java.io.Serializable;
 
 public class Project implements Serializable {

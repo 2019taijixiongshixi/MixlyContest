@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import static com.makerpanda.MixlyContest.DBHelper.closeResource;
 
-public class ProjectDao {
+public class ProjectDAO {
     // 数据及库连接对象
     private static Connection conn = null;
     // PreparedStatement对象用来执行SQL语句
