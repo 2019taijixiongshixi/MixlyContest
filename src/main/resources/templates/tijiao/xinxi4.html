@@ -39,7 +39,7 @@
     <a href="xinxi3">
         <button type="button" style="background-color:#33CCFF" class="btn btn-success btn-circle btn-x2"><strong>三、作品程序说明</strong><br><br>1.硬件电路图<br>2.程序流程图<br>3.代码模块图<br></button></a> <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi4">
-        <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>四、结构说明</strong><br><br>1.其他结构图<br>2.使用器材说明<br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+        <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>四、结构说明</strong><br><br>1.作品结构图<br>2.使用器材说明<br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi5">
         <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>五、作品演示视频</strong><br><br><br><br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi6">
@@ -56,7 +56,7 @@
                             <h1><strong>四、结构说明</strong></h1>
                             <div class="description">
                             	<p>
-                                    (需要上传1.其他结构图、2.使用器材说明)
+                                    (需要上传1.作品结构图、2.使用器材说明)
                             	</p>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
 <a href="xinxi3">
 <button type="button" style="" class="btn btn-success btn-circle btn-xl">3</button></a> <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>  
 <a href="xinxi4">
-<button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-xl">4</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr> 
+<button type="button" style="background-color:#34ffee" class="btn btn-info btn-circle btn-xl">4</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
 <a href="xinxi5">
 <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-xl">5</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
 <a href="xinxi6">
@@ -78,6 +78,10 @@
 <br>
 <br>
                     <div class="form-bottom">
+                        <p><button class="btn" style="width: 1090px" onclick="openShutManager(this,'box',false,'点此收起案例图演示','点此展开案例图演示')">点此展开案例图演示</button></p>
+                    </div>
+
+                    <div  id="box" class="form-bottom" style="display: none">
                         <div id="myCarousel" class="carousel slide">
                             <!-- 轮播（Carousel）指标 -->
                             <ol class="carousel-indicators">
@@ -88,18 +92,24 @@
                             <div class="carousel-inner">
                                 <div class="item active">
                                     <p style="text-align: center">外部结构图实例:(点击图片查看具体制作教程)</p>
-                                    <a href="xinxi3"><img src="../../static/assets/Uploads/1.png" alt="First slide"></a>
+                                    <a href="xinxi3"><img src="../../static/assets/Uploads/tu7.png" alt="First slide"></a>
                                 </div>
                                 <div class="item">
                                     <p style="text-align: center">激光切割图实例:(点击图片查看具体制作教程)</p>
-                                    <a href="xinxi3"><img src="../../static/assets/Uploads/1.png" alt="Second slide"></a>
+                                    <a href="xinxi3"><img src="../../static/assets/Uploads/tu8.png" alt="Second slide"></a>
                                 </div>
                             </div>
                             <!-- 轮播（Carousel）导航 -->
                             <a class="carousel-control left" href="#myCarousel"
                                data-slide="prev">&lsaquo;</a>
                             <a class="carousel-control right" href="#myCarousel"
-                               data-slide="next">&rsaquo;</a></div>
+                               data-slide="next">&rsaquo;</a>
+                        </div>
+                        <br>
+                        <div style="text-align:center;">
+                            <button class="btn slide-one" style="width: 340px" value="外部结构图">外部结构图</button>
+                            <button class="btn slide-two" style="width: 340px" value="激光切割图">激光切割图</button>
+                        </div>
                     </div>
                     <br>
 
@@ -110,22 +120,21 @@
                     <div class="col-sm-6 col-sm-offset-3 form-box" style="" >
                         <div class="form-top">
                             <div class="form-top-left">
-                                <h3>1.其他结构图(如果没有其他结构图，可以不选择提交)</h3>
-                                <p>(可以添加的其他结构图:外部结构图;平面草图(1-3张，三视图); 3D模型图(三维模型设计图):或3D打印成品图(1-3张); 激光切割图(1-3张))</p>
+                                <h3>1.作品结构图(如果没有作品结构图，可以不选择提交)</h3>
+                                <p>(可以添加的作品结构图:外部结构图(1张);平面草图(1-3张，三视图); 3D模型图(1张，三维模型设计图):或3D打印成品图(1-3张); 激光切割图(1-3张))</p>
                             </div>
                             <div class="form-top-right">
-                                <i class="fa fa-key"></i>
+                                <img src="../../static/assets/images/bi.jpg">
                             </div>
                         </div>
                         <div class="form-bottom">
                             <form action="liucheng.php" method="post" enctype="multipart/form-data">
-                                <label for="select">其他结构图(图片大小不超过2M)</label>
-                                <input type="file" name="uploadImg" id="select" value="请选择所设计其他结构图"/>
+                                <label for="select">作品结构图(图片大小不超过2M)</label>
+                                <input type="file" name="file7" id="file7" accept="image/*" onchange ="imgChange7(this);"/> <!--文件上传选择按钮-->
                                 <br>
-                                <img src="../../static/assets/Uploads/1.png" width="3000px" alt="其他结构图(未上传)" />
-                                <br>
-                                <br>
+                                <img id="img7" src="" alt="作品结构图(未上传)"/> <!--图片显示位置-->
 
+                                <br>
                                 <button type="submit" class="btn">确认</button>
                             </form>
 
@@ -144,7 +153,7 @@
                                 </p>
                             </div>
                             <div class="form-top-right">
-                                <i class="fa fa-key"></i>
+                                <img src="../../static/assets/images/bi.jpg">
                             </div>
                         </div>
                         <div class="form-bottom">
@@ -156,10 +165,6 @@
                         </div>
                     </div>
                 </div>
-
-
-                    
-                    
                     
                 </div>
             </div>

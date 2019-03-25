@@ -39,7 +39,7 @@
     <a href="xinxi3">
         <button type="button" style="background-color:#33CCFF" class="btn btn-success btn-circle btn-x2"><strong>三、作品程序说明</strong><br><br>1.硬件电路图<br>2.程序流程图<br>3.代码模块图<br></button></a> <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi4">
-        <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>四、结构说明</strong><br><br>1.其他结构图<br>2.使用器材说明<br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+        <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>四、结构说明</strong><br><br>1.作品结构图<br>2.使用器材说明<br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi5">
         <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>五、作品演示视频</strong><br><br><br><br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi6">
@@ -76,7 +76,7 @@
 <a href="xinxi2">
 <button type="button" style="" class="btn btn-primary btn-circle btn-xl">2</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>  
 <a href="xinxi3">
-<button type="button" style="background-color:#33CCFF" class="btn btn-success btn-circle btn-xl">3</button></a> <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>  
+<button type="button" style="background-color:#34ffee" class="btn btn-success btn-circle btn-xl">3</button></a> <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
 <a href="xinxi4">
 <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-xl">4</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr> 
 <a href="xinxi5">
@@ -85,9 +85,11 @@
 <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-xl">6</button></a>
 <br>
 <br>
-
                     <div class="form-bottom">
+                        <p><button class="btn" style="width: 1090px" onclick="openShutManager(this,'box',false,'点此收起案例图演示','点此展开案例图演示')">点此展开案例图演示</button></p>
+                    </div>
 
+                    <div  id="box" class="form-bottom" style="display: none">
                         <div id="myCarousel" class="carousel slide">
                             <!-- 轮播（Carousel）指标 -->
                             <ol class="carousel-indicators">
@@ -99,22 +101,29 @@
                             <div class="carousel-inner">
                                 <div class="item active">
                                     <p style="text-align: center">硬件电路图实例:(点击图片查看具体制作教程)</p>
-                                    <a href="xinxi3"><img src="../../static/assets/Uploads/1.png" alt="First slide"></a>
+                                    <a href="xinxi3"><img src="../../static/assets/Uploads/tu4.png" alt="First slide"></a>
                                 </div>
-                                <div class="item">
+                                <div class="item" style="text-align: center">
                                     <p style="text-align: center">流程图实例:(点击图片查看具体制作教程)</p>
-                                    <a href="xinxi3"><img src="../../static/assets/Uploads/1.png" alt="Second slide"></a>
+                                    <a href="xinxi3"><img style="margin: 0 auto" src="../../static/assets/Uploads/tu5.png" alt="Third slide"></a>
                                 </div>
-                                <div class="item">
+                                <div class="item" style="text-align: center">
                                     <p style="text-align: center">代码模块图实例:(点击图片查看具体制作教程)</p>
-                                    <a href="xinxi3"><img src="../../static/assets/Uploads/1.png" alt="Third slide"></a>
+                                    <a href="xinxi3"><img style="margin: 0 auto" src="../../static/assets/Uploads/tu6.png" alt="Fourth slide"></a>
                                 </div>
                             </div>
                             <!-- 轮播（Carousel）导航 -->
                             <a class="carousel-control left" href="#myCarousel"
                                data-slide="prev">&lsaquo;</a>
                             <a class="carousel-control right" href="#myCarousel"
-                               data-slide="next">&rsaquo;</a></div>
+                               data-slide="next">&rsaquo;</a>
+                        </div>
+                        <br>
+                        <div style="text-align:center;">
+                            <button class="btn slide-one" style="width: 340px" value="硬件电路图">硬件电路图</button>
+                            <button class="btn slide-two" style="width: 340px" value="流程图">流程图</button>
+                            <button class="btn slide-three" style="width: 340px" value="代码模块图">代码模块图</button>
+                        </div>
                     </div>
                     <br>
 
@@ -127,21 +136,20 @@
                                     <p>(1-2张，硬件设备的电路连接图)</p>
                                 </div>
                                 <div class="form-top-right">
-                                    <i class="fa fa-key"></i>
+                                    <img src="../../static/assets/images/bi.jpg">
                                 </div>
                             </div>
                             <div class="form-bottom">
                                 <form action="liucheng.php" method="post" enctype="multipart/form-data">
                                     <label for="select">硬件电路图(图片大小不超过2M)</label>
-                                    <input type="file" name="uploadImg" id="select" value="请选择所设计硬件电路图"/>
+                                    <input type="file" name="file4" id="file4" accept="image/*" onchange ="imgChange4(this);"/> <!--文件上传选择按钮-->
                                     <br>
-                                    <img src="../../static/assets/Uploads/1.png" width="3000px" alt="硬件电路图(未上传)" />
-                                    <br>
-                                    <br>
+                                    <img id="img4" src="" alt="硬件电路图(未上传)"/> <!--图片显示位置-->
 
+                                    <br>
+                                    <br>
                                     <button type="submit" class="btn">确认</button>
                                 </form>
-
 
                             </div>
                         </div>
@@ -151,21 +159,21 @@
                         <div class="form-top">
                             <div class="form-top-left">
                                 <h3>2.流程图</h3>
-                                <p>(1-2张，提炼步骤、理清流程、判断分支)</p>
+                                <p>(1-2张，提炼步骤、梳理流程、判断分支)</p>
                             </div>
                             <div class="form-top-right">
-                                <i class="fa fa-key"></i>
+                                <img src="../../static/assets/images/bi.jpg">
                             </div>
                         </div>
                         <div class="form-bottom">
                             <form action="liucheng.php" method="post" enctype="multipart/form-data">
                                 <label for="select">流程图(图片大小不超过2M)</label>
-                                <input type="file" name="uploadImg" id="select" value="请选择所设计流程图"/>
+                                <input type="file" name="file5" id="file5" accept="image/*" onchange ="imgChange5(this);"/> <!--文件上传选择按钮-->
                                 <br>
-                                <img src="../../static/assets/Uploads/1.png" width="3000px" alt="流程图(未上传)" />
-                                <br>
-                                <br>
+                                <img id="img5" src="" alt="流程图(未上传)"/> <!--图片显示位置-->
 
+                                <br>
+                                <br>
                                 <button type="submit" class="btn">确认</button>
                             </form>
 
@@ -181,18 +189,18 @@
                                 <p>(1-2张，Mixly代码模块图)</p>
                             </div>
                             <div class="form-top-right">
-                                <i class="fa fa-key"></i>
+                                <img src="../../static/assets/images/bi.jpg">
                             </div>
                         </div>
                         <div class="form-bottom">
                             <form action="liucheng.php" method="post" enctype="multipart/form-data">
                                 <label for="select">代码模块图(图片大小不超过2M)</label>
-                                <input type="file" name="uploadImg" id="select" value="请选择所设计代码模块图"/>
+                                <input type="file" name="file6" id="file6" accept="image/*" onchange ="imgChange6(this);"/> <!--文件上传选择按钮-->
                                 <br>
-                                <img src="../../static/assets/Uploads/1.png" width="3000px" alt="代码模块图(未上传)" />
-                                <br>
-                                <br>
+                                <img id="img6" src="" alt="代码模块图(未上传)"/> <!--图片显示位置-->
 
+                                <br>
+                                <br>
                                 <button type="submit" class="btn">确认</button>
                             </form>
 

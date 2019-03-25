@@ -17,7 +17,7 @@ body a{
 }
 /*----navbar-nav----*/
 .top-header{
-	background:#6380b3;
+	background:#41a4de;
 	position:relative;
 	width:91%;
 	 margin: 0 auto;
@@ -2450,7 +2450,7 @@ text-transform: uppercase;
 }
 @media(max-width:1366px){
 	.top-header{
-	background:#6380b3;
+	background:#41a4de;
 	position:relative;
 	width:90%;
 	 margin: 0 auto;
@@ -2717,7 +2717,7 @@ right: 4%;
 	min-height: 340px;
 	}
 	.top-header {
-	background: #6380b3;
+	background: #41a4de;
 	position: relative;
 	width: 88%;
 	}

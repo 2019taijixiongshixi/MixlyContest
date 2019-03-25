@@ -39,7 +39,7 @@
     <a href="xinxi3">
         <button type="button" style="background-color:#33CCFF" class="btn btn-success btn-circle btn-x2"><strong>三、作品程序说明</strong><br><br>1.硬件电路图<br>2.程序流程图<br>3.代码模块图<br></button></a> <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi4">
-        <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>四、结构说明</strong><br><br>1.其他结构图<br>2.使用器材说明<br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+        <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>四、结构说明</strong><br><br>1.作品结构图<br>2.使用器材说明<br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi5">
         <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>五、作品演示视频</strong><br><br><br><br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi6">
@@ -72,17 +72,32 @@
 <a href="xinxi4">
 <button type="button" style="" class="btn btn-info btn-circle btn-xl">4</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr> 
 <a href="xinxi5">
-<button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-xl">5</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+<button type="button" style="background-color:#34ffee" class="btn btn-info btn-circle btn-xl">5</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
 <a href="xinxi6">
 <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-xl">6</button></a>
 <br>
 <br>
 
-                    <br>
+                <div class="form-bottom">
+                    <p><button class="btn" style="width: 1090px" onclick="openShutManager(this,'box',false,'点此收起案例视频演示','点此展开案例视频演示')">点此展开案例视频演示</button></p>
                 </div>
 
+                <div  id="box" class="form-bottom" style="display: none">
+                    作品视频地址链接"https://v.youku.com/v_show/id_XNDEwMzIzMDcyMA==.html"
+                <embed
+                        src='http://player.youku.com/player.php/sid/XMzczMjAyODgzMg==/v.swf'
+                        allowFullScreen='true'
 
+                        quality='high'
+                        width='1090px'
+                        height='650px'
+                        align='middle'
+                        allowScriptAccess='always'
+                        type='application/x-shockwave-flash'>
+                </embed>
 
+            </div>
+                </div>
                 <div class="row" id="4">
                     <div class="col-sm-6 col-sm-offset-3 form-box" style="" >
                         <div class="form-top">
@@ -91,7 +106,7 @@
                                 <p>(请将制作视频上传到优酷或其他视频软件，并在下方给出演示视频的地址链接)</p>
                             </div>
                             <div class="form-top-right">
-                                <i class="fa fa-key"></i>
+                                <img src="../../static/assets/images/bi.jpg">
                             </div>
                         </div>
                         <div class="form-bottom">
@@ -123,8 +138,8 @@
         <script src="../../static/assets/js/scripts.js"></script>
         <script src="../../static/assets/js/html5shiv.js"></script>
         <script src="../../static/assets/js/respond.min.js"></script>
-        <!--[if lt IE 10]>
-        <script src="../../static/assets/js/placeholder.js"></script>
+        <script src="../../static/assets/js/videoplus.js"></script>
+
         <![endif]-->
 
     </body>

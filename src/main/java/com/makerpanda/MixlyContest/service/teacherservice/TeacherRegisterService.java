@@ -17,7 +17,7 @@ public class TeacherRegisterService {
      */
     public static void main(String[] args) {
         Teacher teacher=new Teacher();
-        teacher.setTeacherID(10);
+        teacher.setTeacherID(11);
         teacher.setTeacherIdentify("1234567");
         teacher.setTeacherName("teacher");
         teacher.setTeachersProfessionalTitle("100");

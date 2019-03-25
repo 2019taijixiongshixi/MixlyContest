@@ -39,7 +39,7 @@
     <a href="xinxi3">
         <button type="button" style="background-color:#33CCFF" class="btn btn-success btn-circle btn-x2"><strong>三、作品程序说明</strong><br><br>1.硬件电路图<br>2.程序流程图<br>3.代码模块图<br></button></a> <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi4">
-        <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>四、结构说明</strong><br><br>1.其他结构图<br>2.使用器材说明<br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+        <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>四、结构说明</strong><br><br>1.作品结构图<br>2.使用器材说明<br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi5">
         <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>五、作品演示视频</strong><br><br><br><br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi6">
@@ -74,7 +74,7 @@
                     <a href="xinxi1">
 <button type="button" style="" class="btn btn-default btn-circle btn-xl">1</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr> 
 <a href="xinxi2">
-<button type="button" style="background-color:#33CCFF" class="btn btn-primary btn-circle btn-xl">2</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>  
+<button type="button" style="background-color:#34ffee" class="btn btn-primary btn-circle btn-xl">2</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
 <a href="xinxi3">
 <button type="button" style="background-color:#33CCFF" class="btn btn-success btn-circle btn-xl">3</button></a> <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>  
 <a href="xinxi4">
@@ -86,8 +86,12 @@
   <br>
 <br>
 
-                    <div class="form-bottom">
 
+                    <div class="form-bottom">
+                        <p><button class="btn" style="width: 1090px" onclick="openShutManager(this,'box',false,'点此收起案例图演示','点此展开案例图演示')">点此展开案例图演示</button></p>
+                    </div>
+
+                    <div id="box" class="form-bottom" style="display: none">
                     <div id="myCarousel" class="carousel slide">
                         <!-- 轮播（Carousel）指标 -->
                         <ol class="carousel-indicators">
@@ -99,26 +103,38 @@
                         <div class="carousel-inner">
                             <div class="item active">
                                 <p style="text-align: center">作品整体图实例:(点击图片查看具体制作教程)</p>
-                                <a href="xinxi3"><img src="../../static/assets/Uploads/1.png" alt="First slide"></a>
+                                <a href="xinxi3"><img src="../../static/assets/Uploads/tu1.png" alt="First slide"></a>
                             </div>
                             <div class="item">
                                 <p style="text-align: center">作品细节图实例:(点击图片查看具体制作教程)</p>
-                                <a href="xinxi3"><img src="../../static/assets/Uploads/1.png" alt="Second slide"></a>
+                                <a href="xinxi3"><img src="../../static/assets/Uploads/tu1.png" alt="Second slide"></a>
                             </div>
                             <div class="item">
                                 <p style="text-align: center">思维导图实例:(点击图片查看具体制作教程)</p>
-                                <a href="xinxi3"><img src="../../static/assets/Uploads/1.png" alt="Third slide"></a>
+                                <a href="xinxi3"><img src="../../static/assets/Uploads/tu3.png" alt="Third slide"></a>
                             </div>
                         </div>
                         <!-- 轮播（Carousel）导航 -->
                         <a class="carousel-control left" href="#myCarousel"
                            data-slide="prev">&lsaquo;</a>
                         <a class="carousel-control right" href="#myCarousel"
-                           data-slide="next">&rsaquo;</a></div>
+                           data-slide="next">&rsaquo;</a>
+
+                    </div>
+                        <br>
+                        <div style="text-align:center;">
+                            <button class="btn slide-one" style="width: 340px" value="作品整体图">作品整体图</button>
+                            <button class="btn slide-two" style="width: 340px" value="作品细节图">作品细节图</button>
+                            <button class="btn slide-three" style="width: 340px" value="思维导图">思维导图</button>
+                        </div>
                 </div>
                     <br>
                 </div>
-                    <div class="row" id="2">
+
+
+
+
+                <div class="row" id="2">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                             <div class="form-top">
                                 <div class="form-top-left">
@@ -126,29 +142,31 @@
                                     <p>(项目展示图包括一张作品整体图、一张作品细节图、一张全队成员与作品的合照图片，页面下方有实例图展示，并提供制作教程链接)</p>
                                 </div>
                                 <div class="form-top-right">
-                                    <i class="fa fa-key"></i>
+                                    <img src="../../static/assets/images/bi.jpg">
                                 </div>
                             </div>
                             <div class="form-bottom">
                                 <form action="liucheng.php" method="post" enctype="multipart/form-data">
                                     <label for="select">作品整体图(图片大小不超过2M)</label>
-                                    <input type="file" name="uploadImg" id="select" value="请选择所设计作品整体图"/>
+                                    <input type="file" name="file1" id="file1" accept="image/*" onchange ="imgChange1(this);"/> <!--文件上传选择按钮-->
                                     <br>
-                                    <img src="../../static/assets/Uploads/1.png" width="3000px" alt="作品整体图(未上传)" />
+                                    <img id="img1" src="" alt="作品整体图(未上传)"/> <!--图片显示位置-->
+
                                     <br>
                                     <br>
                                     <br>
                                     <label for="select">作品细节图(图片大小不超过2M)</label>
-                                    <input type="file" name="uploadImg" id="select" value="请选择所设计作品细节图"/>
+                                    <input type="file" name="file2" id="file2" accept="image/*" onchange ="imgChange2(this);"/>
                                     <br>
-                                    <img src="../../static/assets/Uploads/1.png" width="3000px" alt="作品细节图(未上传)" />
+                                    <img id="img2" src="" alt="作品细节(未上传)"/>
+
                                     <br>
                                     <br>
                                     <br>
                                     <label for="select">成员与作品合照图(图片大小不超过2M)</label>
-                                    <input type="file" name="uploadImg" id="select" value="成员与作品合照图"/>
+                                    <input type="file" name="file3" id="file3" accept="image/*" onchange ="imgChange3(this);"/>
                                     <br>
-                                    <img src="../../static/assets/Uploads/1.png" width="3000px" alt="成员与作品合照图(未上传)" />
+                                    <img id="img3" src="" width="3000px" alt="成员与作品合照图(未上传)" />
                                     <br>
                                     <br>
                                     <button type="submit" class="btn">确认</button>
@@ -168,18 +186,20 @@
                             <p>(1-2张，展示项目的思路，体现出：创意收集，目标分析，层次递进，方案要素)</p>
                         </div>
                         <div class="form-top-right">
-                            <i class="fa fa-key"></i>
+                            <img src="../../static/assets/images/bi.jpg">
                         </div>
                     </div>
                     <div class="form-bottom">
                         <form action="liucheng.php" method="post" enctype="multipart/form-data">
-                            <label for="select">思维导图(图片大小不超过2M)</label>
-                            <input type="file" name="uploadImg" id="select" value="请选择所设计的思维导图"/>
+                            <label for="select">思维导图(至少选择一张，最多选择两张图片，每张图片大小不超过2M。注:点击选择文件后可同时选择两张图片)</label>
+                            <input value="可同时最多选择两张图" multiple="multiple" type="file" name="file8" id="file8" accept="image/*" onchange ="imgChange8(this);"/> <!--文件上传选择按钮-->
                             <br>
-                            <img src="../../static/assets/Uploads/1.png" width="3000px" alt="思维导图(未上传)" />
+                            <img id="img8" src="" alt="思维导图1(未上传)"/> <!--图片显示位置-->
                             <br>
                             <br>
-
+                            <img id="img8.1" src="" alt="思维导图2(未上传)"/>
+                            <br>
+                            <br>
                             <button type="submit" class="btn">确认</button>
                         </form>
                     </div>
@@ -194,7 +214,7 @@
                             <p> (请说明作品的创意思路：解决了什么实际问题，有什么发现，优化了什么方案。)</p>
                         </div>
                         <div class="form-top-right">
-                            <i class="fa fa-key"></i>
+                            <img src="../../static/assets/images/bi.jpg">
                         </div>
                     </div>
                     <div class="form-bottom">
@@ -211,10 +231,10 @@
                         <div class="form-top">
                             <div class="form-top-left">
                                 <h3>4.比赛心得(字数不超过1000个字)</h3>
-                                <p> (总价评价心得感受：回顾创作历程，突破了什么挑战，收获了什么友谊， 有了什么新的认识或感悟，团队成员做的怎么样， 老师给予了什么样的帮助，意识到什么不足，还有什么有待提高的。)</p>
+                                <p> (总结评价心得感受：回顾创作历程，突破了什么挑战，收获了什么友谊， 有了什么新的认识或感悟，团队成员做的怎么样， 老师给予了什么样的帮助，意识到什么不足，还有什么有待提高的。)</p>
                             </div>
                             <div class="form-top-right">
-                                <i class="fa fa-key"></i>
+                                <img src="../../static/assets/images/bi.jpg">
                             </div>
                         </div>
                         <div class="form-bottom">
@@ -245,6 +265,7 @@
         <script src="../../static/assets/js/respond.min.js"></script>
         <!--[if lt IE 10]>
         <script src="../../static/assets/js/placeholder.js"></script>
+
         <![endif]-->
 
     </body>

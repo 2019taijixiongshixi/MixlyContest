@@ -28,6 +28,8 @@ public class PageSkippingContoller {
     public String zhuce(Model model) { return "zhuce/zhuce.html"; }
     @RequestMapping(path={"/login"})
     public String login(Model model) {return "login/login.html";}
+    @RequestMapping(path={"/getmima"})
+    public String getmima(Model model) {return "login/getmima.html";}
     @RequestMapping(path={"/index"})
     public String index(Model model) {return "shouye/index.html";}
     @RequestMapping(path={"/about"})
@@ -38,7 +40,21 @@ public class PageSkippingContoller {
     public String blog(Model model) {return "shouye/ziliao.html";}
     @RequestMapping(path={"/chuangke"})
     public String contract(Model model) {return "shouye/chuangke.html";}
-    @RequestMapping(path={"/account"})
-    public String account(Model model) {return "shouye/account.html";}
+    @RequestMapping(path={"/dashboard"})
+    public String dashboard(Model model) {return "master/examples/dashboard.html";}
+    @RequestMapping(path={"/icons"})
+    public String icons(Model model) {return "master/examples/icons.html";}
+    @RequestMapping(path={"/map"})
+    public String map(Model model) {return "master/examples/map.html";}
+    @RequestMapping(path={"/notifications"})
+    public String notifications(Model model) {return "master/examples/notifications.html";}
+    @RequestMapping(path={"/tables"})
+    public String tables(Model model) {return "master/examples/tables.html";}
+    @RequestMapping(path={"/typography"})
+    public String typography(Model model) {return "master/examples/typography.html";}
+    @RequestMapping(path={"/upgrades"})
+    public String upgrades(Model model) {return "master/examples/upgrades.html";}
+    @RequestMapping(path={"/user"})
+    public String user(Model model) {return "master/examples/user.html";}
 
 }
