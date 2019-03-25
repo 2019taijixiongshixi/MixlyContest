@@ -38,6 +38,7 @@ public class TeacherRegisterController {
                 return "zhuce/jzhuce.html";
             case 2://邮箱已注册
                 modelMap.addAttribute("mailError", "邮箱已注册");
+                return "zhuce/jzhuce.html";
             case 3:  //系统错误
                 modelMap.addAttribute("systemError", "系统错误");
                 return "zhuce/jzhuce.html";
