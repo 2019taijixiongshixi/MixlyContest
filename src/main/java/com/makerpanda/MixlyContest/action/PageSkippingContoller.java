@@ -20,18 +20,12 @@ public class PageSkippingContoller {
     public String xinxi5(Model model) { return "tijiao/xinxi5.html"; }
     @RequestMapping(path = {"/xinxi6"})
     public String xinxi6(Model model) { return "tijiao/xinxi6.html"; }
-    @RequestMapping(path = {"/jzhuce"})
-    public String jzhuce(Model model) { return "zhuce/jzhuce.html"; }
-    @RequestMapping(path = {"/xzhuce"})
-    public String xzhuce(Model model) { return "zhuce/xzhuce.html"; }
     @RequestMapping(path = {"/zhuce"})
     public String zhuce(Model model) { return "zhuce/zhuce.html"; }
     @RequestMapping(path={"/login"})
     public String login(Model model) {return "login/login.html";}
     @RequestMapping(path={"/getmima"})
     public String getmima(Model model) {return "login/getmima.html";}
-    @RequestMapping(path={"/index"})
-    public String index(Model model) {return "shouye/index.html";}
     @RequestMapping(path={"/about"})
     public String about(Model model) {return "shouye/about.html";}
     @RequestMapping(path={"/"})

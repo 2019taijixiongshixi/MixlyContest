@@ -6,6 +6,7 @@ import com.makerpanda.MixlyContest.service.teacherservice.TeacherRegisterService
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,33 +16,34 @@ public class TeacherRegisterController {
     @RequestMapping(path = { "/jzhuce"})
     public String TeacherRegister(Model model) {
         model.addAttribute("teacher", new Teacher());
-        return "zhuce/jzhuce.html";
-    }
-    @RequestMapping(value = "/jzhuce", method = RequestMethod.GET)
-    public void getVerificationCode(@ModelAttribute("email")String Email){
-        MailUtil.getVerificationCode(Email);
+        return "zhuce/jzhuce";
     }
 
     @RequestMapping(value = "/jzhuce", method = RequestMethod.POST)
-    public String registerAction(@ModelAttribute("teacher") Teacher newteacher,@ModelAttribute("code")String Code, ModelMap modelMap) {
+    public String registerAction(@ModelAttribute("teacher") Teacher teacher,
+                                 @CookieValue("email") String email ,
+                                 @ModelAttribute("code")String Code, ModelMap modelMap) {
+        teacher.setTeacherEmail(email);
+        if(!teacher.getTeacherGender().equals("男"))
+            teacher.setTeacherGender("女");
         int verifyCode;
 
-        verifyCode=TeacherRegisterService.TeacherRegister(newteacher,Code);
+        verifyCode=TeacherRegisterService.TeacherRegister(teacher,Code);
 
         switch (verifyCode) {
             default:
-                return "shouye/404.html";
+                return "shouye/404";
             case 0:  // 注册成功
-                return "login/login2.html";
+                return "login/login2";
             case 1:  // 验证码错误
                 modelMap.addAttribute("codeError", "对不起，您输入的验证码有误");
-                return "zhuce/jzhuce.html";
+                return "zhuce/jzhuce";
             case 2://邮箱已注册
                 modelMap.addAttribute("mailError", "邮箱已注册");
-                return "zhuce/jzhuce.html";
+                return "zhuce/jzhuce";
             case 3:  //系统错误
                 modelMap.addAttribute("systemError", "系统错误");
-                return "zhuce/jzhuce.html";
+                return "zhuce/jzhuce";
         }
     }
 }
