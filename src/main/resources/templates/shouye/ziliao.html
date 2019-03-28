@@ -3,6 +3,7 @@
 	<head>
 		<title> 米思齐创客创意电子编程大赛 </title>
 		<link href="../../static/assets/css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" href="../../static/assets/bootstrap/css/bootstrap.min.css">
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		 <!-- Custom Theme files -->
 		<link href="../../static/assets/css/shouyestyle.css" rel='stylesheet' type='text/css' />
@@ -13,14 +14,112 @@
 		<meta name="keywords" content="Snow Skating Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
 		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"
 		/>
+<style type="text/css">.live {
+	overflow: hidden;
+}
+.live > li {
+	list-style: none;
+	position: relative;
+	padding: 0 0 0 2em;
+	margin: 0 0 .5em 10px;
+	-webkit-transition: .12s;
+	transition: .12s;
+}
+.live > li::before {
+	position: absolute;
+	content: '\2022';
+	font-family: Arial;
+	color: #FFF;
+	top: 0;
+	left: 0;
+	text-align: center;
+	font-size: 2em;
+	opacity: .5;
+	line-height: .75;
+	-webkit-transition: .5s;
+	transition: .5s;
+}
+.live > li:hover {
+	color: #FFF;
+}
+.live > li:hover::before {
+	-webkit-transform: scale(2);
+	-ms-transform: scale(2);
+	transform: scale(2);
+	opacity: 1;
+	text-shadow: 0 0 4px;
+	-webkit-transition: .1s;
+	transition: .1s;
+}
+.live.type2 > li::before {
+	content: '';
+	width: 10px;
+	height: 10px;
+	background: #FFF;
+	border-radius: 3px;
+	line-height: 0;
+	top: .27em;
+	left: 5px;
+}
+.live.type2 > li:hover::before {
+	-webkit-transform: none;
+	-ms-transform: none;
+	transform: none;
+	border-radius: 5px;
+	width: 25px;
+	left: -10px;
+	background: #BA5353;
+}
 
+.live.numbers {
+	counter-reset: xxx 0;
+}
+.live.numbers > li::before {
+	content: counter(xxx,decimal) ".";
+	counter-increment: xxx 1;
+	font-family: 'Roboto Condensed';
+	font-size: 1em;
+	opacity: .5;
+	line-height: 1.4;
+	-webkit-transition: .5s;
+	transition: .5s;
+}
+.live.numbers > li:hover:before {
+	opacity: 1;
+	left: -10px;
+	-webkit-transform: none;
+	-ms-transform: none;
+	transform: none;
+	text-shadow: none;
+	-webkit-transition: .12s;
+	transition: .12s;
+}
+
+
+* {
+	-moz-box-sizing: padding-box;
+	box-sizing: padding-box;
+}
+ .ull{
+	width: 28%;
+	display: inline-block;
+	text-align: left;
+	vertical-align: top;
+	background: rgba(0, 0, 0, 0.2);
+	color: rgba(255, 255, 255, 0.5);
+	border-radius: 5px;
+	padding: 0.5em;
+	margin: 2%;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+</style>
 		<!--//End-top-nav-script-->
 	</head>
-	<body>
+	<body style="background-color: #FFFDF4">
 		<!-- start-header-->
-			<div class="header-top">
+			<div style="background-color: #D4AC8D"class="header-top">
 				<div class="container">
-					<div class="top-header">
+					<div style="background-color: #D4AC8D" class="top-header">
 						<div class="logo">
 							<a href="index.html"><img src="../../static/assets/images/logo.png" alt=""></a>
 						</div>
@@ -47,12 +146,16 @@
 				<div class="blog-content">
 					<div class="container">
 						<div class="blog-content-left">
+
+
+
+
 							<div class="blog-articals">
 								<div class="blog-artical">
 									<div class="blog-artical-basicinfo">
 										<ul>
 											<li class="post-date"><p><span>Mixly</span><label>软件介绍</label></p></li>
-											<div class="clearfix"> </div>
+
 										</ul>
 									</div>
 									<div class="blog-artical-info">
@@ -65,17 +168,43 @@
 										<div class="blog-artical-info-img">
 											<a href="blog-inner.html" class="mask"><img src="../../static/assets/images/blog1.jpg" alt="image" class="img-responsive zoom-img"></a>
 										</div>
+										<br>
+										<div id="myCarousel" class="carousel slide">
+											<!-- 轮播（Carousel）指标 -->
+
+											<!-- 轮播（Carousel）项目 -->
+											<div class="carousel-inner">
+												<div class="item active">
+													<p style="text-align: center">可视模块</p>
+													<a href="xinxi3"><img src="../../static/assets/images/mokuai.png" alt="First slide"></a>
+												</div>
+												<div class="item">
+													<p style="text-align: center">程序代码</p>
+													<a href="xinxi3"><img src="../../static/assets/images/daima.png" alt="Second slide"></a>
+
+												</div>
+												<ul style="color: #d58512" class="live ull">
+													<li data-target="#myCarousel" data-slide-to="0" class="active">可视模块</li>
+													<li data-target="#myCarousel" data-slide-to="1">程序代码</li>
+												</ul>
+											</div>
+											<!-- 轮播（Carousel）导航 -->
+										</div>
+
+
 										<div class="blog-artical-info-head">
-											<h2><a href="blog-inner.html">Mixly:青少年编程。。。 </a></h2>
+											<h2><a href="blog-inner.html">Mixly:青少年编程工具 </a></h2>
 
 										</div>
 										<div class="blog-artical-info-text">
-											<p>介绍mixly。。。</p>
+											<p>Mixly（全称Mixly_Arduino，中文名称米思齐）是一款将图形化编程方式和代码编程方式融合在一起，为硬件编程的软件开发环境，是在北京师范大学教育学部创客教育实验室负责人傅骞老师的带领下，由其团队开发的一款基于Blockly和Java8自主研发，且免费开源的图形化编程工具。
+												目前，开源硬件Arduino中的AVR系列均可通过米思齐来开发。与Arduino的可视化编程插件ArduBlock相比，米思齐简化了Arduino IDE和ArduBlock可视化编程插件的双窗口界面，为Arduino学习者提供了更友好的编程环境。</p>
 
 										</div>
 									</div>
 									<div class="clearfix"> </div>
 								</div>
+
 
 								<div class="blog-artical">
 									<div class="blog-artical-basicinfo">
@@ -86,17 +215,17 @@
 									</div>
 									<div class="blog-artical-info">
 										<ul class="product-head">
-											<li><a href="index.html">Mixly软件下载</a> <span></span></li>
+											<li><a href="https://pan.baidu.com/s/1jIMMnv4#list/path=%2F">Mixly软件下载</a> <span></span></li>
 											<div class="clear"> </div>
 										</ul>
 										<div class="blog-artical-info-img">
-											<a href="blog-inner.html" class="mask"><img src="../../static/assets/images/blog3.jpg" alt="image" class="img-responsive zoom-img"></a>
+											<a href="https://pan.baidu.com/s/1jIMMnv4#list/path=%2F" class="mask"><img src="../../static/assets/images/blog3.jpg" alt="image" class="img-responsive zoom-img"></a>
 										</div>
 										<div class="blog-artical-info-head">
 											<h2><a href="blog-inner.html">配合Mixly使用手册可以更快速的掌握Mixly </a></h2>
 											<ul>
 
-												<li><span class="tag"> </span><a href="#">点此获取Mixly使用手册</a></li>
+												<li><span class="tag"> </span><a href="../../static/assets/word/Mixly使用手册.docx">点此获取Mixly使用手册</a></li>
 												<div class="clearfix"> </div>
 											</ul>
 										</div>
@@ -118,43 +247,43 @@
 				<!-- /Blog -->
 			</div>
 			<!--/start-footer-->
-			<div class="footer">
-				<div class="container">
-					<div class="footer-content">
-						<div class="col-md-3 footer-grid-copy-right">
-							<div class="logo-2">
-								<a href="index.html"><img src="../../static/assets/images/logo2.png" alt=""></a>
-							</div>
-
+		<div style="background-color: #B18869 " class="footer">
+			<div class="container">
+				<div class="footer-content">
+					<div class="col-md-3 footer-grid-copy-right">
+						<div class="logo-2">
+							<a href="index.html"><img src="../../static/assets/images/logo2.png" alt=""></a>
 						</div>
-						<div class="col-md-3 footer-grid">
-							<h3>Information</h3>
-							<ul class="bottom-nav">
-								<li class="active"><a href="index">主页</a></li>
-								<li><a href="about"> 关于大赛  </a></li>
-								<li><a href="ziliao"> Mixly开源资料库</a></li>
-								<li><a href="chuangke"> 创客空间</a></li>
-								<li><a href="login">注册/登录</a></li>
-								<div class="clearfix"> </div>
-
-							</ul>
-						</div>
-
 
 					</div>
-
 					<div class="col-md-3 footer-grid">
-						<h3>组织结构</h3>
-						<ul class="soc_icons2">
-							<li><a href="#"><i class="icon_4"></i><span>青协</span></a></li>
-							<li><a href="#"><i class="icon_5"></i><span>太极熊</span></a></li>
+						<h3 style="color: #d4fffa">Information</h3>
+						<ul class="bottom-nav">
+							<li class="active"><a  style="color: #d4fffa" href="index">主页</a></li>
+							<li><a  style="color: #d4fffa" href="about"> 关于大赛  </a></li>
+							<li><a style="color: #d4fffa" href="ziliao"> Mixly开源资料库</a></li>
+							<li><a style="color: #d4fffa" href="chuangke"> 创客空间</a></li>
+							<li><a style="color: #d4fffa" href="login">注册/登录</a></li>
+							<div class="clearfix"> </div>
 
 						</ul>
-
 					</div>
-					<div class="clearfix"> </div>
+
+
 				</div>
+
+				<div class="col-md-3 footer-grid">
+					<h3 style="color: #eafff8">&nbsp;&nbsp;&nbsp;&nbsp;组织结构</h3>
+					<ul class="soc_icons2">
+						<li><a href="#"><span style="color: #d4fffa">四川省青少年科技活动中心</span></a></li>
+						<li><a href="#"><span style="color: #d4fffa">四川省太极熊科技有限公司</span></a></li>
+
+					</ul>
+
+				</div>
+				<div class="clearfix"> </div>
 			</div>
+		</div>
 		<!--//End-footer-->
 
 		<script type="text/javascript">
@@ -176,6 +305,7 @@
 
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<script type="text/javascript" src="../../static/assets/js/jquery.min.js"></script>
+		<script src="../../static/assets/bootstrap/js/bootstrap.min.js"></script>
 		<!-- start-smoth-scrolling-->
 		<script type="text/javascript" src="../../static/assets/js/move-top.js"></script>
 		<script type="text/javascript" src="../../static/assets/js/easing.js"></script>

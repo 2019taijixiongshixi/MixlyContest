@@ -33,9 +33,9 @@
 
     <br>
     <a href="xinxi1">
-        <button type="button" style="background-color:#33CCFF" class="btn btn-default btn-circle btn-x2"><strong style="">一、团队与项目信息</strong><br><br><br><br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+        <button type="button" style="" class="btn btn-default btn-circle btn-x2"><strong style="">一、团队与项目信息</strong><br><br><br><br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi2">
-        <button type="button" style="background-color:#33CCFF" class="btn btn-primary btn-circle btn-x2"><strong>二、项目说明</strong><br><br>1.项目作品展示图<br>2.思维导图<br>3.作品说明<br>4.比赛心得</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+        <button type="button" style="" class="btn btn-primary btn-circle btn-x2"><strong>二、项目说明</strong><br><br>1.项目作品展示图<br>2.思维导图<br>3.作品说明<br>4.比赛心得</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi3">
         <button type="button" style="background-color:#33CCFF" class="btn btn-success btn-circle btn-x2"><strong>三、作品程序说明</strong><br><br>1.硬件电路图<br>2.程序流程图<br>3.代码模块图<br></button></a> <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi4">
@@ -67,25 +67,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <br>
-<br>
-
-<a href="xinxi1">
-<button type="button" style="" class="btn btn-default btn-circle btn-xl">1</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr> 
-<a href="xinxi2">
-<button type="button" style="" class="btn btn-primary btn-circle btn-xl">2</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>  
-<a href="xinxi3">
-<button type="button" style="background-color:#34ffee" class="btn btn-success btn-circle btn-xl">3</button></a> <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
-<a href="xinxi4">
-<button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-xl">4</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr> 
-<a href="xinxi5">
-<button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-xl">5</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
-<a href="xinxi6">
-<button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-xl">6</button></a>
-<br>
-<br>
-                    <div class="form-bottom">
+             <div class="form-bottom">
                         <p><button class="btn" style="width: 1090px" onclick="openShutManager(this,'box',false,'点此收起案例图演示','点此展开案例图演示')">点此展开案例图演示</button></p>
                     </div>
 
@@ -133,7 +115,7 @@
                             <div class="form-top">
                                 <div class="form-top-left">
                                     <h3>1.硬件电路图</h3>
-                                    <p>(1-2张，硬件设备的电路连接图)</p>
+                                    <p>(1张，硬件设备的电路连接图)</p>
                                 </div>
                                 <div class="form-top-right">
                                     <img src="../../static/assets/images/bi.jpg">
@@ -141,7 +123,7 @@
                             </div>
                             <div class="form-bottom">
                                 <form action="liucheng.php" method="post" enctype="multipart/form-data">
-                                    <label for="select">硬件电路图(图片大小不超过2M)</label>
+                                    <label for="select">硬件电路图(选择一张图片，图片大小不超过2M)</label>
                                     <input type="file" name="file4" id="file4" accept="image/*" onchange ="imgChange4(this);"/> <!--文件上传选择按钮-->
                                     <br>
                                     <img id="img4" src="" alt="硬件电路图(未上传)"/> <!--图片显示位置-->
@@ -167,11 +149,14 @@
                         </div>
                         <div class="form-bottom">
                             <form action="liucheng.php" method="post" enctype="multipart/form-data">
-                                <label for="select">流程图(图片大小不超过2M)</label>
-                                <input type="file" name="file5" id="file5" accept="image/*" onchange ="imgChange5(this);"/> <!--文件上传选择按钮-->
+                                <label for="select">流程图(至少选择一张，最多选择两张图片，每张图片大小不超过2M。注:点击选择文件后可同时选择两张图片)</label>
+                                <input value="可同时最多选择两张图" multiple="multiple" type="file" name="file5" id="file5" accept="image/*" onchange ="imgChange5(this);"/> <!--文件上传选择按钮-->
                                 <br>
                                 <img id="img5" src="" alt="流程图(未上传)"/> <!--图片显示位置-->
 
+                                <br>
+                                <br>
+                                <img id="img5.1" src="" alt="流程图2(未上传)"/>
                                 <br>
                                 <br>
                                 <button type="submit" class="btn">确认</button>
@@ -194,11 +179,14 @@
                         </div>
                         <div class="form-bottom">
                             <form action="liucheng.php" method="post" enctype="multipart/form-data">
-                                <label for="select">代码模块图(图片大小不超过2M)</label>
-                                <input type="file" name="file6" id="file6" accept="image/*" onchange ="imgChange6(this);"/> <!--文件上传选择按钮-->
+                                <label for="select">代码模块图(至少选择一张，最多选择两张图片，每张图片大小不超过2M。注:点击选择文件后可同时选择两张图片)</label>
+                                <input value="可同时最多选择两张图" multiple="multiple" type="file" name="file6" id="file6" accept="image/*" onchange ="imgChange6(this);"/> <!--文件上传选择按钮-->
                                 <br>
                                 <img id="img6" src="" alt="代码模块图(未上传)"/> <!--图片显示位置-->
 
+                                <br>
+                                <br>
+                                <img id="img6.1" src="" alt="代码模块图2(未上传)"/>
                                 <br>
                                 <br>
                                 <button type="submit" class="btn">确认</button>
