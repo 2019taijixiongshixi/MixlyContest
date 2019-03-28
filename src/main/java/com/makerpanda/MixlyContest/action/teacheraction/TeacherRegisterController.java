@@ -19,7 +19,7 @@ public class TeacherRegisterController {
         return "zhuce/jzhuce";
     }
 
-    @RequestMapping(value = "/jzhuce", method = RequestMethod.POST)
+    @RequestMapping(value = "/jzhucetijiao", method = RequestMethod.POST)
     public String registerAction(@ModelAttribute("teacher") Teacher teacher,
                                  @CookieValue("email") String email ,
                                  @ModelAttribute("code")String Code, ModelMap modelMap) {
