@@ -3,7 +3,9 @@ package com.makerpanda.MixlyContest.service.teacherservice;
 import com.makerpanda.MixlyContest.dao.TeacherDAO;
 import com.makerpanda.MixlyContest.datamodel.Teacher;
 import com.makerpanda.MixlyContest.service.verificationcodeservice.VerificationCodeService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TeacherUpdateService {
     /**
      * 教师密码修改函数。
