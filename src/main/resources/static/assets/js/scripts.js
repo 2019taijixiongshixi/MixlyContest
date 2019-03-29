@@ -105,20 +105,37 @@ function imgChange4(obj) {
 	var imgUrl =window.URL.createObjectURL(file.files[0]);
 	var img =document.getElementById('img4');
 	img.setAttribute('src',imgUrl); // 修改img标签src属性值
+
 };
 function imgChange5(obj) {
 	//获取点击的文本框
+    var files = document.getElementById("file5").files;
+    if(files.length>=3){
+        alert("最多上传两张流程图!请重新选择图片!");
+        window.location.href="xinxi3";
+    }
 	var file =document.getElementById("file5");
 	var imgUrl =window.URL.createObjectURL(file.files[0]);
 	var img =document.getElementById('img5');
 	img.setAttribute('src',imgUrl); // 修改img标签src属性值
+    var imgUrl1 =window.URL.createObjectURL(file.files[1]);
+    var img =document.getElementById('img5.1');
+    img.setAttribute('src',imgUrl1); // 修改img标签src属性值
 };
 function imgChange6(obj) {
 	//获取点击的文本框
+    var files = document.getElementById("file6").files;
+    if(files.length>=3){
+        alert("最多上传两张代码模块图!请重新选择图片!");
+        window.location.href="xinxi3";
+    }
 	var file =document.getElementById("file6");
 	var imgUrl =window.URL.createObjectURL(file.files[0]);
 	var img =document.getElementById('img6');
 	img.setAttribute('src',imgUrl); // 修改img标签src属性值
+    var imgUrl1 =window.URL.createObjectURL(file.files[1]);
+    var img =document.getElementById('img6.1');
+    img.setAttribute('src',imgUrl1); // 修改img标签src属性值
 };
 function imgChange7(obj) {
 	//获取点击的文本框
@@ -126,4 +143,32 @@ function imgChange7(obj) {
 	var imgUrl =window.URL.createObjectURL(file.files[0]);
 	var img =document.getElementById('img7');
 	img.setAttribute('src',imgUrl); // 修改img标签src属性值
+};
+function imgChange9(obj) {
+    //获取点击的文本框
+    var file =document.getElementById("file9");
+    var imgUrl =window.URL.createObjectURL(file.files[0]);
+    var img =document.getElementById('img9');
+    img.setAttribute('src',imgUrl); // 修改img标签src属性值
+};
+function imgChange10(obj) {
+    //获取点击的文本框
+    var file =document.getElementById("file10");
+    var imgUrl =window.URL.createObjectURL(file.files[0]);
+    var img =document.getElementById('img10');
+    img.setAttribute('src',imgUrl); // 修改img标签src属性值
+};
+function imgChange11(obj) {
+    //获取点击的文本框
+    var file =document.getElementById("file11");
+    var imgUrl =window.URL.createObjectURL(file.files[0]);
+    var img =document.getElementById('img11');
+    img.setAttribute('src',imgUrl); // 修改img标签src属性值
+};
+function imgChange12(obj) {
+    //获取点击的文本框
+    var file =document.getElementById("file12");
+    var imgUrl =window.URL.createObjectURL(file.files[0]);
+    var img =document.getElementById('img12');
+    img.setAttribute('src',imgUrl); // 修改img标签src属性值
 };

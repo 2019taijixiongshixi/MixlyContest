@@ -15,6 +15,50 @@ body a{
 .logo{
 	float: left;
 }
+.con-menu {
+	height: 100px;
+	text-align: center;
+	margin-bottom: 90px;
+}
+.con-menu a {
+	width: 100px;
+	height: 78px;
+	padding-top: 22px;
+	display: inline-block;
+	background-color: #f2fefe;
+	box-shadow: 1px 1px 15px 3px #fede95;
+	margin: 0 12px;
+	border-radius: 5px;
+}
+.con-box {
+	background-color: #FFFDF4;
+	box-shadow: 1px 1px 10px 1px #fede95;
+	margin-bottom: 120px;
+	border-radius: 5px;
+}
+.pr {
+	position: relative;
+}
+.con-box-tit {
+	width: 200px;
+	height: 70px;
+	text-align: center;
+	line-height: 70px;
+	background-color: #fede95;
+	color: #686868;
+	font-size: 18px;
+	border-radius: 10px;
+	font-weight: bold;
+	left: 50%;
+	margin-left: -100px;
+	top: -35px;
+}
+.pa {
+	position: absolute;
+}
+.con-txt {
+	padding: 70px 60px;
+}
 /*----navbar-nav----*/
 .top-header{
 	background:#41a4de;

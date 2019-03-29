@@ -33,11 +33,11 @@
 
     <br>
     <a href="xinxi1">
-        <button type="button" style="background-color:#33CCFF" class="btn btn-default btn-circle btn-x2"><strong style="">一、团队与项目信息</strong><br><br><br><br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+        <button type="button" style="" class="btn btn-default btn-circle btn-x2"><strong>一、团队与项目信息</strong><br><br><br><br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi2">
-        <button type="button" style="background-color:#33CCFF" class="btn btn-primary btn-circle btn-x2"><strong>二、项目说明</strong><br><br>1.项目作品展示图<br>2.思维导图<br>3.作品说明<br>4.比赛心得</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+        <button type="button" style="" class="btn btn-primary btn-circle btn-x2"><strong>二、项目说明</strong><br><br>1.项目作品展示图<br>2.思维导图<br>3.作品说明<br>4.比赛心得</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi3">
-        <button type="button" style="background-color:#33CCFF" class="btn btn-success btn-circle btn-x2"><strong>三、作品程序说明</strong><br><br>1.硬件电路图<br>2.程序流程图<br>3.代码模块图<br></button></a> <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+        <button type="button" style="" class="btn btn-success btn-circle btn-x2"><strong>三、作品程序说明</strong><br><br>1.硬件电路图<br>2.程序流程图<br>3.代码模块图<br></button></a> <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi4">
         <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>四、结构说明</strong><br><br>1.作品结构图<br>2.使用器材说明<br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
     <a href="xinxi5">
@@ -61,22 +61,7 @@
                             </div>
                         </div>
                     </div>
-                    <br>
-<br>
-                    <a href="xinxi1">
-<button type="button" style="" class="btn btn-default btn-circle btn-xl">1</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr> 
-<a href="xinxi2">
-<button type="button" style="" class="btn btn-primary btn-circle btn-xl">2</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>  
-<a href="xinxi3">
-<button type="button" style="" class="btn btn-success btn-circle btn-xl">3</button></a> <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>  
-<a href="xinxi4">
-<button type="button" style="background-color:#34ffee" class="btn btn-info btn-circle btn-xl">4</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
-<a href="xinxi5">
-<button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-xl">5</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
-<a href="xinxi6">
-<button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-xl">6</button></a>
-<br>
-<br>
+
                     <div class="form-bottom">
                         <p><button class="btn" style="width: 1090px" onclick="openShutManager(this,'box',false,'点此收起案例图演示','点此展开案例图演示')">点此展开案例图演示</button></p>
                     </div>
@@ -121,7 +106,7 @@
                         <div class="form-top">
                             <div class="form-top-left">
                                 <h3>1.作品结构图(如果没有作品结构图，可以不选择提交)</h3>
-                                <p>(可以添加的作品结构图:外部结构图(1张);平面草图(1-3张，三视图); 3D模型图(1张，三维模型设计图):或3D打印成品图(1-3张); 激光切割图(1-3张))</p>
+                                <p>(可以添加的作品结构图:外部结构图(1张);平面草图(1张); 3D模型图(1张，三维模型设计图):或3D打印成品图(1张); 激光切割图(1张))</p>
                             </div>
                             <div class="form-top-right">
                                 <img src="../../static/assets/images/bi.jpg">
@@ -129,11 +114,39 @@
                         </div>
                         <div class="form-bottom">
                             <form action="liucheng.php" method="post" enctype="multipart/form-data">
-                                <label for="select">作品结构图(图片大小不超过2M)</label>
+                                <label for="select">外部结构图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
                                 <input type="file" name="file7" id="file7" accept="image/*" onchange ="imgChange7(this);"/> <!--文件上传选择按钮-->
                                 <br>
-                                <img id="img7" src="" alt="作品结构图(未上传)"/> <!--图片显示位置-->
-
+                                <img id="img7" src="" alt="外部结构图(未上传)"/> <!--图片显示位置-->
+                                <br>
+                                <br>
+                                <br>
+                                <label for="select">平面草图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
+                                <input type="file" name="file9" id="file9" accept="image/*" onchange ="imgChange9(this);"/>
+                                <br>
+                                <img id="img9" src="" alt="平面草图(未上传)"/>
+                                <br>
+                                <br>
+                                <br>
+                                <label for="select">3D模型图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
+                                <input type="file" name="file10" id="file10" accept="image/*" onchange ="imgChange10(this);"/>
+                                <br>
+                                <img id="img10" src="" width="3000px" alt="3D模型图(未上传)" />
+                                <br>
+                                <br>
+                                <br>
+                                <label for="select">3D打印成品图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
+                                <input type="file" name="file11" id="file11" accept="image/*" onchange ="imgChange11(this);"/>
+                                <br>
+                                <img id="img11" src="" width="3000px" alt="3D打印成品图(未上传)" />
+                                <br>
+                                <br>
+                                <br>
+                                <label for="select">激光切割图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
+                                <input type="file" name="file12" id="file12" accept="image/*" onchange ="imgChange12(this);"/>
+                                <br>
+                                <img id="img12" src="" width="3000px" alt="激光切割图(未上传)" />
+                                <br>
                                 <br>
                                 <button type="submit" class="btn">确认</button>
                             </form>
