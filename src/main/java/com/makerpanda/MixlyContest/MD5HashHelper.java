@@ -37,12 +37,4 @@ public class MD5HashHelper {
         String salt = "RandomSalt:23d?fdsw8-*/+***&#^$&()&^%$!@@#";
         return md5(password + salt);
     }
-
-    /**
-     * 测试经加盐处理后的MD5密码。
-     * @param args 命令行参数。
-     */
-    public static void main(String[] args) {
-        System.out.println(encryptPassword("12345"));
-    }
 }

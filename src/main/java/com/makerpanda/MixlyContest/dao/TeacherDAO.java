@@ -43,7 +43,6 @@ public class TeacherDAO {
                 teacher.setTeacherID(resultSet.getInt("TeacherID"));
                 teacher.setTeacherIdentify(resultSet.getString("TeacherIdentify"));
                 teacher.setTeacherName(resultSet.getString("TeacherName"));
-                teacher.setTeachersProfessionalTitle(resultSet.getString("TeachersProfessionalTitle"));
                 teacher.setTeacherCertificationID(resultSet.getString("TeacherCertificationID"));
                 teacher.setTeacherGender(resultSet.getString("TeacherGender"));
                 teacher.setTeacherTel(resultSet.getString("TeacherTel"));
@@ -75,7 +74,7 @@ public class TeacherDAO {
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
-            pst = conn.prepareStatement("SELECT TeacherPassword FROM Teacher WHERE id = " + TeacherID);  // 预处理语句
+            pst = conn.prepareStatement("SELECT TeacherPassword FROM Teacher WHERE TeacherID = " + TeacherID);  // 预处理语句
             resultSet = pst.executeQuery();  // 执行语句
 
             // 获取用户密码
@@ -103,7 +102,7 @@ public class TeacherDAO {
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
-            pst = conn.prepareStatement("SELECT * FROM Teacher WHERE id = " + TeacherID);  // 预处理语句
+            pst = conn.prepareStatement("SELECT * FROM Teacher WHERE TeacherID = " + TeacherID);  // 预处理语句
             resultSet = pst.executeQuery();  // 执行语句
 
             // 获得用户信息
@@ -113,7 +112,6 @@ public class TeacherDAO {
                 teacher.setTeacherID(resultSet.getInt("TeacherID"));
                 teacher.setTeacherIdentify(resultSet.getString("TeacherIdentify"));
                 teacher.setTeacherName(resultSet.getString("TeacherName"));
-                teacher.setTeachersProfessionalTitle(resultSet.getString("TeachersProfessionalTitle"));
                 teacher.setTeacherCertificationID(resultSet.getString("TeacherCertificationID"));
                 teacher.setTeacherGender(resultSet.getString("TeacherGender"));
                 teacher.setTeacherTel(resultSet.getString("TeacherTel"));
@@ -143,7 +141,7 @@ public class TeacherDAO {
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
-            pst = conn.prepareStatement("SELECT TeacherName FROM Teacher WHERE id = " + TeacherID);  // 预处理语句
+            pst = conn.prepareStatement("SELECT TeacherName FROM Teacher WHERE TeacherID = " + TeacherID);  // 预处理语句
             resultSet = pst.executeQuery();  // 执行语句
 
             // 获取用户姓名
@@ -169,7 +167,7 @@ public class TeacherDAO {
         Integer teacherid=null;
 
         try {
-            String sql = "SELECT TeacherID FROM Teacher WHERE TeacherEmail = "+TeacherEmail;
+            String sql = "SELECT TeacherID FROM Teacher WHERE TeacherEmail = ?";
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
             pst = conn.prepareStatement(sql);  // 预处理语句
@@ -198,8 +196,8 @@ public class TeacherDAO {
     public boolean insertNewTeacher(Teacher newTeacher) {
         String sql = "insert into Teacher (TeacherIdentify,TeacherPassword," +
                 "TeacherEmail,TeacherTel,TeacherGender,TeacherName," +
-                "School,TeacherProfessionalTitle,TeacherCertificationID) " +
-                "values(?,?,?,?,?,?,?,?,?)";
+                "School,TeacherCertificationID) " +
+                "values(?,?,?,?,?,?,?,?)";
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
@@ -212,8 +210,7 @@ public class TeacherDAO {
             pst.setString(5, newTeacher.getTeacherGender());
             pst.setString(6,newTeacher.getTeacherName());
             pst.setString(7,newTeacher.getTeacherSchool());
-            pst.setString(8, newTeacher.getTeachersProfessionalTitle());
-            pst.setString(9,newTeacher.getTeacherCertificationID());
+            pst.setString(8,newTeacher.getTeacherCertificationID());
 
             int rowsAffected = pst.executeUpdate();  // 执行语句
 

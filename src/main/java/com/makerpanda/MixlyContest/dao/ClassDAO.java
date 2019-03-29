@@ -63,12 +63,12 @@ import static com.makerpanda.MixlyContest.DBHelper.closeResource;
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
-            pst = conn.prepareStatement("SELECT TeacherID FROM Class WHERE id = " + ClassID);  // 预处理语句
+            pst = conn.prepareStatement("SELECT TeacherID FROM Class WHERE ClassID = " + ClassID);  // 预处理语句
             resultSet = pst.executeQuery();  // 执行语句
 
             // 获得class信息
             if (resultSet.next()) {
-                teacherid=(resultSet.getInt("ClassID"));
+                teacherid=(resultSet.getInt("TeacherID"));
             }
             return teacherid;
         } catch (Exception e) {

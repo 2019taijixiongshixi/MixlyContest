@@ -52,28 +52,4 @@ public class VerificationCodeService {
         }
         return str;
     }
-    public static void main(String[] args) {
-        Student student=new Student();
-        student.setStudentIdentify("1234567");
-        student.setStudentName("teacher");
-        student.setStudentPassword("100");
-        student.setStudentEmail("136585610@qq.com");
-        student.setStudentGender("男");
-        student.setStudentTel("12345678901");
-        student.setClassID(233);
-        student.setTeacherID(1);
-        student.setStudentSchool("电子科大");
-        String code=null;
-        switch( StudentRegisterService.StudentRegister(student,"JKW4dS")) {
-            case  1:
-                System.out.println("验证失败");
-                break;
-            case  2:
-                System.out.println("插入失败");
-                break;
-            case  0:
-                System.out.println("OK");
-                break;
-        }
-    }
 }

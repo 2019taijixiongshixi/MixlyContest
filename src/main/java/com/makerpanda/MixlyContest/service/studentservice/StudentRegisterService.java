@@ -1,6 +1,7 @@
 package com.makerpanda.MixlyContest.service.studentservice;
 
 import com.makerpanda.MixlyContest.MailUtil;
+import com.makerpanda.MixlyContest.dao.ClassDAO;
 import com.makerpanda.MixlyContest.dao.StudentDAO;
 import com.makerpanda.MixlyContest.datamodel.Student;
 import com.makerpanda.MixlyContest.service.verificationcodeservice.VerificationCodeService;
@@ -18,12 +19,14 @@ public class StudentRegisterService {
      */
     public static int StudentRegister (Student newstudent,String verificationcode) {
         StudentDAO studentdao=new StudentDAO();
+        ClassDAO classdao=new ClassDAO();
         if(!VerificationCodeService.compareVerificationCode(verificationcode))
             return 1;
         if(checkStudentEmail(newstudent.getStudentEmail()))
             return 2;
-        if(checkClassID(newstudent.getClassID()))
+        if(!checkClassID(newstudent.getClassID()))
             return 3;
+        newstudent.setTeacherID(classdao.getClassInfo(newstudent.getClassID()));
         if(!studentdao.insertNewStudent(newstudent))
             return 4;
         return 0;
@@ -48,12 +51,13 @@ public class StudentRegisterService {
      *@return 已有班级号返回1，没有班级号返回0
      */
     public static boolean checkClassID(Integer classid){
-        StudentDAO studentdao=new StudentDAO();
-        ArrayList arraylist=studentdao.selectStudentEmail();
+        ClassDAO classdao=new ClassDAO();
+        ArrayList arraylist=classdao.selectClassID();
         int i=0;
         for(;i<arraylist.size();i++)
-            if(classid==arraylist.get(i))
+            if (classid.toString().equals(arraylist.get(i))) {
                 return true;
+            }
         return false;
     }
 }

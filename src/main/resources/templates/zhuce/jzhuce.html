@@ -65,14 +65,14 @@
                                     </div>
                                     <div class="form-group" style="text-align: left">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;性别:
-                                        <input name="TeacherGender" style="width: 50px" type="radio"
-                                               th:value="*{TeacherGender}" value="男" />男&nbsp;&nbsp;
-                                        <input name="TeacherGender" style="width: 50px" type="radio"
-                                               value="女" />女
+                                        <input name="TeacherGender" value="男" style="width: 50px" type="radio"
+                                               th:field="*{TeacherGender}"/>男&nbsp;&nbsp;
+                                        <input name="TeacherGender" value="女" style="width: 50px" type="radio"
+                                               th:field="*{TeacherGender}" />女
                                     </div>
                                     <div class="form-group">
                                         身份证号:<input type="text" name="TeacherIdentify" placeholder="身份证号码..."
-                                                    th:value="*{TeacherIdentify}"    class="form-username">
+                                                    th:value="*{TeacherIdentify}" class="form-username">
                                     </div>
                                     <div class="form-group">
                                         手机号:<input type="text" name="TeacherTel" placeholder="手机号..."
@@ -81,10 +81,6 @@
                                     <div class="form-group">
                                         资格证:<input type="text" name="TeacherCertificationID" placeholder="(请填入教师资格证编号)..."
                                                    th:value="*{TeacherCertificationID}" class="form-username">
-                                    </div>
-                                    <div class="form-group">
-                                        教师职称:<input type="text" name="TeachersProfessionalTitle" placeholder="(如正高级、高级、一级、二级、三级等)..."
-                                                   th:value="*{TeachersProfessionalTitle}"  class="form-username">
                                     </div>
                                     <div class="form-group">
                                         学校名称:<input type="text" name="TeacherSchool" placeholder="(请输入学校名字全称)..."
@@ -99,7 +95,7 @@
                                                     class="form-password">
                                     </div>
                                     <div class="form-group">
-                                        邮箱地址:<input type="text" name="email" placeholder="邮箱地址..."
+                                        邮箱地址:<input type="text" name="TeacherEmail" placeholder="邮箱地址..."
                                                             th:value="*{TeacherEmail}" class="form-username">
                                     </div>
 
@@ -134,8 +130,8 @@
         <![endif]-->
         <script type="text/javascript" th:inline="javascript">
             $("#getcode").click(function(){
-                txt=$("input[name$='email']").val();
-                $.post("yanzheng",{email:txt});
+                txt=$("input[name$='TeacherEmail']").val();
+                $.post("getverifycode",{email:txt});
                 var time = 60;
                 settime($(this));
                 function settime(obj){
@@ -153,7 +149,7 @@
                         settime(obj)
                     },1000)
                 }
-                $.cookie('email', txt);
+                //$.cookie('email', txt);
             });
         </script>
     </body>

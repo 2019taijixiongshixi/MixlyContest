@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
     <head>
 
@@ -59,38 +59,52 @@
 
 
                             <div class="form-bottom" style="text-align: right">
-                                <form role="form" action="" method="post" class="login-form">
+                                <form role="form" th:action="@{/xzhucetijiao}" method="post"
+                                      th:object="${student}" class="login-form">
                                     <div class="form-group">
-                                        姓名:<input type="text" name="username" placeholder="姓名..." class="form-username">
+                                        姓名:<input type="text" name="StudentName" placeholder="姓名..."
+                                                  th:value="*{StudentName}" class="form-username">
                                     </div>
                                     <div class="form-group" style="text-align: left">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;性别:<input name="Fruit" style="width: 50px" type="radio" value="" />男&nbsp;&nbsp;
-                                        <input name="Fruit" style="width: 50px" type="radio" value="" />女
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;性别:
+                                        <input name="StudentGender" style="width: 50px" type="radio"
+                                               th:field="*{StudentGender}" value="男" />男&nbsp;&nbsp;
+                                        <input name="StudentGender" style="width: 50px" type="radio"
+                                               th:field="*{StudentGender}" value="女" />女
                                     </div>
                                     <div class="form-group">
-                                        身份证号:<input type="text" name="username" placeholder="身份证号码..." class="form-username">
+                                        身份证号:<input type="text" name="StudentIdentify" placeholder="身份证号码..."
+                                                    th:value="*{StudentIdentify}" class="form-username">
                                     </div>
                                     <div class="form-group">
-                                        手机号:<input type="text" name="username" placeholder="手机号..." class="form-username">
+                                        手机号:<input type="text" name="StudentTel" placeholder="手机号..."
+                                                  th:value="*{StudentTel}" class="form-username">
                                     </div>
                                     <div class="form-group">
-                                        班级号:<input type="text" name="username" placeholder="班级号..." class="form-username">
+                                        班级号:<input type="text" name="ClassID" placeholder="班级号..."
+                                                  th:value="*{ClassID}" class="form-username">
                                     </div>
                                     <div class="form-group">
-                                        学校名称:<input type="text" name="username" placeholder="(请输入学校名字全称)..." class="form-username">
+                                        学校名称:<input type="text" name="StudentSchool" placeholder="(请输入学校名字全称)..."
+                                                   th:value="*{StudentSchool}" class="form-username">
                                     </div>
                                     <div class="form-group">
-                                        账号密码:<input type="password" name="password" placeholder="密码..." class="form-password">
+                                        账号密码:<input type="password" name="StudentPassword" placeholder="密码..."
+                                                   th:value="*{StudentPassword}" class="form-password">
                                     </div>
                                     <div class="form-group">
-                                        确认密码:<input type="password" name="password" placeholder="(再次输入密码进行确认)..." class="form-password">
+                                        确认密码:<input type="password" name="ConfirmPassword" placeholder="(再次输入密码进行确认)..."
+                                                    class="form-password">
                                     </div>
                                     <div class="form-group">
-                                        邮箱地址:<input type="text" name="username" placeholder="邮箱地址..." class="form-username">
+                                        邮箱地址:<input type="text" name="StudentEmail" placeholder="邮箱地址..."
+                                                   th:value="*{StudentEmail}" class="form-username">
                                     </div>
                                     <div class="form-group">
-                                        验证码:<input type="text" style="width: 205px" name="username" placeholder="请输入邮箱验证码..." class="form-username">
-                                        <button style=" width: 200px; background-color: #67b168" class="btn">获取邮箱验证码</button>
+                                        验证码:<input type="text" style="width: 205px" name="code" placeholder="请输入邮箱验证码..."
+                                                  th:value="${code}" class="form-username">
+                                        <button type="button" style=" width: 200px; background-color: #67b168"
+                                               id="getcode" class="btn">获取邮箱验证码</button>
                                     </div>
                                     <button type="submit" class="btn">学生注册</button>
                                 </form>
@@ -114,7 +128,30 @@
         <!--[if lt IE 10]>
         <script src="../../static/assets/js/placeholder.js"></script>
         <![endif]-->
-
+        <script type="text/javascript" th:inline="javascript">
+            $("#getcode").click(function(){
+                txt=$("input[name$='StudentEmail']").val();
+                $.post("getverifycode",{email:txt});
+                var time = 60;
+                settime($(this));
+                function settime(obj){
+                    if (time==0) {
+                        $(obj).attr('disabled', false);
+                        $(obj).html("点击获取验证码");
+                        time = 60;
+                        return;
+                    } else{
+                        $(obj).attr('disabled', true);
+                        $(obj).html(time+"秒后重新发送");
+                        time--;
+                    }
+                    setTimeout(function() {
+                        settime(obj)
+                    },1000)
+                }
+                //$.cookie('email', txt);
+            });
+        </script>
     </body>
 
 </html>

@@ -70,7 +70,7 @@ public class StudentDAO {
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
-            pst = conn.prepareStatement("SELECT StudentPassword FROM Student WHERE id = " + StudentID);  // 预处理语句
+            pst = conn.prepareStatement("SELECT StudentPassword FROM Student WHERE StudentID = " + StudentID);  // 预处理语句
             resultSet = pst.executeQuery();  // 执行语句
 
             // 获取用户密码
@@ -98,7 +98,7 @@ public class StudentDAO {
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
-            pst = conn.prepareStatement("SELECT * FROM Student WHERE id = " + StudentID);  // 预处理语句
+            pst = conn.prepareStatement("SELECT * FROM Student WHERE StudentID = " + StudentID);  // 预处理语句
             resultSet = pst.executeQuery();  // 执行语句
 
             // 获得用户信息
@@ -138,7 +138,7 @@ public class StudentDAO {
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
-            pst = conn.prepareStatement("SELECT StudentName FROM Student WHERE id = " + StudentID);  // 预处理语句
+            pst = conn.prepareStatement("SELECT StudentName FROM Student WHERE StudentID = " + StudentID);  // 预处理语句
             resultSet = pst.executeQuery();  // 执行语句
 
             // 获取用户姓名
@@ -169,7 +169,6 @@ public class StudentDAO {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
             pst = conn.prepareStatement(sql);  // 预处理语句
-            pst.setString(1, StudentEmail);
             resultSet = pst.executeQuery();  // 执行语句
 
             // 获取用户ID

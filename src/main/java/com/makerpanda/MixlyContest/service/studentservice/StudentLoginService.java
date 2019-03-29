@@ -20,13 +20,13 @@ public class StudentLoginService {
         StudentDAO studentdao = new StudentDAO();
         Integer studentid=studentdao.getStudentIDByStudentEmail(StudentEmail);
         String password = studentdao.getStudentPassword(studentid);
-        String MD5Password= MD5HashHelper.encryptPassword(password);
+        String MD5Password= MD5HashHelper.encryptPassword(inputPwd);
 
         if (password == null) {
             return 3;
         } else if (inputPwd == null) {
             return 2;
-        } else if (!MD5Password.equals(inputPwd)) {
+        } else if (!MD5Password.equals(password)) {
             return 1;
         } else {
             student = studentdao.getStudentInfo(studentid);  // 登录成功将用户信息保存

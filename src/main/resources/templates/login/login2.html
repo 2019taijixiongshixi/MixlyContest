@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
 
     <head>
 
@@ -50,16 +50,19 @@
                                     <p>教师账户</p>
                         		</div>
                         		<div class="form-top-right">
-                        			<img style="width: " src="../../static/assets/images/bi.jpg">
+                        			<img src="../../static/assets/images/bi.jpg">
                         		</div>
                             </div>
                             <div class="form-bottom">
-                                <form role="form" action="login2.php" method="post" class="login-form">
+                                <form role="form" th:action="@{/teacherlogin}" method="post"
+                                      th:object="${teacher}" class="login-form">
                                     <div class="form-group">
-                                        <input type="text" name="username" placeholder="邮箱..." class="form-username form-control">
+                                        <input type="text" name="TeacherEmail" placeholder="邮箱..."
+                                               th:value="*{TeacherEmail}" class="form-username form-control">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" placeholder="密码..." class="form-password form-control">
+                                        <input type="password" name="TeacherPassword" placeholder="密码..."
+                                               th:value="*{TeacherPassword}" class="form-password form-control">
                                     </div>
                                     <button type="submit" class="btn">Sign in!</button>
                                 </form>

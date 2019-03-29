@@ -16,15 +16,14 @@ public class TeacherLoginController {
     @RequestMapping(path = { "/login2"})
     public String Teacherlogin(Model model) {
         model.addAttribute("teacher", new Teacher());
-        return "login/login2.html";
+        return "login/login2";
     }
-    @RequestMapping(value = "/login2", method = RequestMethod.POST)
+    @RequestMapping(value = "/teacherlogin", method = RequestMethod.POST)
     public String loginAction(@ModelAttribute("teacher") Teacher teacher, ModelMap modelMap) {
         int verifyCode;
-        String teacheremail;
+        String teacheremail= teacher.getTeacherEmail();
 
-        if (teacher.getTeacherEmail() != null) {
-            teacheremail = teacher.getTeacherEmail();
+        if (teacheremail!= null) {
             String password = teacher.getTeacherPassword();
             verifyCode = TeacherLoginService.verify(teacheremail, password);  // 认证用户是否可以登录
         } else {
@@ -33,20 +32,24 @@ public class TeacherLoginController {
 
         switch (verifyCode) {
             default:
-                return "shouye/404.html";
+                return "shouye/404";
             case 0:  // 认证成功
-                return "shouye/index.html";
+                return "shouye/index";
             case 1:  // 密码错误
                 modelMap.addAttribute("pwdError", "对不起，您输入的密码有误");
-                return "login/login2.html";
+                System.out.println("pwdError1");
+                return "login/login2";
             case 2:
                 modelMap.addAttribute("pwdError", "密码不能为空");
+                System.out.println("pwdError2");
             case 3:  // 用户不存在或者系统错误
                 modelMap.addAttribute("userError", "不存在该用户");
-                return "login/login2.html";
+                System.out.println("userError1");
+                return "login/login2";
             case 4:
                 modelMap.addAttribute("userError", "用户名不能为空");
-                return "login/login2.html";
+                System.out.println("userError2");
+                return "login/login2";
         }
     }
 }

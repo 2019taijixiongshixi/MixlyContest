@@ -21,11 +21,9 @@ public class TeacherRegisterController {
 
     @RequestMapping(value = "/jzhucetijiao", method = RequestMethod.POST)
     public String registerAction(@ModelAttribute("teacher") Teacher teacher,
-                                 @CookieValue("email") String email ,
+                                 //@CookieValue("email") String email ,
                                  @ModelAttribute("code")String Code, ModelMap modelMap) {
-        teacher.setTeacherEmail(email);
-        if(!teacher.getTeacherGender().equals("男"))
-            teacher.setTeacherGender("女");
+        // teacher.setTeacherEmail(email);
         int verifyCode;
 
         verifyCode=TeacherRegisterService.TeacherRegister(teacher,Code);

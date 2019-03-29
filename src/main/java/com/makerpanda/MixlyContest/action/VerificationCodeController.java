@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class VerificationCodeController {
     @ResponseBody
-    @RequestMapping(value = "/yanzheng", method = RequestMethod.POST)
+    @RequestMapping(value = "/getverifycode", method = RequestMethod.POST)
     public void handlePostRequest(@RequestParam("email") String Email){
         MailUtil.getVerificationCode(Email);
     }

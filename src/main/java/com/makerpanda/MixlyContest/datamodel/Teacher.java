@@ -9,8 +9,6 @@ public class Teacher implements Serializable {
 
     private String teachername;
 
-    private String teachersprofessionaltitle;
-
     private String teachergender;
 
     private String teachercertificationid;
@@ -43,13 +41,6 @@ public class Teacher implements Serializable {
     }
 
     public void setTeacherName(String teachername) { this.teachername = teachername; }
-
-    public String getTeachersProfessionalTitle() {
-        return teachersprofessionaltitle;
-    }
-
-    public void setTeachersProfessionalTitle(String teachersprofessionaltitle)
-    { this.teachersprofessionaltitle = teachersprofessionaltitle; }
 
     public String getTeacherGender() { return teachergender; }
 
