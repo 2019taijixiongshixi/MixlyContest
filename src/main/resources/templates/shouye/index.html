@@ -1,5 +1,4 @@
 <!DOCTYPE HTML>
-<!--suppress ALL-->
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<title> 米思齐创客创意电子编程大赛 </title>
@@ -42,7 +41,8 @@
 								<li style="font-size: 22px"><a href="about"> 关于大赛</a></li>
 								<li style="font-size: 22px"><a href="ziliao">Mixly开源资料库 </a></li>
 								<li style="font-size: 22px"><a href="chuangke"> 创客空间  </a></li>
-								<li style="font-size: 22px"><a href="login">注册/登录</a></li>
+								<li style="font-size: 22px" th:unless="${teacher!=null}" ><a href="login">注册/登录</a></li>
+								<li style="font-size: 22px" th:if="${teacher!=null}"><a href="zhongxin1">个人中心</a></li>
 									<div class="clearfix"> </div>
 
 							</ul>
@@ -93,28 +93,28 @@
 										<div id="nivo-lightbox-demo"> <p> <a href="../../static/assets/images/e1-pop.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo"> <span class="rollover1"> </span></a> </p></div>
 									<img src="../../static/assets/images/e1.png" title="img" />
 									<h4>超声波测距仪</h4>
-										<h5>创作者<lable> MakerPanda</lable>
+									<h5>创作者<lable> MakerPanda</lable></h5>
 										<p>运用超声波原理测量距离 </p>
 							    </div>
 								<div class="col-md-3 gallery-box">
 								  	    <div id="nivo-lightbox-demo"> <p> <a href="../../static/assets/images/e2-pop.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo"> <span class="rollover1"> </span></a> </p></div>
 									<img src="../../static/assets/images/e1.png" title="img" />
                                     <h4>超声波测距仪</h4>
-                                    <h5>创作者<lable> MakerPanda</lable>
+                                    <h5>创作者<lable> MakerPanda</lable></h5>
                                         <p>运用超声波原理测量距离 </p>
 							     </div>
 								 <div class="col-md-3 gallery-box">
 								  		<div id="nivo-lightbox-demo"> <p> <a href="../../static/assets/images/e3-pop.png" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>
                                      <img src="../../static/assets/images/e1.png" title="img" />
                                      <h4>超声波测距仪</h4>
-                                     <h5>创作者<lable> MakerPanda</lable>
+                                     <h5>创作者<lable> MakerPanda</lable></h5>
                                          <p>运用超声波原理测量距离 </p>
 								</div>
 								<div class="col-md-3 gallery-box">
 								  		<div id="nivo-lightbox-demo"> <p> <a href="../../static/assets/images/e4-pop.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>
                                     <img src="../../static/assets/images/e1.png" title="img" />
                                     <h4>超声波测距仪</h4>
-                                    <h5>创作者<lable> MakerPanda</lable>
+                                    <h5>创作者<lable> MakerPanda</lable></h5>
                                         <p>运用超声波原理测量距离 </p>
 								</div>
 							<div class="clearfix"> </div>
@@ -179,7 +179,7 @@
 
 						 			</div>
 									<div class="col-md-3 footer-grid">
-								 		<h3 style="color: #d4fffa">Information</h3>
+								 		<h3 style="color: #d4fffa">快捷入口</h3>
 								 		<ul class="bottom-nav">
 											<li class="active"><a  style="color: #d4fffa" href="index">主页</a></li>
 											<li><a  style="color: #d4fffa" href="about"> 关于大赛  </a></li>
@@ -195,7 +195,7 @@
 						 			</div>
 								
 						 			<div class="col-md-3 footer-grid">
-                                        <h3 style="color: #eafff8">&nbsp;&nbsp;&nbsp;&nbsp;组织结构</h3>
+                                        <h3 style="color: #eafff8">&nbsp;&nbsp;&nbsp;&nbsp;组织单位</h3>
 											<ul class="soc_icons2">
 											<li><a href="#"><span style="color: #d4fffa">四川省青少年科技活动中心</span></a></li>
 											<li><a href="#"><span style="color: #d4fffa">四川省太极熊科技有限公司</span></a></li>
