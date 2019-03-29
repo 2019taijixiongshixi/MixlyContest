@@ -10,12 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
     @RequestMapping(path={"/index"})
     public String index(Model model) {
-      if (TeacherLoginService.teacher!= null) {
-          model.addAttribute("teacher",TeacherLoginService.teacher);
-       }
-        if (StudentLoginService.student!= null) {
-            model.addAttribute("student",StudentLoginService.student);
-        }
+        model.addAttribute("teacher",TeacherLoginService.teacher);
+        model.addAttribute("student",StudentLoginService.student);
        return "shouye/index";
     }
 }
