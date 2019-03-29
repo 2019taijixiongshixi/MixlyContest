@@ -275,15 +275,15 @@ public class TeacherDAO {
         }
         return false;
     }
-    public boolean updateTeacherPassword(Teacher teacher) {
+    public boolean updateTeacherPassword(String newPassword,Integer TeacherID) {
         String sql = "update Teacher set TeacherPassword=? where TeacherID=?";
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
             pst = conn.prepareStatement(sql);
             pst.setString(1,
-                    MD5HashHelper.encryptPassword(teacher.getTeacherPassword()));
-            pst.setInt(2,teacher.getTeacherID());
+                    MD5HashHelper.encryptPassword(newPassword));
+            pst.setInt(2,TeacherID);
             int rowsAffected = pst.executeUpdate();  // 执行语句
             return rowsAffected == 1;
         } catch (Exception e) {

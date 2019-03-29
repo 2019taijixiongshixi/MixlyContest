@@ -1,6 +1,5 @@
 package com.makerpanda.MixlyContest.service.teacherservice;
 
-import com.makerpanda.MixlyContest.MailUtil;
 import com.makerpanda.MixlyContest.dao.TeacherDAO;
 import com.makerpanda.MixlyContest.datamodel.Teacher;
 import com.makerpanda.MixlyContest.service.verificationcodeservice.VerificationCodeService;
@@ -11,7 +10,6 @@ import java.util.ArrayList;
 
 @Service
 public class TeacherRegisterService {
-    public static Teacher teacher;
     /**
      * 教师注册函数。
      * @param newteacher 新的教师对象。
