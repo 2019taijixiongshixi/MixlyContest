@@ -245,4 +245,51 @@ public class StudentDAO {
             closeResource(resultSet, pst);
         }
     }
+    public boolean updateStudentInfo(Student student) {
+        String sql = "update Student set StudentIdentify=?,StudentPassword=? ," +
+                "StudentEmail=?, StudentTel=? ,StudentGender=?, StudentName=?, " +
+                "ClassID=?,School=?, ProjectID=?, TeacherID=? where StudentID=?";
+        try {
+            conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
+            // 创建PreparedStatement执行SQL语句
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, student.getStudentIdentify());
+            pst.setString(2,
+                    MD5HashHelper.encryptPassword(student.getStudentPassword()));
+            pst.setString(3, student.getStudentEmail());
+            pst.setString(4,student.getStudentTel());
+            pst.setString(5, student.getStudentGender());
+            pst.setString(6,student.getStudentName());
+            pst.setInt(7,student.getClassID());
+            pst.setString(8,student.getStudentSchool());
+            pst.setInt(9,student.getProjectID());
+            pst.setInt(10,student.getTeacherID());
+            pst.setInt(11,student.getStudentID());
+            int rowsAffected = pst.executeUpdate();  // 执行语句
+            return rowsAffected == 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            closeResource(resultSet, pst);
+        }
+        return false;
+    }
+    public boolean updateStudentPassword(String newPassword,Integer StudentID) {
+        String sql = "update Student set StudentPassword=? where StudentID=?";
+        try {
+            conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
+            // 创建PreparedStatement执行SQL语句
+            pst = conn.prepareStatement(sql);
+            pst.setString(1,
+                    MD5HashHelper.encryptPassword(newPassword));
+            pst.setInt(2,StudentID);
+            int rowsAffected = pst.executeUpdate();  // 执行语句
+            return rowsAffected == 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            closeResource(resultSet, pst);
+        }
+        return false;
+    }
 }
