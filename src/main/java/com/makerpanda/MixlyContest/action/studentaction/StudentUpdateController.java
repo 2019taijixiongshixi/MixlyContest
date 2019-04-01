@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class StudentUpdateController {
     @RequestMapping(path = {"/studentpasswordupdate"})
-    public String StudentUpdatePassword(@ModelAttribute("teacher") Student student,
+    public String StudentUpdatePassword(@ModelAttribute("student") Student student,
                                         @ModelAttribute("code") String Code,
                                         ModelMap modelMap) {
         int verifyCode;
-        String newPassword = student.getStudentEmail();
+        String newPassword = student.getStudentPassword();
         String email = student.getStudentEmail();
         if (email == null) {
             verifyCode = 4;
@@ -27,20 +27,20 @@ public class StudentUpdateController {
         switch (verifyCode) {
             default:
                 return "shouye/404";
-            case 0:  // 注册成功
+            case 0:  // 修改成功
                 return "login/login1";
             case 1:  // 验证码错误
                 modelMap.addAttribute("codeError", "对不起，您输入的验证码有误");
+                return "login/getmima";
+            case 2://没有这个邮箱
+                modelMap.addAttribute("mailError", "该邮箱还未注册，请先注册");
                 return "zhuce/xzhuce";
-            case 2:// 邮箱已注册
-                modelMap.addAttribute("mailError", "邮箱已注册");
-                return "zhuce/xzhuce";
-            case 3:// 班级号错误
-                modelMap.addAttribute("classidError", "班级号错误");
-                return "zhuce/xzhuce";
-            case 4:  // 系统错误
+            case 3:  //系统错误
                 modelMap.addAttribute("systemError", "系统错误");
-                return "zhuce/xzhuce";
+                return "login/getmima";
+            case 4:  //邮箱错误
+                modelMap.addAttribute("inputError", "邮箱不能为空");
+                return "login/getmima";
             case 5:  //密码错误
                 modelMap.addAttribute("inputError", "新密码不能为空");
                 return "login/getmima";

@@ -1,5 +1,7 @@
 package com.makerpanda.MixlyContest.action;
 
+import com.makerpanda.MixlyContest.datamodel.Student;
+import com.makerpanda.MixlyContest.datamodel.Teacher;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +27,10 @@ public class PageSkippingContoller {
     @RequestMapping(path={"/login"})
     public String login(Model model) {return "login/login.html";}
     @RequestMapping(path={"/getmima"})
-    public String getmima(Model model) {return "login/getmima.html";}
+    public String getmima(Model model) {
+        model.addAttribute("teacher",new Teacher());
+        model.addAttribute("student",new Student());
+        return "login/getmima";}
     @RequestMapping(path={"/about"})
     public String about(Model model) {return "shouye/about.html";}
     @RequestMapping(path={"/"})

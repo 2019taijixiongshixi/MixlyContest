@@ -15,7 +15,7 @@ public class TeacherUpdateController {
                                         @ModelAttribute("code")String Code,
                                         ModelMap modelMap) {
         int verifyCode;
-        String newPassword=teacher.getTeacherEmail();
+        String newPassword=teacher.getTeacherPassword();
         String email=teacher.getTeacherEmail();
         if(email==null){
             verifyCode=4;
@@ -32,10 +32,10 @@ public class TeacherUpdateController {
                 return "login/login2";
             case 1:  // 验证码错误
                 modelMap.addAttribute("codeError", "对不起，您输入的验证码有误");
-                return "zhuce/jzhuce";
+                return "login/getmima";
             case 2://没有这个邮箱
                 modelMap.addAttribute("mailError", "该邮箱还未注册，请先注册");
-                return "login/getmima";
+                return "zhuce/jzhuce";
             case 3:  //系统错误
                 modelMap.addAttribute("systemError", "系统错误");
                 return "login/getmima";
