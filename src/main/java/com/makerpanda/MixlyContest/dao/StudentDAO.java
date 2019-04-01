@@ -293,4 +293,45 @@ public class StudentDAO {
         }
         return false;
     }
+
+    /**
+     * 根据TeacherID，获取学生全部信息。
+     * @param TeacherID 需要获取信息的TeacherID。
+     * @return 如果能够查询到TeacherID的信息，则返回一个Student类型的对象，其中数据域为该Teacher信息。否则，返回null。
+     */
+    public ArrayList getStudentInfoByTeacherID(Integer TeacherID) {
+        ArrayList<Student> arrayList = new ArrayList<>();
+
+        try {
+            conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
+            // 创建PreparedStatement执行SQL语句
+            pst = conn.prepareStatement("SELECT * FROM Teacher WHERE TeacherID = ?");  // 预处理语句
+            resultSet = pst.executeQuery();  // 执行语句
+
+            // 遍历处理结果集，获得每一行数据
+            while (resultSet.next()) {
+                Student student = new Student();
+
+                student.setStudentID(resultSet.getInt("StudentID"));
+                student.setStudentIdentify(resultSet.getString("StudentIdentify"));
+                student.setProjectID(resultSet.getInt("ProjectID"));
+                student.setStudentName(resultSet.getString("StudentName"));
+                student.setStudentGender(resultSet.getString("StudentGander"));
+                student.setStudentTel(resultSet.getString("StudentTel"));
+                student.setStudentEmail(resultSet.getString("StudentEmail"));
+                student.setClassID(resultSet.getInt("ClassID"));
+                student.setStudentSchool(resultSet.getString("School"));
+                student.setStudentPassword(resultSet.getString("StudentPassword"));
+                student.setTeacherID(resultSet.getInt("TeacherID"));
+                // 将user对象添加进arrayList当中
+                arrayList.add(student);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResource(resultSet, pst);
+        }
+
+        return arrayList;
+    }
 }
