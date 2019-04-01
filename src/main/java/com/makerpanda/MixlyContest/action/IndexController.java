@@ -14,4 +14,22 @@ public class IndexController {
         model.addAttribute("student",StudentLoginService.student);
        return "shouye/index";
     }
+    @RequestMapping(path={"/about"})
+    public String about(Model model) {
+        model.addAttribute("teacher",TeacherLoginService.teacher);
+        model.addAttribute("student",StudentLoginService.student);
+        return "shouye/about";
+    }
+    @RequestMapping(path={"/ziliao"})
+    public String ziliao(Model model) {
+        model.addAttribute("teacher",TeacherLoginService.teacher);
+        model.addAttribute("student",StudentLoginService.student);
+        return "shouye/ziliao";
+    }
+    @RequestMapping(path={"/chuangke"})
+    public String chuangke(Model model) {
+        model.addAttribute("teacher",TeacherLoginService.teacher);
+        model.addAttribute("student",StudentLoginService.student);
+        return "shouye/chuangke";
+    }
 }

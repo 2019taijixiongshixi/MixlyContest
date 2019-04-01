@@ -31,14 +31,8 @@ public class PageSkippingContoller {
         model.addAttribute("teacher",new Teacher());
         model.addAttribute("student",new Student());
         return "login/getmima";}
-    @RequestMapping(path={"/about"})
-    public String about(Model model) {return "shouye/about.html";}
     @RequestMapping(path={"/"})
     public String index2(Model model) {return "shouye/index.html";}
-    @RequestMapping(path={"/ziliao"})
-    public String blog(Model model) {return "shouye/ziliao.html";}
-    @RequestMapping(path={"/chuangke"})
-    public String contract(Model model) {return "shouye/chuangke.html";}
     @RequestMapping(path={"/dashboard"})
     public String dashboard(Model model) {return "master/examples/dashboard.html";}
     @RequestMapping(path={"/icons"})
