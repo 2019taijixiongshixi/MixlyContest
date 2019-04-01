@@ -192,10 +192,10 @@ public class StudentDAO {
      * @return 如果增加成功返回true，否则返回false。
      */
     public boolean insertNewStudent(Student newStudent) {
-        String sql = "insert into Student (StudentIdentify,StudentPassword," +
+        String sql = "INSERT INTO Student (StudentIdentify,StudentPassword," +
                 "StudentEmail,StudentTel,StudentGender,StudentName," +
                 "School,ClassID,TeacherID) " +
-                "values(?,?,?,?,?,?,?,?,?)";
+                "VALUES(?,?,?,?,?,?,?,?,?)";
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
@@ -247,9 +247,9 @@ public class StudentDAO {
         }
     }
     public boolean updateStudentInfo(Student student) {
-        String sql = "update Student set StudentIdentify=?,StudentPassword=? ," +
+        String sql = "UPDATE Student SET StudentIdentify=?,StudentPassword=? ," +
                 "StudentEmail=?, StudentTel=? ,StudentGender=?, StudentName=?, " +
-                "ClassID=?,School=?, ProjectID=?, TeacherID=? where StudentID=?";
+                "ClassID=?,School=?, ProjectID=?, TeacherID=? WHERE StudentID=?";
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
@@ -276,7 +276,7 @@ public class StudentDAO {
         return false;
     }
     public boolean updateStudentPassword(String newPassword,Integer StudentID) {
-        String sql = "update Student set StudentPassword=? where StudentID=?";
+        String sql = "UPDATE Student SET StudentPassword=? WHERE StudentID=?";
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句

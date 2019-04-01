@@ -194,10 +194,10 @@ public class TeacherDAO {
      * @return 如果增加成功返回true，否则返回false。
      */
     public boolean insertNewTeacher(Teacher newTeacher) {
-        String sql = "insert into Teacher (TeacherIdentify,TeacherPassword," +
+        String sql = "INSERT INTO Teacher (TeacherIdentify,TeacherPassword," +
                 "TeacherEmail,TeacherTel,TeacherGender,TeacherName," +
                 "School,TeacherCertificationID) " +
-                "values(?,?,?,?,?,?,?,?)";
+                "VALUES(?,?,?,?,?,?,?,?)";
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
@@ -248,9 +248,9 @@ public class TeacherDAO {
         }
     }
     public boolean updateTeacherInfo(Teacher teacher) {
-        String sql = "update Teacher set TeacherIdentify=?,TeacherPassword=? ," +
+        String sql = "UPDATE Teacher SET TeacherIdentify=?,TeacherPassword=? ," +
                 "TeacherEmail=?, TeacherTel=? ,TeacherGender=?, TeacherName=?, " +
-                "ClassID=?,School=?, TeacherCertificationID=? where TeacherID=?";
+                "ClassID=?,School=?, TeacherCertificationID=? WHERE TeacherID=?";
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
@@ -276,7 +276,7 @@ public class TeacherDAO {
         return false;
     }
     public boolean updateTeacherPassword(String newPassword,Integer TeacherID) {
-        String sql = "update Teacher set TeacherPassword=? where TeacherID=?";
+        String sql = "UPDATE Teacher SET TeacherPassword=? WHERE TeacherID=?";
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句

@@ -26,7 +26,7 @@ public class StudentRegisterService {
             return 2;
         if(!checkClassID(newstudent.getClassID()))
             return 3;
-        newstudent.setTeacherID(classdao.getClassInfo(newstudent.getClassID()));
+        newstudent.setTeacherID(classdao.getTeacherIDByClassID(newstudent.getClassID()));
         if(!studentdao.insertNewStudent(newstudent))
             return 4;
         return 0;

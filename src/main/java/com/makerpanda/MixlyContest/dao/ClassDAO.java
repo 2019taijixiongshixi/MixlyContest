@@ -52,33 +52,6 @@ import static com.makerpanda.MixlyContest.DBHelper.closeResource;
             return arrayList;
         }
 
-    /**
-     * 根据ClassID，获取Class全部信息。
-     * @param ClassID 需要获取信息的ClassID。
-     * @return 如果能够查询到ClassID的信息，则返回一个Integer类型的教师id，其中数据域为该Class信息。否则，返回null。
-     */
-    public Integer getClassInfo(Integer ClassID) {
-        Integer teacherid = null;
-
-        try {
-            conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
-            // 创建PreparedStatement执行SQL语句
-            pst = conn.prepareStatement("SELECT TeacherID FROM Class WHERE ClassID = " + ClassID);  // 预处理语句
-            resultSet = pst.executeQuery();  // 执行语句
-
-            // 获得class信息
-            if (resultSet.next()) {
-                teacherid=(resultSet.getInt("TeacherID"));
-            }
-            return teacherid;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        } finally {
-            closeResource(resultSet, pst);
-        }
-    }
-
         /**
          * 查询所有ClassID。
          * @return 若查询成功则返回Integer数组。否则，返回null。
@@ -105,4 +78,76 @@ import static com.makerpanda.MixlyContest.DBHelper.closeResource;
             }
         }
 
+        public boolean createClass(Integer teacherid){
+            String sql="INSERT INTO Class (TeacherID)"+
+                    "VALUES(?)";
+            try {
+                conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
+                // 创建PreparedStatement执行SQL语句
+                pst = conn.prepareStatement(sql);  // 预处理语句
+                pst.setInt(1, teacherid);
+                int rowsAffected = pst.executeUpdate();  // 执行语句
+
+                return  rowsAffected == 1;} catch (Exception e){
+                e.printStackTrace();
+            } finally {
+                closeResource(resultSet, pst);
+            }
+            return false;
+        }
+
+        /**
+         * 根据ClassID，获取TeacherID。
+         * @param ClassID 需要获取信息的ClassID。
+         * @return 如果能够查询到ClassID的信息，则返回一个Integer类型的教师id，其中数据域为该Class信息。否则，返回null。
+         */
+        public Integer getTeacherIDByClassID(Integer ClassID) {
+            Integer teacherid = null;
+            String sql="SELECT TeacherID FROM Class WHERE ClassID = ?";
+            try {
+                conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
+                // 创建PreparedStatement执行SQL语句
+                pst = conn.prepareStatement(sql);  // 预处理语句
+                pst.setInt(1, ClassID);
+                resultSet = pst.executeQuery();  // 执行语句
+
+                // 获得class信息
+                if (resultSet.next()) {
+                    teacherid=(resultSet.getInt("TeacherID"));
+                }
+                return teacherid;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            } finally {
+                closeResource(resultSet, pst);
+            }
+        }
+        /**
+         * 根据ClassID，获取TeacherID。
+         * @param ClassID 需要获取信息的ClassID。
+         * @return 如果能够查询到ClassID的信息，则返回一个Integer类型的教师id，其中数据域为该Class信息。否则，返回null。
+         */
+        public Integer getClassIDByTeacherID(Integer ClassID) {
+            Integer teacherid = null;
+            String sql="SELECT TeacherID FROM Class WHERE ClassID = ?";
+            try {
+                conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
+                // 创建PreparedStatement执行SQL语句
+                pst = conn.prepareStatement(sql);  // 预处理语句
+                pst.setInt(1, ClassID);
+                resultSet = pst.executeQuery();  // 执行语句
+
+                // 获得class信息
+                if (resultSet.next()) {
+                    teacherid=(resultSet.getInt("TeacherID"));
+                }
+                return teacherid;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            } finally {
+                closeResource(resultSet, pst);
+            }
+        }
 }

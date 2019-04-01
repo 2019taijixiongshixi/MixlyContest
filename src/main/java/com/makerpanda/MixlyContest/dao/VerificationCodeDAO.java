@@ -32,8 +32,8 @@ public class VerificationCodeDAO {
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
-            pst = conn.prepareStatement("SELECT VerificationCodeString from VerificationCode " +
-                    "where VerificationCodeTime >=(NOW() - interval 24 hour)");  // 预处理语句
+            pst = conn.prepareStatement("SELECT VerificationCodeString FROM VerificationCode " +
+                    "WHERE VerificationCodeTime >=(NOW() - INTERVAL 24 HOUR)");  // 预处理语句
             resultSet = pst.executeQuery();  // 执行语句
             while (resultSet.next()) {
                 // 将字符串对象添加进arrayList当中
@@ -55,8 +55,8 @@ public class VerificationCodeDAO {
      * @return 如果增加成功返回true，否则返回false。
      */
     public boolean insertVerificationCode(String VerificationCodeString) {
-        String sql = "insert into VerificationCode (VerificationCodeString,VerificationCodeTime)"+
-               "values(?,?)";
+        String sql = "INSERT INTO VerificationCode (VerificationCodeString,VerificationCodeTime)"+
+               "VALUES(?,?)";
 
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
         String date = df.format(new Date());// new Date()为获取当前系统时间，也可使用当前时间戳
