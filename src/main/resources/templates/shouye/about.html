@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<title> 米思齐创客创意电子编程大赛 </title>
 		<link href="../../static/assets/css/bootstrap.css" rel='stylesheet' type='text/css' />
@@ -32,7 +32,8 @@
 								<li style="font-size: 22px" class="active"><a href="about"> 关于大赛</a></li>
 								<li style="font-size: 22px"><a href="ziliao">Mixly开源资料库 </a></li>
 								<li style="font-size: 22px"><a href="chuangke"> 创客空间  </a></li>
-								<li style="font-size: 22px"><a href="login">注册/登录</a></li>
+								<li style="font-size: 22px" th:unless="${teacher!=null}" ><a href="login">注册/登录</a></li>
+								<li style="font-size: 22px" th:if="${teacher!=null}"><a href="zhongxin1">个人中心</a></li>
 
 							</ul>
 
