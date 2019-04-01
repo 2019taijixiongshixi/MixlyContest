@@ -65,7 +65,7 @@
                                     <div class="modal-body">
                                         <div class="form-bottom" style="text-align: right;background-color:#FFFFFF">
                                         <form role="form" th:action="@{/studentpasswordupdate}" method="post"
-                                              th:object="${student}" id="form1" class="login-form">
+                                              th:object="${student}" id="studentform" class="login-form">
                                             <div class="form-group">
                                                 邮箱地址:<input type="text" name="StudentEmail" placeholder="邮箱地址..."
                                                            th:value="*{StudentEmail}" class="form-username">
@@ -73,7 +73,7 @@
                                             <div class="form-group">
                                                 验证码:<input type="text" style="width: 205px" name="code" placeholder="请输入邮箱验证码..."
                                                           th:value="${code}" class="form-username">
-                                                <button style=" width: 200px;" id="getcode1" class="btn">获取邮箱验证码</button>
+                                                <button style=" width: 200px;" id="studentgetcode" class="btn">获取邮箱验证码</button>
                                             </div>
                                             <div class="form-group">
                                                 修改密码:<input type="password" name="StudentPassword" placeholder="输入您想修改的新密码..."
@@ -87,7 +87,7 @@
                                     </div></div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                        <button type="button" id="submit1" class="btn btn-primary">提交更改</button>
+                                        <button type="button" id="studentsubmit" class="btn btn-primary">提交更改</button>
                                     </div>
                                 </div><!-- /.modal-content -->
                             </div><!-- /.modal -->
@@ -106,7 +106,7 @@
                                     <div class="modal-body">
                                         <div class="form-bottom" style="text-align: right;background-color:#FFFFFF">
                                             <form role="form" th:action="@{/teacherpasswordupdate}" method="post"
-                                                 th:object="${teacher}" id="form2" class="login-form">
+                                                 th:object="${teacher}" id="teacherform" class="login-form">
                                                 <div class="form-group">
                                                     邮箱地址:<input type="text" name="TeacherEmail" placeholder="邮箱地址..."
                                                                th:value="*{TeacherEmail}" class="form-username">
@@ -114,7 +114,7 @@
                                                 <div class="form-group">
                                                     验证码:<input type="text" style="width: 205px" name="code" placeholder="请输入邮箱验证码..."
                                                               th:value="${code}" class="form-username">
-                                                    <button style=" width: 200px;" id="getcode2" class="btn">获取邮箱验证码</button>
+                                                    <button style=" width: 200px;" id="teachergetcode" class="btn">获取邮箱验证码</button>
                                                 </div>
                                                 <div class="form-group">
                                                     修改密码:<input type="password" name="TeacherPassword" placeholder="输入您想修改的新密码..."
@@ -130,7 +130,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                        <button type="button" id="submit2" class="btn btn-primary">提交更改</button>
+                                        <button type="button" id="teachersubmit" class="btn btn-primary">提交更改</button>
                                     </div>
                                 </div><!-- /.modal-content -->
                             </div><!-- /.modal -->
@@ -155,8 +155,8 @@
 <script src="../../static/assets/js/placeholder.js"></script>
 <![endif]-->
 <script type="text/javascript" th:inline="javascript">
-    $("#getcode1").click(function(){
-        txt=$("input[name$='StudentEmail']").val();
+    $("#studentgetcode").click(function(){
+        var txt=$("input[name$='StudentEmail']").val();
         $.post("getverifycode",{email:txt});
         var time = 60;
         settime($(this));
@@ -177,8 +177,8 @@
         }
         //$.cookie('email', txt);
     });
-    $("#getcode2").click(function(){
-        txt=$("input[name$='TeacherEmail']").val();
+    $("#teachergetcode").click(function(){
+        var txt=$("input[name$='TeacherEmail']").val();
         $.post("getverifycode",{email:txt});
         var time = 60;
         settime($(this));
@@ -199,11 +199,11 @@
         }
         //$.cookie('email', txt);
     });
-    $("#submit1").click(function(){
-        $("#form1").submit();
+    $("#studentsubmit").click(function(){
+        $("#studentform").submit();
     });
-    $("#submit2").click(function(){
-        $("#form2").submit();
+    $("#teachersubmit").click(function(){
+        $("#teacherform").submit();
     });
 </script>
 </body>

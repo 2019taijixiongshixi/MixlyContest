@@ -23,6 +23,7 @@ public class StudentLoginController {
         int verifyCode;
         String studentemail=student.getStudentEmail();
 
+        //System.out.println(student.getStudentPassword());
         if (studentemail!= null) {
             String password = student.getStudentPassword();
             verifyCode = TeacherLoginService.verify(studentemail, password);  // 认证用户是否可以登录

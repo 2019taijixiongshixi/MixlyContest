@@ -165,10 +165,11 @@ public class StudentDAO {
         Integer studentid=null;
 
         try {
-            String sql = "SELECT StudentID FROM Student WHERE StudentEmail = "+StudentEmail;
+            String sql = "SELECT StudentID FROM Student WHERE StudentEmail = ?";
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
             pst = conn.prepareStatement(sql);  // 预处理语句
+            pst.setString(1, StudentEmail);
             resultSet = pst.executeQuery();  // 执行语句
 
             // 获取用户ID
