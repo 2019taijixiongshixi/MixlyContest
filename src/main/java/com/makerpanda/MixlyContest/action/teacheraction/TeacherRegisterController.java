@@ -1,6 +1,5 @@
 package com.makerpanda.MixlyContest.action.teacheraction;
 
-import com.makerpanda.MixlyContest.MailUtil;
 import com.makerpanda.MixlyContest.datamodel.Teacher;
 import com.makerpanda.MixlyContest.service.teacherservice.TeacherRegisterService;
 import org.springframework.stereotype.Controller;
