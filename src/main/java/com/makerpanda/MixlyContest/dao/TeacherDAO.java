@@ -248,24 +248,20 @@ public class TeacherDAO {
         }
     }
     public boolean updateTeacherInfo(Teacher teacher) {
-        String sql = "UPDATE Teacher SET TeacherIdentify=?,TeacherPassword=? ," +
-                "TeacherEmail=?, TeacherTel=? ,TeacherGender=?, TeacherName=?, " +
-                "ClassID=?,School=?, TeacherCertificationID=? WHERE TeacherID=?";
+        String sql = "UPDATE Teacher SET TeacherIdentify=?," +
+                "TeacherTel=? ,TeacherGender=?, TeacherName=?, " +
+                "School=?, TeacherCertificationID=? WHERE TeacherID=?";
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
             pst = conn.prepareStatement(sql);
             pst.setString(1, teacher.getTeacherIdentify());
-            pst.setString(2,
-                    MD5HashHelper.encryptPassword(teacher.getTeacherPassword()));
-            pst.setString(3, teacher.getTeacherEmail());
-            pst.setString(4,teacher.getTeacherTel());
-            pst.setString(5, teacher.getTeacherGender());
-            pst.setString(6,teacher.getTeacherName());
-            pst.setInt(7,teacher.getTeacherClassID());
-            pst.setString(8,teacher.getTeacherSchool());
-            pst.setString(9,teacher.getTeacherCertificationID());
-            pst.setInt(10,teacher.getTeacherID());
+            pst.setString(2,teacher.getTeacherTel());
+            pst.setString(3, teacher.getTeacherGender());
+            pst.setString(4,teacher.getTeacherName());
+            pst.setString(5,teacher.getTeacherSchool());
+            pst.setString(6,teacher.getTeacherCertificationID());
+            pst.setInt(7,teacher.getTeacherID());
             int rowsAffected = pst.executeUpdate();  // 执行语句
             return rowsAffected == 1;
         } catch (Exception e) {
