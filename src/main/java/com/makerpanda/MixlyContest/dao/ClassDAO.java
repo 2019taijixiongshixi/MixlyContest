@@ -124,25 +124,25 @@ import static com.makerpanda.MixlyContest.DBHelper.closeResource;
             }
         }
         /**
-         * 根据ClassID，获取TeacherID。
-         * @param ClassID 需要获取信息的ClassID。
-         * @return 如果能够查询到ClassID的信息，则返回一个Integer类型的教师id，其中数据域为该Class信息。否则，返回null。
+         * 根据TeacherID，获取ClassID。
+         * @param TeacherID 需要获取CLassID的TeacherID
+         * @return 如果能够查询到的信息，则返回一个Integer类型的CLassID,否则，返回null。
          */
-        public Integer getClassIDByTeacherID(Integer ClassID) {
-            Integer teacherid = null;
-            String sql="SELECT TeacherID FROM Class WHERE ClassID = ?";
+        public Integer getClassIDByTeacherID(Integer TeacherID) {
+            Integer classid = null;
+            String sql="SELECT ClassID FROM Class WHERE TeacherID = ?";
             try {
                 conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
                 // 创建PreparedStatement执行SQL语句
                 pst = conn.prepareStatement(sql);  // 预处理语句
-                pst.setInt(1, ClassID);
+                pst.setInt(1, TeacherID);
                 resultSet = pst.executeQuery();  // 执行语句
 
                 // 获得class信息
                 if (resultSet.next()) {
-                    teacherid=(resultSet.getInt("TeacherID"));
+                    classid=(resultSet.getInt("ClassID"));
                 }
-                return teacherid;
+                return classid;
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;

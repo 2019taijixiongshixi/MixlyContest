@@ -306,6 +306,7 @@ public class StudentDAO {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
             pst = conn.prepareStatement("SELECT * FROM Teacher WHERE TeacherID = ?");  // 预处理语句
+            pst.setInt(1,TeacherID);
             resultSet = pst.executeQuery();  // 执行语句
 
             // 遍历处理结果集，获得每一行数据
