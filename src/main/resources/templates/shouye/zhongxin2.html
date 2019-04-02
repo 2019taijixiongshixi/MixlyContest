@@ -127,7 +127,8 @@
                                     <th>姓名</th>
                                 </tr>
                                 <tr>
-                                    <th th:text="*{TeacherClassID}">还没有创建班级</th>
+                                    <th th:if="*{TeacherClassID==0}" th:text="*{TeacherClassID}"></th>
+                                    <th th:unless="*{TeacherClassID==0}">还没有创建班级</th>
                                     <th th:text="*{TeacherName}"></th>
                                 </tr>
                                 <tr>

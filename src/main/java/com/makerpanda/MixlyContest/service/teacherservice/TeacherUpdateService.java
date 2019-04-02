@@ -33,7 +33,13 @@ public class TeacherUpdateService {
      */
     public static boolean TeacherUpdateInfo (Teacher teacher) {
         TeacherDAO teacherdao=new TeacherDAO();
-        return teacherdao.updateTeacherInfo(teacher);
+
+        TeacherLoginService.teacher.setTeacherName(teacher.getTeacherName());
+        TeacherLoginService.teacher.setTeacherGender(teacher.getTeacherGender());
+        TeacherLoginService.teacher.setTeacherIdentify(teacher.getTeacherIdentify());
+        TeacherLoginService.teacher.setTeacherSchool(teacher.getTeacherSchool());
+        TeacherLoginService.teacher.setTeacherTel(teacher.getTeacherTel());
+        return teacherdao.updateTeacherInfo(TeacherLoginService.teacher);
     }
 
 

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @Controller
 public class TeacherClassController {
     @RequestMapping(path={"/zhongxin2"})
-    public String zhongxin2(Model model,@ModelAttribute("teacher") Teacher teacher) {
+    public String zhongxin2(Model model) {
         model.addAttribute("teacher", TeacherLoginService.teacher);
         return "shouye/zhongxin2";
     }
