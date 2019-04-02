@@ -59,7 +59,7 @@ public class TeacherUpdateController {
            modelMap.addAttribute("Success", "修改成功");
        else
            modelMap.addAttribute("Error", "修改失败");
-        return "zhuce/jzhuce";
+        return "shouye/zhongxin2";
     }
 
 }

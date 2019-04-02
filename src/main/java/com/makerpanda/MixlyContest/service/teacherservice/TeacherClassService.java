@@ -3,7 +3,6 @@ package com.makerpanda.MixlyContest.service.teacherservice;
 import com.makerpanda.MixlyContest.dao.ClassDAO;
 import com.makerpanda.MixlyContest.dao.StudentDAO;
 import com.makerpanda.MixlyContest.dao.TeacherDAO;
-import com.makerpanda.MixlyContest.datamodel.Student;
 import com.makerpanda.MixlyContest.datamodel.Teacher;
 import org.springframework.stereotype.Service;
 
