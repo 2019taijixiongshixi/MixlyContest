@@ -32,4 +32,11 @@ public class IndexController {
         model.addAttribute("student",StudentLoginService.student);
         return "shouye/chuangke";
     }
+
+    @RequestMapping(path={"/"})
+    public String index2(Model model) {
+        model.addAttribute("teacher",TeacherLoginService.teacher);
+        model.addAttribute("student",StudentLoginService.student);
+        return "shouye/index";}
+
 }

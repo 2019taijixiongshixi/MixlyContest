@@ -27,24 +27,24 @@ public class TeacherUpdateController {
 
         switch (verifyCode) {
             default:
-                return "shouye/404";
+                return "redirect:404";
             case 0:  // 修改成功
-                return "login/login2";
+                return "redirect:login2";
             case 1:  // 验证码错误
                 modelMap.addAttribute("codeError", "对不起，您输入的验证码有误");
-                return "login/getmima";
+                return "redirect:getmima";
             case 2://没有这个邮箱
                 modelMap.addAttribute("mailError", "该邮箱还未注册，请先注册");
-                return "zhuce/jzhuce";
+                return "redirect:jzhuce";
             case 3:  //系统错误
                 modelMap.addAttribute("systemError", "系统错误");
-                return "login/getmima";
+                return "redirect:getmima";
             case 4:  //邮箱错误
                 modelMap.addAttribute("inputError", "邮箱不能为空");
-                return "login/getmima";
+                return "redirect:getmima";
             case 5:  //密码错误
                 modelMap.addAttribute("inputError", "新密码不能为空");
-                return "login/getmima";
+                return "redirect:getmima";
         }
     }
 
@@ -59,7 +59,7 @@ public class TeacherUpdateController {
            modelMap.addAttribute("Success", "修改成功");
        else
            modelMap.addAttribute("Error", "修改失败");
-        return "shouye/zhongxin2";
+        return "redirect:zhongxin2";
     }
 
 }

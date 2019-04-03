@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8" />
@@ -139,23 +139,84 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card card-user">
+                    <div class="card card-user" id="table">
                         <div class="card-header">
-                            <h5 class="card-title">个人信息(可在线修改个人信息)</h5>
+                            <h5 class="card-title">个人信息</h5>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <table class="table" th:object="${student}">
+                                <tr>
+                                    <th>账号ID</th>
+                                    <th>注册邮箱</th>
+                                </tr>
+                                <tr>
+                                    <th th:text="*{StudentID}"></th>
+                                    <th th:text="*{StudentEmail}"></th>
+                                </tr>
+                                <tr>
+                                    <th>姓名</th>
+                                    <th>带队老师姓名</th>
+                                </tr>
+                                <tr>
+                                    <th th:text="*{StudentName}"></th>
+                                    <th th:text="${TeacherName}"></th>
+                                </tr>
+                                <tr>
+                                    <th>性别</th>
+                                    <th>身份证号</th>
+                                </tr>
+                                <tr>
+                                    <th th:text="*{StudentGender}"></th>
+                                    <th th:text="*{StudentIdentify}"></th>
+                                </tr>
+                                <tr>
+                                    <th>手机号</th>
+                                    <th>带队老师手机号</th>
+                                </tr>
+                                <tr>
+                                    <th th:text="*{StudentSchool}"></th>
+                                    <th th:text="${TeacherTel}"></th>
+                                </tr>
+                                <tr>
+                                    <th>学校名称</th>
+                                    <th>班级号</th>
+                                </tr>
+                                <tr>
+                                    <th th:text="*{StudentSchool}"></th>
+                                    <th th:text="*{ClassID}"></th>
+                                </tr>
+                            </table>
+                            <div class="row">
+                                <div class="update ml-auto mr-auto">
+                                    <button style="width: 300px" type="button" id="modify"
+                                            class="btn btn-primary btn-round"><p style="font-size: 20px">修改</p></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-user" id="form" style="display:none">
+                        <div class="card-header">
+                            <h5 class="card-title">个人信息</h5>
+                        </div>
+                        <div class="card-body">
+                            <form th:action="@{/studentinfoupdate}" th:object="${student}" method="post">
                                 <div class="row">
                                     <div class="col-md-6 pr-1">
                                         <div class="form-group">
                                             <label style="font-size: 20px">账号ID</label>
-                                            <input type="text" class="form-control" disabled="" placeholder="Company" value="1">
+                                            <input type="text" class="form-control" disabled="" placeholder="学生ID"
+                                                   name="StudentID" th:value="*{StudentID}">
                                         </div>
                                     </div>
                                     <div class="col-md-6 pr-1">
                                         <div class="form-group">
                                             <label style="font-size: 20px">注册邮箱</label>
-                                            <input type="text" class="form-control" disabled="" placeholder="Company" value="1102907282@qq.com">
+                                            <input type="text" class="form-control" disabled="" placeholder="学生邮箱"
+                                                   name="StudentEmail" th:value="*{StudentEmail}">
                                         </div>
                                     </div>
                                 </div>
@@ -163,13 +224,15 @@
                                     <div class="col-md-6 pr-1">
                                         <div class="form-group">
                                             <label style="font-size: 20px">姓名</label>
-                                            <input type="text" class="form-control" placeholder="Company" value="张三">
+                                            <input type="text" class="form-control" placeholder="学生姓名"
+                                                   name="StudentName" th:value="*{StudentName}">
                                         </div>
                                     </div>
                                     <div class="col-md-6 pr-1">
                                         <div class="form-group">
                                             <label style="font-size: 20px">带队老师姓名</label>
-                                            <input type="text" class="form-control" placeholder="Company" value="李四">
+                                            <input type="text" class="form-control" disabled="" placeholder="带队老师姓名"
+                                                   name="TeacherName" th:value="${TeacherName}">
                                         </div>
                                     </div>
                                 </div>
@@ -177,13 +240,15 @@
                                     <div class="col-md-6 pr-1">
                                         <div class="form-group">
                                             <label style="font-size: 20px">性别</label>
-                                            <input type="text" class="form-control" placeholder="Company" value="男">
+                                            <input type="text" class="form-control" placeholder="学生性别"
+                                                   name="StudentGender" th:value="*{StudentGender}">
                                         </div>
                                     </div>
                                     <div class="col-md-6 pr-1">
                                         <div class="form-group">
                                             <label style="font-size: 20px">身份证号</label>
-                                            <input type="text" class="form-control" placeholder="Company" value="5111454552545">
+                                            <input type="text" class="form-control" placeholder="学生身份证号"
+                                                   name="StudentIdentify" th:value="*{StudentIdentify}">
                                         </div>
                                     </div>
                                 </div>
@@ -191,13 +256,15 @@
                                     <div class="col-md-6 pr-1">
                                         <div class="form-group">
                                             <label style="font-size: 20px">手机号</label>
-                                            <input type="text" class="form-control" placeholder="Company" value="110">
+                                            <input type="text" class="form-control" placeholder="学生手机号"
+                                                   name="StudentTel" th:value="*{StudentTel}">
                                         </div>
                                     </div>
                                     <div class="col-md-6 pr-1">
                                         <div class="form-group">
                                             <label style="font-size: 20px">带队老师手机号</label>
-                                            <input type="text" class="form-control" placeholder="Company" value="110">
+                                            <input type="text" class="form-control" disabled="" placeholder="带队老师手机号"
+                                                   name="TeacherTel" th:value="${TeacherTel}">
                                         </div>
                                     </div>
                                 </div>
@@ -205,13 +272,15 @@
                                     <div class="col-md-6 pr-1">
                                         <div class="form-group">
                                             <label style="font-size: 20px">学校名称</label>
-                                            <input type="text" class="form-control" placeholder="Company" value="电子科技大学附属小学">
+                                            <input type="text" class="form-control" placeholder="学校名称"
+                                                   name="StudentSchool" th:value="*{StudentSchool}">
                                         </div>
                                     </div>
                                     <div class="col-md-6 pr-1">
                                         <div class="form-group">
                                             <label style="font-size: 20px">班级号</label>
-                                            <input type="text" class="form-control" placeholder="Company" value="123">
+                                            <input type="text" class="form-control" placeholder="班级号"
+                                                   name="ClassID" th:value="*{ClassID}">
                                         </div>
                                     </div>
                                 </div>
@@ -295,6 +364,10 @@
         // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
         demo.initChartsPages();
     });
+    $("#modify").click(function () {
+        $("#table").hide();
+        $("#form").show();
+    })
 </script>
 </body>
 

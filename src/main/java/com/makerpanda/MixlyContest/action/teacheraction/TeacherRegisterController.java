@@ -29,18 +29,18 @@ public class TeacherRegisterController {
 
         switch (verifyCode) {
             default:
-                return "shouye/404";
+                return "redirect:404";
             case 0:  // 注册成功
-                return "login/login2";
+                return "redirect:login2";
             case 1:  // 验证码错误
                 modelMap.addAttribute("codeError", "对不起，您输入的验证码有误");
-                return "zhuce/jzhuce";
+                return "redirect:jzhuce";
             case 2://邮箱已注册
                 modelMap.addAttribute("mailError", "邮箱已注册");
-                return "zhuce/jzhuce";
+                return "redirect:jzhuce";
             case 3:  //系统错误
                 modelMap.addAttribute("systemError", "系统错误");
-                return "zhuce/jzhuce";
+                return "redirect:jzhuce";
         }
     }
 }

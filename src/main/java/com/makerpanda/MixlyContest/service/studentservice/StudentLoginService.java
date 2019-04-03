@@ -21,7 +21,6 @@ public class StudentLoginService {
         Integer studentid=studentdao.getStudentIDByStudentEmail(StudentEmail);
         String password = studentdao.getStudentPassword(studentid);
         String MD5Password= MD5HashHelper.encryptPassword(inputPwd);
-
         if (password == null) {
             return 3;
         } else if (inputPwd == null) {

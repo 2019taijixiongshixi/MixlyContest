@@ -109,7 +109,7 @@ public class StudentDAO {
                 student.setStudentIdentify(resultSet.getString("StudentIdentify"));
                 student.setProjectID(resultSet.getInt("ProjectID"));
                 student.setStudentName(resultSet.getString("StudentName"));
-                student.setStudentGender(resultSet.getString("StudentGander"));
+                student.setStudentGender(resultSet.getString("StudentGender"));
                 student.setStudentTel(resultSet.getString("StudentTel"));
                 student.setStudentEmail(resultSet.getString("StudentEmail"));
                 student.setClassID(resultSet.getInt("ClassID"));
@@ -247,25 +247,21 @@ public class StudentDAO {
         }
     }
     public boolean updateStudentInfo(Student student) {
-        String sql = "UPDATE Student SET StudentIdentify=?,StudentPassword=? ," +
-                "StudentEmail=?, StudentTel=? ,StudentGender=?, StudentName=?, " +
-                "ClassID=?,School=?, ProjectID=?, TeacherID=? WHERE StudentID=?";
+        String sql = "UPDATE Student SET StudentIdentify=?," +
+                "StudentTel=? ,StudentGender=?, StudentName=?, " +
+                "ClassID=?,School=?,TeacherID=? WHERE StudentID=?";
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
             pst = conn.prepareStatement(sql);
             pst.setString(1, student.getStudentIdentify());
-            pst.setString(2,
-                    MD5HashHelper.encryptPassword(student.getStudentPassword()));
-            pst.setString(3, student.getStudentEmail());
-            pst.setString(4,student.getStudentTel());
-            pst.setString(5, student.getStudentGender());
-            pst.setString(6,student.getStudentName());
-            pst.setInt(7,student.getClassID());
-            pst.setString(8,student.getStudentSchool());
-            pst.setInt(9,student.getProjectID());
-            pst.setInt(10,student.getTeacherID());
-            pst.setInt(11,student.getStudentID());
+            pst.setString(2,student.getStudentTel());
+            pst.setString(3, student.getStudentGender());
+            pst.setString(4,student.getStudentName());
+            pst.setInt(5,student.getClassID());
+            pst.setString(6,student.getStudentSchool());
+            pst.setInt(7,student.getTeacherID());
+            pst.setInt(8,student.getStudentID());
             int rowsAffected = pst.executeUpdate();  // 执行语句
             return rowsAffected == 1;
         } catch (Exception e) {

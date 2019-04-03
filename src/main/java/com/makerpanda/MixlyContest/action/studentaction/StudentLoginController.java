@@ -3,7 +3,7 @@ package com.makerpanda.MixlyContest.action.studentaction;
 
 
 import com.makerpanda.MixlyContest.datamodel.Student;
-import com.makerpanda.MixlyContest.service.teacherservice.TeacherLoginService;
+import com.makerpanda.MixlyContest.service.studentservice.StudentLoginService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -26,31 +26,31 @@ public class StudentLoginController {
         //System.out.println(student.getStudentPassword());
         if (studentemail!= null) {
             String password = student.getStudentPassword();
-            verifyCode = TeacherLoginService.verify(studentemail, password);  // 认证用户是否可以登录
+            verifyCode = StudentLoginService.verify(studentemail, password);  // 认证用户是否可以登录
         } else {
             verifyCode = 4;
         }
 
         switch (verifyCode) {
             default:
-                return "shouye/404";
+                return "redirect:404";
             case 0:  // 认证成功
-                return "shouye/index";
+                return "redirect:";
             case 1:  // 密码错误
                 modelMap.addAttribute("pwdError", "对不起，您输入的密码有误");
                 System.out.println("pwdError1");
-                return "login/login1";
+                return "redirect:login1";
             case 2:
                 modelMap.addAttribute("pwdError", "密码不能为空");
                 System.out.println("pwdError2");
             case 3:  // 用户不存在或者系统错误
                 modelMap.addAttribute("userError", "不存在该用户");
                 System.out.println("userError1");
-                return "login/login1";
+                return "redirect:login1";
             case 4:
                 modelMap.addAttribute("userError", "用户名不能为空");
                 System.out.println("userError2");
-                return "login/login1";
+                return "redirect:login1";
         }
     }
 }

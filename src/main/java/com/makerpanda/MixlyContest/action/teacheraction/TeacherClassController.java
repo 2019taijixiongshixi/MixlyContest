@@ -32,7 +32,7 @@ public class TeacherClassController {
         else
             model.addAttribute("Error","创建班级失败");
 
-        return "shouye/banji";
+        return "redirect:banji";
     }
 
 

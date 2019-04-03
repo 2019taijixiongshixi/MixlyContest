@@ -1,5 +1,6 @@
 package com.makerpanda.MixlyContest.service.studentservice;
 
+import com.makerpanda.MixlyContest.dao.ClassDAO;
 import com.makerpanda.MixlyContest.dao.StudentDAO;
 import com.makerpanda.MixlyContest.datamodel.Student;
 import com.makerpanda.MixlyContest.service.verificationcodeservice.VerificationCodeService;
@@ -33,6 +34,14 @@ public class StudentUpdateService {
      */
     public static boolean StudentUpdateInfo (Student student) {
         StudentDAO studentdao=new StudentDAO();
-        return studentdao.updateStudentInfo(student);
+        ClassDAO classdao=new ClassDAO();
+        StudentLoginService.student.setClassID(student.getClassID());
+        StudentLoginService.student.setStudentIdentify(student.getStudentIdentify());
+        StudentLoginService.student.setStudentGender(student.getStudentGender());
+        StudentLoginService.student.setStudentName(student.getStudentName());
+        StudentLoginService.student.setStudentSchool(student.getStudentSchool());
+        StudentLoginService.student.setStudentTel(student.getStudentTel());
+        StudentLoginService.student.setTeacherID(classdao.getTeacherIDByClassID(student.getClassID()));
+        return studentdao.updateStudentInfo(StudentLoginService.student);
     }
 }
