@@ -40,13 +40,15 @@ public class StudentDAO {
                 student.setStudentIdentify(resultSet.getString("StudentIdentify"));
                 student.setProjectID(resultSet.getInt("ProjectID"));
                 student.setStudentName(resultSet.getString("StudentName"));
-                student.setStudentGender(resultSet.getString("StudentGander"));
+                student.setStudentGender(resultSet.getString("StudentGender"));
                 student.setStudentTel(resultSet.getString("StudentTel"));
                 student.setStudentEmail(resultSet.getString("StudentEmail"));
                 student.setClassID(resultSet.getInt("ClassID"));
                 student.setStudentSchool(resultSet.getString("School"));
                 student.setStudentPassword(resultSet.getString("StudentPassword"));
                 student.setTeacherID(resultSet.getInt("TeacherID"));
+                student.setStudentProjectname(resultSet.getString("ProjectName"));
+                student.setStudentProjectsubmission(resultSet.getString("ProjectSubmission"));
                 // 将user对象添加进arrayList当中
                 arrayList.add(student);
             }
@@ -116,6 +118,8 @@ public class StudentDAO {
                 student.setStudentSchool(resultSet.getString("School"));
                 student.setStudentPassword(resultSet.getString("StudentPassword"));
                 student.setTeacherID(resultSet.getInt("TeacherID"));
+                student.setStudentProjectname(resultSet.getString("ProjectName"));
+                student.setStudentProjectsubmission(resultSet.getString("ProjectSubmission"));
             }
 
             return student;
@@ -301,7 +305,7 @@ public class StudentDAO {
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
-            pst = conn.prepareStatement("SELECT * FROM Teacher WHERE TeacherID = ?");  // 预处理语句
+            pst = conn.prepareStatement("SELECT * FROM Student WHERE TeacherID = ?");  // 预处理语句
             pst.setInt(1,TeacherID);
             resultSet = pst.executeQuery();  // 执行语句
 
@@ -313,13 +317,15 @@ public class StudentDAO {
                 student.setStudentIdentify(resultSet.getString("StudentIdentify"));
                 student.setProjectID(resultSet.getInt("ProjectID"));
                 student.setStudentName(resultSet.getString("StudentName"));
-                student.setStudentGender(resultSet.getString("StudentGander"));
+                student.setStudentGender(resultSet.getString("StudentGender"));
                 student.setStudentTel(resultSet.getString("StudentTel"));
                 student.setStudentEmail(resultSet.getString("StudentEmail"));
                 student.setClassID(resultSet.getInt("ClassID"));
                 student.setStudentSchool(resultSet.getString("School"));
                 student.setStudentPassword(resultSet.getString("StudentPassword"));
                 student.setTeacherID(resultSet.getInt("TeacherID"));
+                student.setStudentProjectname(resultSet.getString("ProjectName"));
+                student.setStudentProjectsubmission(resultSet.getString("ProjectSubmission"));
                 // 将user对象添加进arrayList当中
                 arrayList.add(student);
             }

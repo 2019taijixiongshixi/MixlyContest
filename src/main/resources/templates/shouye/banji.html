@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8" />
@@ -25,12 +25,12 @@
           Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
       -->
         <div class="logo">
-            <a href="zhongxin1" class="simple-text logo-mini">
+            <a href="zhongxin2" class="simple-text logo-mini">
                 <div class="logo-image-small">
                     <img src="../../static/assets/assets1/img/logo-small.png">
                 </div>
             </a>
-            <a href="zhongxin1" class="simple-text logo-normal">
+            <a href="zhongxin2" class="simple-text logo-normal">
                 个人中心
                 <!-- <div class="logo-image-big">
                   <img src="../../static/assets/assets1/img/logo-big.png">
@@ -80,18 +80,18 @@
   </div> -->
         <div class="content">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-3 col-md-6 col-sm-6" th:if="${ClassExistence==false}">
                     <div class="card card-stats">
                         <div class="card-body ">
                             <div class="row">
                                 <div class="col-5 col-md-4">
                                     <div class="icon-big text-center icon-warning">
-                                        <a href="zhongxin1"><i class="nc-icon nc-globe text-warning"></i></a>
+                                        <a th:href="@{/createClass}"><i class="nc-icon nc-globe text-warning"></i></a>
                                     </div>
                                 </div>
                                 <div class="col-7 col-md-8">
                                     <div class="numbers">
-                                        <a href="zhongxin1"><p class="card-title">创建班级
+                                        <a th:href="@{/createClass}"><p class="card-title">创建班级
                                             <p></a>
                                     </div>
                                 </div>
@@ -105,18 +105,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-3 col-md-6 col-sm-6" th:if="${ClassExistence==true}">
                     <div class="card card-stats">
                         <div class="card-body ">
                             <div class="row">
                                 <div class="col-5 col-md-4">
                                     <div class="icon-big text-center icon-warning">
-                                        <a href="zhongxin1"><i class="nc-icon nc-money-coins text-success"></i></a>
+                                        <a href="zhongxin2"><i class="nc-icon nc-money-coins text-success"></i></a>
                                     </div>
                                 </div>
                                 <div class="col-7 col-md-8">
                                     <div class="numbers">
-                                        <a href="zhongxin1"><p class="card-title">班级成员信息
+                                        <a href="zhongxin2"><p class="card-title">班级成员信息
                                             <p></a>
                                     </div>
                                 </div>
@@ -131,7 +131,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" th:if="${ClassExistence==true}">
                 <div class="col-md-12">
                     <div class="card card-user">
                         <div class="card-header">
@@ -143,7 +143,8 @@
                                     <div class="col-md-6 pr-1">
                                         <div class="form-group">
                                             <label style="font-size: 20px">班级号:</label>
-                                            <input type="text" class="form-control" disabled="" placeholder="Company" value="123">
+                                            <input type="text" class="form-control" disabled="" placeholder="ClssID"
+                                                  th:value="${teacher.TeacherClassID}">
                                         </div>
                                     </div>
                                 </div>
@@ -153,129 +154,37 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" th:if="${ClassExistence==true}">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title"> 班级成员信息表(点击成员姓名查看具体作品展示视频)</h4>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
+                            <div class="">
                                 <table class="table">
                                     <thead class=" text-primary">
-                                    <th>
-                                        姓名
-                                    </th>
-                                    <th>
-                                        身份
-                                    </th>
-                                    <th>
-                                        项目作品名称
-                                    </th>
-                                    <th>
-                                        项目是否最终提交
-                                    </th>
+                                    <th>姓名</th>
+                                    <th>身份</th>
+                                    <th>项目作品名称</th>
+                                    <th>项目是否最终提交</th>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>
-                                            张三
-                                        </td>
-                                        <td>
-                                            带队老师
-                                        </td>
-                                        <td>
-                                            -
-                                        </td>
-                                        <td>
-                                            -
-                                        </td>
+                                    <tr th:object="${teacher}">
+                                        <td th:text="*{TeacherName}"></td>
+                                        <td th:text="带队老师"></td>
+                                        <td>-</td>
+                                        <td>-</td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            李四
-                                        </td>
-                                        <td>
-                                            学生
-                                        </td>
-                                        <td>
-                                            水水水水水水水
-                                        </td>
-                                        <td>
-                                            是
-                                        </td>
+                                    <tr th:each="student: ${students}">
+                                        <th th:text="${student.StudentName}"></th>
+                                        <td th:text="学生"></td>
+                                        <td th:text="${student.StudentProjectname}">未确定名称</td>
+                                        <td th:if="${student.StudentProjectsubmission==null}">
+                                            否</td>
+                                        <td th:if="${student.StudentProjectsubmission!=null}">
+                                            是</td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            王五
-                                        </td>
-                                        <td>
-                                            学生
-                                        </td>
-                                        <td>
-                                            无
-                                        </td>
-                                        <td>
-                                            否
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            刘六
-                                        </td>
-                                        <td>
-                                            学生
-                                        </td>
-                                        <td>
-                                            飒飒法
-                                        </td>
-                                        <td>
-                                            否
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Doris Greene
-                                        </td>
-                                        <td>
-                                            Malawi
-                                        </td>
-                                        <td>
-                                            Feldkirchen in Kärnten
-                                        </td>
-                                        <td>
-                                            $63,542
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Mason Porter
-                                        </td>
-                                        <td>
-                                            Chile
-                                        </td>
-                                        <td>
-                                            Gloucester
-                                        </td>
-                                        <td>
-                                            $78,615
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Jon Porter
-                                        </td>
-                                        <td>
-                                            Portugal
-                                        </td>
-                                        <td>
-                                            Gloucester
-                                        </td>
-                                        <td>
-                                            $98,615
-                                        </td>
-                                    </tr>
-
                                     </tbody>
                                 </table>
                             </div>

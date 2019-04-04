@@ -25,6 +25,10 @@ public class Student implements Serializable {
 
     private Integer teacherid;
 
+    private String projectname;
+
+    private String projectsubmission;
+
     public Integer getStudentID() { return studentid; }
 
     public void setStudentID(Integer studentid) { this.studentid = studentid; }
@@ -68,5 +72,14 @@ public class Student implements Serializable {
     public Integer getTeacherID() { return teacherid; }
 
     public void setTeacherID(Integer teacherid) { this.teacherid = teacherid; }
+
+    public String getStudentProjectname() { return projectname; }
+
+    public void setStudentProjectname(String projectname) { this.projectname = projectname; }
+
+    public String getStudentProjectsubmission() { return projectsubmission; }
+
+    public void setStudentProjectsubmission(String projectsubmission)
+    { this.projectsubmission = projectsubmission; }
 
 }

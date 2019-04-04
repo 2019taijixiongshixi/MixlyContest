@@ -17,7 +17,12 @@ public class TeacherClassService {
      */
     public static boolean createClass(Teacher teacher){
         ClassDAO classdao = new ClassDAO();
-        return classdao.createClass(teacher.getTeacherID());
+        if(classdao.createClass(teacher.getTeacherID())){
+            TeacherLoginService.teacher.setTeacherClassID
+                    (classdao.getClassIDByTeacherID(teacher.getTeacherID()));
+            return true;
+        }
+        return false;
     }
     /**
      * 查询班级操作

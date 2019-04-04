@@ -19,9 +19,14 @@ public class TeacherClassController {
     }
 
     @RequestMapping(path={"/banji"})
-    public String banji(Model model,@ModelAttribute("teacher") Teacher teacher) {
-        ArrayList students= TeacherClassService.selectClassStudent(teacher);
+    public String banji(Model model) {
+        ArrayList students= TeacherClassService.selectClassStudent(TeacherLoginService.teacher);
         model.addAttribute("teacher", TeacherLoginService.teacher);
+        if(TeacherLoginService.teacher.getTeacherClassID()==0){
+            model.addAttribute("ClassExistence", false);
+        }
+        else
+            model.addAttribute("ClassExistence", true);
         model.addAttribute("students", students);
         return "shouye/banji";
     }

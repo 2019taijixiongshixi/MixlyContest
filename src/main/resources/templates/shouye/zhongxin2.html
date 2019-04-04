@@ -25,12 +25,12 @@
           Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
       -->
         <div class="logo">
-            <a href="zhongxin1" class="simple-text logo-mini">
+            <a href="zhongxin2" class="simple-text logo-mini">
                 <div class="logo-image-small">
                     <img src="../../static/assets/assets1/img/logo-small.png">
                 </div>
             </a>
-            <a href="zhongxin1" class="simple-text logo-normal">
+            <a href="zhongxin2" class="simple-text logo-normal">
                 个人中心
                 <!-- <div class="logo-image-big">
                   <img src="../../static/assets/assets1/img/logo-big.png">
@@ -67,7 +67,7 @@
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="zhongxin1">个人资料</a>
+                    <a class="navbar-brand" href="zhongxin2">个人资料</a>
                 </div>
             </div>
         </nav>
@@ -127,8 +127,8 @@
                                     <th>姓名</th>
                                 </tr>
                                 <tr>
-                                    <th th:if="*{TeacherClassID==0}" th:text="*{TeacherClassID}"></th>
-                                    <th th:unless="*{TeacherClassID==0}">还没有创建班级</th>
+                                    <th th:if="*{TeacherClassID!=0}" th:text="*{TeacherClassID}"></th>
+                                    <th th:if="*{TeacherClassID==0}">还没有创建班级</th>
                                     <th th:text="*{TeacherName}"></th>
                                 </tr>
                                 <tr>
