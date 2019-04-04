@@ -79,8 +79,7 @@ import static com.makerpanda.MixlyContest.DBHelper.closeResource;
         }
 
         public boolean createClass(Integer teacherid){
-            String sql="INSERT INTO Class (TeacherID)"+
-                    "VALUES(?)";
+            String sql="INSERT INTO Class (TeacherID) VALUES (?) ";
             try {
                 conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
                 // 创建PreparedStatement执行SQL语句

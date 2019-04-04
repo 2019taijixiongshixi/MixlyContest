@@ -31,8 +31,8 @@ public class TeacherClassController {
         return "shouye/banji";
     }
     @RequestMapping(path={"/createClass"})
-    public String createClass(Model model,@ModelAttribute("teacher") Teacher teacher) {
-        if(TeacherClassService.createClass(teacher))
+    public String createClass(Model model) {
+        if(TeacherClassService.createClass(TeacherLoginService.teacher))
             model.addAttribute("Success","创建班级成功");
         else
             model.addAttribute("Error","创建班级失败");
