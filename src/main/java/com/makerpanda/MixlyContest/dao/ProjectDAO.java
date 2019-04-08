@@ -122,7 +122,7 @@ public class ProjectDAO {
      */
     public boolean insertNewProject(Project newProject) {
         String sql = "INSERT INTO Project (ProjectName,TeacherID,StudentID1,StudentID2," +
-                "StudentID3,ProjectTeamName VALUES(?,?,?,?,?,?)";
+                "StudentID3,ProjectTeamName) VALUES(?,?,?,?,?,?)";
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
@@ -132,7 +132,7 @@ public class ProjectDAO {
             pst.setInt(3, newProject.getStudentID1());
             pst.setInt(4, newProject.getStudentID2());
             pst.setInt(5, newProject.getStudentID3());
-            pst.setString(3,newProject.getProjectTeamName());
+            pst.setString(6,newProject.getProjectTeamName());
 
 
             int rowsAffected = pst.executeUpdate();  // 执行语句
@@ -182,6 +182,35 @@ public class ProjectDAO {
             closeResource(resultSet, pst);
         }
         return false;
+    }
+    /**
+     * 根据学生ID1，获取项目ID。
+     * @param StudentID1 需要获取信息的项目ID。
+     * @return 返回ProjectID
+     */
+    public Integer getProjectIDByStudentID1(Integer StudentID1) {
+        Integer ProjectID=null;
+
+        String sql="SELECT * FROM Project WHERE StudentID1 = ?";
+        try {
+            conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
+            // 创建PreparedStatement执行SQL语句
+            pst = conn.prepareStatement(sql);  // 预处理语句
+            pst.setInt(1, StudentID1);
+            resultSet = pst.executeQuery();  // 执行语句
+            // 获得项目信息
+            if (resultSet.next()) {
+
+                ProjectID=resultSet.getInt("ProjectID");
+            }
+
+            return ProjectID;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            closeResource(resultSet, pst);
+        }
     }
 }
 

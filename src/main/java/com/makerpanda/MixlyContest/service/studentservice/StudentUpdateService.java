@@ -30,7 +30,7 @@ public class StudentUpdateService {
     /**
      * 学生信息修改函数。
      * @param student 新的学生对象。
-     * @return 修改成功返回0,修改失败返回1
+     * @return 修改成功返回1,修改失败返回0
      */
     public static boolean StudentUpdateInfo (Student student) {
         StudentDAO studentdao=new StudentDAO();
