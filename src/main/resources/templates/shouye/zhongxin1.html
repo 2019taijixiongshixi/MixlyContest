@@ -294,15 +294,14 @@
                     </div>
                 </div>
             </div>
-            <div class="row" id="tab2"
-                 th:if="${student.ProjectID!=0}">
+            <div class="row" id="tab2">
                 <div class="col-md-12">
                     <div class="card card-user">
                         <div class="card-header">
                             <h5 class="card-title">项目信息</h5>
                         </div>
 
-                        <div class="card-body" th:object="${project}">
+                        <div class="card-body" th:object="${project}" th:if="${student.ProjectID!=0}">
                             <div class="row">
                                 <div class="col-md-6 pr-1">
                                     <div class="alert alert-primary alert-dismissible fade show">
@@ -337,6 +336,24 @@
                                                     <span style="font-size: 20px">
                                                         <b> 队员二学生ID - </b><span th:text="*{StudentID3}"></span></span>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="row" th:if="${student.StudentID==project.StudentID1}">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <form class="login-form" method="post" th:action="@{/projectdelete}">
+                                        <button style="width: 300px" type="submit" class="btn btn-danger">
+                                            <p style="font-size: 20px">删除项目</p>
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="col-md-4"></div>
+                            </div>
+                        </div>
+                        <div class="card-body" th:if="${student.ProjectID==0}">
+                            <div class="row">
+                                <div class="col-md-6 pr-1">
+                                    <h6>您还没有创建项目，需要在提交作品页面完成基本信息填写</h6>
                                 </div>
                             </div>
                         </div>

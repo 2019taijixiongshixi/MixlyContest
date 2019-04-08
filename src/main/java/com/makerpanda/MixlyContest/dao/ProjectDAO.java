@@ -212,5 +212,28 @@ public class ProjectDAO {
             closeResource(resultSet, pst);
         }
     }
+    /**
+     * 删除项目
+     * @param ProjectID 项目ID。
+     * @return 如果删除成功返回true，否则返回false。
+     */
+    public boolean deleteProject(Integer ProjectID) {
+        String sql = "DELETE FROM Project where ProjectID=?";
+        try {
+            conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
+            // 创建PreparedStatement执行SQL语句
+            pst = conn.prepareStatement(sql);
+            pst.setInt(1, ProjectID);
+
+            int rowsAffected = pst.executeUpdate();  // 执行语句
+
+            return rowsAffected == 1;
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            closeResource(resultSet, pst);
+        }
+        return false;
+    }
 }
 
