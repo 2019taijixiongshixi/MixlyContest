@@ -12,6 +12,136 @@ body a{
 	-ms-transition:0.5s all ease;
 }
 /*-----start-header----*/
+.p_worksdetail_main_left {
+	/* float: left; */
+	width: 1300px;
+	/* width: 710px; */
+	height: 850px;
+	border-bottom: 1px solid #ffbd2c;
+	margin-top: 10px;
+}
+.p_worksdetail_main_right {
+	/* float: right; */
+	width: 1300px;
+	height: 500px;
+	margin-top: 40px;
+}
+.p_worksdetail_top {
+	width: auto;
+	height: 60px;
+	border-bottom: 1px solid #ffbd2c;
+	margin-bottom: 10px;
+}
+.p_worksdetail_topright{
+	float: right;
+	margin-right: 15px;
+}
+.p_worksdetail_tab_menu {
+	width: 1300px;
+	height: 35px;
+	border-left: 0px solid #CCC;
+	border-top: 0px solid #ccc;
+}
+.p_worksdetail_tab_menu li a.p_intro {
+	margin-left: 0px;
+}
+.p_worksdetail_tab_menu li a.p_procedure {
+	margin-left: 0px;
+}
+.p_worksdetail_tab_menu li a.p_show {
+	margin-left: 0px;
+	width: 320px;
+}
+.p_worksdetail_tab_menu li a.p_file {
+	margin-left: 0px;
+	width: 320px;
+}
+.p_worksdetail_tab_menu ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.p_worksdetail_tab_menu li {
+	float: left;
+	height: 56px;
+	width: 320px;
+	display: inline-block;
+}
+.p_worksdetail_tab_menu li {
+	text-align: center;
+	float: left;
+	display: block;
+	width: 320px;
+	height: 55px;
+	overflow: hidden;
+	line-height: 35px;
+	border-right: #ccc 0px solid;
+	border-bottom: #ccc 0px solid;
+	display: inline;
+	font-size: 20px;
+//font-weight: bold;
+	cursor: pointer;
+	border-radius: 5px;
+	box-shadow: 1px 1px 15px 3px #fede95;
+}
+.p_worksdetail_tab_menu li a {
+	height: 56px;
+	line-height: 56px;
+	padding-left: 0px;
+	width: 320px;
+	display: block;
+	letter-spacing: 2px;
+	color: #484a4a;
+	font-size: 18px;
+	margin-left: 2px;
+}
+.page-icon{
+	margin:20px 0 0 0;/*设置距离顶部20像素*/
+	font-size:0;/*修复行内元素之间空隙间隔*/
+	text-align:center;/*设置内容居中显示*/
+}
+
+/*设置共有的的样式布局，主要是进行代码优化，提高运行效率*/
+.page-icon a,.page-disabled,.page-next{
+	border:1px solid #ccc;
+	border-radius:3px;
+	padding:4px 10px 5px;
+	font-size:14PX;/*修复行内元素之间空隙间隔*/
+	margin-right:10px;
+}
+
+/*对 a 标签进行样式布局 */
+.page-icon a{
+	text-decoration:none;/*取消链接的下划线*/
+	color:#005aa0;
+}
+
+.page-current{
+	color:#ff6600;
+	padding:4px 10px 5px;
+	font-size:14PX;/*修复行内元素之间空隙间隔*/
+}
+
+.page-disabled{
+	color:#ccc;
+}
+
+.page-next i,.page-disabled i{
+	cursor:pointer;/*设置鼠标经过时的显示状态，这里设置的是显示状态为小手状态*/
+	display:inline-block;/*设置显示的方式为行内块元素*/
+	width:5px;
+	height:9px;
+	background-image:url(http://img.mukewang.com/547fdbc60001bab900880700.gif);/*获取图标的背景链接*/
+}
+.page-disabled i{
+	background-position:-80px -608px;
+	margin-right:3px;
+}
+
+.page-next i{
+	background-position:-62px -608px;
+	margin-left:3px;
+}
 .logo{
 	float: left;
 }
@@ -50,6 +180,20 @@ body a{
 	border-radius: 10px;
 	font-weight: bold;
 	left: 50%;
+	margin-left: -100px;
+	top: -35px;
+}
+.con-box-tit1 {
+	width: 300px;
+	height: 70px;
+	text-align: center;
+	line-height: 70px;
+	background-color: #fede95;
+	color: #686868;
+	font-size: 18px;
+	border-radius: 10px;
+	font-weight: bold;
+	left: 47%;
 	margin-left: -100px;
 	top: -35px;
 }
@@ -533,7 +677,7 @@ a.banner-btn:hover{
 	padding: 3em 0
 }
 .welcom-grid-text h2,.welcom-grid-list h3{
-	color: #c71d1d;	
+	color: #c00006;
 	font-family: 'Open Sans', sans-serif;
 	font-size:2.6em;
 	margin:0em 0;
@@ -636,7 +780,6 @@ cursor: pointer;
 	width: 270px;
 	display: block;
 	position: absolute;
-	z-index: -9999px;
 	
 	-webkit-transition: all 0.3s ease-out;
 	-moz-transition: all 0.3s ease-out;
@@ -651,6 +794,15 @@ cursor: pointer;
 .gallery-box {
 	margin: 0px 6px;
 	width: 24%;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+.gallery-box1 {
+	margin: 0px 6px;
+	width: 32%;
 	-webkit-transition: all 0.3s ease-out;
 	-moz-transition: all 0.3s ease-out;
 	-ms-transition: all 0.3s ease-out;
@@ -925,10 +1077,6 @@ ul.soc_icons2 li a i.icon_6:hover{
 }
 .about-grids{
 	padding:1.5em 0;
-}
-.about-left ul{
-	margin:0 0 0.8em 3em;
-	padding:0;
 }
 .about-left ul li{
 	display:block;
@@ -1233,7 +1381,6 @@ padding-bottom: 2em;
 	background:#e4ce9a;
 }
 .t_s_4{
-	background:url(../images/pic3.jpg)no-repeat;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-o-background-size:cover;
@@ -1261,7 +1408,6 @@ padding-bottom: 2em;
 /*-- Price Bar Ends here --*/
 /*-- Cat bar Starts here --*/
 .cat{
-	background:url(../images/cat.jpg)no-repeat;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-o-background-size:cover;

@@ -18,9 +18,9 @@
 	</head>
 	<body style="background-color: #FFFDF4">
 		<!-- start-header-->
-			<div style="background-color: #D4AC8D" class="header-top">
+			<div style="background-color: #ffcd06" class="header-top">
 				<div class="container">
-					<div style="background-color: #D4AC8D" class="top-header">
+					<div style="background-color: #ffcd06" class="top-header">
 						<div class="logo">
 							<a href="index.html"><img src="../../static/assets/images/logo.png" alt=""></a>
 						</div>
@@ -28,13 +28,13 @@
 							<!--start-top-nav-->
 						 <nav class="top-nav">
 							<ul class="top-nav">
-								<li style="font-size:22px "><a href="index">主页</a></li>
-								<li style="font-size: 22px" class="active"><a href="about"> 关于大赛</a></li>
-								<li style="font-size: 22px"><a href="ziliao">Mixly开源资料库 </a></li>
-								<li style="font-size: 22px"><a href="chuangke"> 创客空间  </a></li>
-								<li style="font-size: 22px" th:if="${teacher!=null}"><a href="zhongxin2">个人中心</a></li>
-								<li style="font-size: 22px" th:if="${student!=null}"><a href="zhongxin1">个人中心</a></li>
-								<li style="font-size: 22px" th:unless="${teacher!=null||student!=null}" ><a href="login">注册/登录</a></li>
+								<li style="font-size:22px "><a style="color: #c00006 "href="index">主页</a></li>
+								<li style="font-size: 22px" class="active"><a style="color: #c00006 "href="about"> 关于大赛</a></li>
+								<li style="font-size: 22px"><a style="color: #c00006 "href="ziliao">Mixly开源资料库 </a></li>
+								<li style="font-size: 22px"><a style="color: #c00006 "href="chuangke"> 创客空间  </a></li>
+								<li style="font-size: 22px" th:if="${teacher!=null}"><a style="color: #c00006 "href="zhongxin2">个人中心</a></li>
+								<li style="font-size: 22px" th:if="${student!=null}"><a style="color: #c00006 "href="zhongxin1">个人中心</a></li>
+								<li style="font-size: 22px" th:unless="${teacher!=null||student!=null}" ><a style="color: #c00006 "href="login">注册/登录</a></li>
 
 							</ul>
 
@@ -93,7 +93,7 @@
 										<div class="con-txt">
 											<div class="blog-artical-info-head">
 												<ul>
-													<li><span class="tag"> </span><a href="../../static/assets/word/参赛指南.docx">点此下载参赛指南</a></li>
+													<li><span class="tag"> </span><a href="../../static/assets/word/参赛指南.pdf">点此下载参赛指南</a></li>
 													<div class="clearfix"> </div>
 												</ul>
 											</div>
@@ -105,7 +105,7 @@
 										<div class="con-txt">
 											<div class="blog-artical-info-head">
 												<ul>
-													<li><span class="tag"> </span><a href="../../static/assets/word/活动章程.docx">点此下载活动章程</a></li>
+													<li><span class="tag"> </span><a href="../../static/assets/word/活动章程.pdf">点此下载活动章程</a></li>
 													<div class="clearfix"> </div>
 												</ul>
 											</div>
@@ -176,48 +176,6 @@
 					
 		<!-- about-us -->
 	<!--//End-About-->
-<div  class="testimonials" id="testimonials">
-			 <div class="wmuSlider example1">
-		 	<div class="container-flueid">
-			   <article style="position: absolute; width:64%; opacity: 0;">
-
-					<div class=" cont span_2_of_3 client-main">
-							<div class="slide-text">
-									<p>Suspendisse eget lobortis lacus, et elementum tortor.
-Praesent metus ligula, lacinia eu sodales sed,</p>
-						  	<span> </span>
-						 	</div>
-						 	<div class="clearfix"> </div>
-					</div>
-				</article>
-				 <article style="position: absolute; width:64%; opacity: 0;">
-				   	<div class=" cont span_2_of_3  client-main">
-							<div class="slide-text">
-								<p>Suspendisse eget lobortis lacus, et elementum tortor.
-								Praesent metus ligula, lacinia eu sodales sed,</p>
-						  			<span> </span>
-						 	</div>
-						 	<div class="clearfix"> </div>
-					</div>
-				 </article>
-				 <article style="position: absolute; width:64%; opacity: 0;">
-				   	<div class="cont span_2_of_3  client-main">
-							<div class="slide-text">
-									<p>Suspendisse eget lobortis lacus, et elementum tortor.
-									Praesent metus ligula, lacinia eu sodales sed,</p>
-						  	<span> </span>
-						 	</div>
-						 	<div class="clearfix"> </div>
-					</div>
-				 </article>
-
-                  <script src="../../static/assets/js/jquery.wmuSlider.js"></script>
-					<script>
-       				     $('.example1').wmuSlider();
-   					</script>
-	         </div>
-	     </div>
-	 </div>
 	 <!--//text-slider-->
 	 <!--/start-Events-->
 
@@ -226,9 +184,7 @@ Praesent metus ligula, lacinia eu sodales sed,</p>
             <div class="container">
                 <div class="footer-content">
                     <div class="col-md-3 footer-grid-copy-right">
-                        <div class="logo-2">
-                            <a href="index.html"><img src="../../static/assets/images/logo2.png" alt=""></a>
-                        </div>
+
 
                     </div>
                     <div class="col-md-3 footer-grid">
@@ -325,7 +281,6 @@ Praesent metus ligula, lacinia eu sodales sed,</p>
 				$('.main-search').hide();
 			});
 		</script>
-
 
 </body>
 </html>		
