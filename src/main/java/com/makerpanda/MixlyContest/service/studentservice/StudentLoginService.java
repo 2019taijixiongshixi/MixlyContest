@@ -46,8 +46,8 @@ public class StudentLoginService {
 
     /**
      * 获取当前用户的ID。
-     * @param StudentEmail 当前用户的ID。
-     * @return String类型变量，值为当前用户姓名。
+     * @param StudentEmail 当前用户的邮箱。
+     * @return Integer类型变量，值为用户ID。
      */
     public static Integer getStudentIDByStudentEmail (String StudentEmail) {
         StudentDAO studentdao = new StudentDAO();

@@ -26,6 +26,16 @@ public class StudentUpdateController {
             Project project= ProjectUpdateService.getProjectInfo(
                     StudentLoginService.student.getProjectID());
             model.addAttribute("project",project);
+            String Student1=StudentLoginService.getName(project.getStudentID1());
+            String Student2=null;
+            String Student3=null;
+            if(project.getStudentID2()!=0)
+                Student2=StudentLoginService.getName(project.getStudentID2());
+            if(project.getStudentID3()!=0)
+                Student3=StudentLoginService.getName(project.getStudentID3());
+            model.addAttribute("Student1", Student1);
+            model.addAttribute("Student2", Student2);
+            model.addAttribute("Student3", Student3);
         }
         else
             model.addAttribute("project",new Project());

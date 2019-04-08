@@ -310,7 +310,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 pr-1">
-                                    <div class="alert alert-info alert-dismissible fade show">
+                                    <div class="alert alert-warning alert-dismissible fade show">
                                                     <span style="font-size: 20px">
                                                         <b> 项目团队名称 - </b><span th:text="*{ProjectTeamName}"></span></span>
                                     </div>
@@ -323,18 +323,38 @@
                                                         <b> 队长学生ID - </b><span th:text="*{StudentID1}"></span></span>
                                     </div>
                                 </div>
-                                <div class="col-md-6 pr-1" th:if="*{StudentID2!=0}">
-                                    <div class="alert alert-info alert-dismissible fade show">
+                                <div class="col-md-6 pr-1">
+                                    <div class="alert alert-warning alert-dismissible fade show">
+                                                    <span style="font-size: 20px">
+                                                        <b> 队长学生姓名 - </b><span th:text="${Student1}"></span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" th:if="*{StudentID2!=0}">
+                                <div class="col-md-6 pr-1" >
+                                    <div class="alert alert-primary alert-dismissible fade show">
                                                     <span style="font-size: 20px">
                                                         <b> 队员一学生ID - </b><span th:text="*{StudentID2}"></span></span>
                                     </div>
                                 </div>
+                                <div class="col-md-6 pr-1">
+                                    <div class="alert alert-warning alert-dismissible fade show">
+                                                    <span style="font-size: 20px">
+                                                        <b> 队员一学生姓名 - </b><span th:text="${Student2}"></span></span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6 pr-1" th:if="*{StudentID3!=0}">
+                            <div class="row" th:if="*{StudentID3!=0}">
+                                <div class="col-md-6 pr-1">
                                     <div class="alert alert-primary alert-dismissible fade show">
                                                     <span style="font-size: 20px">
                                                         <b> 队员二学生ID - </b><span th:text="*{StudentID3}"></span></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 pr-1">
+                                    <div class="alert alert-warning alert-dismissible fade show">
+                                                    <span style="font-size: 20px">
+                                                        <b> 队员二学生姓名 - </b><span th:text="${Student3}"></span></span>
                                     </div>
                                 </div>
                             </div>

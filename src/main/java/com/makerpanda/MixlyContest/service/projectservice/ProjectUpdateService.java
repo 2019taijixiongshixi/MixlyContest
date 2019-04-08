@@ -14,14 +14,10 @@ public class ProjectUpdateService {
         return projectdao.getProjectInfo(ProjectID);
     }
 
-    /**
-     * 表单1的提交,提交时创建项目对象
-     * @param newProject 新的项目对象。
-     * @return 创建成功返回0，否则返回1
-     */
     public static boolean createProject(Project newProject){
-        ProjectDAO projectdao=new ProjectDAO();
         newProject.setTeacherID(StudentLoginService.student.getTeacherID());
+        newProject.setStudentID1(StudentLoginService.student.getStudentID());
+        ProjectDAO projectdao=new ProjectDAO();
         if(projectdao.insertNewProject(newProject)) {
             Integer projectid;
             projectid=projectdao.getProjectIDByStudentID1(newProject.getStudentID1());

@@ -70,26 +70,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row" id="1">
+                    <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">
                         		<div class="form-top-left">
                         			<h3 >一、团队与项目信息</h3>
-                            		<p>该信息一旦填写无法更改，请慎重填写</p>
+                            		<p class="forminfo" style="color: #FF4C40">该信息一旦填写无法更改，请慎重填写</p>
+                                    <p class="forminfo" style="color: #FF4C40">信息的填写者默认为队长，因此只需填写</p>
+                                    <p class="forminfo" style="color: #FF4C40">其他队员信息,如果没有这个队员则ID填0</p>
+                                    <p class="forminfo2">如果需要修改信息，可以通过队长删除项目后重新填写</p>
                         		</div>
                         		<div class="form-top-right">
                                     <img style="" src="../../static/assets/images/bi.jpg">
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" th:action="@{/xinxi1submission}" method="post"
+			                    <form role="form" method="post" id="form1" th:action="@{/xinxi1submission}"
                                       class="login-form" th:object="${project}">
-			                    	<div class="form-group">
-			                        	<p>队长学生账号ID:(学生注册账号后，在个人中心查看学生账号ID)</p>
-                                        <input type="text" name="StudentID1" placeholder="队长学生账号ID..."
-                                               class="form-username form-control" th:value="*{StudentID1}">
-			                        </div>
-
                                     <div class="form-group">
                                         <p>队员一学生账号ID:(学生注册账号后，在个人中心查看学生账号ID)</p>
                                         <input type="text" name="StudentID2" placeholder="队员一学生账号ID..."
@@ -113,9 +110,38 @@
                                         <input type="text" name="ProjectTeamName" placeholder="队名..."
                                                class="form-username form-control" th:value="*{ProjectTeamName}">
                                     </div>
-
 			                        <button type="submit" id="project1" class="btn">确认</button>
 			                    </form>
+                                <form role="form" id="form2" class="login-form" th:object="${project}">
+                                    <div class="form-group">
+                                        <p>队长姓名:</p>
+                                        <input type="text" name="StudentID2" placeholder="队长姓名..."
+                                               class="form-username form-control" th:value="${Student1}">
+                                    </div>
+                                    <div class="form-group" th:if="${Student2!=null}">
+                                        <p>队员一姓名:</p>
+                                        <input type="text" name="StudentID2" placeholder="队员一姓名..."
+                                               class="form-username form-control" th:value="${Student2}">
+                                    </div>
+
+                                    <div class="form-group" th:if="${Student3!=null}">
+                                        <p>队员二姓名:</p>
+                                        <input type="text" name="StudentID3" placeholder="队员二姓名"
+                                               class="form-username form-control" th:value="${Student3}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <p>项目作品名称:</p>
+                                        <input type="text" name="ProjectName" placeholder="项目名称..."
+                                               class="form-username form-control" th:value="*{ProjectName}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <p>项目团队队名:</p>
+                                        <input type="text" name="ProjectTeamName" placeholder="队名..."
+                                               class="form-username form-control" th:value="*{ProjectTeamName}">
+                                    </div>
+                                </form>
 		                    </div>
                         </div>
                     </div>
@@ -140,10 +166,19 @@
 
     </body>
     <script th:inline="javascript">
-        var projectid = /*[[${student.ProjectID}]]*/ 0;
-        if(projectid!==0){
-            $(".form-username.form-control").attr("disabled",true);
-            $("#project1").hide();
-        }
+        $(document).ready(function(){
+            var projectid = /*[[${student.ProjectID}]]*/ 0;
+            if(projectid!==0){
+                $(".form-username.form-control").attr("disabled",true);
+                $("#form1").hide();
+                $("#form2").show();
+                $(".forminfo2").show();
+                $(".forminfo").hide();
+            }else{
+                $("#form2").hide();
+                $(".forminfo2").hide();
+            }
+        });
+
     </script>
 </html>

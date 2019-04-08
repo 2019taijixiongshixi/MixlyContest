@@ -1,7 +1,6 @@
 package com.makerpanda.MixlyContest.action.projectaction;
 
 import com.makerpanda.MixlyContest.datamodel.Project;
-import com.makerpanda.MixlyContest.datamodel.Student;
 import com.makerpanda.MixlyContest.service.projectservice.ProjectUpdateService;
 import com.makerpanda.MixlyContest.service.studentservice.StudentLoginService;
 import org.springframework.stereotype.Controller;
@@ -17,6 +16,16 @@ public class ProjectUpdateController {
         if(StudentLoginService.student.getProjectID()!=0) {
             Project project= ProjectUpdateService.getProjectInfo(
                     StudentLoginService.student.getProjectID());
+            String Student1=StudentLoginService.getName(project.getStudentID1());
+            String Student2=null;
+            String Student3=null;
+            if(project.getStudentID2()!=0)
+                Student2=StudentLoginService.getName(project.getStudentID2());
+            if(project.getStudentID3()!=0)
+                Student3=StudentLoginService.getName(project.getStudentID3());
+            model.addAttribute("Student1", Student1);
+            model.addAttribute("Student2", Student2);
+            model.addAttribute("Student3", Student3);
             model.addAttribute("project",project);
         }
         else
@@ -24,6 +33,7 @@ public class ProjectUpdateController {
         model.addAttribute("student", StudentLoginService.student);
         return "tijiao/xinxi1";
     }
+
     @RequestMapping(path = {"/xinxi1submission"})
     public String xinxi1Submission(@ModelAttribute("project") Project project,
                                         ModelMap modelMap) {

@@ -3,9 +3,11 @@ package com.makerpanda.MixlyContest.dao;
 import com.makerpanda.MixlyContest.datamodel.Project;
 import com.makerpanda.MixlyContest.DBHelper;
 
+import javax.tools.JavaCompiler;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Types;
 import java.util.ArrayList;
 
 import static com.makerpanda.MixlyContest.DBHelper.closeResource;
@@ -130,8 +132,14 @@ public class ProjectDAO {
             pst.setString(1, newProject.getProjectName());
             pst.setInt(2, newProject.getTeacherID());
             pst.setInt(3, newProject.getStudentID1());
-            pst.setInt(4, newProject.getStudentID2());
-            pst.setInt(5, newProject.getStudentID3());
+            if(newProject.getStudentID2()!=0){
+                pst.setInt(4, newProject.getStudentID2());
+            }else
+                pst.setNull(4, Types.INTEGER);
+            if(newProject.getStudentID3()!=0){
+                pst.setInt(5, newProject.getStudentID3());
+            }else
+                pst.setNull(5, Types.INTEGER);
             pst.setString(6,newProject.getProjectTeamName());
 
 
