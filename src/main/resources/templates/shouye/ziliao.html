@@ -105,21 +105,21 @@
 	display: inline-block;
 	text-align: left;
 	vertical-align: top;
-	background: rgba(0, 0, 0, 0.2);
+	background: rgba(7, 167, 27, 0.2);
 	color: rgba(255, 255, 255, 0.5);
 	border-radius: 5px;
 	padding: 0.5em;
 	margin: 2%;
-	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 8px rgba(46, 210, 24, 0.2);
 }
 </style>
 		<!--//End-top-nav-script-->
 	</head>
 	<body style="background-color: #FFFDF4">
 		<!-- start-header-->
-			<div style="background-color: #D4AC8D"class="header-top">
+			<div style="background-color: #ffcd06"class="header-top">
 				<div class="container">
-					<div style="background-color: #D4AC8D" class="top-header">
+					<div style="background-color: #ffcd06" class="top-header">
 						<div class="logo">
 							<a href="index.html"><img src="../../static/assets/images/logo.png" alt=""></a>
 						</div>
@@ -127,13 +127,13 @@
 							<!--start-top-nav-->
 						 <nav class="top-nav">
 							<ul class="top-nav">
-								<li style="font-size:22px "><a href="index">主页</a></li>
-								<li style="font-size: 22px"><a href="about"> 关于大赛</a></li>
-								<li style="font-size: 22px" class="active"><a href="ziliao">Mixly开源资料库 </a></li>
-								<li style="font-size: 22px"><a href="chuangke"> 创客空间  </a></li>
-								<li style="font-size: 22px" th:if="${teacher!=null}"><a href="zhongxin2">个人中心</a></li>
-								<li style="font-size: 22px" th:if="${student!=null}"><a href="zhongxin1">个人中心</a></li>
-								<li style="font-size: 22px" th:unless="${teacher!=null||student!=null}" ><a href="login">注册/登录</a></li>
+								<li style="font-size:22px "><a style="color: #c00006 "href="index">主页</a></li>
+								<li style="font-size: 22px"><a style="color: #c00006 "href="about"> 关于大赛</a></li>
+								<li style="font-size: 22px" class="active"><a style="color: #c00006 "href="ziliao">Mixly开源资料库 </a></li>
+								<li style="font-size: 22px"><a style="color: #c00006 "href="chuangke"> 创客空间  </a></li>
+								<li style="font-size: 22px" th:if="${teacher!=null}"><a style="color: #c00006 "href="zhongxin2">个人中心</a></li>
+								<li style="font-size: 22px" th:if="${student!=null}"><a style="color: #c00006 "href="zhongxin1">个人中心</a></li>
+								<li style="font-size: 22px" th:unless="${teacher!=null||student!=null}" ><a style="color: #c00006 "href="login">注册/登录</a></li>
 									<div class="clearfix"> </div>
 
 							</ul>
@@ -147,6 +147,7 @@
 			<div class="container">
 				<div class="blog-content">
 					<div class="container">
+						<div class="col-md-9 about-left">
 						<div class="blog-content-left">
 
 
@@ -227,7 +228,7 @@
 											<h2><a href="blog-inner.html">配合Mixly使用手册可以更快速的掌握Mixly </a></h2>
 											<ul>
 
-												<li><span class="tag"> </span><a href="../../static/assets/word/Mixly使用手册.docx">点此获取Mixly使用手册</a></li>
+												<li><span class="tag"> </span><a href="../../static/assets/word/Mixly使用手册.pdf">点此获取Mixly使用手册</a></li>
 												<div class="clearfix"> </div>
 											</ul>
 										</div>
@@ -244,6 +245,64 @@
 
 
 						</div>
+						<div class="col-md-3 about-left">
+							<h2><a href="zuopin">提交作品入口</a></h2>
+							<!-- news-grid -->
+							<div class="news-grid">
+								<a href="zuopin"><img src="../../static/assets/images/ab-img.png" title="name"></a>
+							</div>
+							<!-- news-grid -->
+							<!-- recent-news -->
+							<div class="recent-posts">
+								<h2>作品展示</h2>
+								<!-- recent-post-grids -->
+								<div class="recent-post-grids">
+									<div class="r-post-grid">
+										<div class="r-post-grid-left">
+											<a href="#"><img src="../../static/assets/images/e1.png" title="name"></a>
+										</div>
+										<div class="r-post-grid-right">
+											<h4>超声波测距仪</h4>
+											<p>运用超声波原理测量距离 </p>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+									<div class="r-post-grid">
+										<div class="r-post-grid-left">
+											<a href="#"><img src="../../static/assets/images/e1.png" title="name"></a>
+										</div>
+										<div class="r-post-grid-right">
+											<h4>超声波测距仪</h4>
+											<p>运用超声波原理测量距离</p>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+									<div class="r-post-grid">
+										<div class="r-post-grid-left">
+											<a href="#"><img src="../../static/assets/images/e1.png" title="name"></a>
+										</div>
+										<div class="r-post-grid-right">
+											<h4>超声波测距仪</h4>
+											<p>运用超声波原理测量距离</p>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+									<div class="r-post-grid">
+										<div class="r-post-grid-left">
+											<a href="#"><img src="../../static/assets/images/e1.png" title="name"></a>
+										</div>
+										<div class="r-post-grid-right">
+											<h4>超声波测距仪</h4>
+											<p>运用超声波原理测量距离</p>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+								</div>
+								<!-- recent-post-grids -->
+							</div>
+							<!-- recent-news -->
+						</div>
+					</div>
 					</div>
 				</div>
 				<!-- /Blog -->
@@ -253,9 +312,7 @@
 			<div class="container">
 				<div class="footer-content">
 					<div class="col-md-3 footer-grid-copy-right">
-						<div class="logo-2">
-							<a href="index.html"><img src="../../static/assets/images/logo2.png" alt=""></a>
-						</div>
+
 
 					</div>
 					<div class="col-md-3 footer-grid">

@@ -18,9 +18,9 @@
 </head>
 <body style="background-color: #FFFDF4">
 <!-- start-header-->
-<div style="background-color: #D4AC8D" class="header-top">
+<div style="background-color: #ffcd06" class="header-top">
 	<div class="container">
-		<div style="background-color: #D4AC8D" class="top-header">
+		<div style="background-color: #ffcd06" class="top-header">
 			<div class="logo">
 				<a href="index.html"><img src="../../static/assets/images/logo.png" alt=""></a>
 			</div>
@@ -28,13 +28,13 @@
 			<!--start-top-nav-->
 			<nav class="top-nav">
 				<ul class="top-nav">
-					<li style="font-size:22px "><a href="index">主页</a></li>
-					<li style="font-size: 22px"><a href="about"> 关于大赛</a></li>
-					<li style="font-size: 22px"><a href="ziliao">Mixly开源资料库 </a></li>
-					<li style="font-size: 22px" class="active"><a href="chuangke"> 创客空间  </a></li>
-					<li style="font-size: 22px" th:if="${teacher!=null}"><a href="zhongxin2">个人中心</a></li>
-					<li style="font-size: 22px" th:if="${student!=null}"><a href="zhongxin1">个人中心</a></li>
-					<li style="font-size: 22px" th:unless="${teacher!=null||student!=null}" ><a href="login">注册/登录</a></li>
+					<li style="font-size:22px "><a style="color: #c00006 "href="index">主页</a></li>
+					<li style="font-size: 22px"><a style="color: #c00006 "href="about"> 关于大赛</a></li>
+					<li style="font-size: 22px"><a style="color: #c00006 "href="ziliao">Mixly开源资料库 </a></li>
+					<li style="font-size: 22px" class="active"><a style="color: #c00006 "href="chuangke"> 创客空间  </a></li>
+					<li style="font-size: 22px" th:if="${teacher!=null}"><a style="color: #c00006 "href="zhongxin2">个人中心</a></li>
+					<li style="font-size: 22px" th:if="${student!=null}"><a style="color: #c00006 "href="zhongxin1">个人中心</a></li>
+					<li style="font-size: 22px" th:unless="${teacher!=null||student!=null}" ><a style="color: #c00006 "href="login">注册/登录</a></li>
 
 				</ul>
 
@@ -62,14 +62,10 @@
 					<h2><a href="blog-inner.html">青少年编程工具 </a></h2>
 					<ul>
 						<li><img src="../../static/assets/images/mixly.png"><a href="https://pan.baidu.com/s/1jIMMnv4#list/path=%2F">点此下载Mixly</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-						<li><img src="../../static/assets/images/scratch.png"><a href="https://pan.baidu.com/s/1bpClmAb#list/path=%2F">点此下载Scratch</a></li>
 					</ul>
 				</div>
 				<div class="blog-artical-info-text">
 					<p>&nbsp;&nbsp;Mixly图形化编程软件由北京师范大学教育学部创客教育实验室开发。提供了丰富友好的传感器模块和功能实现模块。</p>
-				</div>
-				<div class="blog-artical-info-text">
-					<p>&nbsp;&nbsp;Scratch是一款由麻省理工学院（MIT）设计开发的一款面向少年的简易编程工具，可以用来创造交互式故事、动画、游戏、音乐和艺术。 Scratch无须背指令，十分适合8岁以上的儿童使用。其特点是采用积木组合式程序语言，让学习变得更轻松，并充满乐趣。MakerPanda丰富完善了里面的传感器模块。</p>
 				</div>
 				<br><h1>Wiki库</h1>
 				<div class="blog-artical-info-img">
@@ -87,7 +83,63 @@
 
 				</div>
 			</div>
-
+			<div class="col-md-3 about-left">
+				<h2><a href="zuopin">提交作品入口</a></h2>
+				<!-- news-grid -->
+				<div class="news-grid">
+					<a href="zuopin"><img src="../../static/assets/images/ab-img.png" title="name"></a>
+				</div>
+				<!-- news-grid -->
+				<!-- recent-news -->
+				<div class="recent-posts">
+					<h2>作品展示</h2>
+					<!-- recent-post-grids -->
+					<div class="recent-post-grids">
+						<div class="r-post-grid">
+							<div class="r-post-grid-left">
+								<a href="#"><img src="../../static/assets/images/e1.png" title="name"></a>
+							</div>
+							<div class="r-post-grid-right">
+								<h4>超声波测距仪</h4>
+								<p>运用超声波原理测量距离 </p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="r-post-grid">
+							<div class="r-post-grid-left">
+								<a href="#"><img src="../../static/assets/images/e1.png" title="name"></a>
+							</div>
+							<div class="r-post-grid-right">
+								<h4>超声波测距仪</h4>
+								<p>运用超声波原理测量距离</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="r-post-grid">
+							<div class="r-post-grid-left">
+								<a href="#"><img src="../../static/assets/images/e1.png" title="name"></a>
+							</div>
+							<div class="r-post-grid-right">
+								<h4>超声波测距仪</h4>
+								<p>运用超声波原理测量距离</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="r-post-grid">
+							<div class="r-post-grid-left">
+								<a href="#"><img src="../../static/assets/images/e1.png" title="name"></a>
+							</div>
+							<div class="r-post-grid-right">
+								<h4>超声波测距仪</h4>
+								<p>运用超声波原理测量距离</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+					<!-- recent-post-grids -->
+				</div>
+				<!-- recent-news -->
+			</div>
 			</div>
 			
 		</div>
@@ -96,48 +148,6 @@
 
 <!-- about-us -->
 <!--//End-About-->
-<div  class="testimonials" id="testimonials">
-	<div class="wmuSlider example1">
-		<div class="container-flueid">
-			<article style="position: absolute; width:64%; opacity: 0;">
-
-				<div class=" cont span_2_of_3 client-main">
-					<div class="slide-text">
-						<p>Suspendisse eget lobortis lacus, et elementum tortor.
-							Praesent metus ligula, lacinia eu sodales sed,</p>
-						<span> </span>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-			</article>
-			<article style="position: absolute; width:64%; opacity: 0;">
-				<div class=" cont span_2_of_3  client-main">
-					<div class="slide-text">
-						<p>Suspendisse eget lobortis lacus, et elementum tortor.
-							Praesent metus ligula, lacinia eu sodales sed,</p>
-						<span> </span>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-			</article>
-			<article style="position: absolute; width:64%; opacity: 0;">
-				<div class="cont span_2_of_3  client-main">
-					<div class="slide-text">
-						<p>Suspendisse eget lobortis lacus, et elementum tortor.
-							Praesent metus ligula, lacinia eu sodales sed,</p>
-						<span> </span>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-			</article>
-
-			<script src="../../static/assets/js/jquery.wmuSlider.js"></script>
-			<script>
-				$('.example1').wmuSlider();
-			</script>
-		</div>
-	</div>
-</div>
 <!--//text-slider-->
 <!--/start-Events-->
 
@@ -146,9 +156,7 @@
 	<div class="container">
 		<div class="footer-content">
 			<div class="col-md-3 footer-grid-copy-right">
-				<div class="logo-2">
-					<a href="index.html"><img src="../../static/assets/images/logo2.png" alt=""></a>
-				</div>
+
 
 			</div>
 			<div class="col-md-3 footer-grid">

@@ -47,5 +47,9 @@ public class PageSkippingContoller {
     public String upgrades(Model model) {return "master/examples/upgrades.html";}
     @RequestMapping(path={"/user"})
     public String user(Model model) {return "master/examples/user.html";}
+    @RequestMapping(path={"/zhanshi"})
+    public String zhanshi(Model model) {return "zhanshi/zhanshi.html";}
+    @RequestMapping(path={"/zhanshi1"})
+    public String zhanshi1(Model model) {return "zhanshi/zhanshi1.html";}
 
 }
