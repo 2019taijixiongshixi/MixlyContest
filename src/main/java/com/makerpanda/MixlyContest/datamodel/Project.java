@@ -55,9 +55,9 @@ public class Project implements Serializable {
 
     public void setFlowChart(String flowchart) { this.flowchart = flowchart; }
 
-    public String getProjectMindMapping() { return projectmindmapping; }
+    public String getProjectMindMap() { return projectmindmapping; }
 
-    public void setProjectMindMapping(String projectmindmapping) { this.projectmindmapping = projectmindmapping; }
+    public void setProjectMindMap(String projectmindmapping) { this.projectmindmapping = projectmindmapping; }
 
     public String getCodeModuleDiagram() { return codemodulediagram; }
 
@@ -95,9 +95,9 @@ public class Project implements Serializable {
 
     public void setHardwareCircuitDiagram(String hardwarecircuitdiagram) { this.hardwarecircuitdiagram = hardwarecircuitdiagram; }
 
-    public String getSrtuctureChart() { return srtucturechart; }
+    public String getStructureChart() { return srtucturechart; }
 
-    public void setSrtuctureChart(String srtucturechart) { this.srtucturechart = srtucturechart; }
+    public void setStructureChart(String srtucturechart) { this.srtucturechart = srtucturechart; }
 
     public String getEquipment() { return equipment; }
 
