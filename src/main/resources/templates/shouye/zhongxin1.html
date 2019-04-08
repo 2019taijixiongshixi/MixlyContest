@@ -92,12 +92,12 @@
                             <div class="row">
                                 <div class="col-5 col-md-4">
                                     <div class="icon-big text-center icon-warning">
-                                        <a href="zhongxin1"><i class="nc-icon nc-globe text-warning"></i></a>
+                                        <a href="#"><i class="nc-icon nc-globe text-warning tab1"></i></a>
                                     </div>
                                 </div>
                                 <div class="col-7 col-md-8">
                                     <div class="numbers">
-                                        <a href="zhongxin1"><p class="card-title">个人信息
+                                        <a href="#"><p class="card-title tab1">个人信息
                                             <p></a>
                                     </div>
                                 </div>
@@ -117,12 +117,12 @@
                             <div class="row">
                                 <div class="col-5 col-md-4">
                                     <div class="icon-big text-center icon-warning">
-                                        <a href="zhongxin1"><i class="nc-icon nc-money-coins text-success"></i></a>
+                                        <a href="#"><i class="nc-icon nc-money-coins text-success tab2"></i></a>
                                     </div>
                                 </div>
                                 <div class="col-7 col-md-8">
                                     <div class="numbers">
-                                        <a href="zhongxin1"><p class="card-title">项目信息
+                                        <a href="#"><p class="card-title tab2">项目信息
                                             <p></a>
                                     </div>
                                 </div>
@@ -137,7 +137,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="tab1">
                 <div class="col-md-12">
                     <div class="card card-user" id="table">
                         <div class="card-header">
@@ -294,25 +294,26 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="tab2"
+                 th:if="${student.ProjectID!=0}">
                 <div class="col-md-12">
                     <div class="card card-user">
                         <div class="card-header">
                             <h5 class="card-title">项目信息</h5>
                         </div>
 
-                        <div class="card-body">
+                        <div class="card-body" th:object="${project}">
                             <div class="row">
                                 <div class="col-md-6 pr-1">
                                     <div class="alert alert-primary alert-dismissible fade show">
                                                     <span style="font-size: 20px">
-                            <b> 项目作品名称 - </b> 名称</span>
+                                                        <b> 项目作品名称 - </b><span th:text="*{ProjectName}"></span></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 pr-1">
                                     <div class="alert alert-info alert-dismissible fade show">
                                                     <span style="font-size: 20px">
-                            <b> 项目团队名称 - </b> 团队名称</span>
+                                                        <b> 项目团队名称 - </b><span th:text="*{ProjectTeamName}"></span></span>
                                     </div>
                                 </div>
                             </div>
@@ -320,21 +321,21 @@
                                 <div class="col-md-6 pr-1">
                                     <div class="alert alert-primary alert-dismissible fade show">
                                                     <span style="font-size: 20px">
-                            <b> 队长学生ID - </b> ID</span>
+                                                        <b> 队长学生ID - </b><span th:text="*{StudentID1}"></span></span>
                                     </div>
                                 </div>
-                                <div class="col-md-6 pr-1">
+                                <div class="col-md-6 pr-1" th:if="*{StudentID2!=0}">
                                     <div class="alert alert-info alert-dismissible fade show">
                                                     <span style="font-size: 20px">
-                            <b> 队员一学生ID - </b> ID</span>
+                                                        <b> 队员一学生ID - </b><span th:text="*{StudentID2}"></span></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6 pr-1">
+                                <div class="col-md-6 pr-1" th:if="*{StudentID3!=0}">
                                     <div class="alert alert-primary alert-dismissible fade show">
                                                     <span style="font-size: 20px">
-                            <b> 队员二学生ID - </b> ID</span>
+                                                        <b> 队员二学生ID - </b><span th:text="*{StudentID3}"></span></span>
                                     </div>
                                 </div>
                             </div>
@@ -361,12 +362,19 @@
 <script src="../../static/assets/assets1/demo/demo.js"></script>
 <script>
     $(document).ready(function() {
-        // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-        demo.initChartsPages();
+        $("#tab2").hide();
     });
     $("#modify").click(function () {
         $("#table").hide();
         $("#form").show();
+    });
+    $(".tab1").click(function () {
+        $("#tab1").show();
+        $("#tab2").hide();
+    });
+    $(".tab2").click(function () {
+        $("#tab2").show();
+        $("#tab1").hide();
     })
 </script>
 </body>

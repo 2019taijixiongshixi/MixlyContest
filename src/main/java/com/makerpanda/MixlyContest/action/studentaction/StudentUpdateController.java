@@ -1,7 +1,9 @@
 package com.makerpanda.MixlyContest.action.studentaction;
 
+import com.makerpanda.MixlyContest.datamodel.Project;
 import com.makerpanda.MixlyContest.datamodel.Student;
 import com.makerpanda.MixlyContest.datamodel.Teacher;
+import com.makerpanda.MixlyContest.service.projectservice.ProjectUpdateService;
 import com.makerpanda.MixlyContest.service.studentservice.StudentLoginService;
 import com.makerpanda.MixlyContest.service.studentservice.StudentUpdateService;
 import com.makerpanda.MixlyContest.service.teacherservice.TeacherInfoInquireService;
@@ -20,6 +22,13 @@ public class StudentUpdateController {
         String teachername=teacher.getTeacherName();
         String teachertel=teacher.getTeacherTel();
         model.addAttribute("student", StudentLoginService.student);
+        if(StudentLoginService.student.getProjectID()!=0) {
+            Project project= ProjectUpdateService.getProjectInfo(
+                    StudentLoginService.student.getProjectID());
+            model.addAttribute("project",project);
+        }
+        else
+            model.addAttribute("project",new Project());
         model.addAttribute("TeacherName",teachername);
         model.addAttribute("TeacherTel",teachertel);
         return "shouye/zhongxin1";}
