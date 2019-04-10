@@ -34,8 +34,6 @@ public class ProjectUpdateService {
         Project project1;
         ProjectDAO projectdao=new ProjectDAO();
         project1=project.clone();
-        System.out.println(paths);
-        System.out.println(formname);
         switch (formname){
             case "ProjectDisplayMap":
                 project1.setProjectDisplayMap(paths);//展示图
@@ -69,4 +67,33 @@ public class ProjectUpdateService {
         else
             return false;
     }
+    public static boolean updateProjectText(String formname,Project updateProject) {
+        Project project1;
+        ProjectDAO projectdao=new ProjectDAO();
+        project1=project.clone();
+        switch (formname){
+            case "ProjectDescription":
+                project1.setProjectDescription(updateProject.getProjectDescription());//作品描述
+                break;
+            case "Equipment":
+                project1.setEquipment(updateProject.getEquipment());//使用器材
+                break;
+            case "VideoURL":
+                project1.setVideoURL(updateProject.getVideoURL());//视频链接
+                break;
+            case "CompetitionExperience":
+                project1.setCompetitionExperience(updateProject.getCompetitionExperience());//比赛心得
+                break;
+            default:
+                System.out.println(formname+"找不到对应字段");
+                break;
+        }
+        if(projectdao.updateProject(project1)) {
+            project=project1;
+            return true;
+        }
+        else
+            return false;
+    }
+
 }

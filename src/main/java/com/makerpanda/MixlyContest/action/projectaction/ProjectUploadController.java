@@ -1,4 +1,4 @@
-package com.makerpanda.MixlyContest.action;
+package com.makerpanda.MixlyContest.action.projectaction;
 
 import com.makerpanda.MixlyContest.service.projectservice.ProjectFileService;
 import com.makerpanda.MixlyContest.service.studentservice.StudentLoginService;
@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class UploadController {
-    private static final Logger LOGGER = LoggerFactory.getLogger(UploadController.class);
+public class ProjectUploadController {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProjectUploadController.class);
 
 //    @PostMapping("/upload")
 //    public String upload(@RequestParam("file") MultipartFile file,
@@ -57,26 +57,25 @@ public class UploadController {
         List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("file");
         String filepath = "upload/"+ StudentLoginService.student.getStudentID() +"/"+formname+"/";
         ArrayList<String> filestoragepaths=new ArrayList<>();
-        for (int i = 0; i < files.size(); i++) {
-            MultipartFile file = files.get(i);
+        for (MultipartFile file : files) {
             if (file.isEmpty()) {
                 modelMap.addAttribute("Error", "未选择文件");
                 continue;
             }
             String fileName = file.getOriginalFilename();
 
-            File dest = new File(new File(filepath).getAbsolutePath()+ "/" + fileName);
+            File dest = new File(new File(filepath).getAbsolutePath() + "/" + fileName);
             if (!dest.getParentFile().exists()) {
                 dest.getParentFile().mkdirs();
             }
             try {
                 file.transferTo(dest);
-                String filestoragepath=filepath+fileName;
+                String filestoragepath = filepath + fileName;
                 filestoragepaths.add(filestoragepath);
             } catch (IOException e) {
                 LOGGER.error(e.toString(), e);
                 modelMap.addAttribute("Error", "文件过大");
-                return "redirect:"+pagepath;
+                return "redirect:" + pagepath;
             }
         }
         if(ProjectFileService.ProjectFileStorage(formname,filestoragepaths))
