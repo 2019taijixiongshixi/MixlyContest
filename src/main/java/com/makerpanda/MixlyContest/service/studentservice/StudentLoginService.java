@@ -1,8 +1,10 @@
 package com.makerpanda.MixlyContest.service.studentservice;
 
 import com.makerpanda.MixlyContest.MD5HashHelper;
+import com.makerpanda.MixlyContest.dao.ProjectDAO;
 import com.makerpanda.MixlyContest.dao.StudentDAO;
 import com.makerpanda.MixlyContest.datamodel.Student;
+import com.makerpanda.MixlyContest.service.projectservice.ProjectUpdateService;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -29,6 +31,11 @@ public class StudentLoginService {
             return 1;
         } else {
             student = studentdao.getStudentInfo(studentid);  // 登录成功将用户信息保存
+            if(student.getProjectID()!=0){
+                ProjectDAO projectdao=new ProjectDAO();
+                ProjectUpdateService.project=projectdao.getProjectInfo(
+                        student.getProjectID()); //如果已有项目信息则保存为全局对象
+            }
             return 0;
         }
     }

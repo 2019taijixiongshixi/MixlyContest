@@ -30,4 +30,19 @@ public class ProjectUpdateService {
             return false;
     }
 
+    public static boolean updateProject2(Project updateProject){
+        Project project1;
+        ProjectDAO projectdao=new ProjectDAO();
+        project1=project.clone();
+        project1.setProjectMindMap(updateProject.getProjectMindMap());//思维导图
+        project1.setCompetitionExperience(updateProject.getCompetitionExperience());//比赛心得
+        project1.setProjectDescription(updateProject.getProjectDescription());//作品描述
+        project1.setProjectDisplayMap(updateProject.getProjectDisplayMap());//作品展示图
+        if(projectdao.updateProject(updateProject)) {
+            project=project1;
+            return true;
+        }
+        else
+            return false;
+    }
 }

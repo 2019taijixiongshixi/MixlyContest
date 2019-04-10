@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
     <head>
 
@@ -26,11 +26,10 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../static/assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="../../static/assets/ico/apple-touch-icon-57-precomposed.png">
 
-    `   `
 
-        </head>
+    </head>
 
-        <body>
+    <body>
         <br>
         <a href="xinxi1">
             <button type="button" style="" class="btn btn-default btn-circle btn-x2"><strong style="">一、团队与项目信息</strong><br><br><br><br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
@@ -117,7 +116,7 @@
 
 
 
-                <div class="row" id="2">
+                <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                             <div class="form-top">
                                 <div class="form-top-left">
@@ -129,9 +128,9 @@
                                 </div>
                             </div>
                             <div class="form-bottom">
-                                <form action="liucheng.php" method="post" enctype="multipart/form-data">
+                                <form th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
                                     <label for="select">作品整体图(选择一张图片，图片大小不超过2M)</label>
-                                    <input type="file" name="file1" id="file1" accept="image/*" onchange ="imgChange1(this);"/> <!--文件上传选择按钮-->
+                                    <input type="file" id="file1" name="file" accept="image/*" onchange ="imgChange1(this);"/> <!--文件上传选择按钮-->
                                     <br>
                                     <img id="img1" src="" alt="作品整体图(未上传)"/> <!--图片显示位置-->
 
@@ -139,7 +138,7 @@
                                     <br>
                                     <br>
                                     <label for="select">作品细节图(选择一张图片，图片大小不超过2M)</label>
-                                    <input type="file" name="file2" id="file2" accept="image/*" onchange ="imgChange2(this);"/>
+                                    <input type="file" id="file2" name="file" accept="image/*" onchange ="imgChange2(this);"/>
                                     <br>
                                     <img id="img2" src="" alt="作品细节(未上传)"/>
 
@@ -147,11 +146,13 @@
                                     <br>
                                     <br>
                                     <label for="select">成员与作品合照图(选择一张图片，图片大小不超过2M)</label>
-                                    <input type="file" name="file3" id="file3" accept="image/*" onchange ="imgChange3(this);"/>
+                                    <input type="file" id="file3" name="file" accept="image/*" onchange ="imgChange3(this);"/>
                                     <br>
                                     <img id="img3" src="" width="3000px" alt="成员与作品合照图(未上传)" />
                                     <br>
                                     <br>
+                                    <input type="text"  name="pagepath" style="display: none" th:value="xinxi2"/>
+                                    <input type="text"  name="formname" style="display: none" th:value="ProjectDispalyMap"/>
                                     <button type="submit" class="btn">确认</button>
                                 </form>
 
@@ -161,7 +162,7 @@
                         </div>
                     </div>
 
-            <div class="row" id="2">
+            <div class="row">
                 <div class="col-sm-6 col-sm-offset-3 form-box">
                     <div class="form-top">
                         <div class="form-top-left">
@@ -173,9 +174,9 @@
                         </div>
                     </div>
                     <div class="form-bottom">
-                        <form action="liucheng.php" method="post" enctype="multipart/form-data">
+                        <form th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
                             <label for="select">思维导图(至少选择一张，最多选择两张图片，每张图片大小不超过2M。注:点击选择文件后可同时选择两张图片)</label>
-                            <input value="可同时最多选择两张图" multiple="multiple" type="file" name="file8" id="file8" accept="image/*" onchange ="imgChange8(this);"/> <!--文件上传选择按钮-->
+                            <input value="可同时最多选择两张图" multiple="multiple" type="file" name="file" id="file8" accept="image/*" onchange ="imgChange8(this);"/> <!--文件上传选择按钮-->
                             <br>
                             <img id="img8" src="" alt="思维导图1(未上传)"/> <!--图片显示位置-->
                             <br>
@@ -183,13 +184,15 @@
                             <img id="img8.1" src="" alt="思维导图2(未上传)"/>
                             <br>
                             <br>
+                            <input type="text"  name="pagepath" style="display: none" th:value="xinxi2"/>
+                            <input type="text"  name="formname" style="display: none" th:value="ProjectMindMap"/>
                             <button type="submit" class="btn">确认</button>
                         </form>
                     </div>
                 </div>
             </div>
 
-            <div class="row" id="4">
+            <div class="row">
                 <div class="col-sm-6 col-sm-offset-3 form-box" style="" >
                     <div class="form-top">
                         <div class="form-top-left">
@@ -209,32 +212,30 @@
                     </div>
                 </div>
             </div>
-                <div class="row" id="4">
-                    <div class="col-sm-6 col-sm-offset-3 form-box" style="" >
-                        <div class="form-top">
-                            <div class="form-top-left">
-                                <h3>4.比赛心得(字数不超过1000个字)</h3>
-                                <p> (总结评价心得感受：回顾创作历程，突破了什么挑战，收获了什么友谊， 有了什么新的认识或感悟，团队成员做的怎么样， 老师给予了什么样的帮助，意识到什么不足，还有什么有待提高的。)</p>
-                            </div>
-                            <div class="form-top-right">
-                                <img src="../../static/assets/images/bi.jpg">
-                            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 form-box" style="" >
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3>4.比赛心得(字数不超过1000个字)</h3>
+                            <p> (总结评价心得感受：回顾创作历程，突破了什么挑战，收获了什么友谊， 有了什么新的认识或感悟，团队成员做的怎么样， 老师给予了什么样的帮助，意识到什么不足，还有什么有待提高的。)</p>
                         </div>
-                        <div class="form-bottom">
-                            <form action="liucheng.php" method="post" enctype="multipart/form-data">
-                                <textarea type="text" name="form-username" placeholder="比赛心得..." class="form-username form-control" id="form-username"></textarea>
-                                <br>
-                                <button type="submit" class="btn">确认</button>
-                            </form>
+                        <div class="form-top-right">
+                            <img src="../../static/assets/images/bi.jpg">
                         </div>
                     </div>
+                    <div class="form-bottom">
+                        <form action="liucheng.php" method="post" enctype="multipart/form-data">
+                            <textarea type="text" name="form-username" placeholder="比赛心得..." class="form-username form-control" id="form-username"></textarea>
+                            <br>
+                            <button type="submit" class="btn">确认</button>
+                        </form>
+                    </div>
                 </div>
+            </div>
 
 
 
         </div>
-            </div>
-            
         </div>
         
 

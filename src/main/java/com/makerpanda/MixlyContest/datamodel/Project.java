@@ -123,4 +123,14 @@ public class Project implements Serializable {
 
     public void setTeacherID(Integer teacherid) { this.teacherid = teacherid; }
 
+    @Override
+    public Project clone() {
+        Project project = null;
+        try{
+            project = (Project) super.clone();   //浅复制
+        }catch(CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return project;
+    }
 }

@@ -13,9 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ProjectUpdateController {
     @RequestMapping(path = {"/xinxi1"})
     public String xinxi1(Model model) {
-        if(StudentLoginService.student.getProjectID()!=0) {
-            Project project= ProjectUpdateService.getProjectInfo(
-                    StudentLoginService.student.getProjectID());
+        Project project= ProjectUpdateService.project;
+        if(project!=null) {
             String Student1=StudentLoginService.getName(project.getStudentID1());
             String Student2=null;
             String Student3=null;
@@ -41,14 +40,12 @@ public class ProjectUpdateController {
 
         verifyCode= ProjectUpdateService.createProject(project);
 
-        if(verifyCode)
-            modelMap.addAttribute("Success", "创建项目成功");
+        if(verifyCode) modelMap.addAttribute("Success", "创建项目成功");
+
         else
             modelMap.addAttribute("Error", "创建项目失败");
         return "redirect:xinxi1";
     }
-    @RequestMapping(path = {"/xinxi2"})
-    public String xinxi2(Model model) { return "tijiao/xinxi2"; }
     @RequestMapping(path = {"/xinxi3"})
     public String xinxi3(Model model) { return "tijiao/xinxi3"; }
     @RequestMapping(path = {"/xinxi4"})
