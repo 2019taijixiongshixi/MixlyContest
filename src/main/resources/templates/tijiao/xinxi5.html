@@ -102,9 +102,16 @@
                                 <button type="submit" class="btn">确认</button>
                             </form>
                         </div>
+                        <div  id="box1" class="form-bottom" style="display: none">
+                            提交视频展示
+
+                        </div>
                     </div>
+
                 </div>
 
+
+            </div>
 
                     
                     
@@ -124,7 +131,18 @@
         <script src="../../static/assets/js/html5shiv.js"></script>
         <script src="../../static/assets/js/respond.min.js"></script>
         <script src="../../static/assets/js/videoplus.js"></script>
-
+        <script>
+        $(document).ready(function(){
+            $("#st").click(function(){
+                $("#box1").show();
+            });
+        });
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#box1").load("../../static/assets/demosource/demo_test.txt");
+            });
+        });
+        </script>
         <![endif]-->
 
     </body>

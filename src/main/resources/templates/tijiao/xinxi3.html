@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
     <head>
 
@@ -122,14 +122,16 @@
                                 </div>
                             </div>
                             <div class="form-bottom">
-                                <form action="liucheng.php" method="post" enctype="multipart/form-data">
+                                <form th:action="@{/multiUpload}" action="liucheng.php" method="post" enctype="multipart/form-data">
                                     <label for="select">硬件电路图(选择一张图片，图片大小不超过2M)</label>
-                                    <input type="file" name="file4" id="file4" accept="image/*" onchange ="imgChange4(this);"/> <!--文件上传选择按钮-->
+                                    <input type="file" name="file" id="file4" accept="image/*" onchange ="imgChange4(this);"/> <!--文件上传选择按钮-->
                                     <br>
                                     <img id="img4" src="" alt="硬件电路图(未上传)"/> <!--图片显示位置-->
 
                                     <br>
                                     <br>
+                                    <input type="text"  name="pagepath" style="display: none" th:value="xinxi3"/>
+                                    <input type="text"  name="formname" style="display: none" th:value="HardwareCircuitDiagram"/>
                                     <button type="submit" class="btn">确认</button>
                                 </form>
 
@@ -148,9 +150,9 @@
                             </div>
                         </div>
                         <div class="form-bottom">
-                            <form action="liucheng.php" method="post" enctype="multipart/form-data">
+                            <form th:action="@{/multiUpload}" action="liucheng.php" method="post" enctype="multipart/form-data">
                                 <label for="select">流程图(至少选择一张，最多选择两张图片，每张图片大小不超过2M。注:点击选择文件后可同时选择两张图片)</label>
-                                <input value="可同时最多选择两张图" multiple="multiple" type="file" name="file5" id="file5" accept="image/*" onchange ="imgChange5(this);"/> <!--文件上传选择按钮-->
+                                <input value="可同时最多选择两张图" multiple="multiple" type="file" name="file" id="file5" accept="image/*" onchange ="imgChange5(this);"/> <!--文件上传选择按钮-->
                                 <br>
                                 <img id="img5" src="" alt="流程图(未上传)"/> <!--图片显示位置-->
 
@@ -159,6 +161,8 @@
                                 <img id="img5.1" src="" alt="流程图2(未上传)"/>
                                 <br>
                                 <br>
+                                <input type="text"  name="pagepath" style="display: none" th:value="xinxi3"/>
+                                <input type="text"  name="formname" style="display: none" th:value="FlowChart"/>
                                 <button type="submit" class="btn">确认</button>
                             </form>
 
@@ -178,9 +182,9 @@
                             </div>
                         </div>
                         <div class="form-bottom">
-                            <form action="liucheng.php" method="post" enctype="multipart/form-data">
+                            <form th:action="@{/multiUpload}" action="liucheng.php" method="post" enctype="multipart/form-data">
                                 <label for="select">代码模块图(至少选择一张，最多选择两张图片，每张图片大小不超过2M。注:点击选择文件后可同时选择两张图片)</label>
-                                <input value="可同时最多选择两张图" multiple="multiple" type="file" name="file6" id="file6" accept="image/*" onchange ="imgChange6(this);"/> <!--文件上传选择按钮-->
+                                <input value="可同时最多选择两张图" multiple="multiple" type="file" name="file" id="file6" accept="image/*" onchange ="imgChange6(this);"/> <!--文件上传选择按钮-->
                                 <br>
                                 <img id="img6" src="" alt="代码模块图(未上传)"/> <!--图片显示位置-->
 
@@ -189,6 +193,8 @@
                                 <img id="img6.1" src="" alt="代码模块图2(未上传)"/>
                                 <br>
                                 <br>
+                                <input type="text"  name="pagepath" style="display: none" th:value="xinxi3"/>
+                                <input type="text"  name="formname" style="display: none" th:value="CodeModuleDiagram"/>
                                 <button type="submit" class="btn">确认</button>
                             </form>
 

@@ -12,6 +12,14 @@ body a{
 	-ms-transition:0.5s all ease;
 }
 /*-----start-header----*/
+.new{
+    background: rgb(251, 251, 251);
+    color: rgb(72, 74, 74);
+}
+.new1{
+    background: rgb(245, 187, 11);
+    color: white;
+}
 .p_worksdetail_main_left {
 	/* float: left; */
 	width: 1300px;

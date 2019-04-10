@@ -50,17 +50,73 @@
                                 <p style="font-size: 25px">作品名称:超声波测距仪</p>
                                 <p style="font-size: 25px">创作团队:<lable> MakerPanda</lable></p>
                             </div>
-
+                            <script>
+                                $(document).ready(function(){
+                                    $(".hide1").click(function(){
+                                        $("p").hide();
+                                    });
+                                    $(".show1").click(function(){
+                                        $("p").show();
+                                    });
+                                });
+                            </script>
+                            <input type="text" id="text"><br>
+                            <p>如果你点击“隐藏” 按钮，我将会消失。</p>
+                            <button class="hide1">隐藏</button>
+                            <button class="show1">显示</button>
                             <div class="p_worksdetail_main_right">
                                 <div class="p_worksdetail_tab_menu">
                                     <ul>
-                                        <li> <a class="p_intro" style="background: rgb(245, 187, 11); color: white;">作品说明</a></li>
-                                        <li> <a class="p_procedure" style="background: rgb(251, 251, 251); color: rgb(72, 74, 74);">创作过程</a></li>
-                                        <li> <a class="p_show" style="background: rgb(251, 251, 251); color: rgb(72, 74, 74);">程序演示</a></li>
-                                        <li> <a class="p_file" style="background: rgb(251, 251, 251); color: rgb(72, 74, 74);">流程图</a></li>
+                                        <li> <a id="ii1" class="p_intro new new1" style=""><p>作品说明</p></a></li>
+                                        <li> <a id="ii2" class="p_procedure new" style=""><p>创作过程</p></a></li>
+                                        <li> <a id="ii3" class="p_show new" style=""><p>程序演示</p></a></li>
+                                        <li> <a id="ii4" class="p_file new" style=""><p>流程图</p></a></li>
                                     </ul>
                                 </div>
                             </div>
+                            <div id="i1" class="p_worksdetail_main_right">
+                                <p>nihao1</p>
+                            </div>
+                            <div id="i2" class="p_worksdetail_main_right" style="display: none">
+                                <p>nihao2</p>
+                            </div>
+                            <div id="i3" class="p_worksdetail_main_right" style="display: none">
+                                <p>nihao3</p>
+                            </div>
+                            <div id="i4" class="p_worksdetail_main_right" style="display: none">
+                                <p>nihao4</p>
+                            </div>
+                            <script>
+                                    $("#ii1").click(function(){
+                                        $("#i1").show();
+                                        $("#i2").hide();
+                                        $("#i3").hide();
+                                        // language=JQuery-CSS
+                                        $("#i4").hide();
+
+                                    });
+                                    $("#ii2").click(function(){
+                                        $("#i1").hide();
+                                        $("#i2").show();
+                                        $("#i3").hide();
+                                        $("#i4").hide();
+
+                                    });
+                                    $("#ii3").click(function(){
+                                        $("#i1").hide();
+                                        $("#i2").hide();
+                                        $("#i3").show();
+                                        $("#i4").hide();
+
+                                    });
+                                    $("#ii4").click(function(){
+                                        $("#i1").hide();
+                                        $("#i2").hide();
+                                        $("#i3").hide();
+                                        $("#i4").show();
+
+                                    })
+                            </script>
 
                             <div class="clearfix"> </div>
                         </div>
@@ -118,19 +174,7 @@
 <!--//End-footer-->
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        /*
-        var defaults = {
-              containerID: 'toTop', // fading element id
-            containerHoverID: 'toTopHover', // fading element hover id
-            scrollSpeed: 1200,
-            easingType: 'linear'
-         };
-        */
 
-        $().UItoTop({ easingType: 'easeOutQuart' });
-
-    });
 </script>
 <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>

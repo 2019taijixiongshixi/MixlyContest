@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
     <head>
 
@@ -113,41 +113,43 @@
                             </div>
                         </div>
                         <div class="form-bottom">
-                            <form action="liucheng.php" method="post" enctype="multipart/form-data">
+                            <form th:action="@{/multiUpload}" action="liucheng.php" method="post" enctype="multipart/form-data">
                                 <label for="select">外部结构图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
-                                <input type="file" name="file7" id="file7" accept="image/*" onchange ="imgChange7(this);"/> <!--文件上传选择按钮-->
+                                <input type="file" name="file" id="file7" accept="image/*" onchange ="imgChange7(this);"/> <!--文件上传选择按钮-->
                                 <br>
                                 <img id="img7" src="" alt="外部结构图(未上传)"/> <!--图片显示位置-->
                                 <br>
                                 <br>
                                 <br>
                                 <label for="select">平面草图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
-                                <input type="file" name="file9" id="file9" accept="image/*" onchange ="imgChange9(this);"/>
+                                <input type="file" name="file" id="file9" accept="image/*" onchange ="imgChange9(this);"/>
                                 <br>
                                 <img id="img9" src="" alt="平面草图(未上传)"/>
                                 <br>
                                 <br>
                                 <br>
                                 <label for="select">3D模型图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
-                                <input type="file" name="file10" id="file10" accept="image/*" onchange ="imgChange10(this);"/>
+                                <input type="file" name="file" id="file10" accept="image/*" onchange ="imgChange10(this);"/>
                                 <br>
                                 <img id="img10" src="" width="3000px" alt="3D模型图(未上传)" />
                                 <br>
                                 <br>
                                 <br>
                                 <label for="select">3D打印成品图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
-                                <input type="file" name="file11" id="file11" accept="image/*" onchange ="imgChange11(this);"/>
+                                <input type="file" name="file" id="file11" accept="image/*" onchange ="imgChange11(this);"/>
                                 <br>
                                 <img id="img11" src="" width="3000px" alt="3D打印成品图(未上传)" />
                                 <br>
                                 <br>
                                 <br>
                                 <label for="select">激光切割图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
-                                <input type="file" name="file12" id="file12" accept="image/*" onchange ="imgChange12(this);"/>
+                                <input type="file" name="file" id="file12" accept="image/*" onchange ="imgChange12(this);"/>
                                 <br>
                                 <img id="img12" src="" width="3000px" alt="激光切割图(未上传)" />
                                 <br>
                                 <br>
+                                <input type="text"  name="pagepath" style="display: none" th:value="xinxi4"/>
+                                <input type="text"  name="formname" style="display: none" th:value="StuctureChart"/>
                                 <button type="submit" class="btn">确认</button>
                             </form>
 
