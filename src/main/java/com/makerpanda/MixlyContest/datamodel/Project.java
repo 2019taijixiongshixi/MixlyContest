@@ -2,7 +2,7 @@ package com.makerpanda.MixlyContest.datamodel;
 
 import java.io.Serializable;
 
-public class Project implements Serializable {
+public class Project implements Serializable,Cloneable {
     private String projectname;
 
     private Integer projectid;

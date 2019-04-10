@@ -113,7 +113,7 @@
                             </div>
                         </div>
                         <div class="form-bottom">
-                            <form th:action="@{/multiUpload}" action="liucheng.php" method="post" enctype="multipart/form-data">
+                            <form th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
                                 <label for="select">外部结构图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
                                 <input type="file" name="file" id="file7" accept="image/*" onchange ="imgChange7(this);"/> <!--文件上传选择按钮-->
                                 <br>
@@ -149,7 +149,7 @@
                                 <br>
                                 <br>
                                 <input type="text"  name="pagepath" style="display: none" th:value="xinxi4"/>
-                                <input type="text"  name="formname" style="display: none" th:value="StuctureChart"/>
+                                <input type="text"  name="formname" style="display: none" th:value="StructureChart"/>
                                 <button type="submit" class="btn">确认</button>
                             </form>
 

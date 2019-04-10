@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
     <head>
 
@@ -100,14 +100,16 @@
 
                         </div>
                         <div class="form-bottom">
-                            <form action="liucheng.php" method="post" enctype="multipart/form-data">
+                            <form th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
 
                                 <label><input name="Fruit" type="radio" value="" />我已阅读参赛协议并接受参赛协议 </label>
                                 <br>
                                 <br>
                                 <label for="select">请上传PDF设计文档</label>
-                                <input type="file" name="uploadImg" id="select" value="请选择PDF设计文档"/>
+                                <input type="file" name="file" accept="PDF/*" id="select" value="请选择PDF设计文档"/>
                                 <br>
+                                <input type="text"  name="pagepath" style="display: none" th:value="xinxi6"/>
+                                <input type="text"  name="formname" style="display: none" th:value="DesignDocument"/>
                                 <button type="submit" class="btn">确认提交(注意:提交后便无法更改，请确认所有信息无误!)</button>
                             </form>
 
@@ -116,10 +118,6 @@
                     </div>
                 </div>
 
-
-                    
-                    
-                    
                 </div>
             </div>
             

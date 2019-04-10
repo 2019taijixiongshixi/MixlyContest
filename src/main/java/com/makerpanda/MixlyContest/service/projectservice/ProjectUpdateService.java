@@ -30,15 +30,39 @@ public class ProjectUpdateService {
             return false;
     }
 
-    public static boolean updateProject2(Project updateProject){
+    public static boolean updateProjectFile(String formname,String paths){
         Project project1;
         ProjectDAO projectdao=new ProjectDAO();
         project1=project.clone();
-        project1.setProjectMindMap(updateProject.getProjectMindMap());//思维导图
-        project1.setCompetitionExperience(updateProject.getCompetitionExperience());//比赛心得
-        project1.setProjectDescription(updateProject.getProjectDescription());//作品描述
-        project1.setProjectDisplayMap(updateProject.getProjectDisplayMap());//作品展示图
-        if(projectdao.updateProject(updateProject)) {
+        System.out.println(paths);
+        System.out.println(formname);
+        switch (formname){
+            case "ProjectDisplayMap":
+                project1.setProjectDisplayMap(paths);//展示图
+                break;
+            case "FlowChart":
+                project1.setFlowChart(paths);//流程图
+                break;
+            case "ProjectMindMap":
+                project1.setProjectMindMap(paths);//思维导图
+                break;
+            case "HardwareCircuitDiagram":
+                project1.setHardwareCircuitDiagram(paths);//硬件图
+                break;
+            case "CodeModuleDiagram":
+                project1.setCodeModuleDiagram(paths);//代码图
+                break;
+            case "StructureChart":
+                project1.setStructureChart(paths);//结构图
+                break;
+            case"DesignDocument":
+                project1.setDesignDocument(paths);//设计文档
+                break;
+            default:
+                System.out.println(formname+"找不到对应字段");
+                break;
+        }
+        if(projectdao.updateProject(project1)) {
             project=project1;
             return true;
         }

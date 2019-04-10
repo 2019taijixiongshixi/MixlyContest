@@ -10,7 +10,6 @@ import java.util.concurrent.TimeUnit;
 
 @Configuration
 public class webMvcConfig implements org.springframework.web.servlet.config.annotation.WebMvcConfigurer{
-    // 定义在application.properties
     private String path = "upload/";
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         String p = new File(path).getAbsolutePath() + File.separator;//取得在服务器中的绝对路径
