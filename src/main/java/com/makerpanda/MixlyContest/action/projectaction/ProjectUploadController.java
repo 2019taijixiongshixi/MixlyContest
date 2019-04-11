@@ -57,7 +57,9 @@ public class ProjectUploadController {
         List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("file");
         String filepath = "upload/"+ StudentLoginService.student.getStudentID() +"/"+formname+"/";
         ArrayList<String> filestoragepaths=new ArrayList<>();
-        for (MultipartFile file : files) {
+        int i=0;
+        for (;i<files.size();i++) {
+            MultipartFile file=files.get(i);
             if (file.isEmpty()) {
                 modelMap.addAttribute("Error", "未选择文件");
                 continue;
