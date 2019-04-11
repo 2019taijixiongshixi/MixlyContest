@@ -206,12 +206,13 @@
                     <div class="form-bottom">
                         <form th:action="@{/projectUpdateText}" th:object="${project}" method="post">
                             <textarea type="text" name="ProjectDescription" placeholder="作品说明..."
-                                      class="form-username form-control" id="form-username"
-                                      th:value="*{ProjectDescription}"></textarea>
+                                      class="form-username form-control" id="ProjectDescription"
+                                      th:value="*{ProjectDescription}" autoHeight="true"></textarea>
                             <br>
                             <input type="text"  name="pagepath" style="display: none" th:value="xinxi2"/>
                             <input type="text"  name="formname" style="display: none" th:value="ProjectDescription"/>
-                            <button type="submit" class="btn">确认</button>
+                            <button type="submit" class="btn" id="form1">确认</button>
+                            <button type="button" class="btn" id="form1modify">更新</button>
                         </form>
                     </div>
                 </div>
@@ -230,12 +231,13 @@
                     <div class="form-bottom">
                         <form th:action="@{/projectUpdateText}" method="post" th:object="${project}">
                             <textarea type="text" name="CompetitionExperience" placeholder="比赛心得..."
-                                      class="form-username form-control" id="form-username"
-                                      th:value="*{CompetitionExperience}"></textarea>
+                                      class="form-username form-control" id="CompetitionExperience"
+                                      th:value="*{CompetitionExperience}" autoHeight="true"></textarea>
                             <br>
                             <input type="text"  name="pagepath" style="display: none" th:value="xinxi2"/>
                             <input type="text"  name="formname" style="display: none" th:value="CompetitionExperience"/>
-                            <button type="submit" class="btn">确认</button>
+                            <button type="submit" class="btn" id="form2">确认</button>
+                            <button type="button" class="btn" id="form2modify">更新</button>
                         </form>
                     </div>
                 </div>
@@ -261,5 +263,50 @@
         <![endif]-->
 
     </body>
-
+    <script th:inline="javascript">
+        $(document).ready(function(){
+            var projectdescription = /*[[${project.ProjectDescription}]]*/ null;
+            var competitionexperience=/*[[${project.CompetitionExperience}]]*/ null;
+            if(projectdescription!==null){
+                $("#ProjectDescription").val(projectdescription).attr("disabled",true);
+                $("#form1").hide();
+                $("#form1modify").show();
+            }else{
+                $("#form1modify").hide();
+            }
+            if(competitionexperience!==null){
+                $("#CompetitionExperience").val(competitionexperience).attr("disabled",true);
+                $("#form2").hide();
+                $("#form2modify").show();
+            }else{
+                $("#form2modify").hide();
+            }
+        });
+        $("#form1modify").click(function () {
+            $("#ProjectDescription").attr("disabled",false);
+            $("#form1").show();
+            $("#form1modify").hide();
+        });
+        $("#form2modify").click(function () {
+            $("#CompetitionExperience").attr("disabled",false);
+            $("#form2").show();
+            $("#form2modify").hide();
+        });
+        $(function(){
+            $.fn.autoHeight = function(){
+                function autoHeight(elem){
+                    elem.style.height = 'auto';
+                    elem.scrollTop = 0; //防抖动
+                    elem.style.height = elem.scrollHeight + 'px';
+                }
+                this.each(function(){
+                    autoHeight(this);
+                    $(this).on('keyup', function(){
+                        autoHeight(this);
+                    });
+                });
+            };
+            $('textarea[autoHeight]').autoHeight();
+        })
+    </script>
 </html>

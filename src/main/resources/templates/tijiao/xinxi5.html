@@ -98,12 +98,13 @@
                             <form th:action="@{/projectUpdateText}" method="post" th:object="${project}">
                                 <div class="form-group">
                                     <input type="text" name="VideoURL" placeholder="视频链接..."
-                                           class="form-username form-control" id="form-username"
+                                           class="form-username form-control" id="VideoURL"
                                            th:value="*{VideoURL}">
                                 </div>
                                 <input type="text"  name="pagepath" style="display: none" th:value="xinxi5"/>
                                 <input type="text"  name="formname" style="display: none" th:value="VideoURL"/>
-                                <button type="submit" class="btn">确认</button>
+                                <button type="submit" id="form1" class="btn">确认</button>
+                                <button type="button" id="form1modify" class="btn">更新</button>
                             </form>
                         </div>
                         <div id="box1" class="form-bottom" style="display: none">
@@ -135,16 +136,27 @@
         <script src="../../static/assets/js/html5shiv.js"></script>
         <script src="../../static/assets/js/respond.min.js"></script>
         <script src="../../static/assets/js/videoplus.js"></script>
-        <script>
+        <script th:inline="javascript">
         $(document).ready(function(){
+            var videourl = /*[[${project.VideoURL}]]*/ null;
+            if(videourl!==null){
+                $("#VideoURL").attr("disabled",true);
+                $("#form1").hide();
+                $("#form1modify").show();
+            }else{
+                $("#form1modify").hide();
+            }
             $("#st").click(function(){
                 $("#box1").show();
             });
-        });
-        $(document).ready(function(){
             $("button").click(function(){
                 $("#box1").load("../../static/assets/demosource/demo_test.txt");
             });
+        });
+        $("#form1modify").click(function () {
+            $("#VideoURL").attr("disabled",false);
+            $("#form1").show();
+            $("#form1modify").hide();
         });
         </script>
         <![endif]-->

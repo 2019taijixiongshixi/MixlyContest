@@ -174,12 +174,13 @@
                         <div class="form-bottom">
                             <form th:action="@{/projectUpdateText}" method="post" th:object="${project}">
                                 <textarea type="text" name="Equipment" placeholder="使用器材..."
-                                          class="form-username form-control" id="form-username"
-                                          th:value="*{Equipment}"></textarea>
+                                          class="form-username form-control"
+                                          th:value="*{Equipment}" id="Equipment"></textarea>
                                 <br>
                                 <input type="text"  name="pagepath" style="display: none" th:value="xinxi4"/>
                                 <input type="text"  name="formname" style="display: none" th:value="Equipment"/>
-                                <button type="submit" class="btn">确认</button>
+                                <button type="submit" id="form1" class="btn">确认</button>
+                                <button type="button" id="form1modify" class="btn">更新</button>
                             </form>
                         </div>
                     </div>
@@ -204,5 +205,37 @@
         <![endif]-->
 
     </body>
-
+    <script th:inline="javascript">
+        $(document).ready(function(){
+            var equipment = /*[[${project.Equipment}]]*/ null;
+            if(equipment!==null){
+                $("#Equipment").val(equipment).attr("disabled",true);
+                $("#form1").hide();
+                $("#form1modify").show();
+            }else{
+                $("#form1modify").hide();
+            }
+        });
+        $("#form1modify").click(function () {
+            $("#Equipment").attr("disabled",false);
+            $("#form1").show();
+            $("#form1modify").hide();
+        });
+        $(function(){
+            $.fn.autoHeight = function(){
+                function autoHeight(elem){
+                    elem.style.height = 'auto';
+                    elem.scrollTop = 0; //防抖动
+                    elem.style.height = elem.scrollHeight + 'px';
+                }
+                this.each(function(){
+                    autoHeight(this);
+                    $(this).on('keyup', function(){
+                        autoHeight(this);
+                    });
+                });
+            };
+            $('textarea[autoHeight]').autoHeight();
+        })
+    </script>
 </html>
