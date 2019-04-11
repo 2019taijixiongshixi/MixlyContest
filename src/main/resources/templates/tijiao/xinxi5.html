@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
     <head>
 
@@ -95,14 +95,18 @@
                             </div>
                         </div>
                         <div class="form-bottom">
-                            <form action="liucheng.php" method="post" enctype="multipart/form-data">
+                            <form th:action="@{/projectUpdateText}" method="post" th:object="${project}">
                                 <div class="form-group">
-                                    <input type="text" name="form-username" placeholder="视频链接..." class="form-username form-control" id="form-username">
+                                    <input type="text" name="VideoURL" placeholder="视频链接..."
+                                           class="form-username form-control" id="form-username"
+                                           th:value="*{VideoURL}">
                                 </div>
+                                <input type="text"  name="pagepath" style="display: none" th:value="xinxi5"/>
+                                <input type="text"  name="formname" style="display: none" th:value="VideoURL"/>
                                 <button type="submit" class="btn">确认</button>
                             </form>
                         </div>
-                        <div  id="box1" class="form-bottom" style="display: none">
+                        <div id="box1" class="form-bottom" style="display: none">
                             提交视频展示
 
                         </div>

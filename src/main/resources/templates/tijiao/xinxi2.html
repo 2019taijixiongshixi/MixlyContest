@@ -204,9 +204,13 @@
                         </div>
                     </div>
                     <div class="form-bottom">
-                        <form action="liucheng.php" method="post" enctype="multipart/form-data">
-                            <textarea type="text" name="form-username" placeholder="作品说明..." class="form-username form-control" id="form-username"></textarea>
+                        <form th:action="@{/projectUpdateText}" th:object="${project}" method="post">
+                            <textarea type="text" name="ProjectDescription" placeholder="作品说明..."
+                                      class="form-username form-control" id="form-username"
+                                      th:value="*{ProjectDescription}"></textarea>
                             <br>
+                            <input type="text"  name="pagepath" style="display: none" th:value="xinxi2"/>
+                            <input type="text"  name="formname" style="display: none" th:value="ProjectDescription"/>
                             <button type="submit" class="btn">确认</button>
                         </form>
                     </div>
@@ -224,9 +228,13 @@
                         </div>
                     </div>
                     <div class="form-bottom">
-                        <form action="liucheng.php" method="post" enctype="multipart/form-data">
-                            <textarea type="text" name="form-username" placeholder="比赛心得..." class="form-username form-control" id="form-username"></textarea>
+                        <form th:action="@{/projectUpdateText}" method="post" th:object="${project}">
+                            <textarea type="text" name="CompetitionExperience" placeholder="比赛心得..."
+                                      class="form-username form-control" id="form-username"
+                                      th:value="*{CompetitionExperience}"></textarea>
                             <br>
+                            <input type="text"  name="pagepath" style="display: none" th:value="xinxi2"/>
+                            <input type="text"  name="formname" style="display: none" th:value="CompetitionExperience"/>
                             <button type="submit" class="btn">确认</button>
                         </form>
                     </div>
