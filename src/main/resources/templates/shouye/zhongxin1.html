@@ -139,66 +139,7 @@
             </div>
             <div class="row" id="tab1">
                 <div class="col-md-12">
-                    <div class="card card-user" id="table">
-                        <div class="card-header">
-                            <h5 class="card-title">个人信息</h5>
-                        </div>
-                        <div class="card-body">
-                            <table class="table" th:object="${student}">
-                                <tr>
-                                    <th>账号ID</th>
-                                    <th>注册邮箱</th>
-                                </tr>
-                                <tr>
-                                    <th th:text="*{StudentID}"></th>
-                                    <th th:text="*{StudentEmail}"></th>
-                                </tr>
-                                <tr>
-                                    <th>姓名</th>
-                                    <th>带队老师姓名</th>
-                                </tr>
-                                <tr>
-                                    <th th:text="*{StudentName}"></th>
-                                    <th th:text="${TeacherName}"></th>
-                                </tr>
-                                <tr>
-                                    <th>性别</th>
-                                    <th>身份证号</th>
-                                </tr>
-                                <tr>
-                                    <th th:text="*{StudentGender}"></th>
-                                    <th th:text="*{StudentIdentify}"></th>
-                                </tr>
-                                <tr>
-                                    <th>手机号</th>
-                                    <th>带队老师手机号</th>
-                                </tr>
-                                <tr>
-                                    <th th:text="*{StudentTel}"></th>
-                                    <th th:text="${TeacherTel}"></th>
-                                </tr>
-                                <tr>
-                                    <th>学校名称</th>
-                                    <th>班级号</th>
-                                </tr>
-                                <tr>
-                                    <th th:text="*{StudentSchool}"></th>
-                                    <th th:text="*{ClassID}"></th>
-                                </tr>
-                            </table>
-                            <div class="row">
-                                <div class="update ml-auto mr-auto">
-                                    <button style="width: 300px" type="button" id="modify"
-                                            class="btn btn-primary btn-round"><p style="font-size: 20px">修改</p></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card card-user" id="form" style="display:none">
+                    <div class="card card-user">
                         <div class="card-header">
                             <h5 class="card-title">个人信息</h5>
                         </div>
@@ -286,7 +227,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="update ml-auto mr-auto">
-                                        <button style="width: 300px" type="submit" class="btn btn-primary btn-round"><p style="font-size: 20px">完成修改</p></button>
+                                        <button style="width: 300px" type="button" id="modify"
+                                                class="btn btn-primary btn-round"><p style="font-size: 20px">修改</p></button>
+                                        <button style="width: 300px" id="submit" type="submit"
+                                                class="btn btn-primary btn-round"><p style="font-size: 20px">完成修改</p></button>
                                     </div>
                                 </div>
                             </form>
@@ -362,7 +306,7 @@
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4">
                                     <form class="login-form" method="post" th:action="@{/projectdelete}">
-                                        <button style="width: 300px" type="submit" class="btn btn-danger">
+                                        <button style="width: 300px" type="submit" class="btn btn-danger btn-round">
                                             <p style="font-size: 20px">删除项目</p>
                                         </button>
                                     </form>
@@ -397,13 +341,16 @@
 <script src="../../static/assets/assets1/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
 <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 <script src="../../static/assets/assets1/demo/demo.js"></script>
-<script>
+<script th:inline="javascript">
     $(document).ready(function() {
+        $.tabledisplay.tabledisabled();
+        $("#submit").hide();
         $("#tab2").hide();
     });
     $("#modify").click(function () {
-        $("#table").hide();
-        $("#form").show();
+        $.tabledisplay.tablemovedisabled();
+        $("#submit").show();
+        $("#modify").hide();
     });
     $(".tab1").click(function () {
         $("#tab1").show();
@@ -412,7 +359,25 @@
     $(".tab2").click(function () {
         $("#tab2").show();
         $("#tab1").hide();
-    })
+    });
+    $.tabledisplay = {
+        tabledisabled: function () {
+            $("input[name$='StudentName']").attr("disabled",true);
+            $("input[name$='StudentGender']").attr("disabled",true);
+            $("input[name$='StudentIdentify']").attr("disabled",true);
+            $("input[name$='StudentTel']").attr("disabled",true);
+            $("input[name$='StudentSchool']").attr("disabled",true);
+            $("input[name$='ClassID']").attr("disabled",true);
+        },
+        tablemovedisabled:function () {
+            $("input[name$='StudentName']").attr("disabled",false);
+            $("input[name$='StudentGender']").attr("disabled",false);
+            $("input[name$='StudentIdentify']").attr("disabled",false);
+            $("input[name$='StudentTel']").attr("disabled",false);
+            $("input[name$='StudentSchool']").attr("disabled",false);
+            $("input[name$='ClassID']").attr("disabled",false);
+        }
+    }
 </script>
 </body>
 
