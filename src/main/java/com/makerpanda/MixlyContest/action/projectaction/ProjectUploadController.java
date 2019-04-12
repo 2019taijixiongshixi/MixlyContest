@@ -64,8 +64,8 @@ public class ProjectUploadController {
                 modelMap.addAttribute("Error", "未选择文件");
                 continue;
             }
-            String fileName = file.getOriginalFilename();
-
+            //String fileName = file.getOriginalFilename();
+            String fileName = formname+i+".png";
             File dest = new File(new File(filepath).getAbsolutePath() + "/" + fileName);
             if (!dest.getParentFile().exists()) {
                 dest.getParentFile().mkdirs();

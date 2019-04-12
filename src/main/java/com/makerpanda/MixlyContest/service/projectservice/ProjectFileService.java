@@ -1,6 +1,5 @@
 package com.makerpanda.MixlyContest.service.projectservice;
 
-import com.makerpanda.MixlyContest.datamodel.Project;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,10 +9,24 @@ public class ProjectFileService {
 
    public static boolean ProjectFileStorage(String formname, ArrayList filestoragepaths){
        int i=0;
-       String paths=new String();
+       String paths= "";
        for(;i<filestoragepaths.size();i++) {
            paths+=filestoragepaths.get(i)+"#";
        }
        return ProjectUpdateService.updateProjectFile(formname,paths);
    }
+//    public static ArrayList getAllPaths(ArrayList <String>files){
+//        int i=0;
+//        ArrayList<String[]> allfiles=new ArrayList<>();
+//        for(;i<files.size();i++) {
+//        allfiles.add(ProjectFilePath(files.get(i)));
+//        }
+//        return allfiles;
+//    }
+
+    public static String[] ProjectFilePath(String pathsstorage){
+
+        return pathsstorage.split("#");
+    }
+
 }

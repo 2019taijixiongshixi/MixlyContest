@@ -13,8 +13,8 @@ public class webMvcConfig implements org.springframework.web.servlet.config.anno
     private String path = "upload/";
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         String p = new File(path).getAbsolutePath() + File.separator;//取得在服务器中的绝对路径
-        System.out.println("Mapping /upload/img/** from " + p);
-        registry.addResourceHandler("/upload/img/**") // 外部访问地址
+        System.out.println("Mapping /upload/** from " + p);
+        registry.addResourceHandler("/upload/**") // 外部访问地址
                 .addResourceLocations("file:" + p)// springboot需要增加file协议前缀
                 .setCacheControl(CacheControl.maxAge(30, TimeUnit.MINUTES));// 设置浏览器缓存30分钟
     }
