@@ -162,6 +162,8 @@
                                     <div th:each="map,iterStat : ${ProjectDisplayMap}">
                                         <img th:src="|${map}?time=${new java.util.Date().getTime()}|"
                                              width="3000px" alt="上传图片"/>
+                                        <br>
+                                        <br>
                                     </div>
                                     <button type="button" class="btn">更新</button>
                                 </form>
@@ -201,6 +203,8 @@
                             <div th:each="map,iterStat : ${ProjectMindMap}">
                                 <img th:src="|${map}?time=${new java.util.Date().getTime()}|"
                                      width="3000px" alt="上传图片"/>
+                                <br>
+                                <br>
                             </div>
                             <button type="button" class="btn">更新</button>
                         </form>
@@ -332,7 +336,6 @@
                 $("#img-modify1").hide();
             }else
                 $("#img-display1").hide();
-            new Date().getTime();
             if(projectmindmap!=null) {
                 $("#img-modify2").hide();
             }else

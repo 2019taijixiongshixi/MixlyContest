@@ -1,241 +1,285 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-    <head>
+<head>
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>作品提交</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>作品提交</title>
 
-        <!-- CSS -->
-        <link rel="stylesheet" href="../../static/assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../static/assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="../../static/assets/css/tijiaoform-elements.css">
-        <link rel="stylesheet" href="../../static/assets/css/tijiaostyle.css">
-        <link rel="stylesheet" type="text/css" href="../../static/assets/css/bootstrap-directional-buttons.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/assets/css/tijiaoform-elements.css">
+    <link rel="stylesheet" href="../../static/assets/css/tijiaostyle.css">
+    <link rel="stylesheet" type="text/css" href="../../static/assets/css/bootstrap-directional-buttons.css">
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <![endif]-->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <![endif]-->
 
-        <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="../../static/assets/ico/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../static/assets/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../static/assets/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../static/assets/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="../../static/assets/ico/apple-touch-icon-57-precomposed.png">
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="../../static/assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="../../static/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="../../static/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+          href="../../static/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../../static/assets/ico/apple-touch-icon-57-precomposed.png">
 
-    </head>
+</head>
 
-    <body>
+<body>
 
-    <br>
-    <a href="xinxi1">
-        <button type="button" style="" class="btn btn-default btn-circle btn-x2"><strong>一、团队与项目信息</strong><br><br><br><br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
-    <a href="xinxi2">
-        <button type="button" style="" class="btn btn-primary btn-circle btn-x2"><strong>二、项目说明</strong><br><br>1.项目作品展示图<br>2.思维导图<br>3.作品说明<br>4.比赛心得</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
-    <a href="xinxi3">
-        <button type="button" style="" class="btn btn-success btn-circle btn-x2"><strong>三、作品程序说明</strong><br><br>1.硬件电路图<br>2.程序流程图<br>3.代码模块图<br></button></a> <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
-    <a href="xinxi4">
-        <button type="button" style="background-color:#2ee9ff" class="btn btn-info btn-circle btn-x2"><strong>四、结构说明</strong><br><br>1.作品结构图<br>2.使用器材说明<br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
-    <a href="xinxi5">
-        <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>五、作品演示视频</strong><br><br><br><br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
-    <a href="xinxi6">
-        <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>六、PDF文档提交</strong><br><br>1.打印pdf文档<br>2.提交pdf文档<br><br></button></a>
+<br>
+<a href="xinxi1">
+    <button type="button" style="" class="btn btn-default btn-circle btn-x2">
+        <strong>一、团队与项目信息</strong><br><br><br><br><br></button>
+</a>
+<nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+<a href="xinxi2">
+    <button type="button" style="" class="btn btn-primary btn-circle btn-x2">
+        <strong>二、项目说明</strong><br><br>1.项目作品展示图<br>2.思维导图<br>3.作品说明<br>4.比赛心得
+    </button>
+</a>
+<nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+<a href="xinxi3">
+    <button type="button" style="" class="btn btn-success btn-circle btn-x2">
+        <strong>三、作品程序说明</strong><br><br>1.硬件电路图<br>2.程序流程图<br>3.代码模块图<br></button>
+</a>
+<nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+<a href="xinxi4">
+    <button type="button" style="background-color:#2ee9ff" class="btn btn-info btn-circle btn-x2">
+        <strong>四、结构说明</strong><br><br>1.作品结构图<br>2.使用器材说明<br><br></button>
+</a>
+<nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+<a href="xinxi5">
+    <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2">
+        <strong>五、作品演示视频</strong><br><br><br><br><br></button>
+</a>
+<nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+<a href="xinxi6">
+    <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2">
+        <strong>六、PDF文档提交</strong><br><br>1.打印pdf文档<br>2.提交pdf文档<br><br></button>
+</a>
 
 
-        <!-- Top content -->
-        <div class="top-content">
-        	
-            <div class="inner-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>四、结构说明</strong></h1>
-                            <div class="description">
-                            	<p>
-                                    (需要上传1.作品结构图、2.使用器材说明)
-                            	</p>
-                            </div>
+<!-- Top content -->
+<div class="top-content">
+
+    <div class="inner-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text">
+                    <h1><strong>四、结构说明</strong></h1>
+                    <div class="description">
+                        <p>
+                            (需要上传1.作品结构图、2.使用器材说明)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-bottom">
+                <p>
+                    <button class="btn" style="width: 1090px"
+                            onclick="openShutManager(this,'box',false,'点此收起案例图演示','点此展开案例图演示')">点此展开案例图演示
+                    </button>
+                </p>
+            </div>
+
+            <div id="box" class="form-bottom" style="display: none">
+                <div id="myCarousel" class="carousel slide">
+                    <!-- 轮播（Carousel）指标 -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                    </ol>
+                    <!-- 轮播（Carousel）项目 -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <p style="text-align: center">外部结构图实例:(点击图片查看具体制作教程)</p>
+                            <a href="xinxi3"><img src="../../static/assets/Uploads/tu7.png" alt="First slide"></a>
+                        </div>
+                        <div class="item">
+                            <p style="text-align: center">激光切割图实例:(点击图片查看具体制作教程)</p>
+                            <a href="xinxi3"><img src="../../static/assets/Uploads/tu8.png" alt="Second slide"></a>
                         </div>
                     </div>
+                    <!-- 轮播（Carousel）导航 -->
+                    <a class="carousel-control left" href="#myCarousel"
+                       data-slide="prev">&lsaquo;</a>
+                    <a class="carousel-control right" href="#myCarousel"
+                       data-slide="next">&rsaquo;</a>
+                </div>
+                <br>
+                <div style="text-align:center;">
+                    <button class="btn slide-one" style="width: 340px" value="外部结构图">外部结构图</button>
+                    <button class="btn slide-two" style="width: 340px" value="激光切割图">激光切割图</button>
+                </div>
+            </div>
+            <br>
 
-                    <div class="form-bottom">
-                        <p><button class="btn" style="width: 1090px" onclick="openShutManager(this,'box',false,'点此收起案例图演示','点此展开案例图演示')">点此展开案例图演示</button></p>
+        </div>
+
+
+        <div class="row" id="3">
+            <div class="col-sm-6 col-sm-offset-3 form-box" style="">
+                <div class="form-top">
+                    <div class="form-top-left">
+                        <h3>1.作品结构图(如果没有作品结构图，可以不选择提交)</h3>
+                        <p>(可以添加的作品结构图:外部结构图(1张);平面草图(1张); 3D模型图(1张，三维模型设计图):或3D打印成品图(1张); 激光切割图(1张))</p>
                     </div>
-
-                    <div  id="box" class="form-bottom" style="display: none">
-                        <div id="myCarousel" class="carousel slide">
-                            <!-- 轮播（Carousel）指标 -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#myCarousel" data-slide-to="1"></li>
-                            </ol>
-                            <!-- 轮播（Carousel）项目 -->
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <p style="text-align: center">外部结构图实例:(点击图片查看具体制作教程)</p>
-                                    <a href="xinxi3"><img src="../../static/assets/Uploads/tu7.png" alt="First slide"></a>
-                                </div>
-                                <div class="item">
-                                    <p style="text-align: center">激光切割图实例:(点击图片查看具体制作教程)</p>
-                                    <a href="xinxi3"><img src="../../static/assets/Uploads/tu8.png" alt="Second slide"></a>
-                                </div>
-                            </div>
-                            <!-- 轮播（Carousel）导航 -->
-                            <a class="carousel-control left" href="#myCarousel"
-                               data-slide="prev">&lsaquo;</a>
-                            <a class="carousel-control right" href="#myCarousel"
-                               data-slide="next">&rsaquo;</a>
-                        </div>
+                    <div class="form-top-right">
+                        <img src="../../static/assets/images/bi.jpg">
+                    </div>
+                </div>
+                <div class="form-bottom" id="img-modify1">
+                    <form th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
+                        <label for="select">外部结构图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
+                        <input type="file" name="file" id="file7" accept="image/*" onchange="imgChange7(this);"/>
+                        <!--文件上传选择按钮-->
                         <br>
-                        <div style="text-align:center;">
-                            <button class="btn slide-one" style="width: 340px" value="外部结构图">外部结构图</button>
-                            <button class="btn slide-two" style="width: 340px" value="激光切割图">激光切割图</button>
-                        </div>
-                    </div>
-                    <br>
-
+                        <img id="img7" src="" alt="外部结构图(未上传)"/> <!--图片显示位置-->
+                        <br>
+                        <br>
+                        <br>
+                        <label for="select">平面草图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
+                        <input type="file" name="file" id="file9" accept="image/*" onchange="imgChange9(this);"/>
+                        <br>
+                        <img id="img9" src="" alt="平面草图(未上传)"/>
+                        <br>
+                        <br>
+                        <br>
+                        <label for="select">3D模型图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
+                        <input type="file" name="file" id="file10" accept="image/*" onchange="imgChange10(this);"/>
+                        <br>
+                        <img id="img10" src="" width="3000px" alt="3D模型图(未上传)"/>
+                        <br>
+                        <br>
+                        <br>
+                        <label for="select">3D打印成品图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
+                        <input type="file" name="file" id="file11" accept="image/*" onchange="imgChange11(this);"/>
+                        <br>
+                        <img id="img11" src="" width="3000px" alt="3D打印成品图(未上传)"/>
+                        <br>
+                        <br>
+                        <br>
+                        <label for="select">激光切割图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
+                        <input type="file" name="file" id="file12" accept="image/*" onchange="imgChange12(this);"/>
+                        <br>
+                        <img id="img12" src="" width="3000px" alt="激光切割图(未上传)"/>
+                        <br>
+                        <br>
+                        <input type="text" name="pagepath" style="display: none" th:value="xinxi4"/>
+                        <input type="text" name="formname" style="display: none" th:value="StructureChart"/>
+                        <button type="submit" class="btn">确认</button>
+                    </form>
                 </div>
-
-
-                <div class="row" id="3">
-                    <div class="col-sm-6 col-sm-offset-3 form-box" style="" >
-                        <div class="form-top">
-                            <div class="form-top-left">
-                                <h3>1.作品结构图(如果没有作品结构图，可以不选择提交)</h3>
-                                <p>(可以添加的作品结构图:外部结构图(1张);平面草图(1张); 3D模型图(1张，三维模型设计图):或3D打印成品图(1张); 激光切割图(1张))</p>
-                            </div>
-                            <div class="form-top-right">
-                                <img src="../../static/assets/images/bi.jpg">
-                            </div>
+                <div class="form-bottom" id="img-display1">
+                    <form>
+                        <div th:each="map,iterStat : ${StructureChart}">
+                            <img th:src="|${map}?time=${new java.util.Date().getTime()}|"
+                                 width="3000px" alt="上传图片"/>
+                            <br>
+                            <br>
                         </div>
-                        <div class="form-bottom">
-                            <form th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
-                                <label for="select">外部结构图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
-                                <input type="file" name="file" id="file7" accept="image/*" onchange ="imgChange7(this);"/> <!--文件上传选择按钮-->
-                                <br>
-                                <img id="img7" src="" alt="外部结构图(未上传)"/> <!--图片显示位置-->
-                                <br>
-                                <br>
-                                <br>
-                                <label for="select">平面草图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
-                                <input type="file" name="file" id="file9" accept="image/*" onchange ="imgChange9(this);"/>
-                                <br>
-                                <img id="img9" src="" alt="平面草图(未上传)"/>
-                                <br>
-                                <br>
-                                <br>
-                                <label for="select">3D模型图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
-                                <input type="file" name="file" id="file10" accept="image/*" onchange ="imgChange10(this);"/>
-                                <br>
-                                <img id="img10" src="" width="3000px" alt="3D模型图(未上传)" />
-                                <br>
-                                <br>
-                                <br>
-                                <label for="select">3D打印成品图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
-                                <input type="file" name="file" id="file11" accept="image/*" onchange ="imgChange11(this);"/>
-                                <br>
-                                <img id="img11" src="" width="3000px" alt="3D打印成品图(未上传)" />
-                                <br>
-                                <br>
-                                <br>
-                                <label for="select">激光切割图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
-                                <input type="file" name="file" id="file12" accept="image/*" onchange ="imgChange12(this);"/>
-                                <br>
-                                <img id="img12" src="" width="3000px" alt="激光切割图(未上传)" />
-                                <br>
-                                <br>
-                                <input type="text"  name="pagepath" style="display: none" th:value="xinxi4"/>
-                                <input type="text"  name="formname" style="display: none" th:value="StructureChart"/>
-                                <button type="submit" class="btn">确认</button>
-                            </form>
-
-
-                        </div>
+                        <button type="button" class="btn">更新</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="4">
+            <div class="col-sm-6 col-sm-offset-3 form-box" style="">
+                <div class="form-top">
+                    <div class="form-top-left">
+                        <h3>2.使用器材(字数不超过1000个字)</h3>
+                        <p>
+                            (列出所使用的器材、工具、耗材清单;文本描述，例如:主控板*1，超声波传感器*1，N20电机*2，
+                            ,4pin端子线*4，9V电池线*1,9V电池*1，3D打印模型*3，瓦伦纸*1，胶水，剪刀，橡皮泥，颜料，画笔。)
+                        </p>
+                    </div>
+                    <div class="form-top-right">
+                        <img src="../../static/assets/images/bi.jpg">
                     </div>
                 </div>
-                <div class="row" id="4">
-                    <div class="col-sm-6 col-sm-offset-3 form-box" style="" >
-                        <div class="form-top">
-                            <div class="form-top-left">
-                                <h3>2.使用器材(字数不超过1000个字)</h3>
-                                <p>
-                                    (列出所使用的器材、工具、耗材清单;文本描述，例如:主控板*1，超声波传感器*1，N20电机*2，
-                                    ,4pin端子线*4，9V电池线*1,9V电池*1，3D打印模型*3，瓦伦纸*1，胶水，剪刀，橡皮泥，颜料，画笔。)
-                                </p>
-                            </div>
-                            <div class="form-top-right">
-                                <img src="../../static/assets/images/bi.jpg">
-                            </div>
-                        </div>
-                        <div class="form-bottom">
-                            <form th:action="@{/projectUpdateText}" method="post" th:object="${project}">
+                <div class="form-bottom">
+                    <form th:action="@{/projectUpdateText}" method="post" th:object="${project}">
                                 <textarea type="text" name="Equipment" placeholder="使用器材..."
                                           class="form-username form-control"
                                           th:value="*{Equipment}" id="Equipment"></textarea>
-                                <br>
-                                <input type="text"  name="pagepath" style="display: none" th:value="xinxi4"/>
-                                <input type="text"  name="formname" style="display: none" th:value="Equipment"/>
-                                <button type="submit" id="form1" class="btn">确认</button>
-                                <button type="button" id="form1modify" class="btn">更新</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                    
+                        <br>
+                        <input type="text" name="pagepath" style="display: none" th:value="xinxi4"/>
+                        <input type="text" name="formname" style="display: none" th:value="Equipment"/>
+                        <button type="submit" id="form1" class="btn">确认</button>
+                        <button type="button" id="form1modify" class="btn">更新</button>
+                    </form>
                 </div>
             </div>
-            
         </div>
-        
+
+    </div>
+</div>
 
 
-        <!-- Javascript -->
-        <script src="../../static/assets/js/jquery-1.11.1.min.js"></script>
-        <script src="../../static/assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../../static/assets/js/jquery.backstretch.min.js"></script>
-        <script src="../../static/assets/js/scripts.js"></script>
-        <script src="../../static/assets/js/html5shiv.js"></script>
-        <script src="../../static/assets/js/respond.min.js"></script>
-        <!--[if lt IE 10]>
-        <script src="../../static/assets/js/placeholder.js"></script>
-        <![endif]-->
+<!-- Javascript -->
+<script src="../../static/assets/js/jquery-1.11.1.min.js"></script>
+<script src="../../static/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/assets/js/jquery.backstretch.min.js"></script>
+<script src="../../static/assets/js/scripts.js"></script>
+<script src="../../static/assets/js/html5shiv.js"></script>
+<script src="../../static/assets/js/respond.min.js"></script>
+<!--[if lt IE 10]>
+<script src="../../static/assets/js/placeholder.js"></script>
+<![endif]-->
 
-    </body>
-    <script th:inline="javascript">
-        $(document).ready(function(){
-            var equipment = /*[[${project.Equipment}]]*/ null;
-            if(equipment!==null){
-                $("#Equipment").val(equipment).attr("disabled",true);
-                $("#form1").hide();
-                $("#form1modify").show();
-            }else{
-                $("#form1modify").hide();
-            }
-        });
-        $("#form1modify").click(function () {
-            $("#Equipment").attr("disabled",false);
-            $("#form1").show();
+</body>
+<script th:inline="javascript">
+    $(document).ready(function () {
+        var equipment = /*[[${project.Equipment}]]*/ null;
+        if (equipment !== null) {
+            $("#Equipment").val(equipment).attr("disabled", true);
+            $("#form1").hide();
+            $("#form1modify").show();
+        } else {
             $("#form1modify").hide();
-        });
-        $(function(){
-            $.fn.autoHeight = function(){
-                function autoHeight(elem){
-                    elem.style.height = 'auto';
-                    elem.scrollTop = 0; //防抖动
-                    elem.style.height = elem.scrollHeight + 'px';
-                }
-                this.each(function(){
+        }
+    });
+    $("#form1modify").click(function () {
+        $("#Equipment").attr("disabled", false);
+        $("#form1").show();
+        $("#form1modify").hide();
+    });
+    $(function () {
+        $.fn.autoHeight = function () {
+            function autoHeight(elem) {
+                elem.style.height = 'auto';
+                elem.scrollTop = 0; //防抖动
+                elem.style.height = elem.scrollHeight + 'px';
+            }
+
+            this.each(function () {
+                autoHeight(this);
+                $(this).on('keyup', function () {
                     autoHeight(this);
-                    $(this).on('keyup', function(){
-                        autoHeight(this);
-                    });
                 });
-            };
-            $('textarea[autoHeight]').autoHeight();
-        })
-    </script>
+            });
+        };
+        $('textarea[autoHeight]').autoHeight();
+    });
+    $(function () {
+        var structurechart = /*[[${StructureChart}]]*/ null;
+        if (structurechart != null) {
+            $("#img-modify1").hide();
+        } else
+            $("#img-display1").hide();
+    });
+    $("#img-display1").click(function () {
+        $("#img-modify1").show();
+        $("#img-display1").hide();
+    });
+</script>
 </html>
