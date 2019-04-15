@@ -18,7 +18,7 @@ public class StudentRegisterController {
         return "zhuce/xzhuce";
     }
 
-    @RequestMapping(value = "/xzhucetijiao", method = RequestMethod.POST)
+    @RequestMapping(value = "/xzhuce", method = RequestMethod.POST)
     public String registerAction(@ModelAttribute("student") Student newstudent,
                                  @ModelAttribute("code")String Code, ModelMap modelMap) {
         int verifyCode;
