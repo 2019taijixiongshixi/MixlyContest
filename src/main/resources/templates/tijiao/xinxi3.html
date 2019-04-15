@@ -161,11 +161,13 @@
                 <div class="form-bottom" id="img-display1">
                     <form>
                         <div th:each="map,iterStat : ${HardwareCircuitDiagram}">
-                            <img th:src="|${map}?time=${new java.util.Date().getTime()}|"
-                                 width="3000px" alt="上传图片"/>
-                            <br>
-                            <br>
+                            <img ALIGN="left"
+                                 style="margin:0px 0px 10px 0px;border:5px solid #eee;width: 840px;"
+                                 th:src="|${map}?time=${new java.util.Date().getTime()}|"
+                                 onclick="showMaxImg3(this)" alt="未上传图片"/>
                         </div>
+                        <h4 style="float: left">以上为已提交的图片，如果图片需要更新或修改，请点击更新按钮重新提交</h4>
+                        <br>
                         <button type="button" class="btn modify">更新</button>
                     </form>
                 </div>
@@ -203,11 +205,13 @@
                 <div class="form-bottom" id="img-display2">
                     <form>
                         <div th:each="map,iterStat : ${FlowChart}">
-                            <img th:src="|${map}?time=${new java.util.Date().getTime()}|"
-                                 width="3000px" alt="上传图片"/>
-                            <br>
-                            <br>
+                            <img ALIGN="left"
+                                 style="margin:0px 0px 10px 0px;border:5px solid #eee;height: 265px;width: 415px;"
+                                 th:src="|${map}?time=${new java.util.Date().getTime()}|"
+                                 onclick="showMaxImg3(this)" alt="未上传图片"/>
                         </div>
+                        <h4 style="float: left">以上为已提交的图片，如果图片需要更新或修改，请点击更新按钮重新提交</h4>
+                        <br>
                         <button type="button" class="btn modify">更新</button>
                     </form>
                 </div>
@@ -245,13 +249,23 @@
                 <div class="form-bottom" id="img-display3">
                     <form>
                         <div th:each="map,iterStat : ${CodeModuleDiagram}">
-                            <img th:src="|${map}?time=${new java.util.Date().getTime()}|"
-                                 width="3000px" alt="上传图片"/>
-                            <br>
-                            <br>
+                            <img ALIGN="left"
+                                 style="margin:0px 0px 10px 0px;border:5px solid #eee;height: 265px;width: 415px;"
+                                 th:src="|${map}?time=${new java.util.Date().getTime()}|"
+                                 onclick="showMaxImg3(this)" alt="未上传图片"/>
                         </div>
+                        <h4 style="float: left">以上为已提交的图片，如果图片需要更新或修改，请点击更新按钮重新提交</h4>
+                        <br>
                         <button type="button" class="btn modify">更新</button>
                     </form>
+                </div>
+            </div>
+            <div  class="modal fade" id="imgModal3" tabindex="-1"
+                  role="dialog" data-toggle="modal" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" style="width: 1400px;">
+                    <div class="modal-content">
+                        <div id="imgshow3"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -297,17 +311,22 @@
         } else
             $("#img-display3").hide();
     });
-    $("#img-display1:button").click(function () {
+    $("#img-display1 :button").click(function () {
         $("#img-modify1").show();
         $("#img-display1").hide();
     });
-    $("#img-display2:button").click(function () {
+    $("#img-display2 :button").click(function () {
         $("#img-modify2").show();
         $("#img-display2").hide();
     });
-    $("#img-display3:button").click(function () {
+    $("#img-display3 :button").click(function () {
         $("#img-modify3").show();
         $("#img-display3").hide();
     });
+    function showMaxImg3(obj) {
+        var src = $(obj).attr("src");
+        $("#imgModal3").find("#imgshow3").html("<img src='" + src + "' class='carousel-inner img-responsive img-rounded' data-dismiss='modal'>");
+        $("#imgModal3").modal('show');
+    }
 </script>
 </html>

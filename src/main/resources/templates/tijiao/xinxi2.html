@@ -1,357 +1,406 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-    <head>
+<head>
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>作品提交</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>作品提交</title>
 
-        <!-- CSS -->
-        <link rel="stylesheet" href="../../static/assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../static/assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="../../static/assets/css/tijiaoform-elements.css">
-        <link rel="stylesheet" href="../../static/assets/css/tijiaostyle.css">
-        <link rel="stylesheet" type="text/css" href="../../static/assets/css/bootstrap-directional-buttons.css">
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <![endif]-->
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/assets/css/tijiaoform-elements.css">
+    <link rel="stylesheet" href="../../static/assets/css/tijiaostyle.css">
+    <link rel="stylesheet" type="text/css" href="../../static/assets/css/bootstrap-directional-buttons.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <![endif]-->
 
-        <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="../../static/assets/ico/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../static/assets/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../static/assets/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../static/assets/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="../../static/assets/ico/apple-touch-icon-57-precomposed.png">
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="../../static/assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="../../static/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="../../static/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+          href="../../static/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../../static/assets/ico/apple-touch-icon-57-precomposed.png">
+    <style>
 
+    </style>
+</head>
 
-    </head>
-
-    <body>
-        <br>
-        <a href="xinxi1">
-            <button type="button" style="" class="btn btn-default btn-circle btn-x2"><strong style="">一、团队与项目信息</strong><br><br><br><br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
-        <a href="xinxi2">
-            <button type="button" style="background-color:#2ee9ff" class="btn btn-primary btn-circle btn-x2"><strong>二、项目说明</strong><br><br>1.项目作品展示图<br>2.思维导图<br>3.作品说明<br>4.比赛心得</button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
-    <a href="xinxi3">
-        <button type="button" style="background-color:#33CCFF" class="btn btn-success btn-circle btn-x2"><strong>三、作品程序说明</strong><br><br>1.硬件电路图<br>2.程序流程图<br>3.代码模块图<br></button></a> <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
-    <a href="xinxi4">
-        <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>四、结构说明</strong><br><br>1.作品结构图<br>2.使用器材说明<br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
-    <a href="xinxi5">
-        <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>五、作品演示视频</strong><br><br><br><br><br></button></a><nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
-    <a href="xinxi6">
-        <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2"><strong>六、PDF文档提交</strong><br><br>1.打印pdf文档<br>2.提交pdf文档<br><br></button></a>
-
-    
-
-
-  
-
-
- 
-
-
-        <!-- Top content -->
-        <div class="top-content">
-        	
-            <div class="inner-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>二、项目说明</strong></h1>
-                            <div class="description">
-                            	<p>
-                                    (需要上传1.项目作品展示图、2.项目设计思维导图、3.作品说明、4.比赛心得)
-                            	</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-bottom">
-                        <p><button class="btn" style="width: 1090px" onclick="openShutManager(this,'box',false,'点此收起案例图演示','点此展开案例图演示')">点此展开案例图演示</button></p>
-                    </div>
-
-                    <div id="box" class="form-bottom" style="display: none">
-                    <div id="myCarousel" class="carousel slide">
-                        <!-- 轮播（Carousel）指标 -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
-                        </ol>
-                        <!-- 轮播（Carousel）项目 -->
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <p style="text-align: center">作品整体图实例:(点击图片查看具体制作教程)</p>
-                                <a href="xinxi3"><img src="../../static/assets/Uploads/tu1.png" alt="First slide"></a>
-                            </div>
-                            <div class="item">
-                                <p style="text-align: center">作品细节图实例:(点击图片查看具体制作教程)</p>
-                                <a href="xinxi3"><img src="../../static/assets/Uploads/tu1.png" alt="Second slide"></a>
-                            </div>
-                            <div class="item">
-                                <p style="text-align: center">思维导图实例:(点击图片查看具体制作教程)</p>
-                                <a href="xinxi3"><img src="../../static/assets/Uploads/tu3.png" alt="Third slide"></a>
-                            </div>
-                        </div>
-                        <!-- 轮播（Carousel）导航 -->
-                        <a class="carousel-control left" href="#myCarousel"
-                           data-slide="prev">&lsaquo;</a>
-                        <a class="carousel-control right" href="#myCarousel"
-                           data-slide="next">&rsaquo;</a>
-
-                    </div>
-                        <br>
-                        <div style="text-align:center;">
-                            <button class="btn slide-one" style="width: 340px" value="作品整体图">作品整体图</button>
-                            <button class="btn slide-two" style="width: 340px" value="作品细节图">作品细节图</button>
-                            <button class="btn slide-three" style="width: 340px" value="思维导图">思维导图</button>
-                        </div>
-                </div>
-                    <br>
-                </div>
+<body>
+<br>
+<a href="xinxi1">
+    <button type="button" style="" class="btn btn-default btn-circle btn-x2"><strong style="">一、团队与项目信息</strong><br><br><br><br><br>
+    </button>
+</a>
+<nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+<a href="xinxi2">
+    <button type="button" style="background-color:#2ee9ff" class="btn btn-primary btn-circle btn-x2">
+        <strong>二、项目说明</strong><br><br>1.项目作品展示图<br>2.思维导图<br>3.作品说明<br>4.比赛心得
+    </button>
+</a>
+<nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+<a href="xinxi3">
+    <button type="button" style="background-color:#33CCFF" class="btn btn-success btn-circle btn-x2">
+        <strong>三、作品程序说明</strong><br><br>1.硬件电路图<br>2.程序流程图<br>3.代码模块图<br></button>
+</a>
+<nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+<a href="xinxi4">
+    <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2">
+        <strong>四、结构说明</strong><br><br>1.作品结构图<br>2.使用器材说明<br><br></button>
+</a>
+<nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+<a href="xinxi5">
+    <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2">
+        <strong>五、作品演示视频</strong><br><br><br><br><br></button>
+</a>
+<nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
+<a href="xinxi6">
+    <button type="button" style="background-color:#33CCFF" class="btn btn-info btn-circle btn-x2">
+        <strong>六、PDF文档提交</strong><br><br>1.打印pdf文档<br>2.提交pdf文档<br><br></button>
+</a>
 
 
+<!-- Top content -->
+<div class="top-content">
 
-
-                <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 form-box">
-                            <div class="form-top">
-                                <div class="form-top-left">
-                                    <h3 >1.项目作品展示图</h3>
-                                    <p>(项目展示图包括一张作品整体图、一张作品细节图、一张全队成员与作品的合照图片，页面下方有实例图展示，并提供制作教程链接)</p>
-                                </div>
-                                <div class="form-top-right">
-                                    <img src="../../static/assets/images/bi.jpg">
-                                </div>
-                            </div>
-                            <div class="form-bottom" id="img-modify1">
-                                <form th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
-                                    <label for="select">作品整体图(选择一张图片，图片大小不超过2M)</label>
-                                    <input type="file" id="file1" name="file" accept="image/*" onchange ="imgChange1(this);"/> <!--文件上传选择按钮-->
-                                    <br>
-                                    <img id="img1" src="" alt="作品整体图(未上传)"/> <!--图片显示位置-->
-
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <label for="select">作品细节图(选择一张图片，图片大小不超过2M)</label>
-                                    <input type="file" id="file2" name="file" accept="image/*" onchange ="imgChange2(this);"/>
-                                    <br>
-                                    <img id="img2" src="" alt="作品细节(未上传)"/>
-
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <label for="select">成员与作品合照图(选择一张图片，图片大小不超过2M)</label>
-                                    <input type="file" id="file3" name="file" accept="image/*" onchange ="imgChange3(this);"/>
-                                    <br>
-                                    <img id="img3" src="" width="3000px" alt="成员与作品合照图(未上传)" />
-                                    <br>
-                                    <br>
-                                    <input type="text"  name="pagepath" style="display: none" th:value="xinxi2"/>
-                                    <input type="text"  name="formname" style="display: none" th:value="ProjectDisplayMap"/>
-                                    <button type="submit" class="btn">确认</button>
-                                </form>
-
-                            </div>
-                            <div class="form-bottom" id="img-display1">
-                                <form>
-                                    <div th:each="map,iterStat : ${ProjectDisplayMap}">
-                                        <img th:src="|${map}?time=${new java.util.Date().getTime()}|"
-                                             width="3000px" alt="上传图片"/>
-                                        <br>
-                                        <br>
-                                    </div>
-                                    <button type="button" class="btn modify">更新</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
+    <div class="inner-bg">
+        <div class="container">
             <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 form-box">
-                    <div class="form-top">
-                        <div class="form-top-left">
-                            <h3 >2.思维导图</h3>
-                            <p>(1-2张，展示项目的思路，体现出：创意收集，目标分析，层次递进，方案要素)</p>
-                        </div>
-                        <div class="form-top-right">
-                            <img src="../../static/assets/images/bi.jpg">
-                        </div>
-                    </div>
-                    <div class="form-bottom" id="img-modify2">
-                        <form th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
-                            <label for="select">思维导图(至少选择一张，最多选择两张图片，每张图片大小不超过2M。注:点击选择文件后可同时选择两张图片)</label>
-                            <input value="可同时最多选择两张图" multiple="multiple" type="file" name="file" id="file8" accept="image/*" onchange ="imgChange8(this);"/> <!--文件上传选择按钮-->
-                            <br>
-                            <img id="img8" src="" alt="思维导图1(未上传)"/> <!--图片显示位置-->
-                            <br>
-                            <br>
-                            <img id="img8.1" src="" alt="思维导图2(未上传)"/>
-                            <br>
-                            <br>
-                            <input type="text"  name="pagepath" style="display: none" th:value="xinxi2"/>
-                            <input type="text"  name="formname" style="display: none" th:value="ProjectMindMap"/>
-                            <button type="submit" class="btn">确认</button>
-                        </form>
-                    </div>
-                    <div class="form-bottom" id="img-display2">
-                        <form>
-                            <div th:each="map,iterStat : ${ProjectMindMap}">
-                                <img th:src="|${map}?time=${new java.util.Date().getTime()}|"
-                                     width="3000px" alt="上传图片"/>
-                                <br>
-                                <br>
-                            </div>
-                            <button type="button" class="btn modify">更新</button>
-                        </form>
+                <div class="col-sm-8 col-sm-offset-2 text">
+                    <h1><strong>二、项目说明</strong></h1>
+                    <div class="description">
+                        <p>
+                            (需要上传1.项目作品展示图、2.项目设计思维导图、3.作品说明、4.比赛心得)
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 form-box" style="" >
-                    <div class="form-top">
-                        <div class="form-top-left">
-                            <h3>3.作品说明(字数不超过1000个字)</h3>
-                            <p> (请说明作品的创意思路：解决了什么实际问题，有什么发现，优化了什么方案。)</p>
+            <div class="form-bottom">
+                <p>
+                    <button class="btn" style="width: 1090px"
+                            onclick="openShutManager(this,'box',false,'点此收起案例图演示','点此展开案例图演示')">点此展开案例图演示
+                    </button>
+                </p>
+            </div>
+
+            <div id="box" class="form-bottom" style="display: none">
+                <div id="myCarousel" class="carousel slide">
+                    <!-- 轮播（Carousel）指标 -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <!-- 轮播（Carousel）项目 -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <p style="text-align: center">作品整体图实例:(点击图片查看具体制作教程)</p>
+                            <a href="xinxi3"><img src="../../static/assets/Uploads/tu1.png" alt="First slide"></a>
                         </div>
-                        <div class="form-top-right">
-                            <img src="../../static/assets/images/bi.jpg">
+                        <div class="item">
+                            <p style="text-align: center">作品细节图实例:(点击图片查看具体制作教程)</p>
+                            <a href="xinxi3"><img src="../../static/assets/Uploads/tu1.png" alt="Second slide"></a>
+                        </div>
+                        <div class="item">
+                            <p style="text-align: center">思维导图实例:(点击图片查看具体制作教程)</p>
+                            <a href="xinxi3"><img src="../../static/assets/Uploads/tu3.png" alt="Third slide"></a>
                         </div>
                     </div>
-                    <div class="form-bottom" id="image">
-                        <form th:action="@{/projectUpdateText}" th:object="${project}" method="post">
+                    <!-- 轮播（Carousel）导航 -->
+                    <a class="carousel-control left" href="#myCarousel"
+                       data-slide="prev">&lsaquo;</a>
+                    <a class="carousel-control right" href="#myCarousel"
+                       data-slide="next">&rsaquo;</a>
+
+                </div>
+                <br>
+                <div style="text-align:center;">
+                    <button class="btn slide-one" style="width: 340px" value="作品整体图">作品整体图</button>
+                    <button class="btn slide-two" style="width: 340px" value="作品细节图">作品细节图</button>
+                    <button class="btn slide-three" style="width: 340px" value="思维导图">思维导图</button>
+                </div>
+            </div>
+            <br>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 form-box">
+                <div class="form-top">
+                    <div class="form-top-left">
+                        <h3>1.项目作品展示图</h3>
+                        <p>(项目展示图包括一张作品整体图、一张作品细节图、一张全队成员与作品的合照图片，页面下方有实例图展示，并提供制作教程链接)</p>
+                    </div>
+                    <div class="form-top-right">
+                        <img src="../../static/assets/images/bi.jpg">
+                    </div>
+                </div>
+                <div class="form-bottom" id="img-modify1">
+                    <form th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
+                        <label for="select">作品整体图(选择一张图片，图片大小不超过2M)</label>
+                        <input type="file" id="file1" name="file" accept="image/*" onchange="imgChange1(this);"/>
+                        <!--文件上传选择按钮-->
+                        <br>
+                        <img id="img1" src="" alt="作品整体图(未上传)"/> <!--图片显示位置-->
+
+                        <br>
+                        <br>
+                        <br>
+                        <label for="select">作品细节图(选择一张图片，图片大小不超过2M)</label>
+                        <input type="file" id="file2" name="file" accept="image/*" onchange="imgChange2(this);"/>
+                        <br>
+                        <img id="img2" src="" alt="作品细节(未上传)"/>
+
+                        <br>
+                        <br>
+                        <br>
+                        <label for="select">成员与作品合照图(选择一张图片，图片大小不超过2M)</label>
+                        <input type="file" id="file3" name="file" accept="image/*" onchange="imgChange3(this);"/>
+                        <br>
+                        <img id="img3" src="" width="3000px" alt="成员与作品合照图(未上传)"/>
+                        <br>
+                        <br>
+                        <input type="text" name="pagepath" style="display: none" th:value="xinxi2"/>
+                        <input type="text" name="formname" style="display: none" th:value="ProjectDisplayMap"/>
+                        <button type="submit" class="btn">确认</button>
+                    </form>
+
+                </div>
+                <div class="form-bottom" id="img-display1">
+                    <form>
+                        <div th:each="map,iterStat : ${ProjectDisplayMap}">
+                            <img ALIGN="left"
+                                 style="margin:0px 0px 10px 0px;border:5px solid #eee; height: 180px;width: 275px;"
+                                 th:src="|${map}?time=${new java.util.Date().getTime()}|"
+                                 onclick="showMaxImg(this)" alt="未上传图片"/>
+                        </div>
+                        <h4 style="float: left">以上为已提交的图片，如果图片需要更新或修改，请点击更新按钮重新提交</h4>
+                        <br>
+                        <button type="button" class="btn modify">更新</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 form-box">
+                <div class="form-top">
+                    <div class="form-top-left">
+                        <h3>2.思维导图</h3>
+                        <p>(1-2张，展示项目的思路，体现出：创意收集，目标分析，层次递进，方案要素)</p>
+                    </div>
+                    <div class="form-top-right">
+                        <img src="../../static/assets/images/bi.jpg">
+                    </div>
+                </div>
+                <div class="form-bottom" id="img-modify2">
+                    <form th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
+                        <label for="select">思维导图(至少选择一张，最多选择两张图片，每张图片大小不超过2M。注:点击选择文件后可同时选择两张图片)</label>
+                        <input value="可同时最多选择两张图" multiple="multiple" type="file" name="file" id="file8"
+                               accept="image/*" onchange="imgChange8(this);"/> <!--文件上传选择按钮-->
+                        <br>
+                        <img id="img8" src="" alt="思维导图1(未上传)"/> <!--图片显示位置-->
+                        <br>
+                        <br>
+                        <img id="img8.1" src="" alt="思维导图2(未上传)"/>
+                        <br>
+                        <br>
+                        <input type="text" name="pagepath" style="display: none" th:value="xinxi2"/>
+                        <input type="text" name="formname" style="display: none" th:value="ProjectMindMap"/>
+                        <button type="submit" class="btn">确认</button>
+                    </form>
+                </div>
+                <div class="form-bottom" id="img-display2">
+                    <form>
+                        <div th:each="map,iterStat : ${ProjectMindMap}">
+                            <img ALIGN="left"
+                                 style="margin:0px 0px 10px 0px;border:5px solid #eee;height: 265px;width: 415px;"
+                                 th:src="|${map}?time=${new java.util.Date().getTime()}|"
+                                 onclick="showMaxImg2(this)" alt="未上传图片"/>
+
+                        </div>
+                        <h4 style="float: left">以上为已提交的图片，如果图片需要更新或修改，请点击更新按钮重新提交</h4>
+                        <br>
+                        <button type="button" class="btn modify">更新</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 form-box" style="">
+                <div class="form-top">
+                    <div class="form-top-left">
+                        <h3>3.作品说明(字数不超过1000个字)</h3>
+                        <p> (请说明作品的创意思路：解决了什么实际问题，有什么发现，优化了什么方案。)</p>
+                    </div>
+                    <div class="form-top-right">
+                        <img src="../../static/assets/images/bi.jpg">
+                    </div>
+                </div>
+                <div class="form-bottom" id="image">
+                    <form th:action="@{/projectUpdateText}" th:object="${project}" method="post">
                             <textarea type="text" name="ProjectDescription" placeholder="作品说明..."
                                       class="form-username form-control" id="ProjectDescription"
                                       th:value="*{ProjectDescription}" autoHeight="true"></textarea>
-                            <br>
-                            <input type="text"  name="pagepath" style="display: none" th:value="xinxi2"/>
-                            <input type="text"  name="formname" style="display: none" th:value="ProjectDescription"/>
-                            <button type="submit" class="btn" id="form1">确认</button>
-                            <button type="button" class="btn modify" id="form1modify">更新</button>
-                        </form>
-                    </div>
+                        <br>
+                        <input type="text" name="pagepath" style="display: none" th:value="xinxi2"/>
+                        <input type="text" name="formname" style="display: none" th:value="ProjectDescription"/>
+                        <button type="submit" class="btn" id="form1">确认</button>
+                        <button type="button" class="btn modify" id="form1modify">更新</button>
+                    </form>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 form-box" style="" >
-                    <div class="form-top">
-                        <div class="form-top-left">
-                            <h3>4.比赛心得(字数不超过1000个字)</h3>
-                            <p> (总结评价心得感受：回顾创作历程，突破了什么挑战，收获了什么友谊， 有了什么新的认识或感悟，团队成员做的怎么样， 老师给予了什么样的帮助，意识到什么不足，还有什么有待提高的。)</p>
-                        </div>
-                        <div class="form-top-right">
-                            <img src="../../static/assets/images/bi.jpg">
-                        </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 form-box" style="">
+                <div class="form-top">
+                    <div class="form-top-left">
+                        <h3>4.比赛心得(字数不超过1000个字)</h3>
+                        <p> (总结评价心得感受：回顾创作历程，突破了什么挑战，收获了什么友谊， 有了什么新的认识或感悟，团队成员做的怎么样， 老师给予了什么样的帮助，意识到什么不足，还有什么有待提高的。)</p>
                     </div>
-                    <div class="form-bottom">
-                        <form th:action="@{/projectUpdateText}" method="post" th:object="${project}">
+                    <div class="form-top-right">
+                        <img src="../../static/assets/images/bi.jpg">
+                    </div>
+                </div>
+                <div class="form-bottom">
+                    <form th:action="@{/projectUpdateText}" method="post" th:object="${project}">
                             <textarea type="text" name="CompetitionExperience" placeholder="比赛心得..."
                                       class="form-username form-control" id="CompetitionExperience"
                                       th:value="*{CompetitionExperience}" autoHeight="true"></textarea>
-                            <br>
-                            <input type="text"  name="pagepath" style="display: none" th:value="xinxi2"/>
-                            <input type="text"  name="formname" style="display: none" th:value="CompetitionExperience"/>
-                            <button type="submit" class="btn" id="form2">确认</button>
-                            <button type="button" class="btn modify" id="form2modify">更新</button>
-                        </form>
+                        <br>
+                        <input type="text" name="pagepath" style="display: none" th:value="xinxi2"/>
+                        <input type="text" name="formname" style="display: none" th:value="CompetitionExperience"/>
+                        <button type="submit" class="btn" id="form2">确认</button>
+                        <button type="button" class="btn modify" id="form2modify">更新</button>
+                    </form>
+                </div>
+                <div>
+                    <div  class="modal fade" id="imgModal" tabindex="-1"
+                         role="dialog" data-toggle="modal" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" style="width: 1400px;height: 1000px;">
+                            <div class="modal-content">
+                                <div id="imgshow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div  class="modal fade" id="imgModal2" tabindex="-1"
+                          role="dialog" data-toggle="modal" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" style="width: 1400px;height: 1000px;">
+                            <div class="modal-content">
+                                <div id="imgshow2"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-
-
         </div>
-        </div>
-        
+    </div>
 
 
-        <!-- Javascript -->
-        <script src="../../static/assets/js/jquery-1.11.1.min.js"></script>
-        <script src="../../static/assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../../static/assets/js/jquery.backstretch.min.js"></script>
-        <script src="../../static/assets/js/scripts.js"></script>
-        <script src="../../static/assets/js/html5shiv.js"></script>
-        <script src="../../static/assets/js/respond.min.js"></script>
-        <!--[if lt IE 10]>
-        <script src="../../static/assets/js/placeholder.js"></script>
+    <!-- Javascript -->
+    <script src="../../static/assets/js/jquery-1.11.1.min.js"></script>
+    <script src="../../static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../static/assets/js/jquery.backstretch.min.js"></script>
+    <script src="../../static/assets/js/scripts.js"></script>
+    <script src="../../static/assets/js/html5shiv.js"></script>
+    <script src="../../static/assets/js/respond.min.js"></script>
+    <!--[if lt IE 10]>
+    <script src="../../static/assets/js/placeholder.js"></script>
 
-        <![endif]-->
+    <![endif]-->
 
-    </body>
-    <script th:inline="javascript">
-        $(document).ready(function(){
-            var projectdescription = /*[[${project.ProjectDescription}]]*/ null;
-            var competitionexperience=/*[[${project.CompetitionExperience}]]*/ null;
-            var designdocument=/*[[${project.DesignDocument}]]*/ null;
+</body>
+<script th:inline="javascript">
+    $(document).ready(function () {
+        var projectdescription = /*[[${project.ProjectDescription}]]*/ null;
+        var competitionexperience =/*[[${project.CompetitionExperience}]]*/ null;
+        var designdocument =/*[[${project.DesignDocument}]]*/ null;
 
-            if(designdocument!==null){
-                $(".modify").attr("disabled",true);
-            }
-            if(projectdescription!==null){
-                $("#ProjectDescription").val(projectdescription).attr("disabled",true);
-                $("#form1").hide();
-                $("#form1modify").show();
-            }else{
-                $("#form1modify").hide();
-            }
-            if(competitionexperience!==null){
-                $("#CompetitionExperience").val(competitionexperience).attr("disabled",true);
-                $("#form2").hide();
-                $("#form2modify").show();
-            }else{
-                $("#form2modify").hide();
-            }
-        });
-        $("#form1modify").click(function () {
-            $("#ProjectDescription").attr("disabled",false);
-            $("#form1").show();
+        if (designdocument !== null) {
+            $(".modify").attr("disabled", true);
+        }
+        if (projectdescription !== null) {
+            $("#ProjectDescription").val(projectdescription).attr("disabled", true);
+            $("#form1").hide();
+            $("#form1modify").show();
+        } else {
             $("#form1modify").hide();
-        });
-        $("#form2modify").click(function () {
-            $("#CompetitionExperience").attr("disabled",false);
-            $("#form2").show();
+        }
+        if (competitionexperience !== null) {
+            $("#CompetitionExperience").val(competitionexperience).attr("disabled", true);
+            $("#form2").hide();
+            $("#form2modify").show();
+        } else {
             $("#form2modify").hide();
-        });
-        $(function(){
-            $.fn.autoHeight = function(){
-                function autoHeight(elem){
-                    elem.style.height = 'auto';
-                    elem.scrollTop = 0; //防抖动
-                    elem.style.height = elem.scrollHeight + 'px';
-                }
-                this.each(function(){
+        }
+    });
+    $("#form1modify").click(function () {
+        $("#ProjectDescription").attr("disabled", false);
+        $("#form1").show();
+        $("#form1modify").hide();
+    });
+    $("#form2modify").click(function () {
+        $("#CompetitionExperience").attr("disabled", false);
+        $("#form2").show();
+        $("#form2modify").hide();
+    });
+    $(function () {
+        $.fn.autoHeight = function () {
+            function autoHeight(elem) {
+                elem.style.height = 'auto';
+                elem.scrollTop = 0; //防抖动
+                elem.style.height = elem.scrollHeight + 'px';
+            }
+
+            this.each(function () {
+                autoHeight(this);
+                $(this).on('keyup', function () {
                     autoHeight(this);
-                    $(this).on('keyup', function(){
-                        autoHeight(this);
-                    });
                 });
-            };
-            $('textarea[autoHeight]').autoHeight();
-        });
-        $(function () {
-            var projectdisplaymap= /*[[${ProjectDisplayMap}]]*/ null;
-            var projectmindmap=/*[[${ProjectMindMap}]]*/ null;
-            if(projectdisplaymap!=null){
-                $("#img-modify1").hide();
-            }else
-                $("#img-display1").hide();
-            if(projectmindmap!=null) {
-                $("#img-modify2").hide();
-            }else
-                $("#img-display2").hide();
-        });
-        $("#img-display1:button").click(function () {
-            $("#img-modify1").show();
+            });
+        };
+        $('textarea[autoHeight]').autoHeight();
+    });
+    $(function () {
+        var projectdisplaymap = /*[[${ProjectDisplayMap}]]*/ null;
+        var projectmindmap =/*[[${ProjectMindMap}]]*/ null;
+        if (projectdisplaymap != null) {
+            $("#img-modify1").hide();
+        } else
             $("#img-display1").hide();
-        });
-        $("#img-display2:button").click(function () {
-            $("#img-modify2").show();
+        if (projectmindmap != null) {
+            $("#img-modify2").hide();
+        } else
             $("#img-display2").hide();
-        });
-    </script>
+    });
+    $("#img-display1 :button").click(function () {
+        $("#img-modify1").show();
+        $("#img-display1").hide();
+    });
+    $("#img-display2 :button").click(function () {
+        $("#img-modify2").show();
+        $("#img-display2").hide();
+    });
+
+    function showMaxImg(obj) {
+        var src = $(obj).attr("src");
+        $("#imgModal").find("#imgshow").html("<img src='" + src + "' class='carousel-inner img-responsive img-rounded' data-dismiss='modal'>");
+        $("#imgModal").modal('show');
+    }
+    function showMaxImg2(obj) {
+        var src = $(obj).attr("src");
+        $("#imgModal2").find("#imgshow2").html("<img src='" + src + "' class='carousel-inner img-responsive img-rounded' data-dismiss='modal'>");
+        $("#imgModal2").modal('show');
+    }
+</script>
 </html>
