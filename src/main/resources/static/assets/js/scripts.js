@@ -172,3 +172,7 @@ function imgChange12(obj) {
     var img =document.getElementById('img12');
     img.setAttribute('src',imgUrl); // 修改img标签src属性值
 };
+function textChange(obj) {
+	//获取点击的文本框
+
+};
