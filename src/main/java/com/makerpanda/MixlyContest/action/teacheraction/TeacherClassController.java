@@ -1,11 +1,9 @@
 package com.makerpanda.MixlyContest.action.teacheraction;
 
-import com.makerpanda.MixlyContest.datamodel.Teacher;
 import com.makerpanda.MixlyContest.service.teacherservice.TeacherClassService;
 import com.makerpanda.MixlyContest.service.teacherservice.TeacherLoginService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -39,6 +37,4 @@ public class TeacherClassController {
 
         return "redirect:banji";
     }
-
-
 }
