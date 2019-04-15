@@ -166,7 +166,7 @@
                             <br>
                             <br>
                         </div>
-                        <button type="button" class="btn">更新</button>
+                        <button type="button" class="btn modify">更新</button>
                     </form>
                 </div>
             </div>
@@ -208,7 +208,7 @@
                             <br>
                             <br>
                         </div>
-                        <button type="button" class="btn">更新</button>
+                        <button type="button" class="btn modify">更新</button>
                     </form>
                 </div>
             </div>
@@ -250,7 +250,7 @@
                             <br>
                             <br>
                         </div>
-                        <button type="button" class="btn">更新</button>
+                        <button type="button" class="btn modify">更新</button>
                     </form>
                 </div>
             </div>
@@ -279,6 +279,11 @@
         var hardwarecircuitdiagram = /*[[${HardwareCircuitDiagram}]]*/ null;
         var flowchart =/*[[${FlowChart}]]*/ null;
         var codemodulediagram =/*[[${CodeModuleDiagram}]]*/ null;
+        var designdocument=/*[[${project.DesignDocument}]]*/ null;
+
+        if(designdocument!==null){
+            $(".modify").attr("disabled",true);
+        }
         if (hardwarecircuitdiagram != null) {
             $("#img-modify1").hide();
         } else
@@ -292,15 +297,15 @@
         } else
             $("#img-display3").hide();
     });
-    $("#img-display1").click(function () {
+    $("#img-display1:button").click(function () {
         $("#img-modify1").show();
         $("#img-display1").hide();
     });
-    $("#img-display2").click(function () {
+    $("#img-display2:button").click(function () {
         $("#img-modify2").show();
         $("#img-display2").hide();
     });
-    $("#img-display3").click(function () {
+    $("#img-display3:button").click(function () {
         $("#img-modify3").show();
         $("#img-display3").hide();
     });

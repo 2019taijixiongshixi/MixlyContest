@@ -165,7 +165,7 @@
                                         <br>
                                         <br>
                                     </div>
-                                    <button type="button" class="btn">更新</button>
+                                    <button type="button" class="btn modify">更新</button>
                                 </form>
                             </div>
                         </div>
@@ -206,7 +206,7 @@
                                 <br>
                                 <br>
                             </div>
-                            <button type="button" class="btn">更新</button>
+                            <button type="button" class="btn modify">更新</button>
                         </form>
                     </div>
                 </div>
@@ -232,7 +232,7 @@
                             <input type="text"  name="pagepath" style="display: none" th:value="xinxi2"/>
                             <input type="text"  name="formname" style="display: none" th:value="ProjectDescription"/>
                             <button type="submit" class="btn" id="form1">确认</button>
-                            <button type="button" class="btn" id="form1modify">更新</button>
+                            <button type="button" class="btn modify" id="form1modify">更新</button>
                         </form>
                     </div>
                 </div>
@@ -257,7 +257,7 @@
                             <input type="text"  name="pagepath" style="display: none" th:value="xinxi2"/>
                             <input type="text"  name="formname" style="display: none" th:value="CompetitionExperience"/>
                             <button type="submit" class="btn" id="form2">确认</button>
-                            <button type="button" class="btn" id="form2modify">更新</button>
+                            <button type="button" class="btn modify" id="form2modify">更新</button>
                         </form>
                     </div>
                 </div>
@@ -287,7 +287,11 @@
         $(document).ready(function(){
             var projectdescription = /*[[${project.ProjectDescription}]]*/ null;
             var competitionexperience=/*[[${project.CompetitionExperience}]]*/ null;
+            var designdocument=/*[[${project.DesignDocument}]]*/ null;
 
+            if(designdocument!==null){
+                $(".modify").attr("disabled",true);
+            }
             if(projectdescription!==null){
                 $("#ProjectDescription").val(projectdescription).attr("disabled",true);
                 $("#form1").hide();
@@ -341,11 +345,11 @@
             }else
                 $("#img-display2").hide();
         });
-        $("#img-display1").click(function () {
+        $("#img-display1:button").click(function () {
             $("#img-modify1").show();
             $("#img-display1").hide();
         });
-        $("#img-display2").click(function () {
+        $("#img-display2:button").click(function () {
             $("#img-modify2").show();
             $("#img-display2").hide();
         });

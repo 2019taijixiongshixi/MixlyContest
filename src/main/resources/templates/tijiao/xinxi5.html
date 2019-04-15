@@ -130,7 +130,7 @@
                         <input type="text" name="pagepath" style="display: none" th:value="xinxi5"/>
                         <input type="text" name="formname" style="display: none" th:value="VideoURL"/>
                         <button type="submit" id="form1" class="btn">确认提交</button>
-                        <button type="button" id="form1modify" class="btn">更新链接</button>
+                        <button type="button" id="form1modify" class="btn modify">更新链接</button>
                         <br>
                         <br>
                         <a href="#box3">
@@ -187,6 +187,12 @@
 <script th:inline="javascript">
     $(document).ready(function () {
         var videourl = /*[[${project.VideoURL}]]*/ null;
+        var designdocument=/*[[${project.DesignDocument}]]*/ null;
+
+        if(designdocument!==null){
+            $(".modify").attr("disabled",true);
+        }
+
         if (videourl !== null) {
             $("#VideoURL").attr("disabled", true);
             $("#form1").hide();
