@@ -197,31 +197,7 @@
         <script>
             $('.example1').wmuSlider();
         </script>
-        <script src="../../static/assets/js/pdfmake.min.js"></script>
-		<script src="../../static/assets/js/vfs_fonts.js"></script>
-		<script>
-			function down() {
-				var dd = {
-					content: [
-						'中英文测试',
-						'这个是省级比赛，前20名还可以去卧龙自然保护区免费参观，包食宿哦，感兴趣的同学积极参加\n'	,
-						'Another paragraph, this time a little bit longer to make sure, this line will be divided into at least two lines'
-					],
-					defaultStyle: {
-						font: 'SIMYOU'
-					}
-				};
-				pdfMake.fonts = {
-					SIMYOU: {
-						normal: 'SIMYOU.ttf',
-						bold: 'SIMYOU.ttf',
-						italics: 'SIMYOU.ttf',
-						bolditalics: 'SIMYOU.ttf'
-					}
-				};
-				pdfMake.createPdf(dd).download();
-			}
-		</script>
+
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         <script type="text/javascript" src="../../static/assets/js/jquery.min.js"></script>
         <!-- start-smoth-scrolling-->

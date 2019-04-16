@@ -94,8 +94,8 @@
 
                 </div>
                 <div class="form-bottom">
-                    <form action="liucheng.php" method="post" enctype="multipart/form-data">
-                        <button class="btn">导出PDF设计文档</button>
+                    <form>
+                        <button type="button" class="btn" onclick="down()">导出PDF设计文档</button>
                     </form>
 
                 </div>
@@ -138,11 +138,9 @@
             </div>
         </div>
 
-
     </div>
 </div>
 
-</div>
 
 
 <!-- Javascript -->
@@ -152,18 +150,267 @@
 <script src="../../static/assets/js/scripts.js"></script>
 <script src="../../static/assets/js/html5shiv.js"></script>
 <script src="../../static/assets/js/respond.min.js"></script>
+
 <!--[if lt IE 10]>
 <script src="../../static/assets/js/placeholder.js"></script>
 <![endif]-->
 
+<script src="../../static/assets/js/pdfmake.min.js"></script>
+<script src="../../static/assets/js/vfs_fonts.js"></script>
 </body>
 <script th:inline="javascript">
+    /*<![CDATA[*/
     $(document).ready(function () {
         var designdocument =/*[[${project.DesignDocument}]]*/ null;
-
         if (designdocument !== null) {
             $(".modify").attr("disabled", true);
         }
     });
+</script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    function down() {
+        var projectname =/*[[${project.ProjectName}]]*/ null;
+        var projectteamname =/*[[${project.ProjectTeamName}]]*/ null;
+        var sname1 =/*[[${Student1}]]*/ null;
+        var sname2 =/*[[${Student2}]]*/ null;
+        var sname3 =/*[[${Student3}]]*/ null;
+        var teaminfo = '作品名称：' + projectname + '\n\n' +
+            '团队名称：' + projectteamname + '\n\n' +
+            '队长姓名：' + sname1 + '\n\n';
+        if (sname2 != null) {
+            teaminfo += '队员1姓名：' + sname2 + '\n\n';
+        }
+        if (sname3 != null) {
+            teaminfo += '队员2姓名：' + sname3 + '\n\n';
+        }
+        var projectdisplaymap = /*[[${ProjectDisplayMap}]]*/ null;
+        var stack1 = [];
+        var x = new ImageDataURL(projectdisplaymap);
+        x.oncomplete = function () {
+            var imgs1 = new Array();
+            for (key in this.imgdata) {
+                if (this.imgdata[key] == this.emptyobj)//不存在的图片直接忽略
+                    continue;
+                imgs1.push({image: this.imgdata[key]});//pdfmake的图片格式{image:image dataurl}
+            }
+            var i = imgs1.length;
+            if (i > 0) {
+                stack1.push('1. 作品整体图\n\n');
+                stack1.push(imgs1.shift());
+                i -= 1;
+            }
+            if (i > 0) {
+                stack1.push('\n2. 作品细节图\n\n');
+                stack1.push(imgs1.shift());
+                i -= 1;
+            }
+            if (i > 0) {
+                stack1.push('\n3. 全队成员与作品\n\n');
+                stack1.push(imgs1.shift());
+                i -= 1;
+            }
+            var projectmindmap =/*[[${ProjectMindMap}]]*/ null;
+            var stack2 = [];
+            var y = new ImageDataURL(projectmindmap);
+            y.oncomplete = function () {
+                var imgs2 = new Array();
+                for (key in this.imgdata) {
+                    if (this.imgdata[key] == this.emptyobj)//不存在的图片直接忽略
+                        continue;
+                    imgs2.push('\n');
+                    imgs2.push({image: this.imgdata[key]});//pdfmake的图片格式{image:image dataurl}
+                }
+                stack2.push(imgs2);
+                var projectdescription = /*[[${project.ProjectDescription}]]*/ null;
+                var competitionexperience =/*[[${project.CompetitionExperience}]]*/ null;
+                var hardwarecircuitdiagram = /*[[${HardwareCircuitDiagram}]]*/ null;
+                var stack3 = [];
+                var z = new ImageDataURL(hardwarecircuitdiagram);
+                z.oncomplete = function () {
+                    var imgs3 = new Array();
+                    for (key in this.imgdata) {
+                        if (this.imgdata[key] == this.emptyobj)//不存在的图片直接忽略
+                            continue;
+                        imgs3.push('\n');
+                        imgs3.push({image: this.imgdata[key]});//pdfmake的图片格式{image:image dataurl}
+                    }
+                    stack3.push(imgs3);
+                    var flowchart =/*[[${FlowChart}]]*/ null;
+                    var stack4 = [];
+                    var a = new ImageDataURL(flowchart);
+                    a.oncomplete = function () {
+                        var imgs4 = new Array();
+                        for (key in this.imgdata) {
+                            if (this.imgdata[key] == this.emptyobj)//不存在的图片直接忽略
+                                continue;
+                            imgs4.push('\n');
+                            imgs4.push({image: this.imgdata[key]});//pdfmake的图片格式{image:image dataurl}
+                        }
+                        stack4.push(imgs4);
+                        var codemodulediagram =/*[[${CodeModuleDiagram}]]*/ null;
+                        var stack5 = [];
+                        var b = new ImageDataURL(codemodulediagram);
+                        b.oncomplete = function () {
+                            var imgs5 = new Array();
+                            for (key in this.imgdata) {
+                                if (this.imgdata[key] == this.emptyobj)//不存在的图片直接忽略
+                                    continue;
+                                imgs5.push('\n');
+                                imgs5.push({image: this.imgdata[key]});//pdfmake的图片格式{image:image dataurl}
+                            }
+                            stack5.push(imgs5);
+                            var structurechart = /*[[${StructureChart}]]*/ null;
+                            var equipment = /*[[${project.Equipment}]]*/ null;
+                            var videourl = /*[[${project.VideoURL}]]*/ null;
+                            var stack6 = [];
+                            var c = new ImageDataURL(structurechart);
+                            c.oncomplete = function () {
+                                var imgs6 = new Array();
+                                for (key in this.imgdata) {
+                                    if (this.imgdata[key] == this.emptyobj)//不存在的图片直接忽略
+                                        continue;
+                                    imgs6.push('\n');
+                                    imgs6.push({image: this.imgdata[key]});//pdfmake的图片格式{image:image dataurl}
+                                }
+                                stack6.push(imgs6);
+                                var equipment = /*[[${project.Equipment}]]*/ null;
+                                var videourl = /*[[${project.VideoURL}]]*/ null;
+                                var docDefinition = {
+                                    content: [
+                                        {text: '米思奇创意电子编程大赛设计文档—\n' + projectname, style: ['header1']},
+                                        {text: '第一部分：项目及团队信息\n', style: ['header2']},
+                                        {text: teaminfo, style: ['contents']},
+                                        {text: '第二部分：项目说明\n', style: ['header2']},
+                                        {text: '一、项目作品展示图\n', style: ['header3']},
+                                        {stack: stack1, style: ['contents']},
+                                        {text: '二、思维导图\n', style: ['header3']},
+                                        {stack: stack2, style: ['contents']},
+                                        {text: '三、作品说明\n', style: ['header3']},
+                                        {text: projectdescription, style: ['contents']},
+                                        {text: '四、创作心得\n', style: ['header3']},
+                                        {text: competitionexperience, style: ['contents']},
+                                        {text: '第三部分：作品程序说明\n', style: ['header2']},
+                                        {text: '一、硬件电路图\n', style: ['header3']},
+                                        {stack: stack3, style: ['contents']},
+                                        {text: '二、程序流程图\n', style: ['header3']},
+                                        {stack: stack4, style: ['contents']},
+                                        {text: '三、代码模块图\n', style: ['header3']},
+                                        {stack: stack5, style: ['contents']},
+                                        {text: '第四部分：结构说明\n', style: ['header2']},
+                                        {text: '一、其他结构图\n', style: ['header3']},
+                                        {stack: stack6, style: ['contents']},
+                                        {text: '二、使用器材说明\n', style: ['header3']},
+                                        {text: equipment, style: ['contents']},
+                                        {text: '第五部分：产品操作视频\n', style: ['header2']},
+                                        {text: videourl, link: videourl,style: ['contents']}
+
+                                    ],
+                                    defaultStyle: {
+                                        font: 'SIMYOU'
+                                    },
+                                    styles: {
+                                        header1: {
+                                            fontSize: 22,
+                                            alignment: 'center',
+                                            margin: [0, 11]
+                                        },
+                                        header2: {
+                                            fontSize: 16,
+                                            alignment: 'left',
+                                            margin: [0, 8]
+                                        },
+                                        header3: {
+                                            fontSize: 14,
+                                            alignment: 'left',
+                                            margin: [0, 7]
+                                        },
+                                        contents: {
+                                            fontSize: 13,
+                                            alignment: 'left',
+                                            margin: [0, 3]
+                                        }
+                                    }
+                                };
+                                pdfMake.fonts = {
+                                    SIMYOU: {
+                                        normal: 'SIMYOU.ttf',
+                                        bold: 'SIMYOU.ttf',
+                                        italics: 'SIMYOU.ttf',
+                                        bolditalics: 'SIMYOU.ttf'
+                                    }
+                                };
+                                pdfMake.createPdf(docDefinition).print();
+                            };
+                        };
+                    };
+
+                };
+            };
+        };
+    }
+</script>
+<script type="text/javascript">
+    function ImageDataURL(urls) {//urls必须是字符串或字符串数组
+        this.completenum = 0;
+        this.totalnum = 0;
+        this.imgdata = new Array();
+        this.emptyobj = new Object();
+        this.oncomplete = function(){};
+        this.getDataURL = function(url, index) {
+            var c = document.createElement("canvas");
+            var cxt = c.getContext("2d");
+            var img = new Image();
+            var dataurl;
+            var p;
+            p = this;
+            img.src = url;
+            img.onload = function() {
+                var i;
+                var maxwidth = 500;
+                var scale = 1.0;
+                if (img.width > maxwidth) {
+                    scale = maxwidth / img.width;
+                    c.width = maxwidth;
+                    c.height = Math.floor(img.height * scale);
+                } else {
+                    c.width= img.width;
+                    c.height= img.height;
+                }
+                cxt.drawImage(img, 0, 0, c.width, c.height);
+
+                p.imgdata[index] = c.toDataURL('image/jpeg');
+                for (i = 0; i < p.totalnum; ++i) {
+                    if (p.imgdata[i] == null)
+                        break;
+                }
+                if (i == p.totalnum) {
+                    p.oncomplete();
+                }
+            };
+            img.onerror = function() {
+                p.imgdata[index] = p.emptyobj;
+                for (i = 0; i < p.totalnum; ++i) {
+                    if (p.imgdata[i] == null)
+                        break;
+                }
+                if (i == p.totalnum) {
+                    p.oncomplete();
+                }
+            };
+        };
+        if (urls instanceof Array) {
+            this.totalnum = urls.length;
+            this.imgdata = new Array(this.totalnum);
+            for (key in urls) {
+                this.getDataURL(urls[key], key);
+            }
+        } else {
+            this.imgdata = new Array(1);
+            this.totalnum = 1;
+            this.getDataURL(urls, 0);
+        }
+    }
+
 </script>
 </html>
