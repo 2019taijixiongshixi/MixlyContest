@@ -29,6 +29,21 @@
     </head>
 
     <body>
+    <!-- 邮箱已被注册 -->
+    <div id="myAlert1" th:if="${mailError!=null}" class="alert alert-warning">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>警告！</strong><strong th:text="${mailError}"></strong>
+    </div>
+    <!-- 验证码有误 -->
+    <div id="myAlert2" th:if="${codeError!=null}" class="alert alert-warning">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>警告！</strong><strong th:text="${codeError}"></strong>
+    </div>
+    <!-- 系统错误 -->
+    <div id="myAlert4" th:if="${systemError!=null}" class="alert alert-warning">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>警告！</strong><strong th:text="${systemError}"></strong>
+    </div>
 
         <!-- Top content -->
         <div class="top-content">

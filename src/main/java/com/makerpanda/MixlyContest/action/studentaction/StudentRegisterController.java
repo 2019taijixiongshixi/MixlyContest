@@ -1,6 +1,5 @@
 package com.makerpanda.MixlyContest.action.studentaction;
 
-import com.makerpanda.MixlyContest.MailUtil;
 import com.makerpanda.MixlyContest.datamodel.Student;
 import com.makerpanda.MixlyContest.service.studentservice.StudentRegisterService;
 import org.springframework.stereotype.Controller;
@@ -18,7 +17,7 @@ public class StudentRegisterController {
         return "zhuce/xzhuce";
     }
 
-    @RequestMapping(value = "/xzhuce", method = RequestMethod.POST)
+    @RequestMapping(value = "/xzhucetijiao", method = RequestMethod.POST)
     public String registerAction(@ModelAttribute("student") Student newstudent,
                                  @ModelAttribute("code")String Code, ModelMap modelMap) {
         int verifyCode;

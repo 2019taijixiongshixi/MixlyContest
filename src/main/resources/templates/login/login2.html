@@ -29,6 +29,16 @@
     </head>
 
     <body>
+    <!-- 密码错误 -->
+    <div id="myAlert1" th:if="${pwdError!=null}" class="alert alert-warning">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>警告！</strong><strong th:text="${pwdError}"></strong>
+    </div>
+    <!-- 不存在该用户 -->
+    <div id="myAlert2" th:if="${userError!=null}" class="alert alert-warning">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>警告！</strong><strong th:text="${userError}"></strong>
+    </div>
 
         <!-- Top content -->
         <div class="top-content">

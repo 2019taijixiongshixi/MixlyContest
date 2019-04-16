@@ -61,7 +61,7 @@ public class ProjectUploadController {
         for (;i<files.size();i++) {
             MultipartFile file=files.get(i);
             if (file.isEmpty()) {
-                modelMap.addAttribute("Error", "未选择文件");
+                modelMap.addAttribute("Error", "未选择文件!请选择需要提交的设计图片!");
                 continue;
             }
             //String fileName = file.getOriginalFilename();
@@ -76,7 +76,7 @@ public class ProjectUploadController {
                 filestoragepaths.add(filestoragepath);
             } catch (IOException e) {
                 LOGGER.error(e.toString(), e);
-                modelMap.addAttribute("Error", "文件过大");
+                modelMap.addAttribute("Error", "文件过大!请按要求调整图片大小!");
                 return "redirect:" + pagepath;
             }
         }

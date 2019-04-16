@@ -77,6 +77,8 @@
                 </div>
             </div>
         </nav>
+
+
         <!-- End Navbar -->
         <!-- <div class="panel-header panel-header-lg">
 
@@ -85,6 +87,18 @@
 
   </div> -->
         <div class="content">
+
+            <!-- 修改成功 -->
+            <div id="myAlert1" th:if="${Success!=null}"  class="alert alert-success">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong style="font-size: 25px">成功！</strong><strong th:text="${Success}"style="font-size: 25px"></strong>
+            </div>
+            <!-- 修改失败 -->
+            <div id="myAlert2" th:if="${Error!=null}"  class="alert alert-warning">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong style="font-size: 25px">警告！</strong><strong th:text="${Error}"style="font-size: 25px"></strong>
+            </div>
+
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="card card-stats">

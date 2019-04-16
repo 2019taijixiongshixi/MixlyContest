@@ -93,7 +93,7 @@
             </div>
 
             <div id="box" class="form-bottom" style="display: none">
-                作品视频地址链接"http://player.youku.com/player.php/sid/XNDEwMzIzMDcyMA==/v.swf"
+                作品视频地址链接"http://player.youku.com/embed/XMzczMjAyODgzMg=="
                 <embed
                         src='http://player.youku.com/player.php/sid/XMzczMjAyODgzMg==/v.swf'
                         allowFullScreen='true'
@@ -113,8 +113,11 @@
                 <div class="form-top">
                     <div class="form-top-left">
                         <h3>五、作品演示视频</h3>
-                        <p>(请将制作视频上传到优酷或其他视频软件，并在下方给出演示视频的地址链接)</p>
+                        <p>(请仔细阅读项目设计教程中的视频链接获取方法，将制作视频上传到优酷或其他视频软件，并在下方给出演示视频的地址链接,如正确的地址格式为:</p>
+                        <p>http://player.youku.com/embed/XMzczMjAyODgzMg==</p>
+                        <p>或:https://v.qq.com/txp/iframe/player.html?vid=o0861pc1t7r</p>
                     </div>
+
                     <div class="form-top-right">
                         <img src="../../static/assets/images/bi.jpg">
                     </div>
@@ -145,6 +148,7 @@
     <div id="box3" class="container" style="display: none">
         <div class="form-bottom">
             <p style="text-align: center">提交作品展示</p>
+            <p style="text-align: center">(如果视频未正常显示，可能为链接填写错误，或浏览器不支持Flash播放)</p>
         </div>
         <div id="box2" class="form-bottom">
         </div>
@@ -167,15 +171,14 @@
     $(function () {
         var VideoURL= document.getElementById("VideoURL").value;
         var div = document.getElementById('box2');
-        div.innerHTML = '<embed\n' +
+        div.innerHTML = '<iframe\n' +
             '        src=\''+VideoURL+'\'\n' +
             '        allowFullScreen=\'true\'\n' +
-            '        quality=\'high\'\n' +
             '        width=\'1090px\'\n' +
             '        height=\'650px\'\n' +
             '        align=\'middle\'\n' +
-            '        allowScriptAccess=\'always\'\n' +
-            '        type=\'application/x-shockwave-flash\'>'
+            '        >'                  +
+            '       </iframe>'
     });
     $(document).ready(function () {
         $("#sss").click(function () {

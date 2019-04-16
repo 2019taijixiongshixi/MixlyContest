@@ -19,7 +19,7 @@ public class ProjectUpdateController {
         if(verifyCode) modelMap.addAttribute("Success", "创建作品成功");
 
         else
-            modelMap.addAttribute("Error", "创建作品失败");
+            modelMap.addAttribute("Error", "创建作品失败，请确认信息填写无误!");
         return "redirect:xinxi1";
     }
 

@@ -66,7 +66,6 @@
         <strong>六、PDF文档提交</strong><br><br>1.打印pdf文档<br>2.提交pdf文档<br><br></button>
 </a>
 
-
 <!-- Top content -->
 <div class="top-content">
 
@@ -131,13 +130,18 @@
             <br>
         </div>
 
+        <!-- 错误 -->
+        <div id="myAlert2" th:if="${Error!=null}" class="alert alert-warning">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>警告！</strong><strong th:text="${Error}"></strong>
+        </div>
 
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3 form-box">
                 <div class="form-top">
                     <div class="form-top-left">
                         <h3>1.项目作品展示图</h3>
-                        <p>(项目展示图包括一张作品整体图、一张作品细节图、一张全队成员与作品的合照图片，页面下方有实例图展示，并提供制作教程链接)</p>
+                        <p>(项目展示图包括一张作品整体图、一张作品细节图、一张全队成员与作品的合照图片)</p>
                     </div>
                     <div class="form-top-right">
                         <img src="../../static/assets/images/bi.jpg">
@@ -178,7 +182,7 @@
                     <form>
                         <div th:each="map,iterStat : ${ProjectDisplayMap}">
                             <img ALIGN="left"
-                                 style="margin:0px 0px 10px 0px;border:5px solid #eee; height: 180px;width: 275px;"
+                                 style="margin:0px 0px 10px 0px;border:5px solid #eee; height: 50%;width: 33%;"
                                  th:src="|${map}?time=${new java.util.Date().getTime()}|"
                                  onclick="showMaxImg(this)" alt="未上传图片"/>
                         </div>
@@ -222,7 +226,7 @@
                     <form>
                         <div th:each="map,iterStat : ${ProjectMindMap}">
                             <img ALIGN="left"
-                                 style="margin:0px 0px 10px 0px;border:5px solid #eee;height: 265px;width: 415px;"
+                                 style="margin:0px 0px 10px 0px;border:5px solid #eee;width: 49%;"
                                  th:src="|${map}?time=${new java.util.Date().getTime()}|"
                                  onclick="showMaxImg2(this)" alt="未上传图片"/>
 

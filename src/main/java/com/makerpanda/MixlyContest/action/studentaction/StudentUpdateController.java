@@ -86,9 +86,9 @@ public class StudentUpdateController {
         verifyCode= StudentUpdateService.StudentUpdateInfo(student);
 
         if(verifyCode)
-            modelMap.addAttribute("Success", "修改成功");
+            modelMap.addAttribute("Success", "修改信息成功");
         else
-            modelMap.addAttribute("Error", "修改失败");
+            modelMap.addAttribute("Error", "修改失败，请确认信息是否输入有误!");
 
 
         return "redirect:zhongxin1";

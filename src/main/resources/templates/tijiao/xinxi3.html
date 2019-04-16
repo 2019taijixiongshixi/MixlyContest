@@ -129,8 +129,14 @@
                 </div>
             </div>
             <br>
-
         </div>
+
+        <!-- 错误 -->
+        <div id="myAlert2" th:if="${Error!=null}" class="alert alert-warning">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>警告！</strong><strong th:text="${Error}"></strong>
+        </div>
+
         <div class="row" id="3">
             <div class="col-sm-6 col-sm-offset-3 form-box" style="">
                 <div class="form-top">
@@ -162,7 +168,7 @@
                     <form>
                         <div th:each="map,iterStat : ${HardwareCircuitDiagram}">
                             <img ALIGN="left"
-                                 style="margin:0px 0px 10px 0px;border:5px solid #eee;width: 840px;"
+                                 style="margin:0px 0px 10px 0px;border:5px solid #eee;width: 99%;"
                                  th:src="|${map}?time=${new java.util.Date().getTime()}|"
                                  onclick="showMaxImg3(this)" alt="未上传图片"/>
                         </div>
@@ -206,7 +212,7 @@
                     <form>
                         <div th:each="map,iterStat : ${FlowChart}">
                             <img ALIGN="left"
-                                 style="margin:0px 0px 10px 0px;border:5px solid #eee;height: 265px;width: 415px;"
+                                 style="margin:0px 0px 10px 0px;border:5px solid #eee;width:49%;"
                                  th:src="|${map}?time=${new java.util.Date().getTime()}|"
                                  onclick="showMaxImg3(this)" alt="未上传图片"/>
                         </div>
@@ -250,7 +256,7 @@
                     <form>
                         <div th:each="map,iterStat : ${CodeModuleDiagram}">
                             <img ALIGN="left"
-                                 style="margin:0px 0px 10px 0px;border:5px solid #eee;height: 265px;width: 415px;"
+                                 style="margin:0px 0px 10px 0px;border:5px solid #eee;width:49%;"
                                  th:src="|${map}?time=${new java.util.Date().getTime()}|"
                                  onclick="showMaxImg3(this)" alt="未上传图片"/>
                         </div>
