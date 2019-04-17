@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 @Controller
 public class StudentRegisterController {
     @RequestMapping(path = { "/xzhuce"})
@@ -19,7 +20,8 @@ public class StudentRegisterController {
 
     @RequestMapping(value = "/xzhucetijiao", method = RequestMethod.POST)
     public String registerAction(@ModelAttribute("student") Student newstudent,
-                                 @ModelAttribute("code")String Code, ModelMap modelMap) {
+                                 @ModelAttribute("code")String Code,
+                                 ModelMap modelMap) {
         int verifyCode;
 
         verifyCode=StudentRegisterService.StudentRegister(newstudent,Code);

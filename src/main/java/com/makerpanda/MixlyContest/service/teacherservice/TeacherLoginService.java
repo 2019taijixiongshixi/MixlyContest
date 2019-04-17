@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class TeacherLoginService {
     // 将登陆用户的信息保存供全局使用
-    public static Teacher teacher;
 
     /**
      * 认证教师是否能够成功登录。
@@ -16,7 +15,7 @@ public class TeacherLoginService {
      * @param inputPwd 用户输入的密码。
      * @return 如果用户名不存在则返回3，如果用户输入的密码为空返回2, 用户输入密码有误返回1，认证成功返回0。
      */
-    public static int verify(String TeacherEmail, String inputPwd) {
+    public static int verify(String TeacherEmail, String inputPwd,Teacher loginteacher) {
         TeacherDAO teacherdao = new TeacherDAO();
         Integer teacherid=teacherdao.getTeacherIDByTeacherEmail(TeacherEmail);
         String password = teacherdao.getTeacherPassword(teacherid);
@@ -30,9 +29,19 @@ public class TeacherLoginService {
         } else if (!MD5Password.equals(password)) {
             return 1;
         } else {
-            teacher = teacherdao.getTeacherInfo(teacherid);  // 登录成功将用户信息保存
+            teacherdao.getTeacherInfo(teacherid,loginteacher);  // 登录成功将用户信息保存
             return 0;
         }
+    }
+
+    /**
+     * 获取当前用户全部信息。
+     * @param teacherid 当前用户的ID。
+     * @param teacher 需要传入的教师对象。
+     */
+    public static void getTeacherInfo(Teacher teacher,Integer teacherid) {
+        TeacherDAO teacherdao = new TeacherDAO();
+        teacherdao.getTeacherInfo(teacherid,teacher);
     }
 
     /**

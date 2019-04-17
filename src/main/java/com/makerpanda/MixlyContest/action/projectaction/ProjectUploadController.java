@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,7 +56,14 @@ public class ProjectUploadController {
                               @ModelAttribute("formname") String formname,
                               ModelMap modelMap) {
         List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("file");
-        String filepath = "upload/"+ StudentLoginService.student.getStudentID() +"/"+formname+"/";
+        HttpSession session=request.getSession();
+        Integer userid=0;
+        Integer projectid=0;
+        if(null!=session.getAttribute("userid"))
+            userid=Integer.parseInt(session.getAttribute("userid").toString());
+        if(null!=session.getAttribute("projectid"))
+            projectid=Integer.parseInt(session.getAttribute("projectid").toString());
+        String filepath = "upload/"+ userid +"/"+formname+"/";
         ArrayList<String> filestoragepaths=new ArrayList<>();
         int i=0;
         for (;i<files.size();i++) {
@@ -80,7 +88,7 @@ public class ProjectUploadController {
                 return "redirect:" + pagepath;
             }
         }
-        if(ProjectFileService.ProjectFileStorage(formname,filestoragepaths))
+        if(ProjectFileService.ProjectFileStorage(formname,filestoragepaths,projectid))
             modelMap.addAttribute("Success", "上传文件成功");
         else
             modelMap.addAttribute("Error", "系统错误");

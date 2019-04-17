@@ -12,26 +12,21 @@ import java.util.ArrayList;
 public class TeacherClassService {
     /**
      * 创建班级操作
-     * @param teacher 教师对象。
+     * @param teacherid 教师ID。
      * @return 创建成功返回1，否则返回0。
      */
-    public static boolean createClass(Teacher teacher){
+    public static boolean createClass(Integer teacherid){
         ClassDAO classdao = new ClassDAO();
-        if(classdao.createClass(teacher.getTeacherID())){
-            TeacherLoginService.teacher.setTeacherClassID
-                    (classdao.getClassIDByTeacherID(teacher.getTeacherID()));
-            return true;
-        }
-        return false;
+        return classdao.createClass(teacherid);
     }
     /**
      * 查询班级操作
-     * @param teacher 教师对象。
+     * @param teacherid 教师ID。
      * @return ArrayList学生对象。
      */
-    public static ArrayList selectClassStudent(Teacher teacher){
+    public static ArrayList selectClassStudent(Integer teacherid){
         StudentDAO studentdao=new StudentDAO();
 
-        return studentdao.getStudentInfoByTeacherID(teacher.getTeacherID());
+        return studentdao.getStudentInfoByTeacherID(teacherid);
     }
 }

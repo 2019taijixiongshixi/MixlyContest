@@ -28,18 +28,20 @@ public class TeacherUpdateService {
 
     /**
      * 教师信息修改函数。
-     * @param teacher 新的教师对象。
+     * @param teacherid 教师id。
      * @return 修改成功返回0,修改失败返回1
      */
-    public static boolean TeacherUpdateInfo (Teacher teacher) {
+    public static boolean TeacherUpdateInfo (Teacher teacher,Integer teacherid) {
         TeacherDAO teacherdao=new TeacherDAO();
+        Teacher teacherupdate=new Teacher();
+        teacherdao.getTeacherInfo(teacherid,teacherupdate);
 
-        TeacherLoginService.teacher.setTeacherName(teacher.getTeacherName());
-        TeacherLoginService.teacher.setTeacherGender(teacher.getTeacherGender());
-        TeacherLoginService.teacher.setTeacherIdentify(teacher.getTeacherIdentify());
-        TeacherLoginService.teacher.setTeacherSchool(teacher.getTeacherSchool());
-        TeacherLoginService.teacher.setTeacherTel(teacher.getTeacherTel());
-        return teacherdao.updateTeacherInfo(TeacherLoginService.teacher);
+        teacherupdate.setTeacherName(teacher.getTeacherName());
+        teacherupdate.setTeacherGender(teacher.getTeacherGender());
+        teacherupdate.setTeacherIdentify(teacher.getTeacherIdentify());
+        teacherupdate.setTeacherSchool(teacher.getTeacherSchool());
+        teacherupdate.setTeacherTel(teacher.getTeacherTel());
+        return teacherdao.updateTeacherInfo(teacherupdate);
     }
 
 

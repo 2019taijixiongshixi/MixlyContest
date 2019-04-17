@@ -92,10 +92,8 @@ public class StudentDAO {
     /**
      * 根据学生ID，获取学生全部信息。
      * @param StudentID 需要获取信息的学生ID。
-     * @return 如果能够查询到StudentID的信息，则返回一个Student类型的对象，其中数据域为该用户信息。否则，返回null。
      */
-    public Student getStudentInfo(Integer StudentID) {
-        Student student = null;
+    public void getStudentInfo(Integer StudentID,Student student) {
 
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
@@ -105,8 +103,6 @@ public class StudentDAO {
 
             // 获得用户信息
             if (resultSet.next()) {
-                student = new Student();
-
                 student.setStudentID(resultSet.getInt("StudentID"));
                 student.setStudentIdentify(resultSet.getString("StudentIdentify"));
                 student.setProjectID(resultSet.getInt("ProjectID"));
@@ -122,10 +118,8 @@ public class StudentDAO {
                 student.setStudentProjectsubmission(resultSet.getString("ProjectSubmission"));
             }
 
-            return student;
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
         } finally {
             closeResource(resultSet, pst);
         }

@@ -2,38 +2,27 @@ package com.makerpanda.MixlyContest.service.projectservice;
 
 import com.makerpanda.MixlyContest.dao.ProjectDAO;
 import com.makerpanda.MixlyContest.datamodel.Project;
+import com.makerpanda.MixlyContest.datamodel.Student;
 import com.makerpanda.MixlyContest.service.studentservice.StudentLoginService;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProjectUpdateService {
-    public static Project project;
 
-    public static Project getProjectInfo(Integer ProjectID){
+    public static boolean createProject(Project newProject,Integer studentid){
+        Student student=null;
+        StudentLoginService.getStudentInfo(student,studentid);
+        newProject.setTeacherID(student.getTeacherID());
+        newProject.setStudentID1(studentid);
         ProjectDAO projectdao=new ProjectDAO();
-        return projectdao.getProjectInfo(ProjectID);
+        return projectdao.insertNewProject(newProject);
     }
 
-    public static boolean createProject(Project newProject){
-        newProject.setTeacherID(StudentLoginService.student.getTeacherID());
-        newProject.setStudentID1(StudentLoginService.student.getStudentID());
+    public static boolean updateProjectFile(String formname,
+                                            String paths,Integer projectid){
+        Project project1=null;
         ProjectDAO projectdao=new ProjectDAO();
-        if(projectdao.insertNewProject(newProject)) {
-            Integer projectid;
-            projectid=projectdao.getProjectIDByStudentID1(newProject.getStudentID1());
-            StudentLoginService.student.setProjectID(projectid);
-            project=newProject;
-            project.setProjectID(projectid);
-            return true;
-        }
-        else
-            return false;
-    }
-
-    public static boolean updateProjectFile(String formname,String paths){
-        Project project1;
-        ProjectDAO projectdao=new ProjectDAO();
-        project1=project.clone();
+        getProjectInfo(project1,projectid);
         switch (formname){
             case "ProjectDisplayMap":
                 project1.setProjectDisplayMap(paths);//展示图
@@ -60,17 +49,13 @@ public class ProjectUpdateService {
                 System.out.println(formname+"找不到对应字段");
                 break;
         }
-        if(projectdao.updateProject(project1)) {
-            project=project1;
-            return true;
-        }
-        else
-            return false;
+        return projectdao.updateProject(project1);
     }
-    public static boolean updateProjectText(String formname,Project updateProject) {
-        Project project1;
+    public static boolean updateProjectText(String formname,Project updateProject,
+                                            Integer projectid) {
+        Project project1=null;
+        getProjectInfo(project1,projectid);
         ProjectDAO projectdao=new ProjectDAO();
-        project1=project.clone();
         switch (formname){
             case "ProjectDescription":
                 project1.setProjectDescription(updateProject.getProjectDescription());//作品描述
@@ -88,12 +73,16 @@ public class ProjectUpdateService {
                 System.out.println(formname+"找不到对应字段");
                 break;
         }
-        if(projectdao.updateProject(project1)) {
-            project=project1;
-            return true;
-        }
-        else
-            return false;
+        return projectdao.updateProject(project1);
     }
 
+    /**
+     * 获取当前用户全部信息。
+     * @param projectid 项目ID。
+     * @param project 需要传入的项目对象。
+     */
+    public static void getProjectInfo(Project project ,Integer projectid) {
+        ProjectDAO projectdao = new ProjectDAO();
+        projectdao.getProjectInfo(projectid,project);
+    }
 }

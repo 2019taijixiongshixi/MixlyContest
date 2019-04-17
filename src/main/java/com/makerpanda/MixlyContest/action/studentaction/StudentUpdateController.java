@@ -14,17 +14,25 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class StudentUpdateController {
     @RequestMapping(path={"/zhongxin1"})
-    public String zhongxin1(Model model) {
-        Teacher teacher= TeacherInfoInquireService.TeacherInfoInquire(StudentLoginService.student.getTeacherID());
+    public String zhongxin1(Model model, HttpServletRequest request) {
+        Student studentupdate=new Student();
+        HttpSession session=request.getSession();
+        Integer studentid=Integer.parseInt(session.getAttribute("userid").toString());
+        StudentLoginService.getStudentInfo(studentupdate,studentid);
+        Teacher teacher= TeacherInfoInquireService.TeacherInfoInquire(studentupdate.getTeacherID());
         String teachername=teacher.getTeacherName();
         String teachertel=teacher.getTeacherTel();
-        model.addAttribute("student", StudentLoginService.student);
-        if(StudentLoginService.student.getProjectID()!=0) {
-            Project project= ProjectUpdateService.getProjectInfo(
-                    StudentLoginService.student.getProjectID());
+        model.addAttribute("student", studentupdate);
+        if(studentupdate.getProjectID()!=0) {
+
+            Project project= new Project();
+            ProjectUpdateService.getProjectInfo(project,studentupdate.getProjectID());
             model.addAttribute("project",project);
             String Student1=StudentLoginService.getName(project.getStudentID1());
             String Student2=null;
@@ -80,10 +88,12 @@ public class StudentUpdateController {
     }
     @RequestMapping(value = "/studentinfoupdate", method = RequestMethod.POST)
     public String StudentUpdateInfo(@ModelAttribute("student") Student student,
-                                    ModelMap modelMap) {
+                                    ModelMap modelMap,HttpServletRequest request) {
         boolean verifyCode;
+        HttpSession session=request.getSession();
+        Integer studentid=Integer.parseInt(session.getAttribute("userid").toString());
 
-        verifyCode= StudentUpdateService.StudentUpdateInfo(student);
+        verifyCode= StudentUpdateService.StudentUpdateInfo(student,studentid);
 
         if(verifyCode)
             modelMap.addAttribute("Success", "修改信息成功");

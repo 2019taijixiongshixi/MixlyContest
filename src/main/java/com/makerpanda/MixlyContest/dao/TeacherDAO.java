@@ -94,10 +94,8 @@ public class TeacherDAO {
     /**
      * 根据教师ID，获取教师全部信息。
      * @param TeacherID 需要获取信息的教师ID。
-     * @return 如果能够查询到TeacherID的信息，则返回一个Teacher类型的对象，其中数据域为该用户信息。否则，返回null。
      */
-    public Teacher getTeacherInfo(Integer TeacherID) {
-        Teacher teacher = null;
+    public void getTeacherInfo(Integer TeacherID,Teacher teacher) {
 
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
@@ -107,7 +105,6 @@ public class TeacherDAO {
 
             // 获得用户信息
             if (resultSet.next()) {
-                teacher = new Teacher();
 
                 teacher.setTeacherID(resultSet.getInt("TeacherID"));
                 teacher.setTeacherIdentify(resultSet.getString("TeacherIdentify"));
@@ -121,10 +118,8 @@ public class TeacherDAO {
                 teacher.setTeacherSchool(resultSet.getString("School"));
             }
 
-            return teacher;
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
         } finally {
             closeResource(resultSet, pst);
         }

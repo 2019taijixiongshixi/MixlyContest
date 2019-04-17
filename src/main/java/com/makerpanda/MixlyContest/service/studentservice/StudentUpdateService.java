@@ -32,16 +32,19 @@ public class StudentUpdateService {
      * @param student 新的学生对象。
      * @return 修改成功返回1,修改失败返回0
      */
-    public static boolean StudentUpdateInfo (Student student) {
+    public static boolean StudentUpdateInfo (Student student,Integer studentupdateid) {
         StudentDAO studentdao=new StudentDAO();
         ClassDAO classdao=new ClassDAO();
-        StudentLoginService.student.setClassID(student.getClassID());
-        StudentLoginService.student.setStudentIdentify(student.getStudentIdentify());
-        StudentLoginService.student.setStudentGender(student.getStudentGender());
-        StudentLoginService.student.setStudentName(student.getStudentName());
-        StudentLoginService.student.setStudentSchool(student.getStudentSchool());
-        StudentLoginService.student.setStudentTel(student.getStudentTel());
-        StudentLoginService.student.setTeacherID(classdao.getTeacherIDByClassID(student.getClassID()));
-        return studentdao.updateStudentInfo(StudentLoginService.student);
+        Student studentupdate = null;
+        StudentLoginService.getStudentInfo(studentupdate,studentupdateid);
+
+        studentupdate.setClassID(student.getClassID());
+        studentupdate.setStudentIdentify(student.getStudentIdentify());
+        studentupdate.setStudentGender(student.getStudentGender());
+        studentupdate.setStudentName(student.getStudentName());
+        studentupdate.setStudentSchool(student.getStudentSchool());
+        studentupdate.setStudentTel(student.getStudentTel());
+        studentupdate.setTeacherID(classdao.getTeacherIDByClassID(student.getClassID()));
+        return studentdao.updateStudentInfo(studentupdate);
     }
 }

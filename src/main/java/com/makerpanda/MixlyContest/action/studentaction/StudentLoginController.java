@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class StudentLoginController {
     @RequestMapping(path = { "/login1"})
@@ -19,14 +22,16 @@ public class StudentLoginController {
         return "login/login1";
     }
     @RequestMapping(value = "/studentlogin", method = RequestMethod.POST)
-    public String loginAction(@ModelAttribute("student") Student student, ModelMap modelMap) {
+    public String loginAction(@ModelAttribute("student") Student student, ModelMap modelMap,
+                              HttpServletRequest request) {
         int verifyCode;
         String studentemail=student.getStudentEmail();
+        Student studentlogin=new Student();
 
         //System.out.println(student.getStudentPassword());
         if (studentemail!= null) {
             String password = student.getStudentPassword();
-            verifyCode = StudentLoginService.verify(studentemail, password);  // 认证用户是否可以登录
+            verifyCode = StudentLoginService.verify(studentemail, password,studentlogin);  // 认证用户是否可以登录
         } else {
             verifyCode = 4;
         }
@@ -35,6 +40,10 @@ public class StudentLoginController {
             default:
                 return "redirect:404";
             case 0:  // 认证成功
+                HttpSession session=request.getSession();
+                session.setAttribute("userid",studentlogin.getStudentID());
+                session.setAttribute("projectid",studentlogin.getProjectID());
+                session.setAttribute("useridentity","student");
                 return "redirect:";
             case 1:  // 密码错误
                 modelMap.addAttribute("pwdError", "对不起，您输入的密码有误");

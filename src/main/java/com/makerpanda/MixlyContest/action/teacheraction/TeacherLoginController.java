@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class TeacherLoginController {
     @RequestMapping(path = { "/login2"})
@@ -19,13 +22,15 @@ public class TeacherLoginController {
         return "login/login2";
     }
     @RequestMapping(value = "/teacherlogin", method = RequestMethod.POST)
-    public String loginAction(@ModelAttribute("teacher") Teacher teacher, ModelMap modelMap) {
+    public String loginAction(@ModelAttribute("teacher") Teacher teacher, ModelMap modelMap,
+                              HttpServletRequest request) {
         int verifyCode;
         String teacheremail= teacher.getTeacherEmail();
+        Teacher teacherlogin=new Teacher();
 
         if (teacheremail!= null) {
             String password = teacher.getTeacherPassword();
-            verifyCode = TeacherLoginService.verify(teacheremail, password);  // 认证用户是否可以登录
+            verifyCode = TeacherLoginService.verify(teacheremail, password,teacherlogin);  // 认证用户是否可以登录
         } else {
             verifyCode = 4;
         }
@@ -34,6 +39,9 @@ public class TeacherLoginController {
             default:
                 return "redirect:404";
             case 0:  // 认证成功
+                HttpSession session=request.getSession();
+                session.setAttribute("userid",teacherlogin.getTeacherID());
+                session.setAttribute("useridentity","student");
                 return "redirect:";
             case 1:  // 密码错误
                 modelMap.addAttribute("pwdError", "对不起，您输入的密码有误");

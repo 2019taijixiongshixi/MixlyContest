@@ -10,15 +10,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudentLoginService {
     // 将登陆用户的信息保存供全局使用
-    public static Student student;
-
+    public Student student;
     /**
      * 认证学生是否能够成功登录。
      * @param StudentEmail 用户输入的用户邮箱。
      * @param inputPwd 用户输入的密码。
      * @return 如果用户名不存在则返回3，如果用户输入的密码为空返回2, 用户输入密码有误返回1，认证成功返回0。
      */
-    public static int verify(String StudentEmail, String inputPwd) {
+    public static int verify(String StudentEmail, String inputPwd,Student loginstudent) {
         StudentDAO studentdao = new StudentDAO();
         Integer studentid=studentdao.getStudentIDByStudentEmail(StudentEmail);
         String password = studentdao.getStudentPassword(studentid);
@@ -30,14 +29,19 @@ public class StudentLoginService {
         } else if (!MD5Password.equals(password)) {
             return 1;
         } else {
-            student = studentdao.getStudentInfo(studentid);  // 登录成功将用户信息保存
-            if(student.getProjectID()!=0){
-                ProjectDAO projectdao=new ProjectDAO();
-                ProjectUpdateService.project=projectdao.getProjectInfo(
-                        student.getProjectID()); //如果已有项目信息则保存为全局对象
-            }
+            studentdao.getStudentInfo(studentid,loginstudent);  // 登录成功将用户信息保存
             return 0;
         }
+    }
+
+    /**
+     * 获取当前用户全部信息。
+     * @param studentid 当前用户的ID。
+     * @param student 需要传入学生对象。
+     */
+    public static void getStudentInfo(Student student,Integer studentid) {
+        StudentDAO studentdao = new StudentDAO();
+        studentdao.getStudentInfo(studentid,student);
     }
 
     /**

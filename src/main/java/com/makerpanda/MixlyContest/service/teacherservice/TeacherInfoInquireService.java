@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 public class TeacherInfoInquireService {
     public static Teacher TeacherInfoInquire(Integer TeacherID){
         TeacherDAO teacherdao=new TeacherDAO();
-        return teacherdao.getTeacherInfo(TeacherID);
+        Teacher teacher=new Teacher();
+        teacherdao.getTeacherInfo(TeacherID,teacher);
+        return teacher;
     }
 }

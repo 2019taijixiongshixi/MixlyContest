@@ -72,10 +72,8 @@ public class ProjectDAO {
     /**
      * 根据项目ID，获取全部信息。
      * @param ProjectID 需要获取信息的项目ID。
-     * @return 如果能够查询到ProjectID的信息，则返回一个Project类型的对象，其中数据域为该用户信息。否则，返回null。
      */
-    public Project getProjectInfo(Integer ProjectID) {
-        Project project = null;
+    public void getProjectInfo(Integer ProjectID,Project project) {
 
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
@@ -85,8 +83,6 @@ public class ProjectDAO {
 
             // 获得项目信息
             if (resultSet.next()) {
-                project = new Project();
-
                 project.setProjectName(resultSet.getString("ProjectName"));
                 project.setProjectID(resultSet.getInt("ProjectID"));
                 project.setFlowChart(resultSet.getString("FlowChart"));
@@ -109,10 +105,8 @@ public class ProjectDAO {
                 project.setTeacherID(resultSet.getInt("TeacherID"));
             }
 
-            return project;
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
         } finally {
             closeResource(resultSet, pst);
         }

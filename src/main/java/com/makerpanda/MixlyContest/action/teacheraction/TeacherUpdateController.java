@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class TeacherUpdateController {
     @RequestMapping(path = { "/teacherpasswordupdate"})
@@ -50,10 +53,12 @@ public class TeacherUpdateController {
 
     @RequestMapping(value = "/teacherinfoupdate", method = RequestMethod.POST)
     public String TeacherUpdateInfo(@ModelAttribute("teacher") Teacher teacher,
-                                    ModelMap modelMap) {
+                                    ModelMap modelMap, HttpServletRequest request) {
         boolean verifyCode;
-
-        verifyCode= TeacherUpdateService.TeacherUpdateInfo(teacher);
+        HttpSession session=request.getSession();
+        Integer userid;
+        userid=Integer.parseInt(session.getAttribute("userid").toString());
+        verifyCode= TeacherUpdateService.TeacherUpdateInfo(teacher,userid);
 
        if(verifyCode)
            modelMap.addAttribute("Success", "修改成功");
