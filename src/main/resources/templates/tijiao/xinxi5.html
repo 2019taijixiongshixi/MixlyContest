@@ -116,6 +116,7 @@
                         <p>(请仔细阅读项目设计教程中的视频链接获取方法，将制作视频上传到优酷或其他视频软件，并在下方给出演示视频的地址链接,如正确的地址格式为:</p>
                         <p>http://player.youku.com/embed/XMzczMjAyODgzMg==</p>
                         <p>或:https://v.qq.com/txp/iframe/player.html?vid=o0861pc1t7r</p>
+                        <p>提交视频地址后请点击"查看视频"按钮查看视频地址是否提交正确</p>
                     </div>
 
                     <div class="form-top-right">
@@ -123,12 +124,11 @@
                     </div>
                 </div>
                 <div class="form-bottom">
-                    <form th:action="@{/projectUpdateText}" method="post" th:object="${project}">
-                        <div class="form-group">
+                    <form class="login-form" th:action="@{/projectUpdateText}" method="post" th:object="${project}">
+                        <div class="form-group" >
                             <input type="text" name="VideoURL" placeholder="视频链接..."
                                    class="form-username form-control" id="VideoURL"
                                    th:value="*{VideoURL}">
-
                         </div>
                         <input type="text" name="pagepath" style="display: none" th:value="xinxi5"/>
                         <input type="text" name="formname" style="display: none" th:value="VideoURL"/>
@@ -213,6 +213,7 @@
         $("#sss").hide();
         $("#box3").hide();
     });
+
 </script>
 <![endif]-->
 

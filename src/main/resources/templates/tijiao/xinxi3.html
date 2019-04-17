@@ -136,6 +136,10 @@
             <a href="#" class="close" data-dismiss="alert">&times;</a>
             <strong>警告！</strong><strong th:text="${Error}"></strong>
         </div>
+        <div id="myAlert3" style="display: none" class="alert alert-warning">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>请按要求选择硬件电路图!</strong>
+        </div>
 
         <div class="row" id="3">
             <div class="col-sm-6 col-sm-offset-3 form-box" style="">
@@ -149,7 +153,7 @@
                     </div>
                 </div>
                 <div class="form-bottom" id="img-modify1">
-                    <form th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
+                    <form class="login-form3" th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
                         <label for="select">硬件电路图(选择一张图片，图片大小不超过2M)</label>
                         <input type="file" name="file" id="file4" accept="image/*" onchange="imgChange4(this);"/>
                         <!--文件上传选择按钮-->
@@ -179,6 +183,11 @@
                 </div>
             </div>
         </div>
+        <br>
+        <div id="myAlert4" style="display: none" class="alert alert-warning">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>请按要求选择流程图!</strong>
+        </div>
         <div class="row" id="3">
             <div class="col-sm-6 col-sm-offset-3 form-box" style="">
                 <div class="form-top">
@@ -191,7 +200,7 @@
                     </div>
                 </div>
                 <div class="form-bottom" id="img-modify2">
-                    <form th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
+                    <form class="login-form4" th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
                         <label for="select">流程图(至少选择一张，最多选择两张图片，每张图片大小不超过2M。注:点击选择文件后可同时选择两张图片)</label>
                         <input value="可同时最多选择两张图" multiple="multiple" type="file" name="file" id="file5"
                                accept="image/*" onchange="imgChange5(this);"/> <!--文件上传选择按钮-->
@@ -223,6 +232,11 @@
                 </div>
             </div>
         </div>
+        <br>
+        <div id="myAlert5" style="display: none" class="alert alert-warning">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>请按要求选择代码模块图!</strong>
+        </div>
         <div class="row" id="3">
             <div class="col-sm-6 col-sm-offset-3 form-box" style="">
                 <div class="form-top">
@@ -235,7 +249,7 @@
                     </div>
                 </div>
                 <div class="form-bottom" id="img-modify3">
-                    <form th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
+                    <form class="login-form5" th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
                         <label for="select">代码模块图(至少选择一张，最多选择两张图片，每张图片大小不超过2M。注:点击选择文件后可同时选择两张图片)</label>
                         <input value="可同时最多选择两张图" multiple="multiple" type="file" name="file" id="file6"
                                accept="image/*" onchange="imgChange6(this);"/> <!--文件上传选择按钮-->
@@ -334,5 +348,47 @@
         $("#imgModal3").find("#imgshow3").html("<img src='" + src + "' class='carousel-inner img-responsive img-rounded' data-dismiss='modal'>");
         $("#imgModal3").modal('show');
     }
+    $('.login-form3').on('submit', function(e) {
+
+        $(this).find('input[type="file"]').each(function(){
+            if( $(this).val() == "" ) {
+                e.preventDefault();
+                $("#myAlert3").show();
+                alert("请按要求选择硬件电路图!");
+            }
+            else {
+                $(this).removeClass('input-error');
+            }
+        });
+
+    });
+    $('.login-form4').on('submit', function(e) {
+
+        $(this).find('input[type="file"]').each(function(){
+            if( $(this).val() == "" ) {
+                e.preventDefault();
+                $("#myAlert4").show();
+                alert("请按要求选择流程图!");
+            }
+            else {
+                $(this).removeClass('input-error');
+            }
+        });
+
+    });
+    $('.login-form5').on('submit', function(e) {
+
+        $(this).find('input[type="file"]').each(function(){
+            if( $(this).val() == "" ) {
+                e.preventDefault();
+                $("#myAlert5").show();
+                alert("请按要求选择代码模块图!");
+            }
+            else {
+                $(this).removeClass('input-error');
+            }
+        });
+
+    });
 </script>
 </html>
