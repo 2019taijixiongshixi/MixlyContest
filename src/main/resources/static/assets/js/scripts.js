@@ -14,7 +14,7 @@ jQuery(document).ready(function() {
     
     $('.login-form').on('submit', function(e) {
     	
-    	$(this).find('input[type="text"], input[type="password"], textarea').each(function(){
+    	$(this).find('input[type="text"],input[type="file"],textarea[type="text"], input[type="password"], textarea').each(function(){
     		if( $(this).val() == "" ) {
     			e.preventDefault();
     			$(this).addClass('input-error');

@@ -144,7 +144,7 @@
                 </div>
                 <div class="form-bottom" id="img-modify1">
                     <form th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
-                        <label for="select">外部结构图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
+                        <label for="select">外部结构图(可以不选择图片，或选择一张图片，图片大小不超过2M)</label>
                         <input type="file" name="file" id="file7" accept="image/*" onchange="imgChange7(this);"/>
                         <!--文件上传选择按钮-->
                         <br>
@@ -152,28 +152,28 @@
                         <br>
                         <br>
                         <br>
-                        <label for="select">平面草图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
+                        <label for="select">平面草图(可以不选择图片，或选择一张图片，图片大小不超过2M)</label>
                         <input type="file" name="file" id="file9" accept="image/*" onchange="imgChange9(this);"/>
                         <br>
                         <img id="img9" src="" alt="平面草图(未上传)"/>
                         <br>
                         <br>
                         <br>
-                        <label for="select">3D模型图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
+                        <label for="select">3D模型图(可以不选择图片，或选择一张图片，图片大小不超过2M)</label>
                         <input type="file" name="file" id="file10" accept="image/*" onchange="imgChange10(this);"/>
                         <br>
                         <img id="img10" src="" width="3000px" alt="3D模型图(未上传)"/>
                         <br>
                         <br>
                         <br>
-                        <label for="select">3D打印成品图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
+                        <label for="select">3D打印成品图(可以不选择图片，或选择一张图片，图片大小不超过2M)</label>
                         <input type="file" name="file" id="file11" accept="image/*" onchange="imgChange11(this);"/>
                         <br>
                         <img id="img11" src="" width="3000px" alt="3D打印成品图(未上传)"/>
                         <br>
                         <br>
                         <br>
-                        <label for="select">激光切割图(可以不选择图片，最多选择一张图片，图片大小不超过2M)</label>
+                        <label for="select">激光切割图(可以不选择图片，或选择一张图片，图片大小不超过2M)</label>
                         <input type="file" name="file" id="file12" accept="image/*" onchange="imgChange12(this);"/>
                         <br>
                         <img id="img12" src="" width="3000px" alt="激光切割图(未上传)"/>
@@ -215,7 +215,7 @@
                     </div>
                 </div>
                 <div class="form-bottom">
-                    <form th:action="@{/projectUpdateText}" method="post" th:object="${project}">
+                    <form class="login-form" th:action="@{/projectUpdateText}" method="post" th:object="${project}">
                                 <textarea type="text" name="Equipment" placeholder="使用器材..."
                                           class="form-username form-control"
                                           th:value="*{Equipment}" id="Equipment"></textarea>

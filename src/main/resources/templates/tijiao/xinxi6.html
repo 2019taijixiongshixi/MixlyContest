@@ -120,17 +120,22 @@
 
                 </div>
                 <div class="form-bottom">
-                    <form th:action="@{/multiUpload}" method="post" enctype="multipart/form-data">
-
+                    <form th:action="@{/multiUpload}" method="post" enctype="multipart/form-data" class="login-form1">
+                        <div id="in1">
                         <label><input name="Fruit" type="radio" value=""/>我已阅读参赛协议并接受参赛协议 </label>
                         <br>
                         <br>
                         <label for="select">请上传PDF设计文档</label>
                         <input type="file" name="file" accept="application/pdf" id="select"/>
                         <br>
+                        </div>
+                        <h3 id="in2" style="display: none">
+                            已完成最终提交，无法再更改项目内容，请等待评委审核，最终结果和决赛通知会发送到注册邮箱或手机，请注意查收。
+                        </h3>
                         <input type="text" name="pagepath" style="display: none" th:value="xinxi6"/>
                         <input type="text" name="formname" style="display: none" th:value="DesignDocument"/>
-                        <button type="submit" class="btn modify">确认提交(注意:提交后便无法更改，请确认所有信息无误!)</button>
+                        <button id="Submit" type="submit" class="btn modify">确认提交(注意:提交后便无法更改，请确认所有信息无误!)</button>
+
                     </form>
 
 
@@ -164,6 +169,8 @@
         var designdocument =/*[[${project.DesignDocument}]]*/ null;
         if (designdocument !== null) {
             $(".modify").attr("disabled", true);
+            $("#in1").hide();
+            $("#in2").show();
         }
     });
 </script>
@@ -412,5 +419,44 @@
         }
     }
 
+
+
 </script>
+<script>
+    $('.login-form1').on('submit', function(e) {
+        var i=0;
+        $(this).find('input[type="radio"]').each(function(){
+            if( $(this).val() == "" ) {
+                var val=$('input:radio[name="Fruit"]:checked').val();
+                if(val==null){
+                    e.preventDefault();
+                    i=i+1;
+                }
+            }
+            else {
+                $(this).removeClass('input-error');
+            }
+        });
+        if(i>=1){
+            $("#myAlert3").show();
+            alert("请确认接受参赛协议!")
+        }
+        var k=0;
+        $(this).find('input[type="file"]').each(function(){
+            if( $(this).val() == "" ) {
+                e.preventDefault();
+                k=k+1;
+            }
+            else {
+                $(this).removeClass('input-error');
+            }
+        });
+        if(k>=1){
+            $("#myAlert3").show();
+            alert("请选择PDF设计文档后再提交!")
+        }
+
+    });
+</script>
+
 </html>
