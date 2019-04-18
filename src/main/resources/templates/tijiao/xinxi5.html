@@ -70,7 +70,7 @@
 <!-- Top content -->
 <div class="top-content">
 
-    <div class="inner-bg">
+    <div style="padding: 100px 0 50px 0" class="inner-bg">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text">
@@ -93,7 +93,7 @@
             </div>
 
             <div id="box" class="form-bottom" style="display: none">
-                作品视频地址链接"http://player.youku.com/embed/XMzczMjAyODgzMg=="
+                作品视频地址链接"http://player.youku.com/player.php/sid/XMzczMjAyODgzMg==/v.swf"
                 <embed
                         src='http://player.youku.com/player.php/sid/XMzczMjAyODgzMg==/v.swf'
                         allowFullScreen='true'
@@ -113,10 +113,9 @@
                 <div class="form-top">
                     <div class="form-top-left">
                         <h3>五、作品演示视频</h3>
-                        <p>(请仔细阅读项目设计教程中的视频链接获取方法，将制作视频上传到优酷或其他视频软件，并在下方给出演示视频的地址链接,如正确的地址格式为:</p>
-                        <p>http://player.youku.com/embed/XMzczMjAyODgzMg==</p>
-                        <p>或:https://v.qq.com/txp/iframe/player.html?vid=o0861pc1t7r</p>
-                        <p>提交视频地址后请点击"查看视频"按钮查看视频地址是否提交正确</p>
+                        <p>(请仔细阅读项目设计教程中的视频链接获取方法，将制作视频上传到优酷视频软件，并在下方给出演示视频的地址链接,如正确的地址格式为:</p>
+                        <p>http://player.youku.com/player.php/sid/XMzczMjAyODgzMg==/v.swf</p>
+                        <p>提交视频地址后请点击"查看提交视频"按钮查看视频地址是否提交正确</p>
                     </div>
 
                     <div class="form-top-right">
@@ -143,11 +142,10 @@
                 </div>
             </div>
         </div>
-
     </div>
     <div id="box3" class="container" style="display: none">
         <div class="form-bottom">
-            <p style="text-align: center">提交作品展示</p>
+            <h3 style="text-align: center">提交作品展示</h3>
             <p style="text-align: center">(如果视频未正常显示，可能为链接填写错误，或浏览器不支持Flash播放)</p>
         </div>
         <div id="box2" class="form-bottom">
@@ -171,14 +169,17 @@
     $(function () {
         var VideoURL= document.getElementById("VideoURL").value;
         var div = document.getElementById('box2');
-        div.innerHTML = '<iframe\n' +
-            '        src=\''+VideoURL+'\'\n' +
-            '        allowFullScreen=\'true\'\n' +
-            '        width=\'1090px\'\n' +
-            '        height=\'650px\'\n' +
-            '        align=\'middle\'\n' +
-            '        >'                  +
-            '       </iframe>'
+        div.innerHTML = '<embed\n' +
+            '                        src=\''+VideoURL+'\'\n' +
+            '                        allowFullScreen=\'true\'\n' +
+            '\n' +
+            '                        quality=\'high\'\n' +
+            '                        width=\'1090px\'\n' +
+            '                        height=\'650px\'\n' +
+            '                        align=\'middle\'\n' +
+            '                        allowScriptAccess=\'always\'\n' +
+            '                        type=\'application/x-shockwave-flash\'>\n' +
+            '                </embed>'
     });
     $(document).ready(function () {
         $("#sss").click(function () {

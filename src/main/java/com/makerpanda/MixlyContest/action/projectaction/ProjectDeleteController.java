@@ -17,8 +17,8 @@ public class ProjectDeleteController {
         HttpSession session=request.getSession();
 
         Integer projectid=0;
-        if(null!=session.getAttribute("userid"))
-            projectid=Integer.parseInt(session.getAttribute("userid").toString());
+        if(null!=session.getAttribute("projectid"))
+            projectid=Integer.parseInt(session.getAttribute("projectid").toString());
 
         verifyCode=ProjectDeleteService.deleteProject(projectid);
         if(verifyCode)

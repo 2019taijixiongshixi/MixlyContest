@@ -1,9 +1,8 @@
 package com.makerpanda.MixlyContest.dao;
 
-import com.makerpanda.MixlyContest.datamodel.Project;
 import com.makerpanda.MixlyContest.DBHelper;
+import com.makerpanda.MixlyContest.datamodel.Project;
 
-import javax.tools.JavaCompiler;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -173,7 +172,7 @@ public class ProjectDAO {
             pst.setString(10,project.getVideoURL());
             pst.setString(11,project.getCompetitionExperience());
             pst.setString(12,project.getDesignDocument());
-            pst.setInt(13,project.getProjectID());;
+            pst.setInt(13,project.getProjectID());
 
             int rowsAffected = pst.executeUpdate();  // 执行语句
 

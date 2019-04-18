@@ -31,6 +31,8 @@ public class ProjectPageController {
             model.addAttribute("Student3", Student3);
             model.addAttribute("project",project);
         }
+        else
+            model.addAttribute("project",new Project());
         return "tijiao/xinxi1";
     }
     @RequestMapping(path = {"/xinxi2"})

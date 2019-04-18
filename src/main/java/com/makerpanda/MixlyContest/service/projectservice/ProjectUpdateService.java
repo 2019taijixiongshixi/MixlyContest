@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class ProjectUpdateService {
 
     public static boolean createProject(Project newProject,Integer studentid){
-        Student student=null;
+        Student student=new Student();
         StudentLoginService.getStudentInfo(student,studentid);
         newProject.setTeacherID(student.getTeacherID());
         newProject.setStudentID1(studentid);
@@ -20,7 +20,7 @@ public class ProjectUpdateService {
 
     public static boolean updateProjectFile(String formname,
                                             String paths,Integer projectid){
-        Project project1=null;
+        Project project1=new Project();
         ProjectDAO projectdao=new ProjectDAO();
         getProjectInfo(project1,projectid);
         switch (formname){
@@ -53,7 +53,7 @@ public class ProjectUpdateService {
     }
     public static boolean updateProjectText(String formname,Project updateProject,
                                             Integer projectid) {
-        Project project1=null;
+        Project project1=new Project();
         getProjectInfo(project1,projectid);
         ProjectDAO projectdao=new ProjectDAO();
         switch (formname){

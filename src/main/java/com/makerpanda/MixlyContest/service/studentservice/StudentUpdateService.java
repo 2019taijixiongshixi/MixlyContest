@@ -35,7 +35,7 @@ public class StudentUpdateService {
     public static boolean StudentUpdateInfo (Student student,Integer studentupdateid) {
         StudentDAO studentdao=new StudentDAO();
         ClassDAO classdao=new ClassDAO();
-        Student studentupdate = null;
+        Student studentupdate = new Student();
         StudentLoginService.getStudentInfo(studentupdate,studentupdateid);
 
         studentupdate.setClassID(student.getClassID());
