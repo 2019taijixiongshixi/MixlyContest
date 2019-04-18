@@ -34,6 +34,17 @@ public class IndexController {
         ObjectSend(model,request);
         return "shouye/chuangke";
     }
+    @RequestMapping(path = {"/zuopin"})
+    public String zuopin(Model model,HttpServletRequest request) {
+        HttpSession session=request.getSession();
+        String useridentity="";
+        if(null!=session.getAttribute("useridentity"))
+            useridentity=session.getAttribute("useridentity").toString();
+        if(useridentity.equals("student"))
+            return "tijiao/zuopin";
+        else
+            return  "redirect:";
+    }
     private void ObjectSend(Model model, HttpServletRequest request){
         HttpSession session=request.getSession();
         Student student=null;
