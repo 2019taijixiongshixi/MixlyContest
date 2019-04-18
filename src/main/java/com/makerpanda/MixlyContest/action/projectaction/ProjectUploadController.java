@@ -58,40 +58,41 @@ public class ProjectUploadController {
         List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("file");
         HttpSession session=request.getSession();
         Integer userid=0;
-        Integer projectid=0;
+        Integer projectid;
         if(null!=session.getAttribute("userid"))
             userid=Integer.parseInt(session.getAttribute("userid").toString());
-        if(null!=session.getAttribute("projectid"))
-            projectid=Integer.parseInt(session.getAttribute("projectid").toString());
-        String filepath = "upload/"+ userid +"/"+formname+"/";
-        ArrayList<String> filestoragepaths=new ArrayList<>();
-        int i=0;
-        for (;i<files.size();i++) {
-            MultipartFile file=files.get(i);
-            if (file.isEmpty()) {
-                modelMap.addAttribute("Error", "未选择文件!请选择需要提交的设计图片!");
-                continue;
+        if(null!=session.getAttribute("projectid")) {
+            projectid = Integer.parseInt(session.getAttribute("projectid").toString());
+            String filepath = "upload/" + userid + "/" + formname + "/";
+            ArrayList<String> filestoragepaths = new ArrayList<>();
+            int i = 0;
+            for (; i < files.size(); i++) {
+                MultipartFile file = files.get(i);
+                if (file.isEmpty()) {
+                    modelMap.addAttribute("Error", "未选择文件!请选择需要提交的设计图片!");
+                    continue;
+                }
+                //String fileName = file.getOriginalFilename();
+                String fileName = formname + i + ".png";
+                File dest = new File(new File(filepath).getAbsolutePath() + "/" + fileName);
+                if (!dest.getParentFile().exists()) {
+                    dest.getParentFile().mkdirs();
+                }
+                try {
+                    file.transferTo(dest);
+                    String filestoragepath = filepath + fileName;
+                    filestoragepaths.add(filestoragepath);
+                } catch (IOException e) {
+                    LOGGER.error(e.toString(), e);
+                    modelMap.addAttribute("Error", "文件过大!请按要求调整图片大小!");
+                    return "redirect:" + pagepath;
+                }
             }
-            //String fileName = file.getOriginalFilename();
-            String fileName = formname+i+".png";
-            File dest = new File(new File(filepath).getAbsolutePath() + "/" + fileName);
-            if (!dest.getParentFile().exists()) {
-                dest.getParentFile().mkdirs();
-            }
-            try {
-                file.transferTo(dest);
-                String filestoragepath = filepath + fileName;
-                filestoragepaths.add(filestoragepath);
-            } catch (IOException e) {
-                LOGGER.error(e.toString(), e);
-                modelMap.addAttribute("Error", "文件过大!请按要求调整图片大小!");
-                return "redirect:" + pagepath;
-            }
+            if (ProjectFileService.ProjectFileStorage(formname, filestoragepaths, projectid))
+                modelMap.addAttribute("Success", "上传文件成功");
+            else
+                modelMap.addAttribute("Error", "系统错误");
         }
-        if(ProjectFileService.ProjectFileStorage(formname,filestoragepaths,projectid))
-            modelMap.addAttribute("Success", "上传文件成功");
-        else
-            modelMap.addAttribute("Error", "系统错误");
         return "redirect:"+pagepath;
     }
 }

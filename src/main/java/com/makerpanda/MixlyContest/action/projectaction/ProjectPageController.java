@@ -102,11 +102,11 @@ public class ProjectPageController {
         Project project=null;
         if(null!=session.getAttribute("userid"))
             userid=Integer.parseInt(session.getAttribute("userid").toString());
-        session.setAttribute("projectid",student.getProjectID());
         StudentLoginService.getStudentInfo(student,userid);
         if(student.getProjectID()!=0){
             project=new Project();
             ProjectUpdateService.getProjectInfo(project,student.getProjectID());
+            session.setAttribute("projectid",project.getProjectID());
             model.addAttribute("project",project);
         }
         model.addAttribute("student",student);

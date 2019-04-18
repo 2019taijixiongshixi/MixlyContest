@@ -1,6 +1,7 @@
 package com.makerpanda.MixlyContest.action.projectaction;
 
 import com.makerpanda.MixlyContest.datamodel.Project;
+import com.makerpanda.MixlyContest.datamodel.Student;
 import com.makerpanda.MixlyContest.service.projectservice.ProjectUpdateService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -21,7 +22,9 @@ public class ProjectUpdateController {
 
         verifyCode= ProjectUpdateService.createProject(project,userid);
 
-        if(verifyCode) modelMap.addAttribute("Success", "创建作品成功");
+        if(verifyCode) {
+            modelMap.addAttribute("Success", "创建作品成功");
+        }
 
         else
             modelMap.addAttribute("Error", "创建作品失败，请确认信息填写无误!");
@@ -36,14 +39,15 @@ public class ProjectUpdateController {
         boolean verifyCode;
         HttpSession session=request.getSession();
         Integer projectid=0;
-        if(null!=session.getAttribute("projectid"))
-            projectid=Integer.parseInt(session.getAttribute("projectid").toString());
-        verifyCode= ProjectUpdateService.updateProjectText(formname,project,projectid);
+        if(null!=session.getAttribute("projectid")) {
+            projectid = Integer.parseInt(session.getAttribute("projectid").toString());
+            verifyCode = ProjectUpdateService.updateProjectText(formname, project, projectid);
 
-        if(verifyCode) modelMap.addAttribute("Success", "修改作品成功");
+            if (verifyCode) modelMap.addAttribute("Success", "修改作品成功");
 
-        else
-            modelMap.addAttribute("Error", "修改作品失败");
+            else
+                modelMap.addAttribute("Error", "修改作品失败");
+        }
         return "redirect:"+pagepath;
     }
 }

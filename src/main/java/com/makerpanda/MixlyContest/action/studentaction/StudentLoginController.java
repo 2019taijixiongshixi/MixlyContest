@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class StudentLoginController {
     @RequestMapping(path = { "/login1"})
-    public String Teacherlogin(Model model) {
+    public String Studentlogin(Model model) {
         model.addAttribute("student", new Student());
         return "login/login1";
     }
