@@ -144,6 +144,7 @@
         <script src="../../static/assets/js/placeholder.js"></script>
         <![endif]-->
         <script type="text/javascript" th:inline="javascript">
+            /*<![CDATA[*/
             $("#getcode").click(function(){
                 txt=$("input[name$='TeacherEmail']").val();
                 $.post("getverifycode",{email:txt});
