@@ -41,7 +41,8 @@ public class TeacherLoginController {
             case 0:  // 认证成功
                 HttpSession session=request.getSession();
                 session.setAttribute("userid",teacherlogin.getTeacherID());
-                session.setAttribute("useridentity","student");
+                session.setAttribute("classid",teacherlogin.getTeacherClassID());
+                session.setAttribute("useridentity","teacher");
                 return "redirect:";
             case 1:  // 密码错误
                 modelMap.addAttribute("pwdError", "对不起，您输入的密码有误");

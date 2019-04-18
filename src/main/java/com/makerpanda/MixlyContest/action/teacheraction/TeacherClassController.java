@@ -17,16 +17,15 @@ public class TeacherClassController {
     public String zhongxin2(Model model, HttpServletRequest request) {
         Teacher teacher=ObjectSend(request);
         HttpSession session=request.getSession();
-        session.setAttribute("classid",teacher.getTeacherID());
+        session.setAttribute("classid",teacher.getTeacherClassID());
         model.addAttribute("teacher", teacher);
         return "shouye/zhongxin2";
     }
 
     @RequestMapping(path={"/banji"})
     public String banji(Model model, HttpServletRequest request) {
-        Integer userid = null;
         Teacher teacher=ObjectSend(request);
-        ArrayList students= TeacherClassService.selectClassStudent(userid);
+        ArrayList students= TeacherClassService.selectClassStudent(teacher.getTeacherID());
         model.addAttribute("teacher", teacher);
         if(teacher.getTeacherClassID()==0){
             model.addAttribute("ClassExistence", false);
