@@ -1,5 +1,6 @@
 package com.makerpanda.MixlyContest.action.studentaction;
 
+import com.makerpanda.MixlyContest.CreateHtmlUtils;
 import com.makerpanda.MixlyContest.datamodel.Project;
 import com.makerpanda.MixlyContest.datamodel.Student;
 import com.makerpanda.MixlyContest.datamodel.Teacher;
@@ -24,6 +25,7 @@ public class StudentUpdateController {
         Student studentupdate=new Student();
         HttpSession session=request.getSession();
         Integer studentid=Integer.parseInt(session.getAttribute("userid").toString());
+        CreateHtmlUtils.MakeHtml(studentid);
         StudentLoginService.getStudentInfo(studentupdate,studentid);
         Teacher teacher= TeacherInfoInquireService.TeacherInfoInquire(studentupdate.getTeacherID());
         String teachername=teacher.getTeacherName();

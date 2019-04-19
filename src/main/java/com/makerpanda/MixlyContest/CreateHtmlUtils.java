@@ -1,29 +1,23 @@
 package com.makerpanda.MixlyContest;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 public class CreateHtmlUtils {
-    public static void main(String[] args) {
-        String filePath = "E:\\hh_web_space\\ecp\\web\\ecp_web_page\\src\\main\\webapp\\template\\template.html";
-        String imagePath ="http://localhost:8080/ecp/upload/1461293787628/1461293787628.jpg";
-        String disrPath = "E:\\hh_web_space\\ecp\\web\\ecp_web_page\\src\\main\\webapp\\template\\";
-        String fileName = "liuren";
-        MakeHtml(filePath,imagePath,disrPath,fileName);
-    }
     /**
      * @Title: MakeHtml
      * @Description: 创建html
-     * @param    filePath 设定模板文件
-     * @param    imagePath 需要显示图片的路径
-     * @param    disrPath  生成html的存放路径
-     * @param    fileName  生成html名字
      * @return void    返回类型
      * @throws
      */
-    public static void MakeHtml(String filePath,String imagePath,String disrPath,String fileName ){
+    public static void MakeHtml(Integer userid){
         try {
+            String filePath = "src/main/resources/static/display/template.html";//模板文件地址
+            String imagePath ="http://localhost/upload/20486/FlowChart/FlowChart0.png";
             String title = "<image src="+'"'+imagePath+'"'+"/>";
+            String disrPath="display";
             System.out.print(filePath);
             String templateContent = "";
             FileInputStream fileinputstream = new FileInputStream(filePath);// 读取模板文件
@@ -32,15 +26,17 @@ public class CreateHtmlUtils {
             fileinputstream.read(bytes);
             fileinputstream.close();
             templateContent = new String(bytes);
-            System.out.print(templateContent);
             templateContent = templateContent.replaceAll("###title###", title);
-            System.out.print(templateContent);
 
-            String fileame = fileName + ".html";
-            fileame = disrPath+"/" + fileame;// 生成的html文件保存路径。
-            FileOutputStream fileoutputstream = new FileOutputStream(fileame);// 建立文件输出流
+            String fileame = userid+"-display" + ".html";
+
+            File dest = new File(new File(disrPath).getAbsolutePath()+ "/" + fileame);
+            if (!dest.getParentFile().exists()) {
+                dest.getParentFile().mkdirs();
+            }
+            FileOutputStream fileoutputstream = new FileOutputStream(dest);// 建立文件输出流
             System.out.print("文件输出路径:");
-            System.out.print(fileame);
+            System.out.print(dest);
             byte tag_bytes[] = templateContent.getBytes();
             fileoutputstream.write(tag_bytes);
             fileoutputstream.close();

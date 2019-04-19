@@ -2,11 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title> 作品展示 </title>
-    <link href="../../static/assets/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="/static/assets/css/bootstrap.css" rel='stylesheet' type='text/css' />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Custom Theme files -->
-    <link href="../../static/assets/css/shouyestyle.css" rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" type="text/css" href="../../static/assets/css/magnific-popup.css">
+    <link href="/static/assets/css/shouyestyle.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/magnific-popup.css">
     <!-- Custom Theme files -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -31,7 +31,7 @@
                             <div class="p_worksdetail_top">
                                 <span style="font-size: 30px">超声波测距仪</span>
                                 <div class="p_worksdetail_topright">
-                                    <a href="zhanshi"><span style="font-size: 15px">更多作品>></span></a>
+                                    <a href="../zhanshi"><span style="font-size: 15px">更多作品>></span></a>
                                 </div>
                             </div>
 
@@ -50,27 +50,13 @@
                                 <p style="font-size: 25px">作品名称:超声波测距仪</p>
                                 <p style="font-size: 25px">创作团队:<lable> MakerPanda</lable></p>
                             </div>
-                            <script>
-                                $(document).ready(function(){
-                                    $(".hide1").click(function(){
-                                        $("p").hide();
-                                    });
-                                    $(".show1").click(function(){
-                                        $("p").show();
-                                    });
-                                });
-                            </script>
-                            <input type="text" id="text"><br>
-                            <p>如果你点击“隐藏” 按钮，我将会消失。</p>
-                            <button class="hide1">隐藏</button>
-                            <button class="show1">显示</button>
                             <div class="p_worksdetail_main_right">
                                 <div class="p_worksdetail_tab_menu">
                                     <ul>
-                                        <li> <a id="ii1" class="p_intro new new1" style=""><p>作品说明</p></a></li>
-                                        <li> <a id="ii2" class="p_procedure new" style=""><p>创作过程</p></a></li>
-                                        <li> <a id="ii3" class="p_show new" style=""><p>程序演示</p></a></li>
-                                        <li> <a id="ii4" class="p_file new" style=""><p>流程图</p></a></li>
+                                        <li class="new new1"> <a id="ii1" class="p_intro" style=""><p>作品说明</p></a></li>
+                                        <li class="new "> <a id="ii2" class="p_procedure" style=""><p>创作过程</p></a></li>
+                                        <li class="new"> <a id="ii3" class="p_show" style=""><p>程序演示</p></a></li>
+                                        <li class="new"> <a id="ii4" class="p_file" style=""><p>流程图</p></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -86,38 +72,6 @@
                             <div id="i4" class="p_worksdetail_main_right" style="display: none">
                                 <p>nihao4</p>
                             </div>
-                            <script>
-                                    $("#ii1").click(function(){
-                                        $("#i1").show();
-                                        $("#i2").hide();
-                                        $("#i3").hide();
-                                        // language=JQuery-CSS
-                                        $("#i4").hide();
-
-                                    });
-                                    $("#ii2").click(function(){
-                                        $("#i1").hide();
-                                        $("#i2").show();
-                                        $("#i3").hide();
-                                        $("#i4").hide();
-
-                                    });
-                                    $("#ii3").click(function(){
-                                        $("#i1").hide();
-                                        $("#i2").hide();
-                                        $("#i3").show();
-                                        $("#i4").hide();
-
-                                    });
-                                    $("#ii4").click(function(){
-                                        $("#i1").hide();
-                                        $("#i2").hide();
-                                        $("#i3").hide();
-                                        $("#i4").show();
-
-                                    })
-                            </script>
-
                             <div class="clearfix"> </div>
                         </div>
                     </div>
@@ -139,18 +93,18 @@
         <div class="footer-content">
             <div class="col-md-3 footer-grid-copy-right">
                 <div class="logo-2">
-                    <a href="index.html"><img src="../../static/assets/images/logo2.png" alt=""></a>
+                    <a href="../index"><img src="/static/assets/images/logo2.png" alt=""></a>
                 </div>
 
             </div>
             <div class="col-md-3 footer-grid">
                 <h3 style="color: #d4fffa">快捷入口</h3>
                 <ul class="bottom-nav">
-                    <li class="active"><a  style="color: #d4fffa" href="index">主页</a></li>
-                    <li><a  style="color: #d4fffa" href="about"> 关于大赛  </a></li>
-                    <li><a style="color: #d4fffa" href="ziliao"> Mixly开源资料库</a></li>
-                    <li><a style="color: #d4fffa" href="chuangke"> 创客空间</a></li>
-                    <li><a style="color: #d4fffa" href="login">注册/登录</a></li>
+                    <li class="active"><a  style="color: #d4fffa" href="../index">主页</a></li>
+                    <li><a  style="color: #d4fffa" href="../about"> 关于大赛  </a></li>
+                    <li><a style="color: #d4fffa" href="../ziliao"> Mixly开源资料库</a></li>
+                    <li><a style="color: #d4fffa" href="../chuangke"> 创客空间</a></li>
+                    <li><a style="color: #d4fffa" href="../login">注册/登录</a></li>
                     <div class="clearfix"> </div>
 
                 </ul>
@@ -178,12 +132,57 @@
 </script>
 <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<script type="text/javascript" src="../../static/assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/jquery.min.js"></script>
 <!-- start-smoth-scrolling-->
-<script type="text/javascript" src="../../static/assets/js/move-top.js"></script>
-<script type="text/javascript" src="../../static/assets/js/easing.js"></script>
+<script type="text/javascript" src="/static/assets/js/move-top.js"></script>
+<script type="text/javascript" src="/static/assets/js/easing.js"></script>
 
-<script type="text/javascript" src="../../static/assets/js/modernizr.custom.53451.js"></script>
+<script type="text/javascript" src="/static/assets/js/modernizr.custom.53451.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".hide1").click(function(){
+            $("p").hide();
+        });
+        $(".show1").click(function(){
+            $("p").show();
+        });
+    });
+</script>
+<script>
+    $(".new").click(function(){
+        $(this).addClass("new1");
+        $(this).siblings().removeClass("new1");
+    });
+    $("#ii1").click(function(){
+        $("#i1").show();
+        $("#i2").hide();
+        $("#i3").hide();
+        // language=JQuery-CSS
+        $("#i4").hide();
+
+    });
+    $("#ii2").click(function(){
+        $("#i1").hide();
+        $("#i2").show();
+        $("#i3").hide();
+        $("#i4").hide();
+
+    });
+    $("#ii3").click(function(){
+        $("#i1").hide();
+        $("#i2").hide();
+        $("#i3").show();
+        $("#i4").hide();
+
+    });
+    $("#ii4").click(function(){
+        $("#i1").hide();
+        $("#i2").hide();
+        $("#i3").hide();
+        $("#i4").show();
+
+    })
+</script>
 <script type="text/javascript">
     jQuery(document).ready(function($) {
         $(".scroll").click(function(event){
