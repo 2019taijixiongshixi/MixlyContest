@@ -73,7 +73,11 @@ public class ProjectUploadController {
                     continue;
                 }
                 //String fileName = file.getOriginalFilename();
-                String fileName = formname + i + ".png";
+                String fileName = formname + i;
+                if(formname.equals("DesignDocument"))
+                    fileName+=".pdf";
+                else
+                    fileName+= ".png";
                 File dest = new File(new File(filepath).getAbsolutePath() + "/" + fileName);
                 if (!dest.getParentFile().exists()) {
                     dest.getParentFile().mkdirs();
