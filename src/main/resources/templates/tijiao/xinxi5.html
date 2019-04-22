@@ -166,7 +166,7 @@
                     </div>
                 </div>
                 <div class="form-bottom">
-                    <form class="login-form" th:action="@{/projectUpdateText}" method="post" th:object="${project}">
+                    <form id="test_form" onsubmit='return checkForm()' class="login-form" th:action="@{/projectUpdateText}" method="post" th:object="${project}">
                         <div class="form-group" >
                             <input type="text" name="VideoURL" placeholder="视频链接..."
                                    class="form-username form-control" id="VideoURL"
@@ -257,6 +257,40 @@
             '                        frameborder=\'0\'\n' +
             '                </iframe>'
     });
+    function checkForm(){
+        var VideoURL= document.getElementById("VideoURL").value;
+        var str1="src='";
+        var str2="src=\"";
+        var i1=VideoURL.indexOf(str1);
+        var i2=VideoURL.indexOf(str2);
+        if(i1!=-1){
+            // alert(i1);
+            VideoURL=VideoURL.substring(i1+5);
+            // alert(VideoURL);
+            i1=VideoURL.indexOf("'");
+            // alert(i1);
+            VideoURL=VideoURL.substring(0,i1);
+            //alert(VideoURL);
+            document.getElementById("VideoURL").value = VideoURL;
+            return ture;
+        }
+        if(i2!=-1){
+            // alert(i2);
+            VideoURL=VideoURL.substring(i2+5);
+            //alert(VideoURL);
+            i2=VideoURL.indexOf('"');
+            // alert(i2);
+            VideoURL=VideoURL.substring(0,i2);
+            //alert(VideoURL);
+            document.getElementById("VideoURL").value = VideoURL;
+            return true;
+        }
+        if(i2==-1&&i1==-1){
+            alert("视频链接格式输入错误!")
+            return false;
+        }
+
+    }
     $(document).ready(function () {
         $("#sss").click(function () {
             $("#box3").show();
