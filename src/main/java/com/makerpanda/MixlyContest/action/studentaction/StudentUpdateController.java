@@ -25,7 +25,6 @@ public class StudentUpdateController {
         Student studentupdate=new Student();
         HttpSession session=request.getSession();
         Integer studentid=Integer.parseInt(session.getAttribute("userid").toString());
-        CreateHtmlUtils.MakeHtml(studentid);
         StudentLoginService.getStudentInfo(studentupdate,studentid);
         Teacher teacher= TeacherInfoInquireService.TeacherInfoInquire(studentupdate.getTeacherID());
         String teachername=teacher.getTeacherName();
