@@ -1,5 +1,6 @@
 package com.makerpanda.MixlyContest.service.projectservice;
 
+import com.makerpanda.MixlyContest.CreateHtmlUtils;
 import com.makerpanda.MixlyContest.dao.ProjectDAO;
 import com.makerpanda.MixlyContest.datamodel.Project;
 import com.makerpanda.MixlyContest.datamodel.Student;
@@ -44,6 +45,7 @@ public class ProjectUpdateService {
                 break;
             case"DesignDocument":
                 project1.setDesignDocument(paths);//设计文档
+                CreateHtmlUtils.MakeHtml(project1.getProjectID(),project1);
                 break;
             default:
                 System.out.println(formname+"找不到对应字段");

@@ -168,6 +168,7 @@
                                     <th>身份</th>
                                     <th>项目作品名称</th>
                                     <th>项目是否最终提交</th>
+                                    <th>作品页</th>
                                     </thead>
                                     <tbody>
                                     <tr th:object="${teacher}">
@@ -175,15 +176,22 @@
                                         <td th:text="带队老师"></td>
                                         <td>-</td>
                                         <td>-</td>
+                                        <td>-</td>
                                     </tr>
                                     <tr th:each="student: ${students}">
-                                        <th th:text="${student.StudentName}"></th>
+                                        <th th:text="${student.StudentName}">
+                                            </th>
                                         <td th:text="学生"></td>
                                         <td th:text="${student.StudentProjectname}">未确定名称</td>
                                         <td th:if="${student.StudentProjectsubmission==null}">
                                             否</td>
                                         <td th:if="${student.StudentProjectsubmission!=null}">
                                             是</td>
+                                        <td>
+                                            <a th:if="${student.StudentProjectsubmission!=null}"
+                                               th:href="|/display/project${student.ProjectID}display.html|">
+                                            点击跳转</a></td>
+
                                     </tr>
                                     </tbody>
                                 </table>

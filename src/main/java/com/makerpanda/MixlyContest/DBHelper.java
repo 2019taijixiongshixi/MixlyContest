@@ -13,8 +13,10 @@ public class DBHelper {
     //	mysql数据库驱动
     private static final String driver = "com.mysql.cj.jdbc.Driver";
     //	数据库连接URL
+    //192.168.1.149
     private static final String url =
-            "jdbc:mysql://192.168.1.149:3306/mixlycontest";
+            "jdbc:mysql://192.168.1.149:3306/mixlycontest"
+            +"?serverTimezone=UTC";
     //	数据库用户名
     private static final String username = "root";
     //	数据库密码
