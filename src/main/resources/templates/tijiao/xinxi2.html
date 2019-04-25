@@ -29,7 +29,7 @@
           href="../../static/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../../static/assets/ico/apple-touch-icon-57-precomposed.png">
     <style>
-
+        body{ font-family: 微软雅黑;}
     </style>
 </head>
 
@@ -261,7 +261,7 @@
                 </div>
                 <div class="form-bottom" id="image">
                     <form class="login-form" th:action="@{/projectUpdateText}" th:object="${project}" method="post">
-                            <textarea type="text" name="ProjectDescription" placeholder="作品说明..."
+                            <textarea style="font-family: 微软雅黑" type="text" name="ProjectDescription" placeholder="作品说明..."
                                       class="form-username form-control" id="ProjectDescription"
                                       th:value="*{ProjectDescription}" autoHeight="true"></textarea>
                         <br>

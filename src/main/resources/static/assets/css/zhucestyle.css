@@ -17,6 +17,13 @@ p{
 
 input{
     width: 410px;
+	font-size: 15px;
+	font-family: 微软雅黑;
+}
+textarea{
+	width: 410px;
+	font-size: 15px;
+	font-family: 微软雅黑;
 }
 strong { font-weight: 500; }
 
@@ -129,6 +136,7 @@ img { max-width: 100%; }
 	float: left;
 	width: 75%;
 	padding-top: 25px;
+	font-family: 微软雅黑;
 }
 
 
