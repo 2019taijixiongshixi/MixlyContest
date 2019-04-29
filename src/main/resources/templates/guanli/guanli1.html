@@ -48,13 +48,7 @@
                 <li>
                     <a href="zuopin">
                         <i class="nc-icon nc-diamond"></i>
-                        <p>提交作品</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="zhanshi">
-                        <i class="nc-icon nc-bell-55"></i>
-                        <p>查看作品展示</p>
+                        <p>打分系统</p>
                     </a>
                 </li>
                 <li>
@@ -79,7 +73,7 @@
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="zhongxin1">个人资料</a>
+                    <a class="navbar-brand" href="zhongxin1">管理中心</a>
                 </div>
             </div>
         </nav>
@@ -215,8 +209,8 @@
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-header ">
-                            <h5 class="card-title">Users Behavior</h5>
-                            <p class="card-category">24 Hours performance</p>
+                            <h5 class="card-title">每日访问量</h5>
+                            <p class="card-category">人次</p>
                         </div>
                         <div class="card-body ">
                             <canvas id=chartHours width="400" height="100"></canvas>
@@ -224,18 +218,18 @@
                         <div class="card-footer ">
                             <hr>
                             <div class="stats">
-                                <i class="fa fa-history"></i> Updated 3 minutes ago
+                                <i class="fa fa-history"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <div class="card ">
                         <div class="card-header ">
-                            <h5 class="card-title">Email Statistics</h5>
-                            <p class="card-category">Last Campaign Performance</p>
+                            <h5 class="card-title">不同区县分布图</h5>
+                            <p class="card-category"></p>
                         </div>
                         <div class="card-body ">
                             <canvas id="chartEmail"></canvas>
@@ -249,34 +243,58 @@
                             </div>
                             <hr>
                             <div class="stats">
-                                <i class="fa fa-calendar"></i> Number of emails sent
+                                <i class="fa fa-calendar"></i>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8">
-                    <div class="card card-chart">
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">NASDAQ: AAPL</h5>
-                            <p class="card-category">Line Chart with Points</p>
+                            <h4 class="card-title"> 项目汇总表格</h4>
                         </div>
                         <div class="card-body">
-                            <canvas id="speedChart" width="400" height="100"></canvas>
-                        </div>
-                        <div class="card-footer">
-                            <div class="chart-legend">
-                                <i class="fa fa-circle text-info"></i> Tesla Model S
-                                <i class="fa fa-circle text-warning"></i> BMW 5 Series
-                            </div>
-                            <hr/>
-                            <div class="card-stats">
-                                <i class="fa fa-check"></i> Data information certified
+                            <div class="">
+                                <table class="table">
+                                    <thead class=" text-primary">
+                                    <th>项目序号</th>
+                                    <th>项目名</th>
+                                    <th>队长</th>
+                                    <th>老师</th>
+                                    <th>学校</th>
+                                    <th>视频链接</th>
+                                    <th>作品pdf</th>
+                                    <th>评分1</th>
+                                    <th>评分2</th>
+                                    <th>评分3</th>
+                                    <th>最终评分</th>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>ss</td>
+                                        <td>ss</td>
+                                        <td>zz</td>
+                                        <td>xx</td>
+                                        <td>cc</td>
+                                        <td>ss</td>
+                                        <td>ss</td>
+                                        <td>zz</td>
+                                        <td>xx</td>
+                                        <td>cc</td>
+                                        <td>zz</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <footer class="footer footer-black  footer-white ">
             <div class="container-fluid">
                 <div class="row">
@@ -295,7 +313,6 @@
                     </nav>
                     <div class="credits ml-auto">
               <span class="copyright">
-                ©
                 <script>
                   document.write(new Date().getFullYear())
                 </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim

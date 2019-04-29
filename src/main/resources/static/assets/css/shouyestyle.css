@@ -1,6 +1,10 @@
+@font-face {
+	font-family: siyaunheiti;
+	src: url("siyuanheiti.otf");
+}
 html, body{
     font-size: 100%;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'siyuanheiti', sans-serif;
   	background: #ffffff;
   	position: relative;
 }
@@ -233,7 +237,7 @@ body a{
 	text-decoration:none;
 	font-size:1.1em;
 	font-weight:400;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	padding: 11px 16px 10px;
 	display:block;	
 	transition:0.5s all ease;
@@ -277,7 +281,7 @@ nav a {
 	display: inline-block;
 	text-decoration: none;
 	line-height: 40px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	transition:0.5s all ease;
 	-webkit-transition:0.5s all ease;
 	-moz-transition:0.5s all ease;
@@ -620,7 +624,7 @@ right:15%;
 }
 .slider-top h1{
 	color: #fff;	
-	font-family: Segoe Print;
+	font-family: siyuanheiti;
 	font-size:2em;
 	margin:0em 0;
 	font-weight:300;
@@ -662,7 +666,7 @@ a.banner-btn:hover{
 .callbacks_tabs a:after {
   content: "\f111";
   font-size:0;
-  font-family: FontAwesome;
+  font-family: siyuanheiti;
   visibility: visible;
   display: block;
   height:16px;
@@ -686,7 +690,7 @@ a.banner-btn:hover{
 }
 .welcom-grid-text h2,.welcom-grid-list h3{
 	color: #c00006;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	font-size:2.6em;
 	margin:0em 0;
 	font-weight:600;
@@ -698,7 +702,7 @@ a.banner-btn:hover{
 }
 .welcom-grid-text p{
 	color:#9B9393;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	font-size: 1em;
 	margin: 1em 0 0 0;
 	font-weight: 400;
@@ -731,7 +735,7 @@ margin-top: 1.3em;
 	font-size: 1em;
 	line-height: 1.4em;
 	font-weight:500;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	margin-top:4px;
 }
 .list.styled.arrow-list2 ul li a:hover{
@@ -747,20 +751,20 @@ margin-top: 1.3em;
 .Event-section h3{
 	color: #3c4042;
 	font-size:2.2em;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	margin: 0em 0 1em 0.3em;
 	font-weight:300;
 }
 .gallery-box h4{
 	color: #c71d1d;	
 	font-size:1.3em;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	margin:1em 0 0em 0;
 	font-weight:500;
 }
  .gallery-box p{
  	color:#9B9797;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	font-size:0.95em;
 	margin: 1em 0 0 0;
 	font-weight: 400;
@@ -769,7 +773,7 @@ margin-top: 1.3em;
  .gallery-box h5{
  	color: #717172;
 	font-size: 1em;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	margin: 0em 0 0em 0;
 	font-weight: 400;
 	padding: 10px 0 0 0;
@@ -890,7 +894,7 @@ right: 199px;
 	color: #fff;
 	font-size: 1.4em;
 	text-align:center;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	line-height: 1.9em;
 	font-weight: 400;
 }
@@ -914,20 +918,20 @@ color:#C0B9CD;
 .leave-section h3{
 	color: #3c4042;
 	font-size:2.2em;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	margin:0em 0 1em 0;
 	font-weight:300;
 }
 .leave-grid h4{
 	color: #5F6569;
 	font-size: 1.4em;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	margin: 0em 0 0.5em 0;
 	font-weight: 600;
 }
 .leave-grid p{
  	color: #555;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	font-size:0.95em;
 	margin: 1em 0 0 0;
 	font-weight: 400;
@@ -958,7 +962,7 @@ ul.bottom-nav li a{
 		text-decoration: none;
 	color: #4C4B4B;
 	font-weight: 600;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	padding: 0px 0px 6px;
 	display: block;
 }
@@ -966,7 +970,7 @@ ul.bottom-nav li a{
 font-size: 1.35em;
 font-weight: 600;
 color: #2f3335;
-font-family: 'Open Sans', sans-serif;
+font-family: 'siyuanheiti', sans-serif;
 }
 .copy-right {
 	text-align:center;
@@ -975,7 +979,7 @@ font-family: 'Open Sans', sans-serif;
 .footer-grid-copy-right p {
 	font-size: 1.2em;
 	color: #666;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	font-weight: 400;
 }
 .footer-grid-copy-right p a{
@@ -1004,7 +1008,7 @@ list-style: none;
 	text-decoration: none;
 	color: #4C4B4B;
 	font-weight:400;
-	font-family: 'Opensan', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	line-height: 1.7em;
 	font-size:0.96em;
 	margin-top: 3px;
@@ -1038,7 +1042,7 @@ ul.soc_icons2 li a span{
 	text-decoration: none;
 	color: #4C4B4B;
 	font-weight: 400;
-	font-family: 'Opensan', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	line-height: 1.7em;
 	font-size:0.96em;
 	margin-top: 3px;
@@ -1167,7 +1171,7 @@ padding: 0.2em;
   padding: 0.7em 1.8em;
   color: #FFF;
 	font-size: 1em;
-	font-family: 'Opensan', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	width: 25%;
 	font-weight:400;
 	text-transform: uppercase;
@@ -1225,7 +1229,7 @@ a.button.curl-bottom-right:hover{
 	font-weight:100;
 	font-size:1.7em;
 	color: #666;
-	font-family: 'Opensan', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	margin-top:0.6em;
 }
 a.home-btn:hover {
@@ -1245,7 +1249,7 @@ a.button.curl-bottom-right.two{
 	color:#fff;
 	font-size: 2em;
 	text-align:left;
-    font-family: 'Lato', sans-serif;
+    font-family: 'siyuanheiti', sans-serif;
     font-weight:600;
  	margin:0; 	
  	text-transform: uppercase
@@ -1254,7 +1258,7 @@ a.button.curl-bottom-right.two{
 	color:#999;
 	font-size: 0.99em;
 	text-align: left;
-	font-family: 'Lato', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	width: 100%;
 	line-height: 1.9em;
 	margin-bottom: 0.9em;
@@ -1267,7 +1271,7 @@ a.button.curl-bottom-right.two{
 	outline: none;
 	font-weight: 300;
 	color:#fff;
-	font-family: 'Opensan', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	border: 1px solid #fff;
 	-webkit-appearance: none;
 	font-size: 15px;
@@ -1285,7 +1289,7 @@ a.button.curl-bottom-right.two{
 	margin: 2% 0;
 }
 .contact-left input[type="submit"]{
-	font-family: 'Opensan', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	background: #2254AB;
 	color: #fff;
 	font-weight: 300;
@@ -1430,7 +1434,7 @@ padding-bottom: 2em;
 	color:#fff;
 	text-transform:uppercase;
 	font-weight:400;
-	font-family: 'Josefin Slab', serif;
+	font-family: 'siyuanheiti', serif;
 }
 /*-- Cat bar Ends here --*/
 .levis{
@@ -1570,7 +1574,7 @@ p.rate{
 	font-weight: 300;
 	text-transform: uppercase;
 	text-decoration: none;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 }
 .b-tag-weight ul{
 	margin:0;
@@ -1593,7 +1597,7 @@ p.rate{
 	color: #c71d1d;
 	background: url(../images/date.png) no-repeat 0px 0px;
 	display: inline-block;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 }
 .blog-artical-info{
 	float:right;
@@ -1603,14 +1607,14 @@ p.rate{
 	display:block;
 	color:#fff;
 	font-size: 1.5em;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 }
 .post-date label{
 	font-size: 12px;
 	color:#fff;
 	margin-top: -0.2em;
 	display: block;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	font-weight: 600;
 }
 .post-date p{
@@ -1646,7 +1650,7 @@ p.rate{
 	-webkit-transition:0.5s all;
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 }
 .blog-artical-info-head ul li a:hover{
 	color:#6380b3;
@@ -1656,13 +1660,13 @@ p.rate{
 	line-height: 1.8em;
 	margin: 1em 0;
 	font-weight: 400;
-	font-family: 'Opensans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 }
 .blog-artical-info-text p a{
 	color: #93c53e;
 	margin-left: 0.4em;
 	font-size: 0.875em;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	vertical-align: middle;
 }
 .blog-artical{
@@ -1690,14 +1694,14 @@ p.rate{
 	color: #999;
 	position: relative;
 	border: none;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 }
 .b-search input[type="submit"]{
 	background: url(../images/search-icon2.png) no-repeat 0px 2px;
 	border: none;
 	height: 26px;
 	width: 26px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	display: inline-block;
 	position: absolute;
 	outline: none;
@@ -1738,7 +1742,7 @@ nav a {
 	display: inline-block;
 	outline: none;
 	color: #fff;
-	font-family: 'Arimo Sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	text-decoration: none;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -1854,7 +1858,7 @@ text-decoration: none;
 color: #999;
 margin: 0.5em 0;
 line-height: 1.5em;
-font-family: 'Open sans', sans-serif;
+font-family: 'siyuanheiti', sans-serif;
 margin-top: 3px;
 }
 .list.styled.arrow-list2 ul li a:hover{
@@ -1865,7 +1869,7 @@ margin-top: 3px;
 }
 .categories h3,.Archives h3{
 	text-shadow: none;
-	font-family: 'Opensan', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	font-size: 1.25em;
 	color:#6380b3;
 	font-weight:500;
@@ -2009,7 +2013,7 @@ div.register-bottom-grid {
 	border-bottom: 16px solid#2254AB;
 }
 .comments-area h3 {
-font-family: 'Open sans', sans-serif;
+font-family: 'siyuanheiti', sans-serif;
 font-size: 2em;
 color: #666;
 font-weight:300;
@@ -2020,7 +2024,7 @@ margin-bottom: 0.5em;
 	position: relative;
 	padding: 8px 0;
 	margin: 0;
-	font-family: 'Open sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 }
 .comments-area {
 margin-left: 8.5em;
@@ -2035,7 +2039,7 @@ font-weight: 400;
 	position: absolute;
 	left: 4px;
 	top: 30px;
-	font-family: 'Open sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 }
 .comments-area form input[type="text"] {
 	padding: 15px 20px;
@@ -2043,7 +2047,7 @@ font-weight: 400;
 	color: #999;
 	font-size: 13px;
 	border: none;
-	font-family: 'Open sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	background:#F0F0F0;
 	outline: none;
 	display: block;
@@ -2055,7 +2059,7 @@ font-weight: 400;
 	font-size: 13px;
 	outline: none;
 	height:200px;
-	font-family: 'Open sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	display: block;
 	border: none;
 	background:#F0F0F0;
@@ -2068,7 +2072,7 @@ font-weight: 400;
 	font-size: 1em;
 	border: none;
 	outline: none;
-	font-family: 'Open sans', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	text-transform: uppercase;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
@@ -2600,7 +2604,7 @@ select.two{
 }
 .recent-posts.one h2{
 	text-shadow: none;
-font-family: 'Opensan', sans-serif;
+font-family: 'siyuanheiti', sans-serif;
 font-size: 1.25em;
 color: #6380b3;
 font-weight: 500;
@@ -3027,7 +3031,7 @@ float: left;
 	font-weight: 100;
 	font-size: 1.4em;
 	color: #666;
-	font-family: 'Opensan', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	margin-top: 0.6em;
 	}
 }
@@ -3217,7 +3221,7 @@ float: left;
 	.callbacks_tabs a:after {
 	content: "\f111";
 	font-size: 0;
-	font-family: FontAwesome;
+	font-family: siyuanheiti;
 	visibility: visible;
 	display: block;
 	height: 12px;
@@ -3307,7 +3311,7 @@ float: left;
 		outline: none;
 		font-weight: 300;
 		color: #fff;
-		font-family: 'Opensan', sans-serif;
+		font-family: 'siyuanheiti', sans-serif;
 		border: 1px solid #fff;
 		-webkit-appearance: none;
 		font-size: 12px;
