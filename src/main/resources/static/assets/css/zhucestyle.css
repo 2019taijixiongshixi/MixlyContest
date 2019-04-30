@@ -1,7 +1,10 @@
-
+@font-face {
+	font-family: siyaunheiti;
+	src: url("siyuanheiti.otf");
+}
 body {
 	background:url(../img/backgrounds/zhuce1.jpg); background-size:cover;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'siyuanheiti', sans-serif;
 	font-size: 20px;
 	font-weight: 300;
 	color: #888;
@@ -17,6 +20,13 @@ p{
 
 input{
     width: 410px;
+	font-size: 15px;
+	font-family: siyuanheiti, sans-serif;
+}
+textarea{
+	width: 410px;
+	font-size: 15px;
+	font-family: siyuanheiti，sans-serif, sans-serif;
 }
 strong { font-weight: 500; }
 
@@ -129,6 +139,7 @@ img { max-width: 100%; }
 	float: left;
 	width: 75%;
 	padding-top: 25px;
+	font-family: siyuanheiti,sans-serif;
 }
 
 

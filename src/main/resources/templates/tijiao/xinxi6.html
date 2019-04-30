@@ -40,13 +40,13 @@
 <a href="index">
     <button type="button" style="background-color:#33CCFF" class="btn btn-default btn-circle btn-lg"><br><strong style=""> <<返回首页 </strong><br><br><br><br><br></button></a><nobr style="font-size: 20px">→</nobr>
 <a href="xinxi1">
-    <button type="button" style="" class="btn btn-default btn-circle btn-x2"><strong style="">一、团队与项目信息</strong><br><br><br><br><br>
+    <button type="button" style="" class="btn btn-default btn-circle btn-x2"><strong style="">一、团队与作品信息</strong><br><br><br><br><br>
     </button>
 </a>
 <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
 <a href="xinxi2">
     <button type="button" style="" class="btn btn-primary btn-circle btn-x2">
-        <strong>二、项目说明</strong><br><br>1.项目作品展示图<br>2.思维导图<br>3.作品说明<br>4.比赛心得
+        <strong>二、作品说明</strong><br><br>&nbsp;&nbsp;&nbsp;&nbsp;1.作品展示图<br>2.思维导图<br>3.作品说明<br>4.比赛心得
     </button>
 </a>
 <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
@@ -56,7 +56,7 @@
 </a>
 <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
 <a href="xinxi4">
-    <button type="button" style="" class="btn btn-info btn-circle btn-x2"><strong>四、结构说明</strong><br><br>1.作品结构图<br>2.使用器材说明<br><br>
+    <button type="button" style="" class="btn btn-info btn-circle btn-x2"><strong>四、结构说明</strong><br><br>1.作品结构图<br>&nbsp;&nbsp;&nbsp;2.使用器材说明<br><br>
     </button>
 </a>
 <nobr style="font-size: 50px;vertical-align: middle ">→</nobr>
@@ -124,7 +124,7 @@
                 <div class="form-bottom">
                     <form th:action="@{/multiUpload}" method="post" enctype="multipart/form-data" class="login-form1">
                         <div id="in1">
-                        <label><input name="Fruit" type="radio" value=""/>我已阅读参赛协议并接受参赛协议 </label>
+                        <label><input style="width: 20px" name="Fruit" type="radio" value=""/>我已阅读参赛协议并接受参赛协议 </label>
                         <br>
                         <br>
                         <label for="select">请上传PDF设计文档</label>
@@ -132,7 +132,7 @@
                         <br>
                         </div>
                         <h3 id="in2" style="display: none">
-                            已完成最终提交，无法再更改项目内容，请等待评委审核，最终结果和决赛通知会发送到注册邮箱或手机，请注意查收。
+                            已完成最终提交，无法再更改作品内容，请等待评委审核，最终结果和决赛通知会发送到注册邮箱或手机，请注意查收。
                         </h3>
                         <input type="text" name="pagepath" style="display: none" th:value="xinxi6"/>
                         <input type="text" name="formname" style="display: none" th:value="DesignDocument"/>
@@ -296,9 +296,9 @@
                                 var docDefinition = {
                                     content: [
                                         {text: '米思奇创意电子编程大赛设计文档—\n' + projectname, style: ['header1']},
-                                        {text: '第一部分：项目及团队信息\n', style: ['header2']},
+                                        {text: '第一部分：作品及团队信息\n', style: ['header2']},
                                         {text: teaminfo, style: ['contents']},
-                                        {text: '第二部分：项目说明\n', style: ['header2']},
+                                        {text: '第二部分：作品说明\n', style: ['header2']},
                                         {text: '一、项目作品展示图\n', style: ['header3']},
                                         {stack: stack1, style: ['contents']},
                                         {text: '二、思维导图\n', style: ['header3']},

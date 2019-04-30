@@ -1,4 +1,8 @@
+@font-face {
+    font-family: siyuanheiti;
+    src: url("siyuanheiti.otf");
 
+}
 input[type="text"], 
 input[type="password"], 
 textarea, 
@@ -9,8 +13,8 @@ textarea.form-control {
     vertical-align: middle;
     background: #f8f8f8;
     border: 3px solid #ddd;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-family: 'siyuanheiti', sans-serif;
+    font-size: 19px;
     font-weight: 300;
     line-height: 50px;
     color: #000000;
@@ -54,8 +58,8 @@ button.btn {
     vertical-align: middle;
     background: #4aaf51;
     border: 0;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-family: 'siyuanheiti', sans-serif;
+    font-size: 19px;
     font-weight: 300;
     line-height: 50px;
     color: #fff;
