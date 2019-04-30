@@ -1,6 +1,5 @@
 package com.makerpanda.MixlyContest.action.projectaction;
 
-import com.makerpanda.MixlyContest.CreateHtmlUtils;
 import com.makerpanda.MixlyContest.datamodel.Project;
 import com.makerpanda.MixlyContest.datamodel.Student;
 import com.makerpanda.MixlyContest.service.projectservice.ProjectDisplayService;
@@ -8,7 +7,9 @@ import com.makerpanda.MixlyContest.service.projectservice.ProjectUpdateService;
 import com.makerpanda.MixlyContest.service.studentservice.StudentLoginService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -96,6 +97,30 @@ public class ProjectPageController {
         else
             return "redirect:xinxi1";
     }
+    @RequestMapping(path={"/zhanshi"})
+    public String zhanshi(Model model,@RequestParam(value="pageNum") String pageNum) {
+        ArrayList projects=ProjectDisplayService.displayAllProject();
+        Integer page=Integer.parseInt(pageNum);
+        if(page<0)
+            page=0;
+        else if(page>projects.size()/9)
+            page=projects.size()/9;
+        ArrayList projectpage=page(projects,page);
+        model.addAttribute("projects",projectpage);
+        model.addAttribute("projectnum",projects.size());
+        model.addAttribute("pageNum",page);
+        model.addAttribute("totalPages",projects.size()/9);
+        return "zhanshi/zhanshi";
+    }
+    private ArrayList page(ArrayList<Project>projects,Integer page){
+        ArrayList <Project> projectpage=new ArrayList<>();
+        int i=0;
+        for(;i<9&&i<projects.size()-page*9;i++){//每页展示9个结果
+            projectpage.add(projects.get(i+page*9));
+        }
+        return projectpage;
+    }
+
     private Project ObjectSend(Model model, HttpServletRequest request){
         HttpSession session=request.getSession();
         Integer userid=0;
@@ -112,7 +137,6 @@ public class ProjectPageController {
         }
         model.addAttribute("student",student);
         return project;
-
     }
 
     private static void projectDisplay(Project project, Model model){

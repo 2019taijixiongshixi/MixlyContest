@@ -1,5 +1,6 @@
 package com.makerpanda.MixlyContest.service.projectservice;
 
+import com.makerpanda.MixlyContest.dao.ProjectDAO;
 import com.makerpanda.MixlyContest.datamodel.Project;
 import org.springframework.stereotype.Service;
 
@@ -45,5 +46,9 @@ public class ProjectDisplayService {
                     project.getDesignDocument()));
         }
         return filestoragepaths;
+    }
+    public static ArrayList displayAllProject(){
+        ProjectDAO projectdao=new ProjectDAO();
+        return projectdao.getProjects();
     }
 }

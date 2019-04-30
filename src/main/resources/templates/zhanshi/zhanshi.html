@@ -8,6 +8,7 @@
     <link href="../../static/assets/css/shouyestyle.css" rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="../../static/assets/css/magnific-popup.css">
     <!-- Custom Theme files -->
+    <link rel="stylesheet" href="../../static/assets/css/jquery.pagination.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Snow Skating Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
@@ -28,87 +29,54 @@
                     <div class="con-box-tit1 pa">作品展示</div>
                     <div class="con-txt">
                         <div class="section group">
-                            <div class="col-md-4 gallery-box1">
-                                <div id="nivo-lightbox-demo"> <p> <a href="zhanshi1" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo"> <span class="rollover1"> </span></a> </p></div>
-                                <a href="zhanshi1"><img src="../../static/assets/images/e1.png" title="img" /></a>
-                                <h4>超声波测距仪</h4>
-                                <h5>创作者<lable> MakerPanda</lable></h5>
-                                <p>运用超声波原理测量距离 </p>
+                            <div class="col-md-4 gallery-box1" th:each="project,iterStat: ${projects}"
+                                 th:object="${project}" th:id="${iterStat.count}">
+                                <div> <p>
+                                    <a th:href="|/display/project*{ProjectID}display.html|" data-lightbox-gallery="gallery1"
+                                       > <span class="rollover1"> </span></a>
+                                </p></div>
+                                <a th:href="|/display/project*{ProjectID}display.html|">
+                                    <img th:src="|/upload/*{StudentID1}/ProjectDisplayMap/ProjectDisplayMap0.png|"
+                                         width="270px" height="200px" th:title="*{ProjectName}" /></a>
+                                <h4 th:text="*{ProjectName}"></h4>
+                                <h5>创作者： <lable th:text="*{ProjectTeamName}"></lable></h5>
+                                <p th:text="*{ProjectDescription}"></p>
                             </div>
-                            <div class="col-md-4 gallery-box1">
-                                <div id="nivo-lightbox-demo"> <p> <a href="../../static/assets/images/e2-pop.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo"> <span class="rollover1"> </span></a> </p></div>
-                                <a href="zhanshi"><img src="../../static/assets/images/e1.png" title="img" /></a>
-                                <h4>超声波测距仪</h4>
-                                <h5>创作者<lable> MakerPanda</lable></h5>
-                                <p>运用超声波原理测量距离 </p>
+
+                            <div class="clearfix">
                             </div>
-                            <div class="col-md-4 gallery-box1">
-                                <div id="nivo-lightbox-demo"> <p> <a href="../../static/assets/images/e3-pop.png" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>
-                                <a href="zhanshi"><img src="../../static/assets/images/e1.png" title="img" /></a>
-                                <h4>超声波测距仪</h4>
-                                <h5>创作者<lable> MakerPanda</lable></h5>
-                                <p>运用超声波原理测量距离 </p>
+                            <div class="page-icon">
+                                <table>
+                                    <tr>
+                                        <td><a th:href="@{/zhanshi?pageNum=0}">&laquo;</a></td>
+                                        <td th:switch="${pageNum}">
+                                            <p th:case="0"><a th:href="@{/zhanshi?pageNum=0}">上一页</a></p>
+                                            <p th:case="*"><a th:href="@{/zhanshi(pageNum=${pageNum-1})}">上一页</a></p>
+                                        </td>
+                                        <td th:if="${pageNum-2>=0}">
+                                            <p><a th:text="${pageNum-1}" th:href="@{/zhanshi(pageNum=${pageNum-2})}">?</a></p>
+                                        </td>
+                                        <td th:if="${pageNum-1>=0}">
+                                            <p><a th:text="${pageNum}" th:href="@{/zhanshi(pageNum=${pageNum-1})}">?</a></p>
+                                        </td>
+                                        <td>
+                                            <p> <a style="color: #b37eff;background-color: #b6ffec" th:text="${pageNum+1}" th:href="@{/zhanshi(pageNum=${pageNum})}">?</a></p>
+                                        </td>
+                                        <td th:if="${pageNum+1<=totalPages}">
+                                            <p><a th:text="${pageNum+2}" th:href="@{/zhanshi(pageNum=${pageNum+1})}">?</a></p>
+                                        </td>
+                                        <td th:if="${pageNum+2<=totalPages}">
+                                            <p><a th:text="${pageNum+3}" th:href="@{/zhanshi(pageNum=${pageNum+2})}">?</a></p>
+                                        </td>
+                                        <td th:switch="${pageNum}">
+                                            <p th:case="${totalPages}"><a th:href="@{/zhanshi(pageNum=${totalPages})}">下一页</a></p>
+                                            <p th:case="*"><a th:href="@{/zhanshi(pageNum=${pageNum+1})}">下一页</a></p>
+                                        </td>
+                                        <td><a th:href="@{/zhanshi(pageNum=${totalPages})}">&raquo;</a></td>
+                                    </tr>
+                                </table>
                             </div>
-                            <br>
-                            <div class="col-md-4 gallery-box1">
-                                <div id="nivo-lightbox-demo"> <p> <a href="../../static/assets/images/e4-pop.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>
-                                <a href="zhanshi"><img src="../../static/assets/images/e1.png" title="img" /></a>
-                                <h4>超声波测距仪</h4>
-                                <h5>创作者<lable> MakerPanda</lable></h5>
-                                <p>运用超声波原理测量距离 </p>
-                            </div>
-                            <div class="col-md-4 gallery-box1">
-                                <div id="nivo-lightbox-demo"> <p> <a href="../../static/assets/images/e4-pop.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>
-                                <a href="zhanshi"><img src="../../static/assets/images/e1.png" title="img" /></a>
-                                <h4>超声波测距仪</h4>
-                                <h5>创作者<lable> MakerPanda</lable></h5>
-                                <p>运用超声波原理测量距离 </p>
-                            </div>
-                            <div class="col-md-4 gallery-box1">
-                                <div id="nivo-lightbox-demo"> <p> <a href="../../static/assets/images/e4-pop.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>
-                                <a href="zhanshi"><img src="../../static/assets/images/e1.png" title="img" /></a>
-                                <h4>超声波测距仪</h4>
-                                <h5>创作者<lable> MakerPanda</lable></h5>
-                                <p>运用超声波原理测量距离 </p>
-                            </div>
-                            <br>
-                            <div class="col-md-4 gallery-box1">
-                                <div id="nivo-lightbox-demo"> <p> <a href="../../static/assets/images/e4-pop.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>
-                                <a href="zhanshi"><img src="../../static/assets/images/e1.png" title="img" /></a>
-                                <h4>超声波测距仪</h4>
-                                <h5>创作者<lable> MakerPanda</lable></h5>
-                                <p>运用超声波原理测量距离 </p>
-                            </div>
-                            <div class="col-md-4 gallery-box1">
-                                <div id="nivo-lightbox-demo"> <p> <a href="../../static/assets/images/e4-pop.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>
-                                <a href="zhanshi"><img src="../../static/assets/images/e1.png" title="img" /></a>
-                                <h4>超声波测距仪</h4>
-                                <h5>创作者<lable> MakerPanda</lable></h5>
-                                <p>运用超声波原理测量距离 </p>
-                            </div>
-                            <div class="col-md-4 gallery-box1">
-                                <div id="nivo-lightbox-demo"> <p> <a href="../../static/assets/images/e4-pop.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>
-                                <a href="zhanshi"><img src="../../static/assets/images/e1.png" title="img" /></a>
-                                <h4>超声波测距仪</h4>
-                                <h5>创作者<lable> MakerPanda</lable></h5>
-                                <p>运用超声波原理测量距离 </p>
-                            </div>
-                            <div class="clearfix"> </div>
                         </div>
-                        <div class="page-icon">
-                        <span class="page-disabled"><i></i>上一页</span>
-                        <span class="page-current">1</span>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">7</a>
-                        ……
-                        <a href="#">199</a>
-                        <a href="#">200</a>
-                        <a class="page-next" href="#">下一页<i></i></a>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -146,11 +114,6 @@
                     <div class="clearfix"> </div>
                 </div>
             </article>
-
-            <script src="../../static/assets/js/jquery.wmuSlider.js"></script>
-            <script>
-                $('.example1').wmuSlider();
-            </script>
         </div>
     </div>
 </div>
@@ -163,7 +126,7 @@
         <div class="footer-content">
             <div class="col-md-3 footer-grid-copy-right">
                 <div class="logo-2">
-                    <a href="index.html"><img src="../../static/assets/images/logo2.png" alt=""></a>
+                    <a href="index"><img src="../../static/assets/images/logo2.png" alt=""></a>
                 </div>
 
             </div>
@@ -176,7 +139,6 @@
                     <li><a style="color: #d4fffa" href="chuangke"> 创客空间</a></li>
                     <li><a style="color: #d4fffa" href="login">注册/登录</a></li>
                     <div class="clearfix"> </div>
-
                 </ul>
             </div>
 
@@ -197,6 +159,23 @@
 </div>
 <!--//End-footer-->
 
+
+<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- start-smoth-scrolling-->
+<script type="text/javascript" src="../../static/assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/assets/js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="../../static/assets/js/move-top.js"></script>
+<script type="text/javascript" src="../../static/assets/js/easing.js"></script>
+
+<script type="text/javascript" src="../../static/assets/js/modernizr.custom.53451.js"></script>
+<script type="text/javascript" src="../../static/assets/js/jquery.wmuSlider.js"></script>
+<script type="text/javascript" src="../../static/assets/js/jquery.pagination-1.2.7.js"></script>
+
+<script>
+    $('.example1').wmuSlider();
+</script>
+
 <script type="text/javascript">
     $(document).ready(function() {
         /*
@@ -212,14 +191,6 @@
 
     });
 </script>
-<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<script type="text/javascript" src="../../static/assets/js/jquery.min.js"></script>
-<!-- start-smoth-scrolling-->
-<script type="text/javascript" src="../../static/assets/js/move-top.js"></script>
-<script type="text/javascript" src="../../static/assets/js/easing.js"></script>
-
-<script type="text/javascript" src="../../static/assets/js/modernizr.custom.53451.js"></script>
 <script type="text/javascript">
     jQuery(document).ready(function($) {
         $(".scroll").click(function(event){

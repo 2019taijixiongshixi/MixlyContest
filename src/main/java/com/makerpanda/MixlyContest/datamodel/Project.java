@@ -39,9 +39,13 @@ public class Project implements Serializable,Cloneable {
 
     private String designdocument;
 
-    private String preliminariesscore;
+    private Integer preliminariesscore;
 
-    private String finalscore;
+    private Integer finalscore;
+
+    private Integer preliminariesscoretimes;
+
+    private Integer finalscoretimes;
 
     public String getProjectName() { return projectname; }
 
@@ -111,13 +115,22 @@ public class Project implements Serializable,Cloneable {
 
     public void setDesignDocument(String designdocument) { this.designdocument = designdocument; }
 
-    public String getPreliminariesScore() { return preliminariesscore; }
+    public Integer getPreliminariesScore() { return preliminariesscore; }
 
-    public void setPreliminariesScore(String preliminariesscore) { this.preliminariesscore = preliminariesscore; }
+    public void setPreliminariesScore(Integer preliminariesscore) { this.preliminariesscore = preliminariesscore; }
 
-    public String getFinalScore() { return finalscore; }
+    public Integer getFinalScore() { return finalscore; }
 
-    public void setFinalScore(String finalscore) { this.finalscore = finalscore; }
+    public void setFinalScore(Integer finalscore) { this.finalscore = finalscore; }
+
+    public Integer getPreliminariesScoreTimes() { return preliminariesscoretimes; }
+
+    public void setPreliminariesScoreTimes(Integer preliminariesscoretimes) {
+        this.preliminariesscoretimes = preliminariesscoretimes; }
+
+    public Integer getFinalScoreTimes() { return finalscoretimes; }
+
+    public void setFinalScoreTimes(Integer finalscoretimes) { this.finalscoretimes = finalscoretimes; }
 
     public Integer getTeacherID() { return teacherid; }
 

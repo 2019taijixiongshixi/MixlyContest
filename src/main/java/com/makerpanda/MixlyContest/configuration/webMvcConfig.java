@@ -43,7 +43,7 @@ public class webMvcConfig implements WebMvcConfigurer {
                         "/jzhuce","/xzhuce",
                         "/studentlogin","/teacherlogin",
                         "/xzhucetijiao","/jzhucetijiao",
-                        "/getverifycode","/zhanshi",
+                        "/getverifycode","/upload/**",
                         "/display/**","/assets/**");
     }
 

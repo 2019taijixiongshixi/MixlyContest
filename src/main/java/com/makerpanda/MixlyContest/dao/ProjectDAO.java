@@ -20,7 +20,7 @@ public class ProjectDAO {
     private static ResultSet resultSet = null;
 
     /**
-     * 获取全部项目信息。
+     * 获取全部已提交项目信息。
      * @return Project类型的ArrayList集合，其中每个project对象是一个项目。
      */
     public ArrayList getProjects() {
@@ -29,7 +29,7 @@ public class ProjectDAO {
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
-            pst = conn.prepareStatement("SELECT * FROM Project");  // 预处理语句
+            pst = conn.prepareStatement("SELECT * FROM Project WHERE DesignDocument IS NOT NULL");  // 预处理语句
             resultSet = pst.executeQuery();  // 执行语句
 
             // 遍历处理结果集，获得每一行数据
@@ -39,7 +39,7 @@ public class ProjectDAO {
                 project.setProjectName(resultSet.getString("ProjectName"));
                 project.setProjectID(resultSet.getInt("ProjectID"));
                 project.setFlowChart(resultSet.getString("FlowChart"));
-                project.setProjectMindMap(resultSet.getString("ProjectMindMapping"));
+                project.setProjectMindMap(resultSet.getString("ProjectMindMap"));
                 project.setCodeModuleDiagram(resultSet.getString("CodeModuleDiagram"));
                 project.setVideoURL(resultSet.getString("VideoURL"));
                 project.setStudentID1(resultSet.getInt("StudentID1"));
@@ -49,12 +49,14 @@ public class ProjectDAO {
                 project.setProjectDisplayMap(resultSet.getString("ProjectDisplayMap"));
                 project.setProjectDescription(resultSet.getString("ProjectDescription"));
                 project.setHardwareCircuitDiagram(resultSet.getString("HardwareCircuitDiagram"));
-                project.setStructureChart(resultSet.getString("SrtuctureChart"));
+                project.setStructureChart(resultSet.getString("StructureChart"));
                 project.setEquipment(resultSet.getString("Equipment"));
                 project.setCompetitionExperience(resultSet.getString("CompetitionExperience"));
                 project.setDesignDocument(resultSet.getString("DesignDocument"));
-                project.setPreliminariesScore(resultSet.getString("PreliminariesScore"));
-                project.setFinalScore(resultSet.getString("FinalScore"));
+                project.setPreliminariesScore(resultSet.getInt("PreliminariesScore"));
+                project.setFinalScore(resultSet.getInt("FinalScore"));
+                project.setPreliminariesScoreTimes(resultSet.getInt("PreliminariesScoreTimes"));
+                project.setFinalScoreTimes(resultSet.getInt("FinalScoreTimes"));
                 project.setTeacherID(resultSet.getInt("TeacherID"));
                 // 将user对象添加进arrayList当中
                 arrayList.add(project);
@@ -99,8 +101,10 @@ public class ProjectDAO {
                 project.setEquipment(resultSet.getString("Equipment"));
                 project.setCompetitionExperience(resultSet.getString("CompetitionExperience"));
                 project.setDesignDocument(resultSet.getString("DesignDocument"));
-                project.setPreliminariesScore(resultSet.getString("PreliminariesScore"));
-                project.setFinalScore(resultSet.getString("FinalScore"));
+                project.setPreliminariesScore(resultSet.getInt("PreliminariesScore"));
+                project.setFinalScore(resultSet.getInt("FinalScore"));
+                project.setPreliminariesScoreTimes(resultSet.getInt("PreliminariesScoreTimes"));
+                project.setFinalScoreTimes(resultSet.getInt("FinalScoreTimes"));
                 project.setTeacherID(resultSet.getInt("TeacherID"));
             }
 
