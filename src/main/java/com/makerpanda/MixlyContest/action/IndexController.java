@@ -3,6 +3,7 @@ package com.makerpanda.MixlyContest.action;
 import com.makerpanda.MixlyContest.CreateHtmlUtils;
 import com.makerpanda.MixlyContest.datamodel.Student;
 import com.makerpanda.MixlyContest.datamodel.Teacher;
+import com.makerpanda.MixlyContest.service.projectservice.ProjectDisplayService;
 import com.makerpanda.MixlyContest.service.studentservice.StudentLoginService;
 import com.makerpanda.MixlyContest.service.teacherservice.TeacherLoginService;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 @Controller
 public class IndexController {
@@ -18,6 +20,8 @@ public class IndexController {
     @RequestMapping(path={"/index","/"})
     public String index(Model model, HttpServletRequest request) {
         ObjectSend(model,request);
+        ArrayList projects= ProjectDisplayService.displayAllProject();
+        model.addAttribute("projects",projects);
        return "shouye/index";
     }
     @RequestMapping(path={"/about"})

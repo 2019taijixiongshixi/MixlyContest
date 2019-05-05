@@ -94,42 +94,19 @@
 					<h3>作品展示</h3>
 					<a href="zhanshi?pageNum=0"><p style="text-align: right">更多作品>></p></a>
 		 				 <div class="section group">
-								<div class="col-md-3 gallery-box">
-										<div id="nivo-lightbox-demo"> <p> <a href="../../static/assets/images/e1-pop.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo"> <span class="rollover1"> </span></a> </p></div>
-									<img src="../../static/assets/images/e1.png" title="img" />
-									<h4>超声波测距仪</h4>
-									<h5>创作者<lable> MakerPanda</lable></h5>
-										<p>运用超声波原理测量距离 </p>
+								<div class="col-md-3 gallery-box" th:each="project,iterStat: ${projects}"
+									 th:object="${project}" th:if="${iterStat.count<=4}">
+										<div th:id="|nivo-lightbox-demo${iterStat.count}|"> <p>
+											<a th:href="|/display/project*{ProjectID}display.html|" data-lightbox-gallery="gallery1"
+											   id="nivo-lightbox-demo"> <span class="rollover1"> </span></a> </p></div>
+									<img th:src="|/upload/*{StudentID1}/ProjectDisplayMap/ProjectDisplayMap0.png|" title="img"
+                                         width="270px" height="194px" />
+									<h4 th:text="*{ProjectName}">超声波测距仪</h4>
+									<h5 >创作者<lable th:text="*{ProjectTeamName}"> MakerPanda</lable></h5>
 							    </div>
-								<div class="col-md-3 gallery-box">
-								  	    <div id="nivo-lightbox-demo"> <p> <a href="../../static/assets/images/e2-pop.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo"> <span class="rollover1"> </span></a> </p></div>
-									<img src="../../static/assets/images/e1.png" title="img" />
-                                    <h4>超声波测距仪</h4>
-                                    <h5>创作者<lable> MakerPanda</lable></h5>
-                                        <p>运用超声波原理测量距离 </p>
-							     </div>
-								 <div class="col-md-3 gallery-box">
-								  		<div id="nivo-lightbox-demo"> <p> <a href="../../static/assets/images/e3-pop.png" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>
-                                     <img src="../../static/assets/images/e1.png" title="img" />
-                                     <h4>超声波测距仪</h4>
-                                     <h5>创作者<lable> MakerPanda</lable></h5>
-                                         <p>运用超声波原理测量距离 </p>
-								</div>
-								<div class="col-md-3 gallery-box">
-								  		<div id="nivo-lightbox-demo"> <p> <a href="../../static/assets/images/e4-pop.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">  <span class="rollover1"> </span></a> </p></div>
-                                    <img src="../../static/assets/images/e1.png" title="img" />
-                                    <h4>超声波测距仪</h4>
-                                    <h5>创作者<lable> MakerPanda</lable></h5>
-                                        <p>运用超声波原理测量距离 </p>
-								</div>
+
 							<div class="clearfix"> </div>
 						</div>
-				   <script type="text/javascript" src="../../static/assets/js/nivo-lightbox.min.js"></script>
-				<script type="text/javascript">
-				$(document).ready(function(){
-				    $('#nivo-lightbox-demo a').nivoLightbox({ effect: 'fade' });
-				});
-				</script>
 			</div>
 		</div>
 
@@ -175,36 +152,31 @@
 					</div>
 					<!--//End-footer-->
 
-				<script type="text/javascript">
-									$(document).ready(function() {
-										/*
-										var defaults = {
-								  			containerID: 'toTop', // fading element id
-											containerHoverID: 'toTopHover', // fading element hover id
-											scrollSpeed: 1200,
-											easingType: 'linear'
-								 		};
-										*/
 
-										$().UItoTop({ easingType: 'easeOutQuart' });
-
-									});
-								</script>
 					<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
 
+
+        <!-- start-smoth-scrolling-->
+        <script type="text/javascript" src="../../static/assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="../../static/assets/js/move-top.js"></script>
+        <script type="text/javascript" src="../../static/assets/js/easing.js"></script>
+
+        <script type="text/javascript" src="../../static/assets/js/modernizr.custom.53451.js"></script>
+
         <script src="../../static/assets/js/jquery.wmuSlider.js"></script>
+        <script type="text/javascript" src="../../static/assets/js/nivo-lightbox.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#nivo-lightbox-demo a').nivoLightbox({ effect: 'fade' });
+            });
+        </script>
         <script>
             $('.example1').wmuSlider();
         </script>
 
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-        <script type="text/javascript" src="../../static/assets/js/jquery.min.js"></script>
-        <!-- start-smoth-scrolling-->
-        <script type="text/javascript" src="../../static/assets/js/move-top.js"></script>
-        <script type="text/javascript" src="../../static/assets/js/easing.js"></script>
 
-        <script type="text/javascript" src="../../static/assets/js/modernizr.custom.53451.js"></script>
         <script type="text/javascript">
             jQuery(document).ready(function($) {
                 $(".scroll").click(function(event){
@@ -214,6 +186,21 @@
             });
         </script>
         <script src="../../static/assets/js/responsiveslides.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                /*
+                var defaults = {
+                      containerID: 'toTop', // fading element id
+                    containerHoverID: 'toTopHover', // fading element hover id
+                    scrollSpeed: 1200,
+                    easingType: 'linear'
+                 };
+                */
+
+                $().UItoTop({ easingType: 'easeOutQuart' });
+
+            });
+        </script>
         <script>
             // You can also use "$(window).load(function() {"
             $(function () {
