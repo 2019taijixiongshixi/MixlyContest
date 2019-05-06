@@ -96,9 +96,9 @@
 		 				 <div class="section group">
 								<div class="col-md-3 gallery-box" th:each="project,iterStat: ${projects}"
 									 th:object="${project}" th:if="${iterStat.count<=4}">
-										<div th:id="|nivo-lightbox-demo${iterStat.count}|"> <p>
-											<a th:href="|/display/project*{ProjectID}display.html|" data-lightbox-gallery="gallery1"
-											   id="nivo-lightbox-demo"> <span class="rollover1"> </span></a> </p></div>
+										<div> <p>
+											<a th:href="|/display/project*{ProjectID}display.html|" data-lightbox-gallery="gallery1">
+                                                <span class="rollover1"> </span></a> </p></div>
 									<img th:src="|/upload/*{StudentID1}/ProjectDisplayMap/ProjectDisplayMap0.png|" title="img"
                                          width="270px" height="194px" />
 									<h4 th:text="*{ProjectName}">超声波测距仪</h4>
