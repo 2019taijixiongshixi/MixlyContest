@@ -240,5 +240,28 @@ public class ProjectDAO {
         }
         return false;
     }
+
+    /**
+     * 统计已提交项目
+     * @return 项目数目
+     */
+    public Integer countProject() {
+        String sql = "SELECT COUNT(*) FROM Project where DesignDocument is not NULL";
+        try {
+            conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
+            // 创建PreparedStatement执行SQL语句
+            pst = conn.prepareStatement(sql);
+            resultSet = pst.executeQuery();  // 执行语句
+            if (resultSet.next()) {
+                return resultSet.getInt(1);
+            } else
+                return 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResource(resultSet, pst);
+        }
+        return 0;
+    }
 }
 

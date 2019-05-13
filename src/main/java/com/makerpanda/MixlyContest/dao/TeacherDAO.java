@@ -284,4 +284,26 @@ public class TeacherDAO {
         }
         return false;
     }
+    /**
+     * 统计教师数目
+     * @return 教师数目
+     */
+    public Integer countTeacher() {
+        String sql = "SELECT COUNT(*) FROM Teacher";
+        try {
+            conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
+            // 创建PreparedStatement执行SQL语句
+            pst = conn.prepareStatement(sql);
+            resultSet = pst.executeQuery();  // 执行语句
+            if (resultSet.next()) {
+                return resultSet.getInt(1);
+            } else
+                return 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResource(resultSet, pst);
+        }
+        return 0;
+    }
 }

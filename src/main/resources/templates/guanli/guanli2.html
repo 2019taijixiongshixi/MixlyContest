@@ -112,7 +112,7 @@
                                 <div class="col-7 col-md-8">
                                     <div class="numbers">
                                         <p class="card-category">学生总数</p>
-                                        <p class="card-title">150
+                                        <p class="card-title" th:text="${student_count}">0
                                         <p>
                                     </div>
                                 </div>
@@ -138,7 +138,7 @@
                                 <div class="col-7 col-md-8">
                                     <div class="numbers">
                                         <p class="card-category">教师总数</p>
-                                        <p class="card-title">50
+                                        <p class="card-title" th:text="${teacher_count}">0
                                         <p>
                                     </div>
                                 </div>
@@ -164,7 +164,7 @@
                                 <div class="col-7 col-md-8">
                                     <div class="numbers">
                                         <p class="card-category">项目总数</p>
-                                        <p class="card-title">23
+                                        <p class="card-title" th:text="${project_count}">0
                                         <p>
                                     </div>
                                 </div>
@@ -190,7 +190,7 @@
                                 <div class="col-7 col-md-8">
                                     <div class="numbers">
                                         <p class="card-category">学校总数</p>
-                                        <p class="card-title">45
+                                        <p class="card-title" th:text="${school_count}">0
                                         <p>
                                     </div>
                                 </div>
@@ -216,18 +216,27 @@
                             <div class="">
                                 <table class="table">
                                     <thead class=" text-primary">
+                                    <th>行号</th>
                                     <th>项目序号</th>
                                     <th>项目名</th>
                                     <th>作品演示视频</th>
                                     <th>作品pdf</th>
+                                    <th>已评分次数</th>
                                     <th>分数</th>
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td>22</td>
-                                        <td>啦啦啦</td>
-                                        <td>查看</td>
-                                        <td>查看</td>
+                                    <tr th:each="project,iterStat: ${projects}"
+                                        th:object="${project}">
+                                        <td th:text="${iterStat.count}">0</td>
+                                        <td th:text="*{ProjectID}">0</td>
+                                        <td th:text="*{ProjectName}">超声波测距仪</td>
+                                        <td><a th:href="|/display/project*{ProjectID}display.html|"
+                                               target="_blank">视频链接</a></td>
+                                        <td><a th:href="|/upload/*{StudentID1}/DesignDocument/DesignDocument0.pdf|"
+                                               target="_blank">
+                                            作品pdf</a></td>
+                                        <td th:text="*{PreliminariesScoreTimes}">0</td>
                                         <td>点此评分</td>
                                     </tr>
                                     </tbody>

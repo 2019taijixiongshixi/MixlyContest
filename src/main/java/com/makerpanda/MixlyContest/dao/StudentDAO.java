@@ -331,4 +331,49 @@ public class StudentDAO {
 
         return arrayList;
     }
+    /**
+     * 统计注册学生数
+     * @return 学生数目
+     */
+    public Integer countStudent() {
+        String sql = "SELECT COUNT(*) FROM Student";
+        try {
+            conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
+            // 创建PreparedStatement执行SQL语句
+            pst = conn.prepareStatement(sql);
+            resultSet = pst.executeQuery();  // 执行语句
+            if (resultSet.next()) {
+                return resultSet.getInt(1);
+            } else
+                return 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResource(resultSet, pst);
+        }
+        return 0;
+    }
+
+    /**
+     * 统计学校数目
+     * @return 学校数目
+     */
+    public Integer countSchool() {
+        String sql = "SELECT COUNT(DISTINCT School) FROM Student";
+        try {
+            conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
+            // 创建PreparedStatement执行SQL语句
+            pst = conn.prepareStatement(sql);
+            resultSet = pst.executeQuery();  // 执行语句
+            if (resultSet.next()) {
+                return resultSet.getInt(1);
+            } else
+                return 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResource(resultSet, pst);
+        }
+        return 0;
+    }
 }
