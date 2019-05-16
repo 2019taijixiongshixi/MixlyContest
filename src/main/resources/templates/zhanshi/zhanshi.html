@@ -36,14 +36,14 @@
                                 </p></div>
                                 <a th:href="|/display/project*{ProjectID}display.html|">
                                     <img th:src="|/upload/*{StudentID1}/ProjectDisplayMap/ProjectDisplayMap0.png|"
-                                         width="270px" height="194px" th:title="*{ProjectName}" /></a>
-                                <h4 th:text="*{ProjectName}"></h4>
-                                <h5>创作者： <lable th:text="*{ProjectTeamName}"></lable></h5>
-                                <p th:text="*{ProjectDescription}"></p>
+                                         width="270px" height="200px" th:title="*{ProjectName}" /></a>
+                                <h4 style="color: #b92c28" th:text="*{ProjectName}"></h4>
+                                <h5>创作者： <labl th:text="*{ProjectTeamName}"></labl></h5>
                             </div>
 
                             <div class="clearfix">
                             </div>
+                            <div style="display: flex;justify-content: center;">
                             <div class="page-icon">
                                 <table>
                                     <tr>
@@ -74,6 +74,7 @@
                                         <td><a th:href="@{/zhanshi(pageNum=${totalPages})}">&raquo;</a></td>
                                     </tr>
                                 </table>
+                            </div>
                             </div>
                         </div>
                     </div>

@@ -92,12 +92,12 @@
 		<div class="Event-section">
 				<div class="container">
 					<h3>作品展示</h3>
-					<a href="zhanshi?pageNum=0"><p style="text-align: right">更多作品>></p></a>
+					<a href="zhanshi?pageNum=0" target="_blank"><p style="text-align: right">更多作品>></p></a>
 		 				 <div class="section group">
 								<div class="col-md-3 gallery-box" th:each="project,iterStat: ${projects}"
 									 th:object="${project}" th:if="${iterStat.count<=4}">
 										<div> <p>
-											<a th:href="|/display/project*{ProjectID}display.html|" data-lightbox-gallery="gallery1">
+											<a th:href="|/display/project*{ProjectID}display.html|" data-lightbox-gallery="gallery1" target="_blank">
                                                 <span class="rollover1"> </span></a> </p></div>
 									<img th:src="|/upload/*{StudentID1}/ProjectDisplayMap/ProjectDisplayMap0.png|" title="img"
                                          width="270px" height="194px" />
