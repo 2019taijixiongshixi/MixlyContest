@@ -158,8 +158,9 @@ public class ProjectDAO {
     public boolean updateProject(Project project) {
         String sql = "UPDATE Project SET FlowChart=?,ProjectMindMap=?,CodeModuleDiagram=?," +
                 "VideoURL=?,ProjectDisplayMap=?,ProjectDescription=?,HardwareCircuitDiagram=?," +
-                "StructureChart=?,Equipment=?,VideoURL=?,CompetitionExperience=?,DesignDocument=? " +
-                "WHERE ProjectID=?";
+                "StructureChart=?,Equipment=?,VideoURL=?,CompetitionExperience=?,DesignDocument=?, " +
+                "PreliminariesScore=?,FinalScore=?,PreliminariesScoreTimes=?,FinalScoreTimes=?" +
+                " WHERE ProjectID=?";
         try {
             conn = DBHelper.getConnection();  // 从DBHelper获取连接对象
             // 创建PreparedStatement执行SQL语句
@@ -176,7 +177,11 @@ public class ProjectDAO {
             pst.setString(10,project.getVideoURL());
             pst.setString(11,project.getCompetitionExperience());
             pst.setString(12,project.getDesignDocument());
-            pst.setInt(13,project.getProjectID());
+            pst.setInt(13,project.getPreliminariesScore());
+            pst.setInt(14,project.getFinalScore());
+            pst.setInt(15,project.getPreliminariesScoreTimes());
+            pst.setInt(16,project.getFinalScoreTimes());
+            pst.setInt(17,project.getProjectID());
 
             int rowsAffected = pst.executeUpdate();  // 执行语句
 

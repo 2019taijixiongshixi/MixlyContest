@@ -18,14 +18,15 @@ public class ManageScoreService {
      * @param scoretype 决定是初赛分数还是决赛分数。
      * @return 修改成功返回0，更新失败返回1，超过次数返回2,其他错误返回3
      */
-    public int ProjectScore(Integer projectid, Integer score, String scoretype) {
+    public static int ProjectScore(Integer projectid, Integer score, String scoretype) {
         Project project = new Project();
         ProjectUpdateService.getProjectInfo(project, projectid);
         int verifycode;
-
         ProjectDAO projectdao = new ProjectDAO();
+
         if (scoretype.equals("Preliminaries")) {
-            switch (project.getPreliminariesScoreTimes()) {
+            int scoretimes=project.getPreliminariesScoreTimes();
+            switch (scoretimes) {
                 case 0:
                     project.setPreliminariesScore(score);
                     break;
@@ -42,8 +43,10 @@ public class ManageScoreService {
                     verifycode=3;
                     return verifycode;
             }
+            project.setPreliminariesScoreTimes(++scoretimes);
         } else if (scoretype.equals("Final")) {
-            switch (project.getFinalScoreTimes()) {
+            int scoretimes=project.getFinalScoreTimes();
+            switch (scoretimes) {
                 case 0:
                     project.setFinalScore(score);
                     break;
@@ -60,6 +63,7 @@ public class ManageScoreService {
                     verifycode=3;
                     return verifycode;
             }
+            project.setFinalScoreTimes(++scoretimes);
         }
 
         if (projectdao.updateProject(project))

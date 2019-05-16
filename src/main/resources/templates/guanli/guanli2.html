@@ -223,11 +223,12 @@
                                     <th>作品pdf</th>
                                     <th>已评分次数</th>
                                     <th>分数</th>
+                                    <th>评分</th>
                                     </thead>
                                     <tbody>
                                     <tr>
                                     <tr th:each="project,iterStat: ${projects}"
-                                        th:object="${project}">
+                                        th:object="${project}" th:id="${iterStat.count}">
                                         <td th:text="${iterStat.count}">0</td>
                                         <td th:text="*{ProjectID}">0</td>
                                         <td th:text="*{ProjectName}">超声波测距仪</td>
@@ -236,8 +237,19 @@
                                         <td><a th:href="|/upload/*{StudentID1}/DesignDocument/DesignDocument0.pdf|"
                                                target="_blank">
                                             作品pdf</a></td>
-                                        <td th:text="*{PreliminariesScoreTimes}">0</td>
-                                        <td>点此评分</td>
+                                        <td th:text="*{PreliminariesScoreTimes}"
+                                            class="PreliminariesScoreTimes">0</td>
+                                        <td th:text="*{PreliminariesScore}"
+                                            class="PreliminariesScore">0</td>
+                                        <td class="score">点此评分</td>
+                                        <td class="scoreaction">
+                                            <input type="text" th:id="|${iterStat.count}input|"
+                                                  max="100" min="0" class="scoreinput" name="score">
+                                            <i class="nc-icon nc-time-alarm text-danger scorecancel"
+                                                th:id="|${iterStat.count}cancel|"></i>
+                                            <i class="nc-icon nc-vector text-danger scoresubmit"
+                                                th:id="|${iterStat.count}submit|"></i>
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -290,10 +302,48 @@
 <script src="../../static/assets/assets1/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
 <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 <script src="../../static/assets/assets1/demo/demo.js"></script>
-<script>
-    $(document).ready(function() {
-        // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-        demo.initChartsPages();
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    $(document).ready(function () {
+        $(".scoreaction").hide();
+    });
+    $(".score").click(function () {
+        var v_id="#"+$(this).parent().attr('id');
+        $(v_id).children(" .score").hide();
+        $(v_id).children(" .scoreaction").show();
+    });
+    $(".scorecancel").click(function () {
+        var v_id="#"+$(this).parent().parent().attr('id');
+        $(v_id).children(" .score").show();
+        $(v_id).children(" .scoreaction").hide();
+        var times=$(v_id).children(" .PreliminariesScoreTimes").text();
+        alert(times);
+    });
+    $(".scoresubmit").click(function () {
+        var v_id="#"+$(this).parent().parent().attr('id');
+        var projects =/*[[${projects}]]*/ null;
+        var project=projects[$(this).parent().parent().attr('id')-1];
+        var projectid=project["projectID"];
+        var score=$(this).prev().prev().val();
+        $(v_id).children(" .score").show();
+        $(v_id).children(" .scoreaction").hide();
+        var params = {"projectid":projectid,"score":score};
+        $.ajax({
+                type:"get",
+                ansyv:true,
+                data:params,
+                datatype:"json",
+                url:"projectscore",
+                success:function(project){
+                    var projectscore=project["preliminariesScore"];
+                    var scoretimes=project["preliminariesScoreTimes"];
+                    $(v_id).children(" .PreliminariesScoreTimes").text(scoretimes);
+                    $(v_id).children(" .PreliminariesScore").text(projectscore);
+                },
+                error:function(){
+                    alert("error");
+                }
+    });
     });
 </script>
 </body>
