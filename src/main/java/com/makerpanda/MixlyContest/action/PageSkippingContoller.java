@@ -13,6 +13,10 @@ public class PageSkippingContoller {
     public String zhuce(Model model) { return "zhuce/zhuce"; }
     @RequestMapping(path={"/login"})
     public String login(Model model) {return "login/login";}
+    @RequestMapping(path={"/login5"})
+    public String login5(Model model) {
+        model.addAttribute("student",new Student());
+        return "login/login5";}
     @RequestMapping(path={"/getmima"})
     public String getmima(Model model) {
         model.addAttribute("teacher",new Teacher());

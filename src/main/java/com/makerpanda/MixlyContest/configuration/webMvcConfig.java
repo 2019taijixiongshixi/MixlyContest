@@ -1,8 +1,5 @@
 package com.makerpanda.MixlyContest.configuration;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.CacheControl;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -35,7 +32,7 @@ public class webMvcConfig implements WebMvcConfigurer {
 //                        "/xinxi6","/zuopin")
                 .addPathPatterns("/**")
                 .excludePathPatterns("/login","/",
-                        "/login1","/static/assets/**",
+                        "/login1","/login5","/static/assets/**",
                         "/login2","/getmima","/404",
                         "/about","/guanli1","/guanli2",
                         "/chuangke","/index","/ziliao",
