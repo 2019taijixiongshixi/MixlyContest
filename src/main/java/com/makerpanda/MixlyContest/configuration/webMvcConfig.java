@@ -38,6 +38,7 @@ public class webMvcConfig implements WebMvcConfigurer {
                         "/chuangke","/index","/ziliao",
                         "/zhanshi","/zhanshi1","/zhuce",
                         "/jzhuce","/xzhuce","/projectscore",
+                        "/login5action",
                         "/studentlogin","/teacherlogin",
                         "/xzhucetijiao","/jzhucetijiao",
                         "/getverifycode","/upload/**",

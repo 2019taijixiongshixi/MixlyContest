@@ -221,25 +221,30 @@
                                     <th>项目名</th>
                                     <th>团队名</th>
                                     <th>队长ID</th>
-                                    <th>老师ID</th>
+                                    <th>教师ID</th>
                                     <th>视频链接</th>
                                     <th>作品pdf</th>
                                     <th>已评分次数</th>
                                     <th>最终评分</th>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>ss</td>
-                                        <td>ss</td>
-                                        <td>zz</td>
-                                        <td>xx</td>
-                                        <td>cc</td>
-                                        <td>ss</td>
-                                        <td>ss</td>
-                                        <td>zz</td>
-                                        <td>xx</td>
-                                        <td>cc</td>
-                                        <td>zz</td>
+                                    <tr th:each="project,iterStat: ${projects}"
+                                         th:object="${project}" th:id="${iterStat.count}">
+                                        <td th:text="${iterStat.count}">0</td>
+                                        <td th:text="*{ProjectID}">0</td>
+                                        <td th:text="*{ProjectName}">项目名未知</td>
+                                        <td th:text="*{ProjectTeamName}">团队名未知</td>
+                                        <td th:text="*{StudentID1}">队长id未知</td>
+                                        <td th:text="*{TeacherID}">教师id未知</td>
+                                        <td><a th:href="|/display/project*{ProjectID}display.html|"
+                                               target="_blank">视频链接</a></td>
+                                        <td><a th:href="|/upload/*{StudentID1}/DesignDocument/DesignDocument0.pdf|"
+                                               target="_blank">
+                                            作品pdf</a></td>
+                                        <td th:text="*{PreliminariesScoreTimes}"
+                                            class="PreliminariesScoreTimes">0</td>
+                                        <td th:text="*{PreliminariesScore}"
+                                            class="PreliminariesScore">0</td>
                                     </tr>
                                     </tbody>
                                 </table>

@@ -73,7 +73,7 @@
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="zhongxin1">管理中心</a>
+                    <a class="navbar-brand" href="guanli2">管理中心</a>
                 </div>
             </div>
         </nav>
@@ -226,7 +226,6 @@
                                     <th>评分</th>
                                     </thead>
                                     <tbody>
-                                    <tr>
                                     <tr th:each="project,iterStat: ${projects}"
                                         th:object="${project}" th:id="${iterStat.count}">
                                         <td th:text="${iterStat.count}">0</td>
