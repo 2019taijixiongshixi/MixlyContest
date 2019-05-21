@@ -43,7 +43,7 @@ public class TeacherLoginController {
                 session.setAttribute("userid",teacherlogin.getTeacherID());
                 session.setAttribute("classid",teacherlogin.getTeacherClassID());
                 session.setAttribute("useridentity","teacher");
-                return "redirect:";
+                return "redirect:index";
             case 1:  // 密码错误
                 modelMap.addAttribute("pwdError", "对不起，您输入的密码有误");
                 System.out.println("pwdError1");

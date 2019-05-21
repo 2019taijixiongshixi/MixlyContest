@@ -44,7 +44,7 @@ public class StudentLoginController {
                 session.setAttribute("userid",studentlogin.getStudentID());
                 session.setAttribute("projectid",studentlogin.getProjectID());
                 session.setAttribute("useridentity","student");
-                return "redirect:";
+                return "redirect:index";
             case 1:  // 密码错误
                 modelMap.addAttribute("pwdError", "对不起，您输入的密码有误");
                 System.out.println("pwdError1");

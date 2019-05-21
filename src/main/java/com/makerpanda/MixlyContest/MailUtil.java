@@ -52,9 +52,8 @@ public class MailUtil {
 // 3.2设置收件人
                 message.setRecipient(RecipientType.TO, new InternetAddress(to));
 // 3.3设置邮件的主题
-                message.setSubject("这是一个测试邮件");
+                message.setSubject("米思奇比赛平台验证码");
 // 3.4设置邮件的正文
-//message.setContent("<h1>来自智慧电梯的激活邮件，您的验证码是：</h1><h3><a href='http://localhost:10080/Demo_JavaMail/active?code=" + code + "'>http://localhost:10080/Demo_JavaMail/active?code=" + code + "</h3>", "text/html;charset=UTF-8");
                 message.setContent("<h1>您的验证码是："+ code, "text/html;charset=UTF-8");
 // 4.发送邮件
                 Transport.send(message);
@@ -109,47 +108,6 @@ public class MailUtil {
 
         }
 
-
-        /**
-         * 创建一封只包含文本的简单邮件
-         *
-         * @param session 和服务器交互的会话
-         * @param sendMail 发件人邮箱
-         * @param receiveMail 收件人邮箱
-         * @return messege
-         * @throws Exception
-         */
-        public static MimeMessage createMimeMessage(Session session, String sendMail, String receiveMail) throws Exception {
-// 1. 创建一封邮件
-            MimeMessage message = new MimeMessage(session);
-
-
-// 2. From: 发件人
-            message.setFrom(new InternetAddress(sendMail, "某宝网", "UTF-8"));
-
-
-// 3. To: 收件人（可以增加多个收件人、抄送、密送）
-            message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveMail, "XX用户", "UTF-8"));
-
-
-// 4. Subject: 邮件主题
-            message.setSubject("打折钜惠", "UTF-8");
-
-
-// 5. Content: 邮件正文（可以使用html标签）
-            message.setContent("XX用户你好, 今天全场5折, 快来抢购, 错过今天再等一年。。。", "text/html;charset=UTF-8");
-
-
-// 6. 设置发件时间
-            message.setSentDate(new Date());
-
-
-// 7. 保存设置
-            message.saveChanges();
-
-
-            return message;
-        }
 
     /**
      * 获取验证码函数,前端在点击获取验证码之后，通过此函数发送邮件，并将验证码存入数据库。
