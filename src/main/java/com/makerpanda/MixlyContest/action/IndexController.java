@@ -48,7 +48,7 @@ public class IndexController {
         if(useridentity.equals("student"))
             return "tijiao/zuopin";
         else
-            return  "redirect:";
+            return  "redirect:index";
     }
     private void ObjectSend(Model model, HttpServletRequest request){
         HttpSession session=request.getSession();

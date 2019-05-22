@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TeacherLoginService {
-    // 将登陆用户的信息保存供全局使用
 
     /**
      * 认证教师是否能够成功登录。

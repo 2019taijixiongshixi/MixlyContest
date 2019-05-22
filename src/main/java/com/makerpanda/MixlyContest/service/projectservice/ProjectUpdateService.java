@@ -79,7 +79,7 @@ public class ProjectUpdateService {
     }
 
     /**
-     * 获取当前用户全部信息。
+     * 获取当前全部信息。
      * @param projectid 项目ID。
      * @param project 需要传入的项目对象。
      */

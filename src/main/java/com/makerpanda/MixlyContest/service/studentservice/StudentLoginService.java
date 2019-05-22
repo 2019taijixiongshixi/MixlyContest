@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class StudentLoginService {
-    // 将登陆用户的信息保存供全局使用
-    public Student student;
     /**
      * 认证学生是否能够成功登录。
      * @param StudentEmail 用户输入的用户邮箱。

@@ -18,7 +18,7 @@ public class ManageDisplayService {
         ProjectDAO projectDAO=new ProjectDAO();
         TeacherDAO teacherDAO=new TeacherDAO();
         ArrayList <Integer> count=new ArrayList<>();
-        //安装顺序，统计学生数目、教师数目、项目数目、学校数目
+        //按照顺序，统计学生数目、教师数目、项目数目、学校数目
         count.add(studentDAO.countStudent());
         count.add(teacherDAO.countTeacher());
         count.add(projectDAO.countProject());

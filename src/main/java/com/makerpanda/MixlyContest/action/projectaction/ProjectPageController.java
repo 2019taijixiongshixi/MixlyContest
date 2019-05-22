@@ -112,6 +112,7 @@ public class ProjectPageController {
         model.addAttribute("totalPages",projects.size()/9);
         return "zhanshi/zhanshi";
     }
+    //分页函数
     private ArrayList page(ArrayList<Project>projects,Integer page){
         ArrayList <Project> projectpage=new ArrayList<>();
         int i=0;
